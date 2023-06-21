@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CardManager : MonoBehaviour
 {
@@ -13,9 +14,12 @@ public class CardManager : MonoBehaviour
     [SerializeField] private float offset;
 
     private List<Card> cards;
+    public int pairCount;
 
     [SerializeField] private Card card1 = null;
     [SerializeField] private Card card2 = null;
+
+    [SerializeField] private UnityEvent OnWin;
     
     private void Awake() {
         cards = new List<Card>();
@@ -24,6 +28,8 @@ public class CardManager : MonoBehaviour
     private void Start() {
         SpawnCards();
         DistributionOfValues();
+
+        pairCount = cards.Count / 2;
     }
 
     private void SpawnCards() {
@@ -104,12 +110,20 @@ public class CardManager : MonoBehaviour
 
             Reset();
             StartCoroutine(SetInactive(obj1, obj2));
+
+            WinVerification();
         }
         else {
             Debug.Log("mismatch!");
             card1.StartMismatchTimer();
             card2.StartMismatchTimer();
         }
+    }
+
+    private void WinVerification() {
+        pairCount--;
+        if (pairCount == 0)
+            OnWin?.Invoke();
     }
 
     private IEnumerator SetInactive(Card card1, Card card2) {

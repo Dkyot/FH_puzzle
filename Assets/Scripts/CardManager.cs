@@ -71,16 +71,16 @@ public class CardManager : MonoBehaviour
             return;
         }
 
-        List<int> test = new List<int>();
+        List<int> shuffled = new List<int>();
         for (int i = 0; i < cards.Count - 1; i += 2) {
-            test.Add(i);
-            test.Add(i);
+            shuffled.Add(i);
+            shuffled.Add(i);
         }
 
-        //test = Shuffle(test);
+        shuffled = Shuffle(shuffled);
 
         for (int i = 0; i < cards.Count; i++) {
-            cards[i].value = test[i];
+            cards[i].SetValue(shuffled[i]);
         }
     }
 

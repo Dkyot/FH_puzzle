@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 public class Card : MonoBehaviour
 {
@@ -6,6 +7,7 @@ public class Card : MonoBehaviour
     //private float timer;
 
     public int value;
+    private TextMeshProUGUI cardTextValue;
     
     private bool isPicked;
     public bool isMatched;
@@ -17,6 +19,10 @@ public class Card : MonoBehaviour
     private CardManager manager;
     
     float reference;
+
+    private void Awake() {
+        cardTextValue = GetComponentInChildren<TextMeshProUGUI>();
+    }
 
     private void Start() {
         currentState = CardState.Closed;
@@ -43,6 +49,11 @@ public class Card : MonoBehaviour
         if (manager.TryToFlip(this)) {
             isPicked = true;
         }
+    }
+
+    public void SetValue(int value) {
+        this.value = value;
+        cardTextValue.text = this.value.ToString();
     }
 
     #region Rotation methods

@@ -15,7 +15,7 @@ public class Card : MonoBehaviour
 
     private CardManager manager;
 
-    private float timeUntilClosing = 1.5f;
+    private float timeUntilClosing = 1.2f;
     private float timer;
     private bool delay;
     
@@ -57,7 +57,7 @@ public class Card : MonoBehaviour
         cardTextValue.text = this.value.ToString();
     }
 
-    public void StartTimer() {
+    public void StartMismatchTimer() {
         delay = true;
     }
 

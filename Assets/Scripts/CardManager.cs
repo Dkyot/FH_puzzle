@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -102,20 +103,19 @@ public class CardManager : MonoBehaviour
             obj2.isMatched = true;
 
             Reset();
-            // cards.Remove(card1);
-            // cards.Remove(card2);
-            obj1.gameObject.SetActive(false);
-            obj2.gameObject.SetActive(false);          
+            StartCoroutine(SetInactive(obj1, obj2));
         }
         else {
             Debug.Log("mismatch!");
-            card1.StartTimer();
-            card2.StartTimer();
-            // Debug.Log(card1.currentState);
-            // Debug.Log(card2.currentState);
-            //card1.Pick();
-            //card2.Pick();
+            card1.StartMismatchTimer();
+            card2.StartMismatchTimer();
         }
+    }
+
+    private IEnumerator SetInactive(Card card1, Card card2) {
+        yield return new WaitForSeconds(0.25f);
+        card1.gameObject.SetActive(false);
+        card2.gameObject.SetActive(false);
     }
 
     private List<int> Shuffle (List<int> list) {

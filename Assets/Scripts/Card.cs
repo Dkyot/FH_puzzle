@@ -3,10 +3,7 @@ using TMPro;
 
 public class Card : MonoBehaviour
 {
-    //[SerializeField] private float timeUntilClosing = 2.5f;
-    //private float timer;
-
-    public int value;
+    public int value { get; private set; }
     private TextMeshProUGUI cardTextValue;
     
     private bool isPicked;
@@ -14,20 +11,23 @@ public class Card : MonoBehaviour
 
     private float rotationSpeed = 0.06f;
 
-    public CardState currentState;
+    public CardState currentState { get; private set; }
 
     private CardManager manager;
+
+    private float timeUntilClosing = 1.5f;
+    private float timer;
+    private bool delay;
     
     float reference;
 
     private void Awake() {
         cardTextValue = GetComponentInChildren<TextMeshProUGUI>();
+        manager = FindObjectOfType<CardManager>();
     }
 
     private void Start() {
         currentState = CardState.Closed;
-        manager = FindObjectOfType<CardManager>();
-        //timer = 0;
     }
 
     private void Update() {
@@ -36,16 +36,17 @@ public class Card : MonoBehaviour
         else if (isPicked && (currentState == CardState.Opened || currentState == CardState.Closing))
             CloseRotation();
 
-        // if (isOpen && !isPicked) {
-        //     timer += Time.deltaTime;
-        //     if (timer >= timeUntilClosing) {
-        //         CloseRotation();
-        //     }
-        // }
+        if (delay) {
+            timer += Time.deltaTime;
+            if (timer >= timeUntilClosing) {
+                CloseRotation();
+            }
+        }
     }
 
     public void Pick() {
         //Debug.Log(gameObject.name);
+        if (delay) return;
         if (manager.TryToFlip(this)) {
             isPicked = true;
         }
@@ -56,6 +57,10 @@ public class Card : MonoBehaviour
         cardTextValue.text = this.value.ToString();
     }
 
+    public void StartTimer() {
+        delay = true;
+    }
+
     #region Rotation methods
     private void OpenRotation() {
         currentState = CardState.Opening;
@@ -64,8 +69,6 @@ public class Card : MonoBehaviour
         if (transform.rotation == Quaternion.Euler(0, 180, 0)) {
             isPicked = false;
             currentState = CardState.Opened;
-            
-            //timer = 0;
         }  
     }
 
@@ -76,6 +79,12 @@ public class Card : MonoBehaviour
         if (transform.rotation == Quaternion.Euler(0, 0, 0)) {
             isPicked = false;
             currentState = CardState.Closed;
+
+            if (delay) {
+                delay = false;
+                timer = 0;
+                manager.Reset();
+            }
         }   
     }
     #endregion

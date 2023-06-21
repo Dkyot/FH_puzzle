@@ -84,6 +84,11 @@ public class CardManager : MonoBehaviour
         }
     }
 
+    public void Reset() {
+        card1 = null;
+        card2 = null;
+    }
+
     #region Auxiliary methods
     private void MatchChecking(Card card1, Card card2) {
         if (card1 == null || card2 == null) return;
@@ -102,11 +107,15 @@ public class CardManager : MonoBehaviour
             obj1.gameObject.SetActive(false);
             obj2.gameObject.SetActive(false);          
         }
-    }
-
-    private void Reset() {
-        card1 = null;
-        card2 = null;
+        else {
+            Debug.Log("mismatch!");
+            card1.StartTimer();
+            card2.StartTimer();
+            // Debug.Log(card1.currentState);
+            // Debug.Log(card2.currentState);
+            //card1.Pick();
+            //card2.Pick();
+        }
     }
 
     private List<int> Shuffle (List<int> list) {

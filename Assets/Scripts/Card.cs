@@ -4,8 +4,11 @@ public class Card : MonoBehaviour
 {
     //[SerializeField] private float timeUntilClosing = 2.5f;
     //private float timer;
+
+    public int value;
     
     private bool isPicked;
+    public bool isMatched;
 
     private float rotationSpeed = 0.06f;
 

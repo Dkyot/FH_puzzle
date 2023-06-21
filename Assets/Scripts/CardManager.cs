@@ -11,6 +11,9 @@ public class CardManager : MonoBehaviour
     [SerializeField] private float offset;
 
     private List<Card> cards;
+
+    [SerializeField] private Card card1 = null;
+    [SerializeField] private Card card2 = null;
     
     private void Awake() {
         cards = new List<Card>();
@@ -29,5 +32,32 @@ public class CardManager : MonoBehaviour
                 cards.Add(card);
             }
         }
+    }
+
+    public bool TryToFlip(Card card) {
+        if (card.currentState == CardState.Closed) {
+            if (card1 == null && !card.Equals(card2)) {
+                card1 = card;
+                return true;
+            }
+            else if (card2 == null && !card.Equals(card1)) {
+                card2 = card;
+                return true;
+            }
+            else return false;
+        }
+        else if (card.currentState == CardState.Opened) {
+            if (card.Equals(card1)) {
+                card1 = null;
+                return true;
+            }
+            else if (card.Equals(card2)) {
+                card2 = null;
+                return true;
+            }
+            else return false;
+        }
+
+        return false;
     }
 }

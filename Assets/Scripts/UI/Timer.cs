@@ -11,10 +11,6 @@ public class Timer : MonoBehaviour
         timerText = GetComponentInChildren<TextMeshProUGUI>();
     }
 
-    private void Start() {
-        StartTimer();
-    }
-
     private void Update() {
         if (!isRun) return;
 

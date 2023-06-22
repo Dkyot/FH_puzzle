@@ -1,8 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class CardManager : MonoBehaviour
 {
@@ -19,13 +19,17 @@ public class CardManager : MonoBehaviour
     [SerializeField] private Card card1 = null;
     [SerializeField] private Card card2 = null;
 
-    [SerializeField] private UnityEvent OnWin;
+    public event EventHandler OnWin;
     
     private void Awake() {
         cards = new List<Card>();
     }
-    
-    private void Start() {
+
+    public void CreateCards() {
+        foreach (Card card in cards) {
+            Destroy(card.gameObject);
+        }
+        cards = new List<Card>();
         SpawnCards();
         DistributionOfValues();
 
@@ -123,7 +127,7 @@ public class CardManager : MonoBehaviour
     private void WinVerification() {
         pairCount--;
         if (pairCount == 0)
-            OnWin?.Invoke();
+            if (OnWin != null) OnWin(this, EventArgs.Empty);
     }
 
     private IEnumerator SetInactive(Card card1, Card card2) {
@@ -133,7 +137,7 @@ public class CardManager : MonoBehaviour
     }
 
     private List<int> Shuffle (List<int> list) {
-        List<int> randomList = list.OrderBy(x => Random.Range(0, int.MaxValue)).ToList();
+        List<int> randomList = list.OrderBy(x => UnityEngine.Random.Range(0, int.MaxValue)).ToList();
         return randomList;
     }
     #endregion

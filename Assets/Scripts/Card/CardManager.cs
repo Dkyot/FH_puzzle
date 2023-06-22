@@ -14,7 +14,7 @@ public class CardManager : MonoBehaviour
     [SerializeField] private float offset;
 
     private List<Card> cards;
-    public int pairCount;
+    private int pairCount;
 
     [SerializeField] private Card card1 = null;
     [SerializeField] private Card card2 = null;

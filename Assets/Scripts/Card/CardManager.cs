@@ -19,6 +19,8 @@ public class CardManager : MonoBehaviour
     [SerializeField] private Card card1 = null;
     [SerializeField] private Card card2 = null;
 
+    [SerializeField] private ColorsSO pallete;
+
     public event EventHandler OnWin;
     
     private void Awake() {
@@ -82,16 +84,20 @@ public class CardManager : MonoBehaviour
             return;
         }
 
-        List<int> shuffled = new List<int>();
-        for (int i = 0; i < cards.Count - 1; i += 2) {
-            shuffled.Add(i);
-            shuffled.Add(i);
+        if (cards.Count > 36) return;
+
+        List<Pair<int, Color>> values = new List<Pair<int, Color>>();
+
+        for (int i = 0; i < cards.Count / 2; i++) {
+            values.Add(new Pair<int, Color>(i, pallete.pallete[i]));
+            values.Add(new Pair<int, Color>(i, pallete.pallete[i]));
         }
 
-        shuffled = Shuffle(shuffled);
+        values = Shuffle(values);
 
         for (int i = 0; i < cards.Count; i++) {
-            cards[i].SetValue(shuffled[i]);
+            cards[i].SetValue(values[i].First);
+            cards[i].sprite.color = values[i].Second;
         }
     }
 
@@ -136,8 +142,8 @@ public class CardManager : MonoBehaviour
         card2.gameObject.SetActive(false);
     }
 
-    private List<int> Shuffle (List<int> list) {
-        List<int> randomList = list.OrderBy(x => UnityEngine.Random.Range(0, int.MaxValue)).ToList();
+    private List<T> Shuffle<T> (List<T> list) {
+        List<T> randomList = list.OrderBy(x => UnityEngine.Random.Range(0, int.MaxValue)).ToList();
         return randomList;
     }
     #endregion

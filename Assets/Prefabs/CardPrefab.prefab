@@ -146,9 +146,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4806af139bcf0b4dbccfbd1199c6b47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 0
+  sprite: {fileID: 5733047856433891235}
   isMatched: 0
-  currentState: 0
 --- !u!61 &3246045421182892464
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -463,8 +462,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 216c53aef79eaaf40a1800cc5e542dc3, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: f082e69f825d0aa44b687e592731c0a8, type: 3}
+  m_Color: {r: 0.5471698, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

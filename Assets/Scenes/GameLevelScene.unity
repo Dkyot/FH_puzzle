@@ -561,11 +561,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardPrefab: {fileID: -1641438583517545994, guid: d369345c610bd3c449a469319cab768a, type: 3}
   spawnPosition: {fileID: 539184203}
-  rows: 4
-  columns: 4
+  rows: 6
+  columns: 6
   offset: 1.2
   card1: {fileID: 0}
   card2: {fileID: 0}
+  pallete: {fileID: 11400000, guid: 3772058dbf4f0fd43bfcccd8047b44f2, type: 2}
+  test: {fileID: 11400000, guid: 69bc41351e92c2c45a8eb97dda5ab795, type: 2}
 --- !u!4 &918102902
 Transform:
   m_ObjectHideFlags: 0

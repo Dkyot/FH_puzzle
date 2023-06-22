@@ -4,6 +4,7 @@ using TMPro;
 public class Card : MonoBehaviour
 {
     public int value { get; private set; }
+    public SpriteRenderer sprite;
     private TextMeshProUGUI cardTextValue;
     
     private bool isPicked;
@@ -15,13 +16,14 @@ public class Card : MonoBehaviour
 
     private CardManager manager;
 
-    private float timeUntilClosing = 1.2f;
+    private float timeUntilClosing = 0.6f;
     private float timer;
     private bool delay;
     
     float reference;
 
     private void Awake() {
+        sprite = sprite.GetComponent<SpriteRenderer>();
         cardTextValue = GetComponentInChildren<TextMeshProUGUI>();
         manager = FindObjectOfType<CardManager>();
     }

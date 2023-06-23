@@ -14,7 +14,11 @@ public class Card : MonoBehaviour
 
     public CardState currentState { get; private set; }
 
-    private CardManager manager;
+    public delegate bool OnFlipDelegate(Card card);
+	public static event OnFlipDelegate OnFlip;
+
+    public delegate void OnResetDelegate();
+	public static event OnResetDelegate OnReset;
 
     private float timeUntilClosing = 0.6f;
     private float timer;
@@ -25,7 +29,6 @@ public class Card : MonoBehaviour
     private void Awake() {
         sprite = sprite.GetComponent<SpriteRenderer>();
         cardTextValue = GetComponentInChildren<TextMeshProUGUI>();
-        manager = FindObjectOfType<CardManager>();
     }
 
     private void Start() {
@@ -47,16 +50,17 @@ public class Card : MonoBehaviour
     }
 
     public void Pick() {
-        //Debug.Log(gameObject.name);
         if (delay) return;
-        if (manager.TryToFlip(this)) {
+
+        if (OnFlip(this)) {
             isPicked = true;
         }
     }
 
     public void SetValue(int value) {
         this.value = value;
-        cardTextValue.text = this.value.ToString();
+        if (cardTextValue != null)
+            cardTextValue.text = this.value.ToString();
     }
 
     public void StartMismatchTimer() {
@@ -85,7 +89,7 @@ public class Card : MonoBehaviour
             if (delay) {
                 delay = false;
                 timer = 0;
-                manager.Reset();
+                OnReset();
             }
         }   
     }

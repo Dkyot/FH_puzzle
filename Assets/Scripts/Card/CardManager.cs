@@ -25,6 +25,7 @@ public class CardManager : MonoBehaviour
     
     private void Awake() {
         cards = new List<Card>();
+        AddCardEvents();
     }
 
     public void CreateCards() {
@@ -38,6 +39,30 @@ public class CardManager : MonoBehaviour
         pairCount = cards.Count / 2;
     }
 
+    #region Auxiliary methods
+    private void MatchChecking(Card card1, Card card2) {
+        if (card1 == null || card2 == null) return;
+
+        if (card1.value == card2.value) {
+            Debug.Log("match!");
+            Card obj1 = card1;
+            Card obj2 = card2;
+
+            obj1.isMatched = true;
+            obj2.isMatched = true;
+
+            Reset();
+            StartCoroutine(SetInactive(obj1, obj2));
+
+            WinVerification();
+        }
+        else {
+            Debug.Log("mismatch!");
+            card1.StartMismatchTimer();
+            card2.StartMismatchTimer();
+        }
+    }
+
     private void SpawnCards() {
         for (int col = 0; col < columns; col++) {
             for (int row = 0; row < rows; row++) {
@@ -49,7 +74,7 @@ public class CardManager : MonoBehaviour
         }
     }
 
-    public bool TryToFlip(Card card) {
+    private bool TryToFlip(Card card) {
         if (card.currentState == CardState.Closed) {
             if (card1 == null && !card.Equals(card2)) {
                 card1 = card;
@@ -101,33 +126,9 @@ public class CardManager : MonoBehaviour
         }
     }
 
-    public void Reset() {
+    private void Reset() {
         card1 = null;
         card2 = null;
-    }
-
-    #region Auxiliary methods
-    private void MatchChecking(Card card1, Card card2) {
-        if (card1 == null || card2 == null) return;
-
-        if (card1.value == card2.value) {
-            Debug.Log("match!");
-            Card obj1 = card1;
-            Card obj2 = card2;
-
-            obj1.isMatched = true;
-            obj2.isMatched = true;
-
-            Reset();
-            StartCoroutine(SetInactive(obj1, obj2));
-
-            WinVerification();
-        }
-        else {
-            Debug.Log("mismatch!");
-            card1.StartMismatchTimer();
-            card2.StartMismatchTimer();
-        }
     }
 
     private void WinVerification() {
@@ -145,6 +146,13 @@ public class CardManager : MonoBehaviour
     private List<T> Shuffle<T> (List<T> list) {
         List<T> randomList = list.OrderBy(x => UnityEngine.Random.Range(0, int.MaxValue)).ToList();
         return randomList;
+    }
+    #endregion
+
+    #region Subscribe to events
+    private void AddCardEvents() {
+        Card.OnFlip += TryToFlip;
+        Card.OnReset += Reset;
     }
     #endregion
 }

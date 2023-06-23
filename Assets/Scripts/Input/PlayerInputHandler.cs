@@ -17,6 +17,10 @@ public class PlayerInputHandler : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
         if (hit.collider == null) return;
         
+        Interaction(hit);
+    }
+
+    private void Interaction(RaycastHit2D hit) {
         Card card = hit.collider.gameObject.GetComponent<Card>();
         if (card != null)
             card.Pick();

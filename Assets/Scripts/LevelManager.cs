@@ -13,21 +13,25 @@ public class LevelManager : MonoBehaviour
         cardManager = cardManager.GetComponent<CardManager>();
         cardManager.OnWin += OnWin;
         timerUI = timerUI.GetComponent<Timer>();
-        //Debug.Log("dfsdf");
         restartButton.onClick.AddListener(RestartButton);
     }
 
     private void Start() {
-        cardManager.CreateCards();
-        timerUI.StartTimer();
+        if (cardManager != null)
+            cardManager.CreateCards();
+        if (timerUI != null)
+            timerUI.StartTimer();
     }
 
     private void RestartButton() {
-        cardManager.CreateCards();
-        timerUI.StartTimer();
+        if (cardManager != null)
+            cardManager.CreateCards();
+        if (timerUI != null)
+            timerUI.StartTimer();
     }
     
     private void OnWin(object sender, EventArgs e) {
-        timerUI.StopTimer();
+        if (timerUI != null)
+            timerUI.StopTimer();
     }
 }

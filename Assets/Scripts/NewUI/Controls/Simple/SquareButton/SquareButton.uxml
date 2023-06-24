@@ -1,10 +1,9 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/Scripts/NewUI/Controls/Simple/SquareButton/SquareButtonStyle.uss?fileID=7433441132597879392&amp;guid=bf093a3d99292014e8f27803747576c2&amp;type=3#SquareButtonStyle" />
-    <ui:Button display-tooltip-when-elided="true" name="Button" class="square_button" style="height: 60px; width: auto; border-top-left-radius: 15px; border-bottom-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px;">
-        <ui:VisualElement name="Background" class="background" style="border-bottom-right-radius: 12px; border-bottom-left-radius: 12px;">
-            <ui:Label tabindex="-1" text="Label" display-tooltip-when-elided="false" enable-rich-text="false" name="TextShadow" class="text_shadow text">
-                <ui:Label tabindex="-1" text="Label" display-tooltip-when-elided="false" enable-rich-text="false" name="Text" class="text" style="align-items: auto; height: auto;" />
-            </ui:Label>
+    <Style src="project://database/Assets/Scripts/NewUI/Controls/Simple/CommonStyle.uss?fileID=7433441132597879392&amp;guid=9564707548b264e4497d2894d259c3b1&amp;type=3#CommonStyle" />
+    <ui:Button display-tooltip-when-elided="true" name="Button" class="square_button white_border">
+        <ui:VisualElement name="Background" class="background square_button" style="align-self: center;">
+            <ui:Label tabindex="-1" text="Label" display-tooltip-when-elided="false" enable-rich-text="false" name="Text" class="text_with_shadow" style="align-self: center;" />
         </ui:VisualElement>
     </ui:Button>
 </ui:UXML>

@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Scripts/NewUI/Controls/RoundButton/RoundButtonStyle.uss?fileID=7433441132597879392&amp;guid=7e148143b942f994eba78054e89826fa&amp;type=3#RoundButtonStyle" />
+    <ui:Button display-tooltip-when-elided="true" name="Button" class="round_button">
+        <ui:VisualElement name="Background" class="background">
+            <ui:Label tabindex="-1" text="Label" display-tooltip-when-elided="false" enable-rich-text="false" name="TextShadow" class="text_shadow text">
+                <ui:Label tabindex="-1" text="Label" display-tooltip-when-elided="false" enable-rich-text="false" name="Text" class="text" style="align-items: auto; height: auto;" />
+            </ui:Label>
+        </ui:VisualElement>
+    </ui:Button>
+</ui:UXML>

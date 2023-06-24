@@ -1,0 +1,116 @@
+.square_button {
+    background-color: rgba(255, 255, 255, 0);
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 60px;
+    width: 172px;
+    align-items: stretch;
+    overflow: hidden;
+    display: flex;
+    visibility: visible;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-left-width: 3px;
+    border-right-width: 3px;
+    border-top-width: 3px;
+    border-bottom-width: 3px;
+    border-left-color: rgb(255, 255, 255);
+    border-right-color: rgb(255, 255, 255);
+    border-top-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(255, 255, 255);
+    justify-content: flex-start;
+    align-self: center;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    transition-property: width;
+    transition-duration: 100ms;
+}
+
+.square_button:hover {
+    width: 182px;
+    transition-duration: 100ms;
+}
+
+.square_button:active .background {
+    border-bottom-width: 0;
+    transition-duration: 50ms;
+    transition-property: border-width;
+}
+
+.square_button .background {
+    flex-grow: 1;
+    background-color: rgb(103, 235, 0);
+    position: relative;
+    height: auto;
+    width: auto;
+    align-self: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-bottom-width: 4px;
+    border-left-color: rgb(78, 195, 7);
+    border-right-color: rgb(78, 195, 7);
+    border-top-color: rgb(78, 195, 7);
+    border-bottom-color: rgb(78, 195, 7);
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    transition-property: border-width;
+    transition-duration: 50ms;
+}
+
+.square_button .text {
+    position: relative;
+    align-items: auto;
+    align-self: center;
+    opacity: 1;
+    justify-content: flex-start;
+    top: auto;
+    left: auto;
+    color: rgb(255, 255, 255);
+    -unity-font-style: bold;
+    -unity-font: url('project://database/Assets/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&guid=c9c7568ec860b504cbc12885ae0251d3&type=3#NotInter-Regular');
+    font-size: 30px;
+    height: 30px;
+    display: flex;
+    visibility: visible;
+    flex-shrink: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 2px;
+}
+
+.square_button .text_shadow {
+    position: relative;
+    align-items: auto;
+    align-self: center;
+    opacity: 1;
+    justify-content: flex-start;
+    top: auto;
+    left: auto;
+    color: rgb(128, 128, 128);
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}

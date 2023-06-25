@@ -5,7 +5,7 @@
     padding-top: 0;
     padding-bottom: 0;
     height: 60px;
-    width: 100px;
+    width: auto;
     align-items: stretch;
     overflow: hidden;
     display: flex;
@@ -34,7 +34,7 @@
     background-color: var(--button-background-color);
     position: relative;
     height: auto;
-    width: auto;
+    width: 102%;
     align-self: auto;
     left: 0;
     right: 0;

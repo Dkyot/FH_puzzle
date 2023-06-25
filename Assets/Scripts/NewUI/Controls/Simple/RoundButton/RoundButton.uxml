@@ -4,7 +4,7 @@
     <Style src="project://database/Assets/Scripts/NewUI/Controls/Simple/CommonStyle.uss?fileID=7433441132597879392&amp;guid=9564707548b264e4497d2894d259c3b1&amp;type=3#CommonStyle" />
     <ui:Button display-tooltip-when-elided="true" name="Button" class="round_button button_with_border">
         <ui:VisualElement name="Background" class="background">
-            <ui:Label tabindex="-1" text="Label" display-tooltip-when-elided="false" enable-rich-text="false" name="Text" class="text_with_shadow" />
+            <ui:Label tabindex="-1" text="Label" display-tooltip-when-elided="false" enable-rich-text="false" name="Text" class="text_with_shadow text button_text text_shadow" />
         </ui:VisualElement>
     </ui:Button>
 </ui:UXML>

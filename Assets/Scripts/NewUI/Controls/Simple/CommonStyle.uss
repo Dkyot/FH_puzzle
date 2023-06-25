@@ -7,7 +7,7 @@
     --button-background-shadow-color: var(--shadow-color);
 }
 
-.text_with_shadow {
+.unity-text-element {
     margin-left: 0;
     margin-right: 0;
     margin-top: 0;
@@ -16,11 +16,22 @@
     padding-right: 0;
     padding-top: 0;
     padding-bottom: 0;
-    -unity-font-style: bold;
-    -unity-font: initial;
+}
+
+.text {
     font-size: 20px;
     color: var(--text-color);
+}
+
+.text_shadow {
     text-shadow: 0 2px 0 var(--shadow-color);
+}
+
+.button_text {
+    -unity-font-style: bold;
+    -unity-font: initial;
+    -unity-font-style: bold;
+    -unity-font: initial;
 }
 
 .button_with_border {

@@ -1,9 +1,10 @@
 :root {
     --text-color: rgb(255, 255, 255);
-    --shadow-color: rgba(0, 0, 0, 0.39);
+    --shadow-color: rgba(0, 0, 0, 0.1);
     --button-border-color: rgb(255, 255, 255);
+    --focused-button-border-color: rgb(122, 255, 255);
     --button-background-color: rgb(103, 235, 0);
-    --button-background-shadow-color: rgb(78, 195, 7);
+    --button-background-shadow-color: var(--shadow-color);
 }
 
 .text_with_shadow {
@@ -22,13 +23,20 @@
     text-shadow: 0 2px 0 var(--shadow-color);
 }
 
-.white_border {
-    border-left-width: 3px;
-    border-right-width: 3px;
-    border-top-width: 3px;
-    border-bottom-width: 3px;
+.button_with_border {
+    border-left-width: 2px;
+    border-right-width: 2px;
+    border-top-width: 2px;
+    border-bottom-width: 2px;
     border-left-color: var(--button-border-color);
     border-right-color: var(--button-border-color);
     border-top-color: var(--button-border-color);
     border-bottom-color: var(--button-border-color);
+}
+
+.button_with_border:hover, .button_with_border:focus {
+    border-left-color: var(--focused-button-border-color);
+    border-right-color: var(--focused-button-border-color);
+    border-top-color: var(--focused-button-border-color);
+    border-bottom-color: var(--focused-button-border-color);
 }

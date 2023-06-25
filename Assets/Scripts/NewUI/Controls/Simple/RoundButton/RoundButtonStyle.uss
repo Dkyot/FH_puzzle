@@ -5,7 +5,7 @@
     padding-top: 0;
     padding-bottom: 0;
     height: 60px;
-    width: 172px;
+    width: auto;
     align-items: stretch;
     overflow: hidden;
     display: flex;
@@ -20,19 +20,19 @@
     margin-right: 0;
     margin-top: 0;
     margin-bottom: 0;
-    transition-property: width;
-    transition-duration: 100ms;
-}
-
-.round_button:hover {
-    width: 182px;
-    transition-duration: 100ms;
 }
 
 .round_button:active > .background {
     border-bottom-width: 0;
     transition-duration: 50ms;
     transition-property: border-width;
+}
+
+.round_button:hover > .background {
+    padding-left: 40px;
+    padding-right: 40px;
+    transition-duration: 50ms;
+    transition-property: padding;
 }
 
 .round_button > .background {
@@ -56,8 +56,8 @@
     overflow: hidden;
     align-items: center;
     justify-content: center;
+    transition-property: border-width, padding;
+    transition-duration: 50ms;
     padding-left: 20px;
     padding-right: 20px;
-    transition-property: border-width;
-    transition-duration: 50ms;
 }

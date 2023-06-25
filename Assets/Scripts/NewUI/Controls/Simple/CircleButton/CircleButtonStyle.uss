@@ -20,8 +20,6 @@
     margin-right: 0;
     margin-top: 0;
     margin-bottom: 0;
-    transition-property: width;
-    transition-duration: 100ms;
 }
 
 .round_button:active > .background {

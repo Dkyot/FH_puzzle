@@ -1,4 +1,4 @@
-.square_icon_button {
+.round_button {
     background-color: rgba(255, 255, 255, 0);
     padding-left: 0;
     padding-right: 0;
@@ -10,32 +10,32 @@
     overflow: hidden;
     display: flex;
     visibility: visible;
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
+    border-top-left-radius: 90px;
+    border-bottom-left-radius: 90px;
+    border-top-right-radius: 90px;
+    border-bottom-right-radius: 90px;
     justify-content: flex-start;
     align-self: center;
     margin-left: 0;
     margin-right: 0;
     margin-top: 0;
     margin-bottom: 0;
-    flex-shrink: 0;
+    transition-property: width;
+    transition-duration: 100ms;
 }
 
-.square_icon_button:active > .background {
+.round_button:active > .background {
     border-bottom-width: 0;
     transition-duration: 50ms;
     transition-property: border-width;
-    flex-shrink: 0;
 }
 
-.square_icon_button > .background {
-    flex-grow: 0;
+.round_button > .background {
+    flex-grow: 1;
     background-color: var(--button-background-color);
     position: relative;
-    height: 100%;
-    width: 100%;
+    height: auto;
+    width: auto;
     align-self: auto;
     left: 0;
     right: 0;
@@ -46,8 +46,8 @@
     border-right-color: var(--button-background-shadow-color);
     border-top-color: var(--button-background-shadow-color);
     border-bottom-color: var(--button-background-shadow-color);
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 90px;
+    border-bottom-left-radius: 90px;
     overflow: hidden;
     align-items: center;
     justify-content: center;
@@ -55,10 +55,4 @@
     padding-right: 20px;
     transition-property: border-width;
     transition-duration: 50ms;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    border-left-width: 0;
-    border-right-width: 0;
-    border-top-width: 0;
-    flex-shrink: 0;
 }

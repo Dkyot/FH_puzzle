@@ -40,3 +40,13 @@
     border-top-color: var(--focused-button-border-color);
     border-bottom-color: var(--focused-button-border-color);
 }
+
+.icon {
+    flex-grow: 1;
+    background-color: rgba(0, 0, 0, 0);
+    align-self: center;
+    background-image: url('project://database/Packages/com.unity.2d.animation/Editor/Assets/ComponentIcons/Animation.IKCCD%20On@256.png?fileID=21300000&guid=ba345f2f643d842459447c374943401d&type=3#Animation.IKCCD On@256');
+    width: 64px;
+    height: 64px;
+    -unity-background-scale-mode: scale-to-fit;
+}

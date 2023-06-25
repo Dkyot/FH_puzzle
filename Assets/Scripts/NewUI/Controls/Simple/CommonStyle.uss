@@ -5,6 +5,8 @@
     --focused-button-border-color: rgb(122, 255, 255);
     --button-background-color: rgb(103, 235, 0);
     --button-background-shadow-color: var(--shadow-color);
+
+    --border-width: 3px;
 }
 
 .unity-text-element {
@@ -18,7 +20,7 @@
     padding-bottom: 0;
 }
 
-.text {
+.text{
     font-size: 20px;
     color: var(--text-color);
 }
@@ -35,21 +37,12 @@
 }
 
 .button_with_border {
-    border-left-width: 2px;
-    border-right-width: 2px;
-    border-top-width: 2px;
-    border-bottom-width: 2px;
-    border-left-color: var(--button-border-color);
-    border-right-color: var(--button-border-color);
-    border-top-color: var(--button-border-color);
-    border-bottom-color: var(--button-border-color);
+    border-width: var(--border-width);
+    border-color: var(--button-border-color);
 }
 
 .button_with_border:hover, .button_with_border:focus {
-    border-left-color: var(--focused-button-border-color);
-    border-right-color: var(--focused-button-border-color);
-    border-top-color: var(--focused-button-border-color);
-    border-bottom-color: var(--focused-button-border-color);
+    border-color: var(--focused-button-border-color);
 }
 
 .icon {
@@ -60,4 +53,41 @@
     width: 64px;
     height: 64px;
     -unity-background-scale-mode: scale-to-fit;
+}
+
+.unity-slider__label {
+    min-width: 0px;
+    padding-right: 10px;
+    font-size: 20px;
+    color: var(--text-color);
+}
+
+.unity-base-field:focus > .unity-slider__label {
+    color: var(--text-color);
+}
+
+.unity-base-slider--horizontal .unity-base-slider__tracker {
+    height: 10px;
+    margin-top: -7px;
+}
+
+.unity-base-slider--vertical .unity-base-slider__tracker {
+    width: 10px;
+    margin-left: -7px;
+}
+
+.unity-base-slider--horizontal .unity-base-slider__tracker, .unity-base-slider--vertical .unity-base-slider__tracker {
+    border-color: var(--button-border-color);
+    border-width: var(--border-width);
+    border-radius: 4px;
+    background-color: var(--button-background-color);
+}
+
+.unity-base-slider .unity-base-slider__dragger {
+    width: 20px;
+    height: 20px;
+    border-color: var(--button-border-color);
+    border-width: var(--border-width);
+    border-radius: 90px;
+    background-color: var(--button-background-color);
 }

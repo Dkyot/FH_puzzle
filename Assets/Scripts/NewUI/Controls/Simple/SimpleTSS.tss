@@ -4,6 +4,8 @@
 @import url("SquareButton/SquareButtonStyle.uss");
 @import url("CommonStyle.uss");
 @import url("SquareIconButton/SquareIconButtonStyle.uss");
+@import url("Slider/SliderStyle.uss");
+
 
 
 

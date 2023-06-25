@@ -1,8 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/Scripts/NewUI/Controls/Simple/SquareButton/SquareButtonStyle.uss?fileID=7433441132597879392&amp;guid=bf093a3d99292014e8f27803747576c2&amp;type=3#SquareButtonStyle" />
-    <Style src="project://database/Assets/Scripts/NewUI/Controls/Simple/CommonStyle.uss?fileID=7433441132597879392&amp;guid=9564707548b264e4497d2894d259c3b1&amp;type=3#CommonStyle" />
     <ui:Button display-tooltip-when-elided="true" name="Button" class="square_button button_with_border">
-        <ui:VisualElement name="Background" class="background square_button" style="align-self: center;">
+        <ui:VisualElement name="Background" class="background" style="align-self: center;">
             <ui:Label tabindex="-1" text="Label" display-tooltip-when-elided="false" enable-rich-text="false" name="Text" class="text_with_shadow" style="align-self: center;" />
         </ui:VisualElement>
     </ui:Button>

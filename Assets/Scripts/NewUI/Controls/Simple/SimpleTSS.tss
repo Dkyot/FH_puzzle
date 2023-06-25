@@ -1,5 +1,7 @@
-@import url('project://database/Assets/UnityDefaultRuntimeTheme.tss?fileID=-4733365628477956816&guid=c9c7568ec860b504cbc12885ae0251d3&type=3#UnityDefaultRuntimeTheme');
-@import url('project://database/Assets/Scripts/NewUI/Controls/Simple/RoundButton/RoundButtonStyle.uss?fileID=7433441132597879392&guid=7e148143b942f994eba78054e89826fa&type=3#RoundButtonStyle');
-@import url('project://database/Assets/Scripts/NewUI/Controls/Simple/SquareButton/SquareButtonStyle.uss?fileID=7433441132597879392&guid=bf093a3d99292014e8f27803747576c2&type=3#SquareButtonStyle');
-@import url('project://database/Assets/Scripts/NewUI/Controls/Simple/CommonStyle.uss?fileID=7433441132597879392&guid=9564707548b264e4497d2894d259c3b1&type=3#CommonStyle');
+@import url("/Assets/UnityDefaultRuntimeTheme.tss");
+
+@import url("RoundButton/RoundButtonStyle.uss");
+@import url("SquareButton/SquareButtonStyle.uss");
+@import url("CommonStyle.uss");
+@import url("SquareIconButton/SquareIconButtonStyle.uss");
 

@@ -99,6 +99,15 @@
     margin-left: -4px;
 }
 
+.unity-base-slider:focus .unity-base-slider__dragger {
+    border-color: var(--focused-button-border-color);
+}
+
+.unity-base-slider__dragger:hover {
+    border-color: var(--focused-button-border-color);
+}
+
+
 .unity-base-slider__drag-container {
     flex-grow: 0;
     flex-shrink: 0;

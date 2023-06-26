@@ -15,11 +15,14 @@
     border-top-right-radius: 33px;
     border-bottom-right-radius: 33px;
     justify-content: flex-start;
-    align-self: center;
-    margin-left: 0;
-    margin-right: 0;
+    align-self: stretch;
     margin-top: 0;
     margin-bottom: 0;
+    margin-left: 40px;
+    margin-right: 40px;
+
+    transition-duration: 50ms;
+    transition-property: margin;
 }
 
 .round_button:active > .background {
@@ -28,11 +31,11 @@
     transition-property: border-width;
 }
 
-.round_button:hover > .background {
-    padding-left: 40px;
-    padding-right: 40px;
+.round_button:hover {
+    margin-left: 0px;
+    margin-right: 0px;
     transition-duration: 50ms;
-    transition-property: padding;
+    transition-property: margin;
 }
 
 .round_button > .background {
@@ -56,8 +59,6 @@
     overflow: hidden;
     align-items: center;
     justify-content: center;
-    transition-property: border-width, padding;
+    transition-property: border-width;
     transition-duration: 50ms;
-    padding-left: 20px;
-    padding-right: 20px;
 }

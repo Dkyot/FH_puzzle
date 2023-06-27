@@ -1,0 +1,9 @@
+.settings_group_title {
+    font-size: 25px;
+    -unity-font-style: bold;
+}
+
+.settings_group_container > * {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

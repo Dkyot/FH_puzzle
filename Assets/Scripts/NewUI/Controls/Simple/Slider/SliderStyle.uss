@@ -5,6 +5,7 @@
     min-width: 0px;
     padding-right: 10px;
     font-size: 20px;
+    -unity-font-style: bold;
     color: var(--text-color);
 }
 

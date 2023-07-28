@@ -25,9 +25,16 @@ public class CardManager : MonoBehaviour
 
     public event EventHandler OnWin;
     
+    public delegate void OnMatchCheckDelegate();
+    public static event OnMatchCheckDelegate OnMatchCheck;
+    
+    public delegate void OnResetDelegate();
+    public static event OnResetDelegate OnReset;
+    
     private void Awake() {
         cards = new List<Card>();
         AddCardEvents();
+        AddTipsEvents();
     }
 
     public void CreateCards() {
@@ -39,6 +46,8 @@ public class CardManager : MonoBehaviour
         DistributionOfValues();
 
         pairCount = cards.Count / 2;
+        
+        OnReset?.Invoke();
     }
 
     #region Main methods
@@ -83,9 +92,34 @@ public class CardManager : MonoBehaviour
     }
     #endregion
 
+    
+    #region Tip methods
+    private void FindEqualCards() {
+       List<Card> closedCards = cards.Where(x => x.isMatched == false).ToList();
+       if (closedCards.Count == 0) return;
+
+       int firstCardIndex = UnityEngine.Random.Range(0, closedCards.Count);
+       int firstCardValue = closedCards[firstCardIndex].value;
+       
+       foreach (Card card in closedCards) {
+           if (card.value == firstCardValue)
+               if (!card.Equals(closedCards[firstCardIndex])) {
+                   SuggestionOfPositions(card, closedCards[firstCardIndex]);
+               }
+       }
+    }
+    
+    private void SuggestionOfPositions(Card first, Card second) {
+        Debug.Log(first.name);
+        Debug.Log(second.name);
+    }
+    #endregion
+
     #region Match Checking
     private void MatchChecking(Card card1, Card card2) {
         if (card1 == null || card2 == null) return;
+
+        OnMatchCheck?.Invoke();
 
         if (card1.value == card2.value) {
             Debug.Log("match!");
@@ -173,6 +207,10 @@ public class CardManager : MonoBehaviour
     private void AddCardEvents() {
         Card.OnFlip += TryToFlip;
         Card.OnReset += Reset;
+    }
+
+    private void AddTipsEvents() {
+        CardTipsController.OnActivate += FindEqualCards;
     }
     #endregion
 }

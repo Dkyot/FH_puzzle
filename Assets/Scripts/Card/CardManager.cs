@@ -9,7 +9,9 @@ public class CardManager : MonoBehaviour
     [SerializeField] private Card cardPrefab;
     [SerializeField] private Transform spawnPosition;
     
+    [Range(4, 6)]
     [SerializeField] private int rows;
+    [Range(4, 6)]
     [SerializeField] private int columns;
     [SerializeField] private float offset;
 
@@ -39,30 +41,7 @@ public class CardManager : MonoBehaviour
         pairCount = cards.Count / 2;
     }
 
-    #region Auxiliary methods
-    private void MatchChecking(Card card1, Card card2) {
-        if (card1 == null || card2 == null) return;
-
-        if (card1.value == card2.value) {
-            Debug.Log("match!");
-            Card obj1 = card1;
-            Card obj2 = card2;
-
-            obj1.isMatched = true;
-            obj2.isMatched = true;
-
-            Reset();
-            StartCoroutine(SetInactive(obj1, obj2));
-
-            WinVerification();
-        }
-        else {
-            Debug.Log("mismatch!");
-            card1.StartMismatchTimer();
-            card2.StartMismatchTimer();
-        }
-    }
-
+    #region Main methods
     private void SpawnCards() {
         for (int col = 0; col < columns; col++) {
             for (int row = 0; row < rows; row++) {
@@ -102,27 +81,29 @@ public class CardManager : MonoBehaviour
 
         return false;
     }
+    #endregion
 
-    private void DistributionOfValues() {
-        if (cards.Count % 2 != 0) {
-            Debug.Log("Необходимо четное количество карт");
-            return;
+    #region Match Checking
+    private void MatchChecking(Card card1, Card card2) {
+        if (card1 == null || card2 == null) return;
+
+        if (card1.value == card2.value) {
+            Debug.Log("match!");
+            Card obj1 = card1;
+            Card obj2 = card2;
+
+            obj1.isMatched = true;
+            obj2.isMatched = true;
+
+            Reset();
+            StartCoroutine(SetInactive(obj1, obj2));
+
+            WinVerification();
         }
-
-        if (cards.Count > 36) return;
-
-        List<Pair<int, Color>> values = new List<Pair<int, Color>>();
-
-        for (int i = 0; i < cards.Count / 2; i++) {
-            values.Add(new Pair<int, Color>(i, pallete.pallete[i]));
-            values.Add(new Pair<int, Color>(i, pallete.pallete[i]));
-        }
-
-        values = Shuffle(values);
-
-        for (int i = 0; i < cards.Count; i++) {
-            cards[i].SetValue(values[i].First);
-            cards[i].sprite.color = values[i].Second;
+        else {
+            Debug.Log("mismatch!");
+            card1.StartMismatchTimer();
+            card2.StartMismatchTimer();
         }
     }
 
@@ -141,6 +122,45 @@ public class CardManager : MonoBehaviour
         yield return new WaitForSeconds(0.25f);
         card1.gameObject.SetActive(false);
         card2.gameObject.SetActive(false);
+    }
+    #endregion
+
+    #region Distribution Of Values
+    private void DistributionOfValues() {
+        if (cards.Count % 2 != 0) {
+            Debug.Log("Необходимо четное количество карт!");
+            return;
+        }
+
+        if (cards.Count > 36) return;
+
+        List<Pair<int, Color>> values = new List<Pair<int, Color>>();
+
+        TwoEqualCards(values);
+        //FourEqualCards(values);
+
+        values = Shuffle(values);
+
+        for (int i = 0; i < cards.Count; i++) {
+            cards[i].SetValue(values[i].First);
+            cards[i].sprite.color = values[i].Second;
+        }
+    }
+
+    private void TwoEqualCards(List<Pair<int, Color>> values) {
+        for (int i = 0; i < cards.Count / 2; i++) {
+            values.Add(new Pair<int, Color>(i, pallete.pallete[i]));
+            values.Add(new Pair<int, Color>(i, pallete.pallete[i]));
+        }
+    }
+
+    private void FourEqualCards(List<Pair<int, Color>> values) {
+        for (int i = 0; i < cards.Count / 4; i++) {
+            values.Add(new Pair<int, Color>(i, pallete.pallete[i]));
+            values.Add(new Pair<int, Color>(i, pallete.pallete[i]));
+            values.Add(new Pair<int, Color>(i, pallete.pallete[i]));
+            values.Add(new Pair<int, Color>(i, pallete.pallete[i]));
+        }
     }
 
     private List<T> Shuffle<T> (List<T> list) {

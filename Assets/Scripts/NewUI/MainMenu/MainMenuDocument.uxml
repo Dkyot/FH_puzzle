@@ -1,24 +1,20 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <ui:Template name="RoundButton" src="project://database/Assets/Scripts/NewUI/Controls/Simple/RoundButton/RoundButton.uxml?fileID=9197481963319205126&amp;guid=f6690da1afb5a784eae1b761bfc9b450&amp;type=3#RoundButton" />
-    <ui:Template name="SettingsDocument" src="project://database/Assets/Scripts/NewUI/Settings/SettingsDocument.uxml?fileID=9197481963319205126&amp;guid=3f8ba1e0045f00247bac1ad5e4eebfbf&amp;type=3#SettingsDocument" />
     <Style src="project://database/Assets/Scripts/NewUI/MainMenu/MainMenuStyles.uss?fileID=7433441132597879392&amp;guid=e0f0719e88e967248928368102d73f5d&amp;type=3#MainMenuStyles" />
-    <MainMenuController name="Controller" style="flex-grow: 1; flex-direction: row; align-self: stretch; margin-left: 20px; margin-right: 20px; margin-top: 20px; margin-bottom: 20px;">
-        <ui:VisualElement name="ButtonContainer" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); justify-content: center; align-items: flex-start; align-self: auto; flex-direction: column; flex-shrink: 0; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0;">
-            <ui:Instance template="RoundButton" name="PlayButton" style="width: 200px;">
+    <MainMenuController name="Controller" style="flex-grow: 1; flex-direction: row; align-self: stretch; margin-left: 20px; margin-right: 20px; margin-top: 20px; margin-bottom: 20px; justify-content: center;">
+        <ui:VisualElement name="ButtonContainer" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0.33); justify-content: center; align-items: stretch; align-self: stretch; flex-direction: column; flex-shrink: 0; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 20px; padding-right: 20px; padding-top: 20px; padding-bottom: 20px;">
+            <ui:Instance template="RoundButton" name="PlayButton">
                 <AttributeOverrides element-name="Text" text="Play" enable-rich-text="false" />
             </ui:Instance>
-            <ui:Instance template="RoundButton" name="SettingsButton" style="width: 200px;">
+            <ui:Instance template="RoundButton" name="SettingsButton">
                 <AttributeOverrides element-name="Text" text="Settings" />
             </ui:Instance>
-            <ui:Instance template="RoundButton" name="RoundButton" style="width: 200px;">
+            <ui:Instance template="RoundButton" name="RoundButton">
                 <AttributeOverrides element-name="Text" text="Gallery" />
             </ui:Instance>
-            <ui:Instance template="RoundButton" name="RoundButton" style="width: 200px;">
+            <ui:Instance template="RoundButton" name="RoundButton">
                 <AttributeOverrides element-name="Text" text="Top" />
             </ui:Instance>
-        </ui:VisualElement>
-        <ui:VisualElement name="SideMenu" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); justify-content: center; align-items: stretch; margin-left: 40px;">
-            <ui:Instance template="SettingsDocument" name="Settings" style="flex-grow: 1; display: flex; visibility: hidden;" />
         </ui:VisualElement>
     </MainMenuController>
 </ui:UXML>

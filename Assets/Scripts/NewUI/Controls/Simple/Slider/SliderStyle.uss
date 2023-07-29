@@ -14,7 +14,7 @@
 }
 
 .unity-base-slider--horizontal .unity-base-slider__tracker {
-    height: 30px;
+    height: 20px;
     margin-top: 0px;
     border-color: var(--shadow-color);
     background-color: transparent;
@@ -34,14 +34,14 @@
 }
 
 .unity-base-slider .unity-base-slider__dragger {
-    width: 40px;
-    height: 40px;
+    width: 25px;
+    height: 25px;
     background-color: var(--button-background-color);
     border-color: var(--button-border-color);
     border-width: var(--border-width);
     border-radius: 90px;
-    margin-top: -20px;
-    margin-left: -4px;
+    margin-top: -13px;
+    margin-left: -5px;
 }
 
 .unity-base-slider:focus .unity-base-slider__dragger {
@@ -56,13 +56,13 @@
 .unity-base-slider__drag-container {
     flex-grow: 0;
     flex-shrink: 0;
-    height: 30px;
+    height: 20px;
     align-self: stretch;
     justify-content: center;
     background-color: var(--button-background-color);
     border-color: var(--button-border-color);
     border-width: var(--border-width);
-    border-radius: 15px;
+    border-radius: 10px;
     overflow: visible;
 }
 

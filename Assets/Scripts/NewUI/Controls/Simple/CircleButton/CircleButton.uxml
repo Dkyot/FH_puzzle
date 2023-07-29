@@ -1,9 +1,0 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/Scripts/NewUI/Controls/Simple/SimpleTSS.tss?fileID=-4733365628477956816&amp;guid=3e5d2fd4b5ad38744ae6e7066e528e2a&amp;type=3#SimpleTSS" />
-    <Style src="project://database/Assets/Scripts/NewUI/Controls/Simple/CircleButton/CircleButtonStyle.uss?fileID=7433441132597879392&amp;guid=de4c576d3db95624c962cce5d0df4e0f&amp;type=3#CircleButtonStyle" />
-    <ui:Button display-tooltip-when-elided="true" name="Button" class="round_button button_with_border">
-        <ui:VisualElement name="Background" class="background">
-            <ui:VisualElement name="Image" class="icon" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);" />
-        </ui:VisualElement>
-    </ui:Button>
-</ui:UXML>

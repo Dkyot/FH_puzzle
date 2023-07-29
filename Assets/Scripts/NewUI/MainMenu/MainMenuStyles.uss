@@ -1,9 +1,0 @@
-#ButtonContainer > * {
-    padding-top: 5px;
-    padding-bottom: 5px;
-    width: 250px;
-}
-
-/* .round_button {
-    margin-left: 0px;
-} */

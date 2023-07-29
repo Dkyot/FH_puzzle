@@ -1,39 +1,40 @@
-.round_button {
+.square_button {
     background-color: rgba(255, 255, 255, 0);
     padding-left: 0;
     padding-right: 0;
     padding-top: 0;
     padding-bottom: 0;
-    height: 100px;
-    width: 100px;
+    height: 60px;
+    width: auto;
     align-items: stretch;
     overflow: hidden;
     display: flex;
     visibility: visible;
-    border-top-left-radius: 90px;
-    border-bottom-left-radius: 90px;
-    border-top-right-radius: 90px;
-    border-bottom-right-radius: 90px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
     justify-content: flex-start;
-    align-self: center;
+    align-self: stretch;
     margin-left: 0;
     margin-right: 0;
     margin-top: 0;
     margin-bottom: 0;
+    flex-shrink: 0;
 }
 
-.round_button:active > .background {
+.square_button:active > .background {
     border-bottom-width: 0;
     transition-duration: 50ms;
     transition-property: border-width;
 }
 
-.round_button > .background {
+.square_button > .background {
     flex-grow: 1;
     background-color: var(--button-background-color);
     position: relative;
     height: auto;
-    width: auto;
+    width: 102%;
     align-self: auto;
     left: 0;
     right: 0;
@@ -44,8 +45,8 @@
     border-right-color: var(--button-background-shadow-color);
     border-top-color: var(--button-background-shadow-color);
     border-bottom-color: var(--button-background-shadow-color);
-    border-bottom-right-radius: 90px;
-    border-bottom-left-radius: 90px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
     overflow: hidden;
     align-items: center;
     justify-content: center;
@@ -53,4 +54,9 @@
     padding-right: 20px;
     transition-property: border-width;
     transition-duration: 50ms;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
 }

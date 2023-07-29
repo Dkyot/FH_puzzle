@@ -1,9 +1,10 @@
 @import url("/Assets/UnityDefaultRuntimeTheme.tss");
 
-@import url("RoundButton/RoundButtonStyle.uss");
-@import url("SquareButton/SquareButtonStyle.uss");
+@import url("Button/RoundButton/RoundButtonStyle.uss");
+@import url("Button/SquareButton/SquareButtonStyle.uss");
+@import url("Button/SquareIconButton/SquareIconButtonStyle.uss");
+@import url("Button/CircleButton/CircleButtonStyle.uss");
 @import url("CommonStyle.uss");
-@import url("SquareIconButton/SquareIconButtonStyle.uss");
 @import url("Slider/SliderStyle.uss");
 
 

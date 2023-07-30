@@ -30,16 +30,6 @@
     -unity-font: initial;
 }
 
-.button_with_border {
-    border-width: var(--border-width);
-    border-color: var(--button-border-color);
-}
-
-.button_with_border:hover,
-.button_with_border:focus {
-    border-color: var(--focused-button-border-color);
-}
-
 .icon {
     flex-grow: 1;
     background-color: rgba(0, 0, 0, 0);

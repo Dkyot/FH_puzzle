@@ -5,7 +5,7 @@ using UnityEngine.UIElements;
 namespace FH.UI {
     public abstract class SimpleButtonBase : Button {
         public const string buttonName = "BaseButton";
-        public const string buttonClassName = "button_with_border";
+        public const string buttonClassName = "base-button";
 
         public const string buttonBackgroundName = "Background";
         public const string buttonBackgroundClassName = "background";

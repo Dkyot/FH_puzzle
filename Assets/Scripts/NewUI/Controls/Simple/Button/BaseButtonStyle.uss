@@ -1,0 +1,43 @@
+.base-button {
+    padding: 0;
+    align-items: stretch;
+    overflow: hidden;
+    display: flex;
+    visibility: visible;
+    justify-content: flex-start;
+    margin: 0;
+
+    border-width: var(--border-width);
+    border-color: var(--button-border-color);
+}
+
+.base-button:active>.background {
+    border-bottom-width: 0;
+    transition-duration: 50ms;
+    transition-property: border-width;
+}
+
+.base-button>.background {
+    flex-grow: 1;
+    background-color: var(--primary);
+    position: relative;
+    height: auto;
+    width: auto;
+    align-self: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-bottom-width: 4px;
+    border-color: var(--primary-dark);
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    transition-property: border-width;
+    transition-duration: 50ms;
+}
+
+.base-button:hover,
+.base-button:focus {
+    border-color: var(--focused-button-border-color);
+}

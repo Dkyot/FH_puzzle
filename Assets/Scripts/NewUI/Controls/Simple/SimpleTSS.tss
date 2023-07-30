@@ -3,6 +3,7 @@
 @import url("Button/SquareButton/SquareButtonStyle.uss");
 @import url("Button/SquareIconButton/SquareIconButtonStyle.uss");
 @import url("Button/CircleButton/CircleButtonStyle.uss");
+@import url("Button/BaseButtonStyle.uss");
 @import url("Slider/SliderStyle.uss");
 @import url("CommonStyle.uss");
 

@@ -1,50 +1,11 @@
 .circle_button {
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 0;
-    padding-bottom: 0;
     height: 80px;
     width: 80px;
-    align-items: stretch;
-    overflow: hidden;
-    display: flex;
-    visibility: visible;
-    border-top-left-radius: 90px;
-    border-bottom-left-radius: 90px;
-    border-top-right-radius: 90px;
-    border-bottom-right-radius: 90px;
-    justify-content: flex-start;
+    border-radius: 90px;
     align-self: center;
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
-.circle_button:active > .background {
-    border-bottom-width: 0;
-    transition-duration: 50ms;
-    transition-property: border-width;
 }
 
 .circle_button > .background {
-    flex-grow: 1;
-    background-color: var(--primary);
-    position: relative;
-    height: auto;
-    width: auto;
-    align-self: auto;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    border-bottom-width: 4px;
-    border-color: var(--primary-dark);
     border-bottom-right-radius: 90px;
     border-bottom-left-radius: 90px;
-    overflow: hidden;
-    align-items: center;
-    justify-content: center;
-    transition-property: border-width;
-    transition-duration: 50ms;
 }

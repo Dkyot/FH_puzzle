@@ -1,55 +1,10 @@
 .round_button {
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 0;
-    padding-bottom: 0;
+    border-radius: 33px;
     height: 50px;
-    width: auto;
-    align-items: stretch;
-    overflow: hidden;
-    display: flex;
-    visibility: visible;
-    border-top-left-radius: 33px;
-    border-bottom-left-radius: 33px;
-    border-top-right-radius: 33px;
-    border-bottom-right-radius: 33px;
-    justify-content: flex-start;
     align-self: stretch;
-    margin-top: 0;
-    margin-bottom: 0;
 }
 
-.round_button:active > .background {
-    border-bottom-width: 0;
-    transition-duration: 50ms;
-    transition-property: border-width;
-}
-
-.round_button:hover, .round_button:focus {
-    margin-left: 0px;
-    margin-right: 0px;
-    transition-duration: 50ms;
-    transition-property: margin;
-}
-
-.round_button > .background {
-    flex-grow: 1;
-    background-color: var(--primary);
-    position: relative;
-    height: auto;
-    width: auto;
-    align-self: auto;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    border-bottom-width: 4px;
-    border-color: var(--primary-dark);
+.round_button>.background {
     border-bottom-right-radius: 30px;
     border-bottom-left-radius: 30px;
-    overflow: hidden;
-    align-items: center;
-    justify-content: center;
-    transition-property: border-width;
-    transition-duration: 50ms;
 }

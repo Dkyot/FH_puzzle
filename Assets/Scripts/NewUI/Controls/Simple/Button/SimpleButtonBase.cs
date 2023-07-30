@@ -17,36 +17,18 @@ namespace FH.UI {
 
         protected abstract string BaseStyleName { get; }
 
-        // protected Button baseButton;
         protected VisualElement background;
 
-        public new class UxmlTraits : Button.UxmlTraits {
-            public UxmlTraits() { }
+        public SimpleButtonBase() : base() {
+            AddToClassList(buttonClassName);
+            AddToClassList(BaseStyleName);
 
-            public override void Init(VisualElement ve, IUxmlAttributes bag, CreationContext cc) {
-                base.Init(ve, bag, cc);
+            background = new VisualElement() {
+                name = buttonBackgroundName
+            };
 
-                var ate = ve as SimpleButtonBase;
-
-                ate.Clear();
-
-                ate.AddToClassList(buttonClassName);
-                ate.AddToClassList(ate.BaseStyleName);
-
-                var background = new VisualElement() {
-                    name = buttonBackgroundName
-                };
-
-                background.AddToClassList(buttonBackgroundClassName);
-                ate.Add(background);
-                ate.background = background;
-            }
-
-            public override IEnumerable<UxmlChildElementDescription> uxmlChildElementsDescription {
-                get { yield break; }
-            }
-
-            public override IEnumerable<UxmlAttributeDescription> uxmlAttributesDescription => base.uxmlAttributesDescription;
+            background.AddToClassList(buttonBackgroundClassName);
+            Add(background);
         }
     }
 }

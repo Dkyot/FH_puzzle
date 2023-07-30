@@ -18,7 +18,16 @@ namespace FH.UI {
 
         private string _label;
 
-        public new class UxmlTraits : SimpleButtonBase.UxmlTraits {
+        public TextButtonBase() {
+            label = new Label(text) {
+                name = buttonLabelName
+            };
+
+            label.AddToClassList(buttonTextClassName);
+            background.Add(label);
+        }
+
+        public new class UxmlTraits : Button.UxmlTraits {
             private UxmlStringAttributeDescription _labelValue = new() { name = "Label", defaultValue = "Text" };
 
             public UxmlTraits() { }
@@ -27,17 +36,8 @@ namespace FH.UI {
                 base.Init(ve, bag, cc);
 
                 var ate = ve as TextButtonBase;
-
                 var text = _labelValue.GetValueFromBag(bag, cc);
-
-
-                var label = new Label(text) {
-                    name = buttonLabelName
-                };
-
-                ate.label = label;
-                label.AddToClassList(buttonTextClassName);
-                ate.background.Add(label);
+                ate.Label = text;
             }
         }
     }

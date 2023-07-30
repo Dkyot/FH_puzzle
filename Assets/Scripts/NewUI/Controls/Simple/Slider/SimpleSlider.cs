@@ -10,7 +10,7 @@ namespace FH.UI {
         private readonly VisualElement _leftFiller;
         private readonly VisualElement _dragContainer;
 
-        public SimpleSlider() {
+        public SimpleSlider() : base() {
             var dragger = this.Q<VisualElement>("unity-dragger");
 
             _draggerBackground = new VisualElement() {

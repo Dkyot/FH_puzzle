@@ -13,6 +13,7 @@ public class CardManager : MonoBehaviour
     [SerializeField] private int rows;
     [Range(4, 6)]
     [SerializeField] private int columns;
+
     [SerializeField] private float offset;
 
     private List<Card> cards;
@@ -30,6 +31,9 @@ public class CardManager : MonoBehaviour
     
     public delegate void OnResetDelegate();
     public static event OnResetDelegate OnReset;
+
+    public delegate void OnMismatchDelegate();
+    public static event OnMismatchDelegate OnMismatch;
     
     private void Awake() {
         cards = new List<Card>();
@@ -110,8 +114,8 @@ public class CardManager : MonoBehaviour
     }
     
     private void SuggestionOfPositions(Card first, Card second) {
-        Debug.Log(first.name);
-        Debug.Log(second.name);
+        //Debug.Log(first.name);
+        //Debug.Log(second.name);
     }
     #endregion
 
@@ -122,7 +126,7 @@ public class CardManager : MonoBehaviour
         OnMatchCheck?.Invoke();
 
         if (card1.value == card2.value) {
-            Debug.Log("match!");
+            //Debug.Log("match!");
             Card obj1 = card1;
             Card obj2 = card2;
 
@@ -135,7 +139,9 @@ public class CardManager : MonoBehaviour
             WinVerification();
         }
         else {
-            Debug.Log("mismatch!");
+            OnMismatch?.Invoke();
+
+            //Debug.Log("mismatch!");
             card1.StartMismatchTimer();
             card2.StartMismatchTimer();
         }
@@ -162,7 +168,7 @@ public class CardManager : MonoBehaviour
     #region Distribution Of Values
     private void DistributionOfValues() {
         if (cards.Count % 2 != 0) {
-            Debug.Log("Необходимо четное количество карт!");
+            //Debug.Log("Необходимо четное количество карт!");
             return;
         }
 

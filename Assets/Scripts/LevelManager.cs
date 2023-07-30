@@ -6,32 +6,35 @@ public class LevelManager : MonoBehaviour
 {
     [SerializeField] private CardManager cardManager;
     [SerializeField] private Timer timerUI;
+    [SerializeField] private ScoreCounter scoreCounter;
 
     [SerializeField] private Button restartButton;
     
     private void Awake() {
         cardManager = cardManager.GetComponent<CardManager>();
         cardManager.OnWin += OnWin;
+
+        scoreCounter = scoreCounter.GetComponent<ScoreCounter>();
+
         timerUI = timerUI.GetComponent<Timer>();
         restartButton.onClick.AddListener(RestartButton);
     }
 
     private void Start() {
-        if (cardManager != null)
-            cardManager.CreateCards();
-        if (timerUI != null)
-            timerUI.StartTimer();
+        RestartButton();
     }
 
     private void RestartButton() {
-        if (cardManager != null)
-            cardManager.CreateCards();
-        if (timerUI != null)
-            timerUI.StartTimer();
+        cardManager?.CreateCards();
+        timerUI?.StartTimer();
+        scoreCounter?.Reset();
     }
     
     private void OnWin(object sender, EventArgs e) {
-        if (timerUI != null)
-            timerUI.StopTimer();
+        if (timerUI == null) return;
+        timerUI.StopTimer();
+        scoreCounter?.SaveTime(timerUI.timer);
+
+        Debug.Log(scoreCounter.GetScoreJson());
     }
 }

@@ -10,7 +10,7 @@ public class Card : MonoBehaviour
     private bool isPicked;
     public bool isMatched;
 
-    private float rotationSpeed = 0.06f;
+    private float rotationSpeed = 0.045f;
 
     public CardState currentState { get; private set; }
 
@@ -20,7 +20,7 @@ public class Card : MonoBehaviour
     public delegate void OnResetDelegate();
 	public static event OnResetDelegate OnReset;
 
-    private float timeUntilClosing = 0.6f;
+    private float timeUntilClosing = 0.55f;
     private float timer;
     private bool delay;
     

@@ -4,7 +4,7 @@ using TMPro;
 public class Timer : MonoBehaviour
 {
     private TextMeshProUGUI timerText;
-    private float timer;
+    public float timer { get; private set; }
     private bool isRun;
 
     private void Awake() {

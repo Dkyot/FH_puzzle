@@ -4,7 +4,7 @@
     padding-right: 0;
     padding-top: 0;
     padding-bottom: 0;
-    height: 60px;
+    height: 50px;
     width: auto;
     align-items: stretch;
     overflow: hidden;
@@ -31,7 +31,7 @@
 
 .square_button > .background {
     flex-grow: 1;
-    background-color: var(--button-background-color);
+    background-color: var(--primary);
     position: relative;
     height: auto;
     width: 102%;
@@ -41,10 +41,10 @@
     top: 0;
     bottom: 0;
     border-bottom-width: 4px;
-    border-left-color: var(--button-background-shadow-color);
-    border-right-color: var(--button-background-shadow-color);
-    border-top-color: var(--button-background-shadow-color);
-    border-bottom-color: var(--button-background-shadow-color);
+    border-left-color: var(--primary-dark);
+    border-right-color: var(--primary-dark);
+    border-top-color: var(--primary-dark);
+    border-bottom-color: var(--primary-dark);
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
     overflow: hidden;

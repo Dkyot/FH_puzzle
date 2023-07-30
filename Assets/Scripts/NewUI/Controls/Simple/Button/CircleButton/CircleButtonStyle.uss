@@ -1,11 +1,10 @@
 .circle_button {
-    background-color: rgba(255, 255, 255, 0);
     padding-left: 0;
     padding-right: 0;
     padding-top: 0;
     padding-bottom: 0;
-    height: 100px;
-    width: 100px;
+    height: 80px;
+    width: 80px;
     align-items: stretch;
     overflow: hidden;
     display: flex;
@@ -30,7 +29,7 @@
 
 .circle_button > .background {
     flex-grow: 1;
-    background-color: var(--button-background-color);
+    background-color: var(--primary);
     position: relative;
     height: auto;
     width: auto;
@@ -40,17 +39,12 @@
     top: 0;
     bottom: 0;
     border-bottom-width: 4px;
-    border-left-color: var(--button-background-shadow-color);
-    border-right-color: var(--button-background-shadow-color);
-    border-top-color: var(--button-background-shadow-color);
-    border-bottom-color: var(--button-background-shadow-color);
+    border-color: var(--primary-dark);
     border-bottom-right-radius: 90px;
     border-bottom-left-radius: 90px;
     overflow: hidden;
     align-items: center;
     justify-content: center;
-    padding-left: 20px;
-    padding-right: 20px;
     transition-property: border-width;
     transition-duration: 50ms;
 }

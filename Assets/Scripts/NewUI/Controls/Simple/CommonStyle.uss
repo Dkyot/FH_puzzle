@@ -3,24 +3,16 @@
     --shadow-color: rgba(0, 0, 0, 0.1);
     --button-border-color: rgb(255, 255, 255);
     --focused-button-border-color: rgb(122, 255, 255);
-    --button-background-color: rgb(103, 235, 0);
-    --button-background-shadow-color: var(--shadow-color);
 
     --border-width: 3px;
 
-    --primary-color: rgb(103, 235, 0);
-    --primary-dark-color: rgb(103, 215, 0);
+    --primary: rgb(103, 235, 0);
+    --primary-dark: rgb(103, 215, 0);
 }
 
 .unity-label {
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 0;
-    padding-bottom: 0;
+    margin: 0;
+    padding: 0;
 
     font-size: 20px;
     color: var(--text-color);
@@ -53,7 +45,7 @@
     background-color: rgba(0, 0, 0, 0);
     align-self: center;
     background-image: url('project://database/Packages/com.unity.2d.animation/Editor/Assets/ComponentIcons/Animation.IKCCD%20On@256.png?fileID=21300000&guid=ba345f2f643d842459447c374943401d&type=3#Animation.IKCCD On@256');
-    width: 64px;
-    height: 64px;
+    width: 50px;
+    height: 50px;
     -unity-background-scale-mode: scale-to-fit;
 }

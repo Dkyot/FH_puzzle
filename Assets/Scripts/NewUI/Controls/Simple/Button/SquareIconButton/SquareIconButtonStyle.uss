@@ -1,19 +1,15 @@
 .square_icon_button {
-    background-color: rgba(255, 255, 255, 0);
     padding-left: 0;
     padding-right: 0;
     padding-top: 0;
     padding-bottom: 0;
-    height: 100px;
-    width: 100px;
+    height: 80px;
+    width: 80px;
     align-items: stretch;
     overflow: hidden;
     display: flex;
     visibility: visible;
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
+    border-radius: 15px;
     justify-content: flex-start;
     align-self: center;
     margin-left: 0;
@@ -32,7 +28,7 @@
 
 .square_icon_button > .background {
     flex-grow: 0;
-    background-color: var(--button-background-color);
+    background-color: var(--primary);
     position: relative;
     height: 100%;
     width: 100%;
@@ -42,10 +38,7 @@
     top: 0;
     bottom: 0;
     border-bottom-width: 4px;
-    border-left-color: var(--button-background-shadow-color);
-    border-right-color: var(--button-background-shadow-color);
-    border-top-color: var(--button-background-shadow-color);
-    border-bottom-color: var(--button-background-shadow-color);
+    border-color: var(--primary-dark);
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
     overflow: hidden;

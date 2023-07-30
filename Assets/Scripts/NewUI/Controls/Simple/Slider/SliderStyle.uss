@@ -30,7 +30,7 @@
 .unity-base-slider__dragger {
     width: 25px;
     height: 25px;
-    background-color: var(--primary-dark-color);
+    background-color: var(--primary-dark);
     border-color: var(--button-border-color);
     border-width: var(--border-width);
     padding: var(--border-width);
@@ -72,7 +72,6 @@
 }
 
 .unity-base-field__input {
-    /* background-color: var(--button-background-color); */
     border-color: var(--button-border-color);
     border-width: var(--border-width);
     border-radius: 10px;
@@ -95,12 +94,12 @@
 .simple-dragger-background {
     height: 100%;
     width: 100%;
-    background-color: var(--primary-color);
+    background-color: var(--primary);
     border-radius: 2px;
 }
 
 .left-filler {
-    background-color: var(--primary-color);
+    background-color: var(--primary);
     position: absolute;
 }
 

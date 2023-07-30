@@ -7,6 +7,9 @@
     --button-background-shadow-color: var(--shadow-color);
 
     --border-width: 3px;
+
+    --primary-color: rgb(103, 235, 0);
+    --primary-dark-color: rgb(103, 215, 0);
 }
 
 .unity-label {
@@ -40,7 +43,8 @@
     border-color: var(--button-border-color);
 }
 
-.button_with_border:hover, .button_with_border:focus {
+.button_with_border:hover,
+.button_with_border:focus {
     border-color: var(--focused-button-border-color);
 }
 

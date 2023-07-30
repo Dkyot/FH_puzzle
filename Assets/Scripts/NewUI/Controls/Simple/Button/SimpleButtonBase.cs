@@ -10,17 +10,17 @@ namespace FH.UI {
         public const string buttonBackgroundName = "Background";
         public const string buttonBackgroundClassName = "background";
 
-        public event Action Clicked {
-            add { baseButton.clicked += value; }
-            remove { baseButton.clicked -= value; }
-        }
+        // public event Action Clicked {
+        //     add { baseButton.clicked += value; }
+        //     remove { baseButton.clicked -= value; }
+        // }
 
         protected abstract string BaseStyleName { get; }
 
-        protected Button baseButton;
+        // protected Button baseButton;
         protected VisualElement background;
 
-        public new class UxmlTraits : VisualElement.UxmlTraits {
+        public new class UxmlTraits : Button.UxmlTraits {
             public UxmlTraits() { }
 
             public override void Init(VisualElement ve, IUxmlAttributes bag, CreationContext cc) {
@@ -29,26 +29,17 @@ namespace FH.UI {
                 var ate = ve as SimpleButtonBase;
 
                 ate.Clear();
-                ate.ClearClassList();
 
-                var baseButton = new Button() {
-                    name = buttonName
-                };
-
-                baseButton.AddToClassList(buttonClassName);
-                baseButton.AddToClassList(ate.BaseStyleName);
-
-                ate.baseButton = baseButton;
+                ate.AddToClassList(buttonClassName);
+                ate.AddToClassList(ate.BaseStyleName);
 
                 var background = new VisualElement() {
                     name = buttonBackgroundName
                 };
 
                 background.AddToClassList(buttonBackgroundClassName);
-                baseButton.Add(background);
+                ate.Add(background);
                 ate.background = background;
-
-                ate.Add(baseButton);
             }
 
             public override IEnumerable<UxmlChildElementDescription> uxmlChildElementsDescription {

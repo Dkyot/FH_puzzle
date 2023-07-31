@@ -3,7 +3,6 @@
     align-items: stretch;
     overflow: hidden;
     display: flex;
-    visibility: visible;
     justify-content: flex-start;
     margin: 0;
 
@@ -12,7 +11,7 @@
 }
 
 .base-button:active>.background {
-    border-bottom-width: 0;
+    border-width: 0;
     transition-duration: 50ms;
     transition-property: border-width;
 }
@@ -24,11 +23,7 @@
     height: auto;
     width: auto;
     align-self: auto;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    border-bottom-width: 4px;
+    border-bottom-width: 10px;
     border-color: var(--primary-dark);
     overflow: hidden;
     align-items: center;
@@ -37,7 +32,6 @@
     transition-duration: 50ms;
 }
 
-.base-button:hover,
 .base-button:focus {
     border-color: var(--focused-button-border-color);
 }

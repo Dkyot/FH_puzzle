@@ -1,0 +1,16 @@
+#ButtonsContainer > * {
+    margin-bottom: 10px;
+}
+
+#Title {
+    font-size: 40px;
+    -unity-font-style: bold;
+    color: rgb(103, 235, 0);
+    -unity-text-outline-color: rgb(255, 255, 255);
+    -unity-text-outline-width: 2px;
+    letter-spacing: -16px;
+    word-spacing: 27px;
+    -unity-text-align: middle-left;
+}
+
+

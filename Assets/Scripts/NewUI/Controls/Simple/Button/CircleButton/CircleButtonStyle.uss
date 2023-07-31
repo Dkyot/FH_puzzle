@@ -1,6 +1,6 @@
 .circle_button {
-    height: 80px;
-    width: 80px;
+    height: 100px;
+    width: 100px;
     border-radius: 90px;
     align-self: center;
 }

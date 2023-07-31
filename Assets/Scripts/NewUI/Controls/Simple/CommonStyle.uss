@@ -2,9 +2,9 @@
     --text-color: rgb(255, 255, 255);
     --shadow-color: rgba(0, 0, 0, 0.1);
     --button-border-color: rgb(255, 255, 255);
-    --focused-button-border-color: rgb(122, 255, 255);
+    --focused-button-border-color: rgb(21, 197, 197);
 
-    --border-width: 3px;
+    --border-width: 6px;
 
     --primary: rgb(103, 235, 0);
     --primary-dark: rgb(103, 215, 0);
@@ -14,16 +14,18 @@
     margin: 0;
     padding: 0;
 
-    font-size: 20px;
+    font-size: 50px;
     color: var(--text-color);
+    -unity-font-definition: resource('LiberationSans SDF');
 }
 
 .text_shadow {
-    text-shadow: 0 2px 0 var(--shadow-color);
+    text-shadow: 0 10px 0 var(--shadow-color);
 }
 
 .button_text {
-    text-shadow: 0 2px 0 var(--shadow-color);
+    text-shadow: 0 10px 0 var(--shadow-color);
+    font-size: 50px;
     -unity-font-style: bold;
     -unity-font: initial;
     -unity-font-style: bold;

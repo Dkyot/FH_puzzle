@@ -1,17 +1,14 @@
 .square_button {
-    border-radius: 15px;
-    height: 50px;
+    border-radius: 20px;
+    height: 100px;
     align-self: stretch;
 }
 
 .square_button>.background {
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    overflow: hidden;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
     align-items: center;
     justify-content: center;
-    padding-left: 20px;
-    padding-right: 20px;
     border-left-width: 0;
     border-right-width: 0;
     border-top-width: 0;

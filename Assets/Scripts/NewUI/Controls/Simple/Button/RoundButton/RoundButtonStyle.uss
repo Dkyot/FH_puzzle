@@ -1,10 +1,10 @@
 .round_button {
-    border-radius: 33px;
-    height: 50px;
+    border-radius: 50px;
+    height: 100px;
     align-self: stretch;
 }
 
 .round_button>.background {
-    border-bottom-right-radius: 30px;
-    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 40px;
+    border-bottom-left-radius: 40px;
 }

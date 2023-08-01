@@ -5,6 +5,6 @@
 }
 
 .round_button>.background {
-    border-bottom-right-radius: 40px;
-    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 35px;
+    border-bottom-left-radius: 35px;
 }

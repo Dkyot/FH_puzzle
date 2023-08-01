@@ -1,15 +1,27 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/Scripts/NewUI/MainMenu/MainMenuUss.uss?fileID=7433441132597879392&amp;guid=14d2176e6a43c314f8fb701d3f021e70&amp;type=3#MainMenuUss" />
     <ui:VisualElement name="Page" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: column; align-items: auto; align-self: stretch; width: 100%; height: 100%;">
-        <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); align-self: center; align-items: auto; justify-content: center;">
-            <ui:VisualElement name="VisualElement" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); align-items: auto;">
-                <ui:Label tabindex="-1" text="❤ FH Puzzel ❤" display-tooltip-when-elided="true" enable-rich-text="true" name="Title" class="Title font" style="align-self: center; flex-grow: 0;" />
-                <ui:VisualElement name="ButtonsContainer" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); justify-content: flex-start; align-items: center; align-self: stretch; width: 500px; margin-left: 0; margin-top: 30px;">
-                    <FH.UI.RoundButton Label="Play" name="RoundButton" style="transition-timing-function: ease-in-out-sine;" />
-                    <FH.UI.RoundButton Label="Gallery" />
-                    <FH.UI.RoundButton Label="Settings" />
-                </ui:VisualElement>
+        <ui:VisualElement name="Menu" style="left: auto; top: 0; right: 0; bottom: 0; position: absolute; justify-content: flex-end; align-items: auto;">
+            <ui:VisualElement name="ButtonsContainer" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); justify-content: flex-start; align-items: auto; align-self: auto; flex-direction: column; height: 50%;">
+                <FH.UI.RoundButton Label="Play" style="flex-grow: 0;" />
+                <FH.UI.RoundButton Label="Gallery" />
+                <FH.UI.RoundButton Label="Settings" />
             </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="TitleContainer" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); position: absolute; left: 0; right: 0; align-items: center; margin-top: 0; align-self: auto; flex-direction: row; justify-content: center; rotate: 0; top: 5%;">
+            <ui:VisualElement style="flex-grow: 0; background-color: rgba(0, 0, 0, 0);">
+                <ui:VisualElement class="decorative-line" style="rotate: 20deg; translate: -15px -35px;" />
+                <ui:VisualElement class="decorative-line" style="translate: -70px 0; rotate: 0;" />
+                <ui:VisualElement class="decorative-line" style="rotate: -20deg; translate: 0 32px;" />
+            </ui:VisualElement>
+            <ui:Label tabindex="-1" text="Cool Anime Furry &#10;Something" display-tooltip-when-elided="true" name="Title" class="fancy text_shadow title" style="rotate: 2deg;" />
+            <ui:VisualElement style="flex-grow: 0; background-color: rgba(0, 0, 0, 0);">
+                <ui:VisualElement class="decorative-line" style="rotate: -20deg; translate: 31px -29px;" />
+                <ui:VisualElement class="decorative-line" style="translate: 118px 0; rotate: 7deg;" />
+                <ui:VisualElement class="decorative-line" style="rotate: 20deg; translate: 17px 36px;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); position: absolute; top: 0; right: 0; bottom: 0; left: 0; justify-content: center; align-items: center;">
+            <ui:Label tabindex="-1" text="...&#10;На фоне какая-нибудь &#10;картинка с девочкой&#10;..." display-tooltip-when-elided="true" style="-unity-text-align: upper-center;" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

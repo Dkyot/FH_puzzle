@@ -30,7 +30,7 @@
 .unity-base-slider__dragger {
     width: 25px;
     height: 25px;
-    background-color: var(--primary-dark);
+    background-color: var(--primary-2);
     border-color: var(--button-border-color);
     border-width: var(--border-width);
     padding: var(--border-width);

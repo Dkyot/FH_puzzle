@@ -1,0 +1,70 @@
+#ButtonsContainer {
+    width: 400px;
+    margin-right: 60px;
+}
+
+#ButtonsContainer > * {
+    margin-bottom: 30px;
+}
+
+.base-button {
+    margin-left: 40px;
+    margin-right: 40px;
+    transition-duration: 50ms;
+    transition-property: margin;
+    border-width: 0;
+}
+
+.base-button:focus {
+    border-width: var(--border-width);
+    margin-left: 0;
+    margin-right: 0;
+    transition-duration: 50ms;
+    transition-property: margin;
+}
+
+.base-button:hover {
+    border-width: var(--border-width);
+    margin-left: 0;
+    margin-right: 0;
+    transition-duration: 50ms;
+    transition-property: margin;
+}
+
+.base-button:focus {
+    transition-duration: 50ms;
+    transition-property: rotate, scale;
+    rotate: 5px;
+    scale: 1.1;
+}
+
+.base-button:hover {
+    transition-duration: 50ms;
+    transition-property: rotate, scale;
+    rotate: 5px;
+    scale: 1.1;
+}
+
+.title {
+    font-size: 70px;
+    justify-content: flex-start;
+    -unity-text-align: upper-center;
+    -unity-font-style: bold;
+    -unity-text-outline-width: 5px;
+    -unity-text-outline-color: var(--primary-3);
+    color: var(--primary);
+    text-shadow: -10px 10px 0 var(--shadow-color);
+    letter-spacing: 0;
+    word-spacing: 0;
+    -unity-paragraph-spacing: -50px;
+}
+
+.decorative-line {
+    flex-grow: 0;
+    background-color: rgb(255, 255, 255);
+    width: 70px;
+    height: 30px;
+    border-color: var(--primary-3);
+    border-width: 10px;
+    border-radius: 15px;
+}

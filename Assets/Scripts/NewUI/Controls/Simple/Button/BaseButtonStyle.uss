@@ -5,6 +5,7 @@
     display: flex;
     justify-content: flex-start;
     margin: 0;
+    flex-grow: 0;
 
     border-width: var(--border-width);
     border-color: var(--button-border-color);
@@ -24,7 +25,7 @@
     width: auto;
     align-self: auto;
     border-bottom-width: 10px;
-    border-color: var(--primary-dark);
+    border-color: var(--primary-2);
     overflow: hidden;
     align-items: center;
     justify-content: center;
@@ -32,6 +33,13 @@
     transition-duration: 50ms;
 }
 
-.base-button:focus {
-    border-color: var(--focused-button-border-color);
+.button_text {
+    text-shadow: 0 10px 0 var(--shadow-color);
+    font-size: 30px;
+    width: 100%;
+    -unity-text-align: upper-center;
+    -unity-font-style: bold;
+    -unity-font: initial;
+    -unity-font-style: bold;
+    -unity-font: initial;
 }

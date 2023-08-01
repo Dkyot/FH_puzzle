@@ -1,6 +1,6 @@
 .round_button {
-    border-radius: 50px;
-    height: 100px;
+    border-radius: 45px;
+    height: 90px;
     align-self: stretch;
 }
 

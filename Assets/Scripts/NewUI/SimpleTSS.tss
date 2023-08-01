@@ -1,0 +1,10 @@
+
+@import url("Controls/DocumentStyle.uss");
+@import url("Controls/Simple/Button/RoundButton/RoundButtonStyle.uss");
+@import url("Controls/Simple/Button/SquareButton/SquareButtonStyle.uss");
+@import url("Controls/Simple/Button/SquareIconButton/SquareIconButtonStyle.uss");
+@import url("Controls/Simple/Button/CircleButton/CircleButtonStyle.uss");
+@import url("Controls/Simple/Button/BaseButtonStyle.uss");
+@import url("Controls/Simple/Slider/SliderStyle.uss");
+@import url("Controls/Simple/CommonStyle.uss");
+@import url("MainMenu/MainMenuStyle.uss")

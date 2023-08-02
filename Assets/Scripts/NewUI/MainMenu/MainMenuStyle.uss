@@ -1,5 +1,5 @@
 #ButtonsContainer {
-    width: 400px;
+    width: 300px;
     margin-right: 60px;
 }
 
@@ -31,18 +31,18 @@
     transition-property: margin;
 }
 
-.base-button:focus {
+.base-button:focus,
+.base-button:hover {
     transition-duration: 50ms;
     transition-property: rotate, scale;
     rotate: 5px;
     scale: 1.1;
 }
 
-.base-button:hover {
-    transition-duration: 50ms;
-    transition-property: rotate, scale;
-    rotate: 5px;
-    scale: 1.1;
+.reversed-rotate:hover,
+.reversed-rotate:focus {
+    transition-property: scale;
+    rotate: -5px;
 }
 
 .title {

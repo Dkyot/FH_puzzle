@@ -6,7 +6,7 @@
         <ui:VisualElement name="Menu" style="left: auto; top: 0; right: 0; bottom: 0; position: absolute; justify-content: flex-end; align-items: auto;">
             <ui:VisualElement name="ButtonsContainer" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); justify-content: flex-start; align-items: auto; align-self: auto; flex-direction: column; height: 50%;">
                 <FH.UI.RoundButton Label="Play" style="flex-grow: 0;" />
-                <FH.UI.RoundButton Label="Gallery" />
+                <FH.UI.RoundButton Label="Gallery" class="reversed-rotate" />
                 <FH.UI.RoundButton Label="Settings" />
             </ui:VisualElement>
         </ui:VisualElement>
@@ -16,7 +16,7 @@
                 <ui:VisualElement class="decorative-line" style="translate: -70px 0; rotate: 0;" />
                 <ui:VisualElement class="decorative-line" style="rotate: -20deg; translate: 0 32px;" />
             </ui:VisualElement>
-            <ui:Label tabindex="-1" text="Cool Anime Furry &#10;Something" display-tooltip-when-elided="true" name="Title" class="fancy text_shadow title" style="rotate: 2deg;" />
+            <ui:Label tabindex="-1" text="Cool Anime Furry &#10;Something" display-tooltip-when-elided="true" name="Title" class="fancy text_shadow title" />
             <ui:VisualElement style="flex-grow: 0; background-color: rgba(0, 0, 0, 0);">
                 <ui:VisualElement class="decorative-line" style="rotate: -20deg; translate: 31px -29px;" />
                 <ui:VisualElement class="decorative-line" style="translate: 118px 0; rotate: 7deg;" />

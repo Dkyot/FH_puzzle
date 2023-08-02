@@ -1,5 +1,5 @@
 #ButtonsContainer {
-    width: 300px;
+    width: 320px;
     margin-right: 60px;
 }
 
@@ -8,10 +8,10 @@
 }
 
 .base-button {
-    margin-left: 40px;
-    margin-right: 40px;
-    transition-duration: 50ms;
-    transition-property: margin;
+    margin-left: 20px;
+    margin-right: 20px;
+    transition-duration: 100ms;
+    transition-property: margin, rotate, scale;
     border-width: 0;
 }
 
@@ -19,7 +19,7 @@
     border-width: var(--border-width);
     margin-left: 0;
     margin-right: 0;
-    transition-duration: 50ms;
+    transition-duration: 100ms;
     transition-property: margin;
 }
 
@@ -27,22 +27,34 @@
     border-width: var(--border-width);
     margin-left: 0;
     margin-right: 0;
-    transition-duration: 50ms;
+    transition-duration: 100ms;
     transition-property: margin;
 }
 
-.base-button:focus,
-.base-button:hover {
-    transition-duration: 50ms;
+.base-button:focus {
+    transition-duration: 100ms;
     transition-property: rotate, scale;
-    rotate: 5px;
+    rotate: 5deg;
     scale: 1.1;
 }
 
-.reversed-rotate:hover,
+.base-button:hover {
+    transition-duration: 100ms;
+    transition-property: rotate, scale;
+    rotate: 5deg;
+    scale: 1.1;
+}
+
+.reversed-rotate:hover {
+    transition-property: rotate;
+    transition-duration: 100ms;
+    rotate: -5deg;
+}
+
 .reversed-rotate:focus {
-    transition-property: scale;
-    rotate: -5px;
+    transition-property: rotate;
+    transition-duration: 100ms;
+    rotate: -5deg;
 }
 
 .title {
@@ -50,7 +62,7 @@
     justify-content: flex-start;
     -unity-text-align: upper-center;
     -unity-font-style: bold;
-    -unity-text-outline-width: 5px;
+    -unity-text-outline-width: 12px;
     -unity-text-outline-color: var(--primary-3);
     color: var(--primary);
     text-shadow: -10px 10px 0 var(--shadow-color);
@@ -67,4 +79,17 @@
     border-color: var(--primary-3);
     border-width: 10px;
     border-radius: 15px;
+}
+
+.title-container {
+    flex-grow: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    align-items: center;
+    margin-top: 0;
+    align-self: auto;
+    flex-direction: row;
+    justify-content: center;
+    top: 5%;
 }

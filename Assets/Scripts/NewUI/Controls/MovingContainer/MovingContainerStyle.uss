@@ -1,0 +1,9 @@
+.moving-container {
+    transition-duration: 3s;
+    transition-timing-function: ease-in-out-sine;
+    rotate: -5deg;
+}
+
+.moving-container-transition {
+    rotate: 5deg;
+}

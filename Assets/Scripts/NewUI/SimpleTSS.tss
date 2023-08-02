@@ -7,4 +7,5 @@
 @import url("Controls/Simple/Button/BaseButtonStyle.uss");
 @import url("Controls/Simple/Slider/SliderStyle.uss");
 @import url("Controls/Simple/CommonStyle.uss");
+@import url("Controls/MovingContainer/MovingContainerStyle.uss");
 @import url("MainMenu/MainMenuStyle.uss")

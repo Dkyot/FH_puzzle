@@ -1,6 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <ui:VisualElement name="Page" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: column; align-items: auto; align-self: stretch; width: 100%; height: 100%;">
-        <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); position: absolute; top: 0; right: 0; bottom: 0; left: 0; justify-content: center; align-items: center;">
+        <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); position: absolute; top: 2px; right: -20px; bottom: -2px; left: 20px; justify-content: center; align-items: center;">
             <ui:Label tabindex="-1" text="...&#10;На фоне какая-нибудь &#10;картинка с девочкой&#10;..." display-tooltip-when-elided="true" style="-unity-text-align: upper-center;" />
         </ui:VisualElement>
         <ui:VisualElement name="Menu" style="left: auto; top: 0; right: 0; bottom: 0; position: absolute; justify-content: flex-end; align-items: auto;">
@@ -10,7 +10,7 @@
                 <FH.UI.RoundButton Label="Settings" />
             </ui:VisualElement>
         </ui:VisualElement>
-        <ui:VisualElement name="TitleContainer" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); position: absolute; left: 0; right: 0; align-items: center; margin-top: 0; align-self: auto; flex-direction: row; justify-content: center; rotate: 0; top: 5%;">
+        <FH.UI.MovingContainer name="MovingContainer" class="title-container">
             <ui:VisualElement style="flex-grow: 0; background-color: rgba(0, 0, 0, 0);">
                 <ui:VisualElement class="decorative-line" style="rotate: 20deg; translate: -15px -35px;" />
                 <ui:VisualElement class="decorative-line" style="translate: -70px 0; rotate: 0;" />
@@ -22,6 +22,6 @@
                 <ui:VisualElement class="decorative-line" style="translate: 118px 0; rotate: 7deg;" />
                 <ui:VisualElement class="decorative-line" style="rotate: 20deg; translate: 17px 36px;" />
             </ui:VisualElement>
-        </ui:VisualElement>
+        </FH.UI.MovingContainer>
     </ui:VisualElement>
 </ui:UXML>

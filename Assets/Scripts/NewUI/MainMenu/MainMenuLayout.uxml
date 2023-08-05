@@ -1,5 +1,5 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <FH.UI.MainMenu.MainMenuContainer style="flex-grow: 1;">
+    <FH.UI.MainMenu.MainMenuView style="position: absolute; left: 0; top: 0; right: 0; bottom: 0;">
         <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); position: absolute; top: 2px; right: -20px; bottom: -2px; left: 20px; justify-content: center; align-items: center;">
             <ui:Label tabindex="-1" text="...&#10;На фоне какая-нибудь &#10;картинка с девочкой&#10;..." display-tooltip-when-elided="true" style="-unity-text-align: upper-center;" />
         </ui:VisualElement>
@@ -23,5 +23,5 @@
                 <ui:VisualElement class="decorative-line" style="rotate: 20deg; translate: 17px 36px;" />
             </ui:VisualElement>
         </FH.UI.MovingContainer>
-    </FH.UI.MainMenu.MainMenuContainer>
+    </FH.UI.MainMenu.MainMenuView>
 </ui:UXML>

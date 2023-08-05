@@ -1,9 +1,7 @@
-namespace FH.UI {
-    public interface IView {
-        void Init();
-    }
+using UnityEngine.UIElements;
 
-    public abstract class ViewBase : IView {
+namespace FH.UI {
+    public abstract class ViewBase : VisualElement {
         public abstract void Init();
     }
 }

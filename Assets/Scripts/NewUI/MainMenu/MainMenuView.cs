@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace FH.UI.MainMenu {
-    public sealed class MainMenuContainer : VisualElement, IMainMenu, IView {
+    public sealed class MainMenuView : ViewBase  {
         public event Action playPressed {
             add => _playButton.clicked += value;
             remove => _playButton.clicked -= value;
@@ -24,10 +24,10 @@ namespace FH.UI.MainMenu {
         private Button _settingsButton;
         private VisualElement _buttonsContainer;
 
-        public MainMenuContainer() {
+        public MainMenuView() {
         }
 
-        public void Init() {
+        public override void Init() {
             var menuContainer = this.Q<VisualElement>("Menu");
             _buttonsContainer = menuContainer.Q<VisualElement>("ButtonsContainer");
 
@@ -37,12 +37,14 @@ namespace FH.UI.MainMenu {
         }
 
         public void Activate() {
+            style.display = DisplayStyle.Flex;
             _playButton.Focus();
         }
 
         public void Disable() {
+            style.display = DisplayStyle.None;
         }
 
-        public new sealed class UxmlFactory : UxmlFactory<MainMenuContainer, UxmlTraits> { }
+        public new sealed class UxmlFactory : UxmlFactory<MainMenuView, UxmlTraits> { }
     }
 }

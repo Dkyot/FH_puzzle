@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 
 namespace FH.UI.MainMenu {
     [RequireComponent(typeof(UIDocument))]
-    public class MainMenuScreenController : MonoBehaviour, IScreenController {
+    public class MainScreenController : MonoBehaviour, IScreenController {
         public UIDocument Document => _document;
 
         [SerializeField] private ViewController _initialView;

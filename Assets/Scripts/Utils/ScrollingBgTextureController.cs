@@ -8,14 +8,16 @@ namespace FH.Utils {
         [SerializeField] private Camera _renderCamera;
 
         private void Awake() {
-            _renderCamera.enabled = false;
+            DisableRendering();
         }
 
         public void EnableRendering() {
+            gameObject.SetActive(true);
             _renderCamera.enabled = true;
         }
 
         public void DisableRendering() {
+            gameObject.SetActive(true);
             _renderCamera.enabled = false;
         }
     }

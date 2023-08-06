@@ -10,10 +10,8 @@
     --primary-2: #554e74;
     --primary-3: #39284A;
 
-    --secondary: #D885A3;
+    --secondary: #fff;
 
-    --card-color: rgb(21, 173, 16);
-    
     --fancy-font: resource('BalsamiqSans SDF');
 }
 

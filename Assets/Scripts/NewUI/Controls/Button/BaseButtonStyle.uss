@@ -17,6 +17,10 @@
     transition-property: border-width;
 }
 
+.base-button:focus {
+    border-color: var(--secondary);
+}
+
 .base-button>.background {
     flex-grow: 1;
     background-color: var(--primary);

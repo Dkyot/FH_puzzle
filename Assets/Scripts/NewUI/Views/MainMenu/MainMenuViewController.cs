@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace FH.UI.MainMenu {
-    public class MainMenuViewController : ViewController {
+namespace FH.UI.Views.MainMenu {
+    public sealed class MainMenuViewController : ViewController {
         private MainMenuView _mainMenu;
 
         [SerializeField] private ViewController _settingsView;

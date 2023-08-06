@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UIElements;
 
-namespace FH.UI.MainMenu {
+namespace FH.UI.Screens.MainScreen {
     [RequireComponent(typeof(UIDocument))]
-    public class MainScreenController : MonoBehaviour, IScreenController {
+    public sealed class MainScreenController : MonoBehaviour, IScreenController {
         public UIDocument Document => _document;
 
         [SerializeField] private ViewController _initialView;

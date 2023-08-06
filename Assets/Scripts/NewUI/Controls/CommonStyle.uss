@@ -13,6 +13,8 @@
     --secondary: #D885A3;
 
     --card-color: rgb(21, 173, 16);
+    
+    --fancy-font: resource('BalsamiqSans SDF');
 }
 
 .unity-label {
@@ -25,7 +27,7 @@
 }
 
 .fancy {
-    -unity-font-definition: resource('BalsamiqSans SDF');
+    -unity-font-definition: var(--fancy-font);
 }
 
 .text_shadow {

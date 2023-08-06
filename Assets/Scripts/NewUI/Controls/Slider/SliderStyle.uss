@@ -28,12 +28,12 @@
 }
 
 .unity-base-slider__dragger {
-    width: 25px;
-    height: 25px;
+    width: 40px;
+    height: 40px;
     background-color: var(--primary-2);
     border-color: var(--button-border-color);
     border-width: var(--border-width);
-    padding: var(--border-width);
+    padding: 4px;
     rotate: 45deg;
     border-radius: 5px;
     position: absolute;
@@ -41,9 +41,9 @@
 }
 
 .unity-base-slider--horizontal .unity-base-slider__dragger {
-    margin-top: -20px;
-    margin-left: -5px;
-    margin-right: -5px;
+    margin-top: -21px;
+    margin-left: -10px;
+    margin-right: -10px;
     top: 50%;
 }
 
@@ -96,6 +96,7 @@
     width: 100%;
     background-color: var(--primary);
     border-radius: 2px;
+    /*rotate: 45deg;*/
 }
 
 .left-filler {
@@ -113,4 +114,12 @@
     width: 100%;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+}
+
+.unity-slider:focus .unity-base-field__input {
+    border-color: var(--secondary);
+}
+
+.unity-slider:focus .unity-base-slider__dragger {
+    border-color: var(--secondary);
 }

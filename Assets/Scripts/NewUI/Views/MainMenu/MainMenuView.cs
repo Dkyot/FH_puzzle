@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace FH.UI.MainMenu {
+namespace FH.UI.Views.MainMenu {
     public sealed class MainMenuView : ViewBase  {
         public event Action playPressed {
             add => _playButton.clicked += value;

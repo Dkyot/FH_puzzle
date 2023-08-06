@@ -1,0 +1,49 @@
+SettingsView {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+#Title {
+    font-size: 70px;
+    -unity-text-align: upper-center;
+    -unity-font-style: bold;
+    -unity-text-outline-width: 6px;
+    -unity-text-outline-color: var(--primary-3);
+    text-shadow: -5px 5px 0 var(--shadow-color);
+}
+
+.unity-base-slider .unity-label {
+    min-width: 20%;
+    -unity-font-definition: var(--fancy-font);
+    font-size: 40px;
+}
+
+.settings-section {
+    margin-left: 10%;
+    margin-right: 10%;
+    padding: 2%;
+    border-radius: 20px;
+    background-color: rgba(169, 132, 214, 0.4);
+    border-width: 10px;
+    border-color: var(--primary-3);
+}
+
+.settings-section > .title {
+    font-size: 50px;
+    -unity-text-align: upper-center;
+    -unity-font-style: bold;
+    -unity-text-outline-width: 4px;
+    -unity-text-outline-color: var(--primary-3);
+}
+
+.settings-section > * {
+    margin-bottom: 30px;
+}
+
+#DoneButton {
+    margin-top: 40px;
+    width: 30%;
+}

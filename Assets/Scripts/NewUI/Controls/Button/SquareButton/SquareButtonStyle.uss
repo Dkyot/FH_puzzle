@@ -5,8 +5,8 @@
 }
 
 .square_button>.background {
-    border-bottom-right-radius: 15px;
-    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
     align-items: center;
     justify-content: center;
     border-left-width: 0;

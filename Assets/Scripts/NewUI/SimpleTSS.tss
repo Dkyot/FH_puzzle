@@ -8,4 +8,3 @@
 @import url("Controls/Slider/SliderStyle.uss");
 @import url("Controls/CommonStyle.uss");
 @import url("Controls/MovingContainer/MovingContainerStyle.uss");
-@import url("MainScreen/MainScreenStyle.uss")

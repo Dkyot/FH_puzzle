@@ -1,17 +1,17 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:VisualElement name="VisualElement" style="background-image: url(&apos;project://database/Assets/Materials/RenderTexture/ScrollingBGTexture.renderTexture?fileID=8400000&amp;guid=239445fec4c99714d96f1206e5e54a23&amp;type=2#ScrollingBGTexture&apos;); position: absolute; left: 0; top: 0; right: 0; bottom: 0; -unity-background-scale-mode: scale-and-crop;" />
-    <FH.UI.MainMenu.MainMenuView style="position: absolute; left: 0; top: 0; right: 0; bottom: 0;">
-        <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); position: absolute; top: 2px; right: -20px; bottom: -2px; left: 20px; justify-content: center; align-items: center;">
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
+    <Style src="project://database/Assets/Scripts/NewUI/Views/MainMenu/MainMenuViewStyle.uss?fileID=7433441132597879392&amp;guid=f3683f1169294e818982a315529fcb10&amp;type=3#MainMenuViewStyle" />
+    <FH.UI.Views.MainMenu.MainMenuView picking-mode="Ignore">
+        <ui:VisualElement name="VisualElement" picking-mode="Ignore" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); position: absolute; top: 0; right: 0; bottom: 0; left: 0; justify-content: center; align-items: center;">
             <ui:Label tabindex="-1" text="...&#10;На фоне какая-нибудь &#10;картинка с девочкой&#10;..." display-tooltip-when-elided="true" style="-unity-text-align: upper-center;" />
         </ui:VisualElement>
-        <ui:VisualElement name="Menu" style="left: auto; top: 0; right: 0; bottom: 0; position: absolute; justify-content: flex-end; align-items: auto;">
-            <ui:VisualElement name="ButtonsContainer" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); justify-content: flex-start; align-items: auto; align-self: auto; flex-direction: column; height: 50%;">
+        <ui:VisualElement name="Menu" picking-mode="Ignore" style="left: auto; top: 0; right: 0; bottom: 0; position: absolute; justify-content: flex-end; align-items: auto;">
+            <ui:VisualElement name="ButtonsContainer" picking-mode="Ignore" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); justify-content: flex-start; align-items: auto; align-self: auto; flex-direction: column; height: 50%;">
                 <FH.UI.RoundButton Label="Play" name="PlayButton" style="flex-grow: 0;" />
                 <FH.UI.RoundButton Label="Gallery" name="GalleryButton" class="reversed-rotate" />
                 <FH.UI.RoundButton Label="Settings" name="SettingsButton" />
             </ui:VisualElement>
         </ui:VisualElement>
-        <FH.UI.MovingContainer name="MovingContainer" class="title-container">
+        <FH.UI.MovingContainer name="MovingContainer" picking-mode="Ignore" class="title-container">
             <ui:VisualElement style="flex-grow: 0; background-color: rgba(0, 0, 0, 0);">
                 <ui:VisualElement class="decorative-line" style="rotate: 20deg; translate: -15px -35px;" />
                 <ui:VisualElement class="decorative-line" style="translate: -70px 0; rotate: 0;" />
@@ -24,5 +24,5 @@
                 <ui:VisualElement class="decorative-line" style="rotate: 20deg; translate: 17px 36px;" />
             </ui:VisualElement>
         </FH.UI.MovingContainer>
-    </FH.UI.MainMenu.MainMenuView>
+    </FH.UI.Views.MainMenu.MainMenuView>
 </ui:UXML>

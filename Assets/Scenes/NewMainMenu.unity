@@ -215,6 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 552b4371e83e4f0eb330682967c2e11d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _viewAfter: {fileID: 192632330}
   _bgTextureController: {fileID: 1252978484}
 --- !u!1 &568939116
 GameObject:

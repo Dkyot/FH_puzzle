@@ -1,21 +1,29 @@
-#ButtonsContainer {
+﻿MainMenuView {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+MainMenuView #ButtonsContainer {
     width: 320px;
     margin-right: 60px;
 }
 
-#ButtonsContainer > * {
+MainMenuView #ButtonsContainer > * {
     margin-bottom: 30px;
 }
 
-.base-button {
+MainMenuView .base-button {
     margin-left: 20px;
     margin-right: 20px;
     transition-duration: 100ms;
     transition-property: margin, rotate, scale;
-    border-width: 0;
+    /*border-width: 0;*/
 }
 
-.base-button:focus {
+MainMenuView .base-button:focus {
     border-width: var(--border-width);
     margin-left: 0;
     margin-right: 0;
@@ -23,7 +31,7 @@
     transition-property: margin;
 }
 
-.base-button:hover {
+MainMenuView .base-button:hover {
     border-width: var(--border-width);
     margin-left: 0;
     margin-right: 0;
@@ -31,33 +39,33 @@
     transition-property: margin;
 }
 
-.base-button:focus {
+MainMenuView .base-button:focus {
     transition-duration: 100ms;
     transition-property: rotate, scale;
     rotate: 5deg;
     scale: 1.1;
 }
 
-.base-button:hover {
+MainMenuView .base-button:hover {
     transition-duration: 100ms;
     transition-property: rotate, scale;
     rotate: 5deg;
     scale: 1.1;
 }
 
-.reversed-rotate:hover {
+MainMenuView .reversed-rotate:hover {
     transition-property: rotate;
     transition-duration: 100ms;
     rotate: -5deg;
 }
 
-.reversed-rotate:focus {
+MainMenuView .reversed-rotate:focus {
     transition-property: rotate;
     transition-duration: 100ms;
     rotate: -5deg;
 }
 
-.title {
+MainMenuView #Title {
     font-size: 70px;
     justify-content: flex-start;
     -unity-text-align: upper-center;
@@ -71,7 +79,7 @@
     -unity-paragraph-spacing: -50px;
 }
 
-.decorative-line {
+MainMenuView .decorative-line {
     flex-grow: 0;
     background-color: rgb(255, 255, 255);
     width: 70px;
@@ -81,7 +89,7 @@
     border-radius: 15px;
 }
 
-.title-container {
+MainMenuView .title-container {
     flex-grow: 0;
     position: absolute;
     left: 0;

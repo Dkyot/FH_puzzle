@@ -9,6 +9,7 @@ namespace FH.UI.Views.MainMenu {
         private MainMenuView _mainMenu;
 
         [SerializeField] private ViewController _settingsView;
+        [SerializeField] private ViewController _playView;
 
         public override void ShowView() {
             _mainMenu.Activate();
@@ -22,6 +23,11 @@ namespace FH.UI.Views.MainMenu {
             _mainMenu = ScreenController.Document.rootVisualElement.Q<MainMenuView>();
             _mainMenu.Init();
             _mainMenu.settingsPressed += OnSettingPressed;
+            _mainMenu.playPressed += OnPlayPressed;
+        }
+
+        private void OnPlayPressed() {
+            ScreenController.ShowView(_playView);
         }
 
         private void OnSettingPressed() {
@@ -30,6 +36,7 @@ namespace FH.UI.Views.MainMenu {
 
         private void OnDisable() {
             _mainMenu.settingsPressed -= OnSettingPressed;
+            _mainMenu.playPressed -= OnPlayPressed;
         }
     }
 }

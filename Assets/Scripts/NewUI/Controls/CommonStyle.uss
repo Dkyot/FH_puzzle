@@ -13,6 +13,7 @@
     --secondary: #fff;
 
     --fancy-font: resource('BalsamiqSans SDF');
+    --handwritten-font: resource('ComforterBrush SDF');
 }
 
 .unity-label {
@@ -28,6 +29,10 @@
     -unity-font-definition: var(--fancy-font);
 }
 
+.handwritten {
+    -unity-font-definition: var(--handwritten-font); 
+}
+
 .text_shadow {
     text-shadow: 0 12px 0 var(--shadow-color);
 }
@@ -40,4 +45,18 @@
     width: 50px;
     height: 50px;
     -unity-background-scale-mode: scale-to-fit;
+}
+
+.card-container {
+    padding: 2%;
+    border-radius: 20px;
+    background-color: rgba(169, 132, 214, 0.4);
+    border-width: 10px;
+    border-color: var(--primary-3);
+}
+
+.cool-text {
+    -unity-font-style: bold;
+    -unity-text-outline-width: 6px;
+    -unity-text-outline-color: var(--primary-3);
 }

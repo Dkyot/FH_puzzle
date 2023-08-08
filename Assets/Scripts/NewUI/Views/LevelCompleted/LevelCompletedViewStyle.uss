@@ -80,6 +80,7 @@ LevelCompletedView {
 
 .photo-image {
     background-color: black;
+    flex-grow: 1;
 }
 
 .photo-text {

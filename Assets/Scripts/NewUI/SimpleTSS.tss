@@ -6,5 +6,6 @@
 @import url("Controls/Button/CircleButton/CircleButtonStyle.uss");
 @import url("Controls/Button/BaseButtonStyle.uss");
 @import url("Controls/Slider/SliderStyle.uss");
+@import url("Controls/PhotoCard/PhotoCardStyle.uss");
 @import url("Controls/CommonStyle.uss");
 @import url("Controls/MovingContainer/MovingContainerStyle.uss");

@@ -1,0 +1,48 @@
+.photo-card {
+    background-color: #D6D6D6;
+    padding: 20px;
+    padding-bottom: 0;
+    flex-grow: 0;
+    height: 700px;
+    width: 700px;
+}
+
+.photo-card-image {
+    background-color: black;
+    flex-grow: 1;
+}
+
+.photo-card-label-container {
+    flex-grow: 0;
+    flex-direction: row;
+}
+
+.photo-card-text {
+    color: black;
+    -unity-font-definition: var(--handwritten-font);
+    -unity-text-align: middle-left;
+    font-size: 50px;
+    flex-grow: 1;
+}
+
+.photo-card-heart {
+    letter-spacing: -15px;
+    flex-grow: 0;
+    rotate: -70deg;
+    font-size: 60px;
+}
+
+.photo-card-animation, .photo-card-animation * {
+    transition-duration: 1s;
+}
+
+.photo-card-transition  {
+    scale: 1.2;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.photo-card-transition * {
+    background-color: rgba(255, 255, 255, 0);
+    -unity-background-image-tint-color: rgba(255, 255, 255, 0);
+    color: rgba(255, 255, 255, 0);
+}

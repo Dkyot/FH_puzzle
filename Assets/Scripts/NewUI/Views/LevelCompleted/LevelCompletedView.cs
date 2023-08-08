@@ -9,9 +9,6 @@ namespace FH.UI.Views.LevelCompleted {
     public sealed class LevelCompletedView : ViewBase {
         private const string _rangTransitionClass = "rang-transition";
         private const string _rangAnimationClass = "rang-animation";
-
-        private const string _photoTransitionClass = "photo-transition";
-        private const string _photoAnimationClass = "photo-animation";
         
         public event Action backButtonPressed {
             add => _backButton.clicked += value;
@@ -19,13 +16,13 @@ namespace FH.UI.Views.LevelCompleted {
         }
 
         private Label _rang;
-        private VisualElement _photo;
+        private PhotoCard _photo;
 
         private Button _backButton;
 
         public override void Init() {
             _rang = this.Q<Label>("Rang");
-            _photo = this.Q("Photo");
+            _photo = this.Q<PhotoCard>("Photo");
             _backButton = this.Q<Button>("BackButton");
         }
 
@@ -33,11 +30,10 @@ namespace FH.UI.Views.LevelCompleted {
             style.display = DisplayStyle.Flex;
             schedule.Execute(() =>
             {
-                _photo.RemoveFromClassList(_photoTransitionClass);
-                _rang.AddToClassList(_rangAnimationClass);
-
                 _rang.RemoveFromClassList(_rangTransitionClass);
-                _photo.AddToClassList(_photoAnimationClass);
+                _rang.AddToClassList(_rangAnimationClass);
+                
+                _photo.StartAnimation();
             }).ExecuteLater(100);
         }
 
@@ -48,8 +44,7 @@ namespace FH.UI.Views.LevelCompleted {
             _rang.RemoveFromClassList(_rangAnimationClass);
             _rang.AddToClassList(_rangTransitionClass);
 
-            _photo.RemoveFromClassList(_photoAnimationClass);
-            _photo.AddToClassList(_photoTransitionClass);
+            _photo.ResetAnimation();
         }
 
         public new sealed class UxmlFactory : UxmlFactory<LevelCompletedView, UxmlTraits> { }

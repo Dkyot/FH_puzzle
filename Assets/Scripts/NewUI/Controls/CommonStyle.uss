@@ -12,6 +12,7 @@
 
     --secondary: #fff;
 
+    --default-font: resource('LiberationSans SDF');
     --fancy-font: resource('BalsamiqSans SDF');
     --handwritten-font: resource('ComforterBrush SDF');
 }

@@ -38,66 +38,10 @@ LevelCompletedView {
 
 .score-line-value {
     font-size: 40px;
-    /*-unity-text-align: upper-center;*/
-    /*-unity-text-outline-width: 2px;*/
-    /*-unity-text-outline-color: var(--primary-3);*/
     -unity-font-definition: var(--fancy-font);
-    /*-unity-text-align: middle-right;*/
     flex-grow: 0;
     align-items: auto;
     align-self: auto;
     text-overflow: ellipsis;
     white-space: nowrap;
-}
-
-.rang {
-    font-size: 250px;
-    justify-content: flex-start;
-    -unity-text-align: upper-center;
-    -unity-font-style: bold;
-    -unity-text-outline-width: 12px;
-    -unity-text-outline-color: var(--primary-3);
-    text-shadow: -10px 10px 0 var(--shadow-color);
-    letter-spacing: -25px;
-    word-spacing: 0;
-    rotate: 5deg;
-}
-
-.rang-animation {
-    transition-duration: 1s; 
-}
-
-.rang-transition {
-    -unity-text-outline-color: rgba(255, 255, 255, 0);
-    text-shadow: -10px 10px 0 rgba(255, 255, 255, 0);
-    color: rgba(255, 255, 255, 0);
-    scale: 1.2;
-}
-
-.photo {
-    background-color: #D6D6D6;
- }
-
-.photo-image {
-    background-color: black;
-    flex-grow: 1;
-}
-
-.photo-text {
-    color: black;
-}
-
-.photo-animation, .photo-animation * {
-    transition-duration: 1s; 
-}
-
-.photo-transition  {
-    scale: 1.2;
-    background-color: rgba(255, 255, 255, 0);
-}
-
-.photo-transition * {
-    background-color: rgba(255, 255, 255, 0);
-    -unity-background-image-tint-color: rgba(255, 255, 255, 0);
-    color: rgba(255, 255, 255, 0);
 }

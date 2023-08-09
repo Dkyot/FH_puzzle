@@ -15,35 +15,29 @@ namespace FH.UI.Views.LevelCompleted {
             remove => _backButton.clicked -= value;
         }
 
-        private Label _rang;
+        private Rang _rang;
         private PhotoCard _photo;
 
         private Button _backButton;
 
         public override void Init() {
-            _rang = this.Q<Label>("Rang");
+            _rang = this.Q<Rang>("Rang");
             _photo = this.Q<PhotoCard>("Photo");
             _backButton = this.Q<Button>("BackButton");
         }
 
         public void Show() {
             style.display = DisplayStyle.Flex;
-            schedule.Execute(() =>
-            {
-                _rang.RemoveFromClassList(_rangTransitionClass);
-                _rang.AddToClassList(_rangAnimationClass);
-                
+            schedule.Execute(() => {
+                _rang.StartAnimation();
                 _photo.StartAnimation();
             }).ExecuteLater(100);
         }
 
-
         public void Hide() {
             style.display = DisplayStyle.None;
-
-            _rang.RemoveFromClassList(_rangAnimationClass);
-            _rang.AddToClassList(_rangTransitionClass);
-
+            
+            _rang.ResetAnimation();
             _photo.ResetAnimation();
         }
 

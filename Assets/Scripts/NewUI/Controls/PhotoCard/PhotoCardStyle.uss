@@ -1,5 +1,5 @@
 .photo-card {
-    background-color: #D6D6D6;
+    background-color: #FFF;
     padding: 20px;
     padding-bottom: 0;
     flex-grow: 0;
@@ -14,6 +14,7 @@
 
 .photo-card-label-container {
     flex-grow: 0;
+    height: 70px;
     flex-direction: row;
 }
 
@@ -30,6 +31,17 @@
     flex-grow: 0;
     rotate: -70deg;
     font-size: 60px;
+}
+
+.photo-card-image .photo-card-hidden-label {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    -unity-font-definition: var(--handwritten-font);
+    -unity-text-align: middle-center;
+    font-size: 50px;
 }
 
 .photo-card-animation, .photo-card-animation * {

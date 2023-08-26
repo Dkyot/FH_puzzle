@@ -6,12 +6,13 @@ namespace FH.UI {
 
         public void Init() {
             if (_isInited) return;
-            OnInit();
             _isInited = true;
+            OnInit();
         }
 
         public virtual void Show() {
             style.display = DisplayStyle.Flex;
+            // this.BringToFront();
         }
 
         public virtual void Hide() {

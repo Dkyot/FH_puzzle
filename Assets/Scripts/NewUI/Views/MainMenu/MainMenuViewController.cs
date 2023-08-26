@@ -5,25 +5,24 @@ using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace FH.UI.Views.MainMenu {
-    public sealed class MainMenuViewController : ViewController {
-        private MainMenuView _mainMenu;
-
+    public sealed class MainMenuViewController : ViewController<MainMenuView> {
         [SerializeField] private ViewController _settingsView;
+        [SerializeField] private ViewController _galleryView;
         [SerializeField] private ViewController _playView;
 
         public override void ShowView() {
-            _mainMenu.Show();
+            view.Show();
         }
 
         public override void HideView() {
-            _mainMenu.Hide();
+            view.Hide();
         }
 
         protected override void OnScreenControllerSet() {
-            _mainMenu = ScreenController.Document.rootVisualElement.Q<MainMenuView>();
-            _mainMenu.Init();
-            _mainMenu.SettingsPressed += OnSettingPressed;
-            _mainMenu.PlayPressed += OnPlayPressed;
+            base.OnScreenControllerSet();
+            view.SettingsPressed += OnSettingPressed;
+            view.PlayPressed += OnPlayPressed;
+            view.GalleryPressed += OnGalleryPressed;
         }
 
         private void OnPlayPressed() {
@@ -33,10 +32,15 @@ namespace FH.UI.Views.MainMenu {
         private void OnSettingPressed() {
             ScreenController.ShowView(_settingsView);
         }
+        
+        private void OnGalleryPressed() {
+            ScreenController.ShowView(_galleryView);
+        }
 
         private void OnDisable() {
-            _mainMenu.SettingsPressed -= OnSettingPressed;
-            _mainMenu.PlayPressed -= OnPlayPressed;
+            view.SettingsPressed -= OnSettingPressed;
+            view.GalleryPressed -= OnGalleryPressed;
+            view.PlayPressed -= OnPlayPressed;
         }
     }
 }

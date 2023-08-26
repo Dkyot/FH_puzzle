@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 192632330}
   - component: {fileID: 192632332}
   - component: {fileID: 192632333}
+  - component: {fileID: 192632334}
   m_Layer: 5
   m_Name: UIDocument
   m_TagString: Untagged
@@ -188,6 +189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _settingsView: {fileID: 192632332}
+  _galleryView: {fileID: 192632334}
   _playView: {fileID: 192632333}
 --- !u!114 &192632331
 MonoBehaviour:
@@ -206,6 +208,7 @@ MonoBehaviour:
   - {fileID: 192632330}
   - {fileID: 192632332}
   - {fileID: 192632333}
+  - {fileID: 192632334}
 --- !u!114 &192632332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,6 +233,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b38e5014b7bd8c04e8a1187d73984126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bgTextureController: {fileID: 1252978484}
+  _viewOnBack: {fileID: 192632330}
+--- !u!114 &192632334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 192632327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a26883940d324045a6660835e920eb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _viewOnBack: {fileID: 192632330}

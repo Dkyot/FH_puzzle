@@ -17,7 +17,7 @@
     transition-property: border-width;
 }
 
-.base-button:focus {
+.base-button:focus, .base-button:hover {
     border-color: var(--secondary);
 }
 

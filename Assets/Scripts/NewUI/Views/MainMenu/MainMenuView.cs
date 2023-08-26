@@ -27,11 +27,6 @@ namespace FH.UI.Views.MainMenu {
         public MainMenuView() {
         }
 
-        public override void Show() {
-            base.Show();
-            _playButton.Focus();
-        }
-
         protected override void OnInit() {
             var menuContainer = this.Q<VisualElement>("Menu");
             _buttonsContainer = menuContainer.Q<VisualElement>("ButtonsContainer");

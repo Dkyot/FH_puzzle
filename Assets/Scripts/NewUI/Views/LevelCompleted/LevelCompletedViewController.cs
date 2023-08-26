@@ -6,18 +6,18 @@ using UnityEngine.UIElements;
 
 namespace FH.UI.Views.LevelCompleted {
     public sealed class LevelCompletedController : ViewController {
-        [SerializeField] private ViewController _viewOnBack;
         [SerializeField] private ScrollingBgTextureController _bgTextureController;
+        [SerializeField] private ViewController _viewOnBack;
         private LevelCompletedView _levelCompletedView;
         
         public override void ShowView() {
-            _levelCompletedView.backButtonPressed += OnBackPressed;
+            _levelCompletedView.BackButtonPressed += OnBackPressed;
             _bgTextureController.EnableRendering();
             _levelCompletedView.Show();
         }
 
         public override void HideView() {
-            _levelCompletedView.backButtonPressed -= OnBackPressed;
+            _levelCompletedView.BackButtonPressed -= OnBackPressed;
             _bgTextureController.DisableRendering();
             _levelCompletedView.Hide();
         }

@@ -32,30 +32,27 @@
 .unity-base-slider__dragger {
     width: 40px;
     height: 40px;
-    max-height: 40px;
-    max-width: 40px;
     background-color: var(--primary-2);
     border-color: var(--button-border-color);
     border-width: var(--border-width);
-    padding: 4px;
-    rotate: 45deg;
     border-radius: 5px;
     position: absolute;
     /* padding: 2px; */
 }
 
 .unity-base-slider--horizontal .unity-base-slider__dragger {
+    padding: 4px;
     margin-top: -21px;
     margin-left: -10px;
     margin-right: -10px;
+    rotate: 45deg;
     top: 50%;
 }
 
 .unity-base-slider--vertical .unity-base-slider__dragger {
     margin-left: -20px;
     left: 50%;
-    width: 40px;
-    height: 40px;
+    border-radius: 20px;
 }
 
 .unity-base-slider__tracker {

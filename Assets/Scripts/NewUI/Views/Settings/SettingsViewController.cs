@@ -23,7 +23,7 @@ namespace FH.UI.Views.Settings {
         protected override void OnScreenControllerSet() {
             _settingsView = ScreenController.Document.rootVisualElement.Q<SettingsView>();
             _settingsView.Init();
-            _settingsView.donePressed += OnDonePressed;
+            _settingsView.DonePressed += OnDonePressed;
         }
 
         private void OnDonePressed() {
@@ -31,7 +31,7 @@ namespace FH.UI.Views.Settings {
         }
 
         private void OnDisable() {
-            _settingsView.donePressed -= OnDonePressed;
+            _settingsView.DonePressed -= OnDonePressed;
         }
     }
 }

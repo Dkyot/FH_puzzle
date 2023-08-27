@@ -10,12 +10,12 @@ namespace FH.UI.Views.Settings {
         
         public override void ShowView() {
             _bgTextureController.EnableRendering();
-            view.Show();
+            base.ShowView();
         }
 
         public override void HideView() {
             _bgTextureController.DisableRendering();
-            view.Hide();
+            base.HideView();
         }
 
         protected override void OnScreenControllerSet() {

@@ -10,14 +10,6 @@ namespace FH.UI.Views.MainMenu {
         [SerializeField] private ViewController _galleryView;
         [SerializeField] private ViewController _playView;
 
-        public override void ShowView() {
-            view.Show();
-        }
-
-        public override void HideView() {
-            view.Hide();
-        }
-
         protected override void OnScreenControllerSet() {
             base.OnScreenControllerSet();
             view.SettingsPressed += OnSettingPressed;

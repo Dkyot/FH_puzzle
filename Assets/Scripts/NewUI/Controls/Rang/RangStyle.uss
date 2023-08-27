@@ -5,23 +5,18 @@
     -unity-text-outline-width: 12px;
     -unity-text-outline-color: var(--primary-3);
     text-shadow: -10px 10px 0 var(--shadow-color);
-    letter-spacing: -25px;
     -unity-font-definition: var(--default-font);
+    letter-spacing: -25px;
     rotate: 5deg;
 }
 
-.rang-animation,
-.rang-animation > .rang-ss,
-.rang-animation > .rang-s,
-.rang-animation > .rang-a,
-.rang-animation > .rang-b,
-.rang-animation > .rang-c,
-.rang-animation > .rang-d {
+.rang-animation {
     transition-duration: 1s;
 }
 
 .rang-transition {
     scale: 1.2;
+    opacity: 0;
 }
 
 .rang-transition > .rang-ss,

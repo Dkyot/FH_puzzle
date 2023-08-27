@@ -21,6 +21,14 @@ namespace FH.UI {
     public abstract class ViewController<T> : ViewController where T : ViewBase {
         protected T view;
 
+        public override void HideView() {
+            view.Hide();
+        }
+
+        public override void ShowView() {
+            view.Show();
+        }
+
         protected override void OnScreenControllerSet() {
             view = ScreenController.Document.rootVisualElement.Q<T>();
             view.Init();

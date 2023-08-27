@@ -44,17 +44,12 @@
     font-size: 50px;
 }
 
-.photo-card-animation, .photo-card-animation * {
+.photo-card-animation {
     transition-duration: 1s;
 }
 
 .photo-card-transition  {
     scale: 1.2;
     background-color: rgba(255, 255, 255, 0);
-}
-
-.photo-card-transition * {
-    background-color: rgba(255, 255, 255, 0);
-    -unity-background-image-tint-color: rgba(255, 255, 255, 0);
-    color: rgba(255, 255, 255, 0);
+    opacity: 0;
 }

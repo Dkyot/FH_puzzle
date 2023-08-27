@@ -58,6 +58,11 @@
 
 .cool-text {
     -unity-font-style: bold;
-    -unity-text-outline-width: 6px;
+    -unity-text-outline-width: 5px;
     -unity-text-outline-color: var(--primary-3);
+    text-shadow: -5px 5px 0 var(--shadow-color);
+}
+
+.unity-scroll-view__content-viewport, .unity-scroll-view__content-container, .unity-scroll-view__content-and-vertical-scroll-container {
+    flex-grow: 1;
 }

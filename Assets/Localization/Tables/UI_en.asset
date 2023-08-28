@@ -18,8 +18,48 @@ MonoBehaviour:
   m_Metadata:
     m_Items: []
   m_TableData:
-  - m_Id: 12825506127872
-    m_Localized: cock
+  - m_Id: 312619059421184
+    m_Localized: Play
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312846994677760
+    m_Localized: Gallery
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312916234248192
+    m_Localized: Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 316143675678720
+    m_Localized: Back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 316218548199424
+    m_Localized: '- Level Select -'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 372474214391808
+    m_Localized: Volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 371593804816384
+    m_Localized: Done
+    m_Metadata:
+      m_Items: []
+  - m_Id: 380615459119104
+    m_Localized: Master
+    m_Metadata:
+      m_Items: []
+  - m_Id: 380780228157440
+    m_Localized: Music
+    m_Metadata:
+      m_Items: []
+  - m_Id: 380856006647808
+    m_Localized: SFX
+    m_Metadata:
+      m_Items: []
+  - m_Id: 381406169309184
+    m_Localized: '- Settings -'
     m_Metadata:
       m_Items: []
   references:

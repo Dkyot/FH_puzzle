@@ -6,10 +6,10 @@ using UnityEngine.UIElements;
 
 namespace FH.UI {
     public class LocalizedLabel : Label {
-        public string Text {
-            get => _text;
+        public string Label {
+            get => _label;
             set {
-                _text = value;
+                _label = value;
                 UpdateLable();
             }
         }
@@ -23,14 +23,16 @@ namespace FH.UI {
         }
 
         private bool _isLocalizable = true;
-        private string _text;
+        private string _label;
+
+        private AsyncOperationHandle<string>? _handle;
 
         public LocalizedLabel() {
         }
 
         private void UpdateLable() {
             if (!_isLocalizable) {
-                text = _text;
+                text = _label;
                 return;
             }
 
@@ -39,7 +41,7 @@ namespace FH.UI {
                 return;
             }
 
-            text = $"# {_text}";
+            text = $"# {_label}";
         }
 
         private void UpdateIsLocalizable() {
@@ -58,19 +60,26 @@ namespace FH.UI {
         }
 
         private void LoadString() {
-            if (_text is null || _text.Length == 0)
+            if (_label is null || _label.Length == 0)
                 return;
 
             var operation = LocalizationSettings.StringDatabase.GetLocalizedStringAsync(
                 "UI",
-                _text
+                _label
             );
+
+            if (_handle.HasValue) {
+                _handle.Value.Completed -= OnStringLoadCompleted;
+            }
+
+            _handle = operation;
 
             operation.Completed += OnStringLoadCompleted;
         }
 
         private void OnStringLoadCompleted(AsyncOperationHandle<string> operationHandle) {
             text = operationHandle.Result;
+            _handle = null;
         }
 
         public new sealed class UxmlTraits : VisualElement.UxmlTraits {
@@ -82,7 +91,7 @@ namespace FH.UI {
 
                 var label = ve as LocalizedLabel;
                 var key = _label.GetValueFromBag(bag, cc);
-                label.Text = key;
+                label.Label = key;
 
                 var isLocalizable = _isLocalizable.GetValueFromBag(bag, cc);
                 label.IsLocalizable = isLocalizable;

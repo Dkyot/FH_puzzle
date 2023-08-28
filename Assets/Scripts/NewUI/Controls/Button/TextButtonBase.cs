@@ -7,8 +7,8 @@ namespace FH.UI {
         public const string buttonTextClassName = "button_text";
 
         public string Label {
-            get => label.Text;
-            set => label.Text = value;
+            get => label.Label;
+            set => label.Label = value;
         }
 
         public bool IsLocalizable {
@@ -39,6 +39,8 @@ namespace FH.UI {
                 var ate = ve as TextButtonBase;
                 var text = _label.GetValueFromBag(bag, cc);
                 ate.Label = text;
+
+                ate.IsLocalizable = _isLocalizable.GetValueFromBag(bag, cc);
             }
         }
     }

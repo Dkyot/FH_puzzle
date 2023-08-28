@@ -3,14 +3,23 @@
     <FH.UI.Views.Settings.SettingsView picking-mode="Ignore">
         <ui:VisualElement name="BG" picking-mode="Ignore" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); position: absolute; left: 0; top: 0; right: 0; bottom: 0; background-image: url(&apos;project://database/Assets/Materials/RenderTexture/ScrollingBGTexture.renderTexture?fileID=8400000&amp;guid=239445fec4c99714d96f1206e5e54a23&amp;type=2#ScrollingBGTexture&apos;); -unity-background-scale-mode: scale-and-crop;" />
         <ui:VisualElement name="VisualElement" picking-mode="Ignore" style="margin-left: 20%; margin-right: 20%; justify-content: center; align-items: stretch; align-self: auto; flex-grow: 1;">
-            <ui:Label tabindex="-1" text="- Settings -" display-tooltip-when-elided="false" name="Title" picking-mode="Ignore" enable-rich-text="false" class="fancy" style="margin-bottom: 50px;" />
-            <ui:VisualElement name="VolumeSection" picking-mode="Ignore" class="settings-section" style="flex-grow: 0;">
-                <ui:Label tabindex="-1" text="Volume" display-tooltip-when-elided="true" picking-mode="Ignore" style="justify-content: flex-start; align-items: stretch; -unity-text-align: upper-center; font-size: 40px;" />
-                <FH.UI.SimpleSlider label="Master" name="MasterSlider" />
-                <FH.UI.SimpleSlider label="Music" name="MusicSlider" />
-                <FH.UI.SimpleSlider label="SFX" name="SFXSlider" />
+            <FH.UI.LocalizedLabel tabindex="-1" Label="SETTINGS_TITLE" name="Title" class="fancy" style="-unity-text-align: middle-center; font-size: 70px; margin-bottom: 50px;" />
+            <ui:VisualElement name="VolumeSection" picking-mode="Ignore" class="settings-section" style="flex-grow: 0; margin-right: 5%; margin-left: 5%;">
+                <FH.UI.LocalizedLabel tabindex="-1" Label="VOLUME" class="text_shadow" style="-unity-text-align: middle-center; font-size: 40px; -unity-font-style: bold;" />
+                <ui:VisualElement style="flex-grow: 1; flex-direction: row;">
+                    <FH.UI.LocalizedLabel tabindex="-1" Label="MASTER" class="field-name" />
+                    <FH.UI.SimpleSlider name="MasterSlider" style="flex-grow: 1;" />
+                </ui:VisualElement>
+                <ui:VisualElement style="flex-grow: 1; flex-direction: row;">
+                    <FH.UI.LocalizedLabel tabindex="-1" Label="MUSIC" class="field-name" />
+                    <FH.UI.SimpleSlider name="MusicSlider" style="flex-grow: 1;" />
+                </ui:VisualElement>
+                <ui:VisualElement style="flex-grow: 1; flex-direction: row;">
+                    <FH.UI.LocalizedLabel tabindex="-1" Label="SFX" class="field-name" />
+                    <FH.UI.SimpleSlider name="SFXSlider" style="flex-grow: 1;" />
+                </ui:VisualElement>
             </ui:VisualElement>
-            <FH.UI.SquareButton name="DoneButton" Label="Done" style="width: 30%; align-self: center;" />
+            <FH.UI.SquareButton name="DoneButton" Label="DONE" style="width: 30%; align-self: center;" />
         </ui:VisualElement>
     </FH.UI.Views.Settings.SettingsView>
 </ui:UXML>

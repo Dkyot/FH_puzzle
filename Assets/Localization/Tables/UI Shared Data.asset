@@ -15,8 +15,48 @@ MonoBehaviour:
   m_TableCollectionName: UI
   m_TableCollectionNameGuidString: 85714bec580b2784ba93d648e54bd039
   m_Entries:
-  - m_Id: 12825506127872
-    m_Key: COCK
+  - m_Id: 312619059421184
+    m_Key: PLAY
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312846994677760
+    m_Key: GALLERY
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312916234248192
+    m_Key: SETTINGS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 316143675678720
+    m_Key: BACK
+    m_Metadata:
+      m_Items: []
+  - m_Id: 316218548199424
+    m_Key: LEVEL_SELECT_TITLE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 371593804816384
+    m_Key: DONE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 372474214391808
+    m_Key: VOLUME
+    m_Metadata:
+      m_Items: []
+  - m_Id: 380615459119104
+    m_Key: MASTER
+    m_Metadata:
+      m_Items: []
+  - m_Id: 380780228157440
+    m_Key: MUSIC
+    m_Metadata:
+      m_Items: []
+  - m_Id: 380856006647808
+    m_Key: SFX
+    m_Metadata:
+      m_Items: []
+  - m_Id: 381406169309184
+    m_Key: SETTINGS_TITLE
     m_Metadata:
       m_Items: []
   m_Metadata:

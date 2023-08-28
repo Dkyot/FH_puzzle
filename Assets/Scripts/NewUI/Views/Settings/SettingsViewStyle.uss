@@ -15,10 +15,13 @@ SettingsView {
     text-shadow: -5px 5px 0 var(--shadow-color);
 }
 
-.unity-base-slider .unity-label {
+.field-name, .unity-base-slider .unity-label {
     min-width: 20%;
-    -unity-font-definition: var(--fancy-font);
+    margin-right: 20px;
+    /* -unity-font-definition: var(--fancy-font); */
+    -unity-font-style: bold;
     font-size: 40px;
+    text-shadow: 0 12px 0 var(--shadow-color);
 }
 
 .settings-section {

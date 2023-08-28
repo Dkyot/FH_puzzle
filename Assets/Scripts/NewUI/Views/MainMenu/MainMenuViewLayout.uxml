@@ -25,4 +25,5 @@
             </ui:VisualElement>
         </FH.UI.MovingContainer>
     </FH.UI.Views.MainMenu.MainMenuView>
+    <FH.UI.LocalizedLabel tabindex="-1" Key="COCK" />
 </ui:UXML>

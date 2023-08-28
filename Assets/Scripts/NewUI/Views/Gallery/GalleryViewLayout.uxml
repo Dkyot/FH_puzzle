@@ -2,8 +2,8 @@
     <Style src="project://database/Assets/Scripts/NewUI/Views/Gallery/GalleryViewStyle.uss?fileID=7433441132597879392&amp;guid=bd14eab1a1e829f4296b8b2a9698af0a&amp;type=3#GalleryViewStyle" />
     <FH.UI.Views.Gallery.GalleryView picking-mode="Ignore" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; background-image: url(&apos;project://database/Assets/Materials/RenderTexture/ScrollingBGTexture.renderTexture?fileID=8400000&amp;guid=239445fec4c99714d96f1206e5e54a23&amp;type=2#ScrollingBGTexture&apos;); -unity-background-scale-mode: scale-and-crop; padding-top: 1%; padding-right: 1%; padding-bottom: 0; padding-left: 1%;">
         <ui:VisualElement picking-mode="Ignore" style="flex-grow: 0;">
-            <ui:Label tabindex="-1" text="- Gallery -" parse-escape-sequences="true" display-tooltip-when-elided="true" picking-mode="Ignore" class="fancy cool-text" style="-unity-text-align: upper-center; font-size: 70px;" />
-            <FH.UI.SquareButton name="BackButton" Label="Back" style="width: 300px; position: absolute;" />
+            <FH.UI.LocalizedLabel tabindex="-1" Label="GALLERY_TITLE" class="fancy cool-text" style="-unity-text-align: middle-center; font-size: 70px;" />
+            <FH.UI.SquareButton name="BackButton" Label="BACK" style="width: 300px; position: absolute;" />
         </ui:VisualElement>
         <ui:VisualElement style="flex-grow: 1; min-width: auto; min-height: auto;">
             <ui:ScrollView scroll-deceleration-rate="0,135" elasticity="0,1" horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="Auto" name="PhotoScrollView" picking-mode="Ignore" style="margin-top: 50px; overflow: hidden; width: auto; flex-grow: 1; margin-right: 0; position: absolute; left: 0; top: 0; right: 0; bottom: 0; display: flex;">

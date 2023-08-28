@@ -59,6 +59,30 @@ MonoBehaviour:
     m_Key: SETTINGS_TITLE
     m_Metadata:
       m_Items: []
+  - m_Id: 396298456702976
+    m_Key: GALLERY_TITLE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 396806810542080
+    m_Key: LEVEL_COMPLETED_TITLE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 397763774554112
+    m_Key: SCORE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 398805115379712
+    m_Key: TIME
+    m_Metadata:
+      m_Items: []
+  - m_Id: 399098997678080
+    m_Key: MISTAKES
+    m_Metadata:
+      m_Items: []
+  - m_Id: 399303927177216
+    m_Key: TOTAL
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

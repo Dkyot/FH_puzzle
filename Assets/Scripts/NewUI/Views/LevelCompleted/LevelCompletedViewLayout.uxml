@@ -1,26 +1,26 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/Scripts/NewUI/Views/LevelCompleted/LevelCompletedViewStyle.uss?fileID=7433441132597879392&amp;guid=ee8af5da1d2e6ad42bfacd5c51332685&amp;type=3#LevelCompletedViewStyle" />
     <FH.UI.Views.LevelCompleted.LevelCompletedView picking-mode="Ignore" style="background-image: url(&apos;project://database/Assets/Materials/RenderTexture/ScrollingBGTexture.renderTexture?fileID=8400000&amp;guid=239445fec4c99714d96f1206e5e54a23&amp;type=2#ScrollingBGTexture&apos;); padding-top: 1%; padding-right: 1%; padding-bottom: 1%; padding-left: 1%; -unity-background-scale-mode: scale-and-crop;">
-        <ui:Label tabindex="-1" text="- Level Completed -" display-tooltip-when-elided="true" picking-mode="Ignore" name="Title" class="fancy cool-text" style="position: relative; left: auto; top: auto; right: auto; bottom: auto; align-items: auto; -unity-text-align: upper-center;" />
+        <FH.UI.LocalizedLabel tabindex="-1" Label="LEVEL_COMPLETED_TITLE" class="cool-text fancy" style="-unity-text-align: middle-center; font-size: 70px; margin-bottom: 40px;" />
         <ui:VisualElement picking-mode="Ignore" name="MainContainer" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; min-height: auto; min-width: auto;">
             <ui:VisualElement picking-mode="Ignore" name="RightSide" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); position: relative; width: auto; height: auto; bottom: auto; min-height: auto; left: auto; top: auto; justify-content: center; align-items: center; align-self: center;">
                 <FH.UI.PhotoCard name="Photo" style="rotate: -7deg;" />
             </ui:VisualElement>
             <ui:VisualElement picking-mode="Ignore" name="LeftSide" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); width: 30%;">
                 <ui:VisualElement picking-mode="Ignore" name="ScoreContainer" class="card-container" style="flex-grow: 1; align-items: center; justify-content: flex-start; max-width: 100%; align-self: auto; height: 30%;">
-                    <ui:Label tabindex="-1" text="Score" display-tooltip-when-elided="true" picking-mode="Ignore" class="fancy score-title" style="-unity-text-align: upper-center; align-self: stretch;" />
+                    <FH.UI.LocalizedLabel tabindex="-1" Label="SCORE" class="score-title text_shadow" style="align-self: stretch;" />
                     <ui:VisualElement picking-mode="Ignore" class="score-list" style="flex-grow: 1; align-self: stretch; justify-content: space-around; align-items: center;">
                         <ui:VisualElement picking-mode="Ignore" class="score-line">
-                            <ui:Label tabindex="-1" text="Time:" display-tooltip-when-elided="true" picking-mode="Ignore" class="score-line-title" />
+                            <FH.UI.LocalizedLabel tabindex="-1" Label="TIME" class="score-line-title" style="align-self: auto; align-items: auto; flex-grow: 1;" />
                             <ui:Label tabindex="-1" text="10:10:10" display-tooltip-when-elided="true" picking-mode="Ignore" name="TimeValue" class="score-line-value" />
                         </ui:VisualElement>
                         <ui:VisualElement picking-mode="Ignore" class="score-line">
-                            <ui:Label tabindex="-1" text="Mistakes:" display-tooltip-when-elided="true" picking-mode="Ignore" class="score-line-title" />
+                            <FH.UI.LocalizedLabel tabindex="-1" Label="MISTAKES" class="score-line-title" style="flex-grow: 1;" />
                             <ui:Label tabindex="-1" text="51" display-tooltip-when-elided="true" picking-mode="Ignore" name="MistakesValue" class="score-line-value" />
                         </ui:VisualElement>
-                        <ui:VisualElement picking-mode="Ignore" class="score-line">
-                            <ui:Label tabindex="-1" text="Total" display-tooltip-when-elided="true" picking-mode="Ignore" class="score-line-title" />
-                            <ui:Label tabindex="-1" text="6969696969" display-tooltip-when-elided="true" picking-mode="Ignore" name="TotalValue" class="score-line-value" />
+                        <ui:VisualElement picking-mode="Ignore" class="score-line" style="align-items: center;">
+                            <FH.UI.LocalizedLabel tabindex="-1" Label="TOTAL" class="score-line-title" style="flex-grow: 1;" />
+                            <ui:Label tabindex="-1" text="696969696" display-tooltip-when-elided="true" picking-mode="Ignore" name="TotalValue" class="score-line-value" />
                         </ui:VisualElement>
                     </ui:VisualElement>
                 </ui:VisualElement>
@@ -30,7 +30,7 @@
             </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="ButtonsContainer" style="flex-grow: 0; flex-direction: row; justify-content: space-between; margin-top: 40px;">
-            <FH.UI.RoundButton Label="Back" name="BackButton" style="width: 300px;" />
+            <FH.UI.RoundButton Label="BACK" name="BackButton" style="width: 300px;" />
         </ui:VisualElement>
     </FH.UI.Views.LevelCompleted.LevelCompletedView>
 </ui:UXML>

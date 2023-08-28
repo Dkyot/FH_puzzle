@@ -62,6 +62,30 @@ MonoBehaviour:
     m_Localized: '- Settings -'
     m_Metadata:
       m_Items: []
+  - m_Id: 396298456702976
+    m_Localized: '- Gallery -'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 396806810542080
+    m_Localized: '- Level Completed -'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 397763774554112
+    m_Localized: Score
+    m_Metadata:
+      m_Items: []
+  - m_Id: 398805115379712
+    m_Localized: 'Time:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 399098997678080
+    m_Localized: 'Mistakes:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 399303927177216
+    m_Localized: 'Total:'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

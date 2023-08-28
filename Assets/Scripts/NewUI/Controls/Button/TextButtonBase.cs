@@ -7,19 +7,19 @@ namespace FH.UI {
         public const string buttonTextClassName = "button_text";
 
         public string Label {
-            get => _label;
-            set {
-                _label = value;
-                label.text = value;
-            }
+            get => label.Text;
+            set => label.Text = value;
         }
 
-        protected Label label;
+        public bool IsLocalizable {
+            get => label.IsLocalizable;
+            set => label.IsLocalizable = value; 
+        }
 
-        private string _label;
+        protected LocalizedLabel label;
 
         public TextButtonBase() {
-            label = new Label(text) {
+            label = new LocalizedLabel() {
                 name = buttonLabelName
             };
 
@@ -27,8 +27,9 @@ namespace FH.UI {
             background.Add(label);
         }
 
-        public new class UxmlTraits : Button.UxmlTraits {
-            private UxmlStringAttributeDescription _labelValue = new() { name = "Label", defaultValue = "Text" };
+        public new class UxmlTraits : VisualElement.UxmlTraits {
+            private UxmlStringAttributeDescription _label = new() { name = "Label", defaultValue = "" };
+            private UxmlBoolAttributeDescription _isLocalizable = new() { name = "IsLocalizable", defaultValue = true };
 
             public UxmlTraits() { }
 
@@ -36,7 +37,7 @@ namespace FH.UI {
                 base.Init(ve, bag, cc);
 
                 var ate = ve as TextButtonBase;
-                var text = _labelValue.GetValueFromBag(bag, cc);
+                var text = _label.GetValueFromBag(bag, cc);
                 ate.Label = text;
             }
         }

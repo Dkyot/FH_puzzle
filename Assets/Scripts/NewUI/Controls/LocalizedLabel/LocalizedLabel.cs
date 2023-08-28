@@ -6,29 +6,51 @@ using UnityEngine.UIElements;
 
 namespace FH.UI {
     public class LocalizedLabel : Label {
-        public string Key {
-            get => _key;
+        public string Text {
+            get => _text;
             set {
-                _key = value;
-                UpdateKey();
+                _text = value;
+                UpdateLable();
             }
         }
 
-        private string _key;
+        public bool IsLocalizable {
+            get => _isLocalizable;
+            set {
+                _isLocalizable = value;
+                UpdateIsLocalizable();
+            }
+        }
+
+        private bool _isLocalizable = true;
+        private string _text;
 
         public LocalizedLabel() {
-            if (Application.isPlaying) {
-                LocalizationSettings.Instance.OnSelectedLocaleChanged += OnLocaleChanged;
-            }
         }
 
-        private void UpdateKey() {
+        private void UpdateLable() {
+            if (!_isLocalizable) {
+                text = _text;
+                return;
+            }
+
             if (Application.isPlaying) {
                 LoadString();
                 return;
             }
 
-            text = $"# {_key}";
+            text = $"# {_text}";
+        }
+
+        private void UpdateIsLocalizable() {
+            if (_isLocalizable) {
+                LocalizationSettings.Instance.OnSelectedLocaleChanged += OnLocaleChanged;
+                UpdateLable();
+            }
+            else {
+                LocalizationSettings.Instance.OnSelectedLocaleChanged -= OnLocaleChanged;
+                UpdateLable();
+            }
         }
 
         private void OnLocaleChanged(Locale locale) {
@@ -36,9 +58,12 @@ namespace FH.UI {
         }
 
         private void LoadString() {
+            if (_text is null || _text.Length == 0)
+                return;
+
             var operation = LocalizationSettings.StringDatabase.GetLocalizedStringAsync(
-                "UI", 
-                _key
+                "UI",
+                _text
             );
 
             operation.Completed += OnStringLoadCompleted;
@@ -49,14 +74,18 @@ namespace FH.UI {
         }
 
         public new sealed class UxmlTraits : VisualElement.UxmlTraits {
-            private UxmlStringAttributeDescription _key = new() { name = "Key", defaultValue = "" };
+            private UxmlStringAttributeDescription _label = new() { name = "Label", defaultValue = "" };
+            private UxmlBoolAttributeDescription _isLocalizable = new() { name = "IsLocalizable", defaultValue = true };
 
             public override void Init(VisualElement ve, IUxmlAttributes bag, CreationContext cc) {
                 base.Init(ve, bag, cc);
 
                 var label = ve as LocalizedLabel;
-                var key = _key.GetValueFromBag(bag, cc);
-                label.Key = key;
+                var key = _label.GetValueFromBag(bag, cc);
+                label.Text = key;
+
+                var isLocalizable = _isLocalizable.GetValueFromBag(bag, cc);
+                label.IsLocalizable = isLocalizable;
             }
         }
 

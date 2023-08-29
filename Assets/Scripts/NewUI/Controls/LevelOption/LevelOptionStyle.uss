@@ -25,7 +25,8 @@
     position: absolute;
     right: -40px;
     bottom: -40px;
-    width: 100px;
+    width: 120px;
+    height: 120px;
     align-self: flex-end;
     align-items: flex-end;
     -unity-text-align: lower-right;

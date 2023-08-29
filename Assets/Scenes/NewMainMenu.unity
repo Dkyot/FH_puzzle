@@ -225,6 +225,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _viewAfter: {fileID: 192632330}
   _bgTextureController: {fileID: 1252978484}
+  _avalibleLanguages:
+  - localizationNameKey: RUSSIAN
+    localeIdentifier:
+      m_Code: ru-RU
+  - localizationNameKey: ENGLISH
+    localeIdentifier:
+      m_Code: en
 --- !u!114 &192632333
 MonoBehaviour:
   m_ObjectHideFlags: 0

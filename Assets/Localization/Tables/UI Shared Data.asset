@@ -83,6 +83,18 @@ MonoBehaviour:
     m_Key: TOTAL
     m_Metadata:
       m_Items: []
+  - m_Id: 633248082677760
+    m_Key: LANGUAGE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 662615382937600
+    m_Key: RUSSIAN
+    m_Metadata:
+      m_Items: []
+  - m_Id: 662671137820672
+    m_Key: ENGLISH
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

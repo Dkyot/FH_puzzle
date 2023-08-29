@@ -16,11 +16,25 @@ namespace FH.UI.Views.Settings {
             remove => _doneButton.clicked -= value;
         }
 
+        public event Action LanguageLeftSwitched {
+            add => _leftLanguageSwitchButton.clicked += value;
+            remove => _leftLanguageSwitchButton.clicked -= value;
+        }
+
+        public event Action LanguageRightSwitched {
+            add => _rightLanguageSwitchButton.clicked += value;
+            remove => _rightLanguageSwitchButton.clicked -= value;
+        }
+       
         private Button _doneButton;
         
         private Slider _masterSlider;
         private Slider _musicSlider;
         private Slider _sfxSlider;
+
+        private LocalizedLabel _languageLabel;
+        private Button _leftLanguageSwitchButton;
+        private Button _rightLanguageSwitchButton;
 
         public void SetMasterValue(float value, bool notifyListeners = false) {
             if (notifyListeners) _masterSlider.SetValueWithoutNotify(value);
@@ -37,10 +51,20 @@ namespace FH.UI.Views.Settings {
             else _sfxSlider.value = value; 
         }
 
+        public void SetLanguageNameKey(string key) {
+            _languageLabel.Label = key;
+        }
+
         protected override void OnInit() {
-            _masterSlider = this.Q<Slider>("MasterSlider");
-            _musicSlider = this.Q<Slider>("MusicSlider");
-            _sfxSlider = this.Q<Slider>("SFXSlider");
+            var volumeSection = this.Q("VolumeSection");
+            _masterSlider = volumeSection.Q<Slider>("MasterSlider");
+            _musicSlider = volumeSection.Q<Slider>("MusicSlider");
+            _sfxSlider = volumeSection.Q<Slider>("SFXSlider");
+
+            var languageSection = this.Q("LanguageSection");
+            _leftLanguageSwitchButton = languageSection.Q<Button>("LeftLanguageButton");
+            _rightLanguageSwitchButton = languageSection.Q<Button>("RightLanguageButton");
+            _languageLabel = languageSection.Q<LocalizedLabel>("LanguageLabel");
 
             _doneButton = this.Q<Button>("DoneButton");
 

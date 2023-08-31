@@ -1,0 +1,29 @@
+.pause-button > .background > .icon {
+    background-image: url('project://database/Packages/com.unity.addressables/Editor/BuildReportVisualizer/BuildReport%20Resources/Icons/d_History.Forward@2x.png?fileID=2800000&guid=741fd6a7eb857a74b939184269d01239&type=3#d_History.Forward@2x');
+}
+
+.reset-button > .background > .icon {
+    background-image: url('project://database/Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/d_refresh@2x.png?fileID=2800000&guid=602b72d4617c3694aa94419fc1b68e04&type=3#d_refresh@2x');
+    transition-duration: 100ms;
+    transition-property: rotate;
+}
+
+.reset-button:hover > .background > .icon {
+    rotate: 180deg;
+}
+
+.buttons-container > * {
+    margin-right: 20px;
+}
+
+.counters-text {
+    -unity-font-style: bold;
+    align-self: auto;
+    font-size: 40px;
+    -unity-text-align: middle-left;
+    align-items: auto;
+}
+
+.counters-container > * {
+    margin-bottom: 10px;
+}

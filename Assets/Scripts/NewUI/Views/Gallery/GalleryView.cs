@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace FH.UI.Views.Gallery {
-    public class GalleryView : ViewBase {
+    public sealed class GalleryView : ViewBase {
         public event Action BackPressed {
             add => _backButton.clicked += value;
             remove => _backButton.clicked -= value;

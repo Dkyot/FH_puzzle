@@ -2,7 +2,7 @@ using System;
 using UnityEngine.UIElements;
 
 namespace FH.UI.Views.LevelSelect {
-    public class LevelSelectView : ViewBase {
+    public sealed class LevelSelectView : ViewBase {
         public event Action BackPressed {
             add => _backButton.clicked += value;
             remove => _backButton.clicked -= value;

@@ -1,15 +1,14 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UIElements;
 
-namespace FH.UI.Screens.MainScreen {
+namespace FH.UI { 
     [RequireComponent(typeof(UIDocument))]
-    public sealed class MainScreenController : MonoBehaviour, IScreenController {
+    public sealed class ScreenController : MonoBehaviour, IScreenController {
         public UIDocument Document => _document;
 
         [SerializeField] private ViewController _initialView;
-        [FormerlySerializedAs("_views")] [SerializeField] private List<ViewController> _controllers;
+        [SerializeField] private List<ViewController> _controllers;
         private UIDocument _document;
 
         public void ShowView(ViewController view) {

@@ -34,7 +34,7 @@ namespace FH.UI.Views.GameUI {
             _pauseButton = this.Q<Button>("PauseButton");
             _resetButton = this.Q<Button>("ResetButton");
 
-            _timeLabel = this.Q<Label>("Time");
+            _timeLabel = this.Q<Label>("Timer");
             _mistakesLabel = this.Q<Label>("Mistakes");
         }
 

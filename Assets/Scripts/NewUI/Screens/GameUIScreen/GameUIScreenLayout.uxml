@@ -1,4 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <ui:Template name="GameUIViewLayout" src="project://database/Assets/Scripts/NewUI/Views/GameUI/GameUIViewLayout.uxml?fileID=9197481963319205126&amp;guid=a97e9f7689cb2824db989d4a257ab3a7&amp;type=3#GameUIViewLayout" />
+    <ui:Template name="PauseMenuViewLayout" src="project://database/Assets/Scripts/NewUI/Views/PauseMenu/PauseMenuViewLayout.uxml?fileID=9197481963319205126&amp;guid=a15b7e39ec06f0648852ca9aa9b50ef4&amp;type=3#PauseMenuViewLayout" />
     <ui:Instance template="GameUIViewLayout" name="GameUIViewLayout" picking-mode="Ignore" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0;" />
+    <ui:Instance template="PauseMenuViewLayout" name="PauseMenuViewLayout" picking-mode="Ignore" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0;" />
 </ui:UXML>

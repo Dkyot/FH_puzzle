@@ -95,6 +95,18 @@ MonoBehaviour:
     m_Key: ENGLISH
     m_Metadata:
       m_Items: []
+  - m_Id: 2073994639822848
+    m_Key: PAUSE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2075487371644928
+    m_Key: TO_MAIN_MENU
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2093382751342592
+    m_Key: CONTINUE
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -1,9 +1,13 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace FH.Level {
     public class LevelManager : MonoBehaviour {
+        [SerializeField] private UnityEvent GamePaused;
+        [SerializeField] private UnityEvent GameResumed;
+
         [SerializeField] private CardManager cardManager;
 
         [SerializeField] private ScoreTimer scoreTimer;
@@ -24,6 +28,16 @@ namespace FH.Level {
             cardManager?.CreateCards();
             scoreCounter?.Reset();
             scoreTimer.IsRunning = true;
+        }
+
+        public void PauseGame() {
+            scoreTimer.IsRunning = false;
+            GamePaused?.Invoke();
+        }
+
+        public void ResumeGame() {
+            scoreTimer.IsRunning = true;
+            GameResumed?.Invoke();
         }
 
         private void OnWin(object sender, EventArgs e) {

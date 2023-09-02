@@ -10,10 +10,12 @@ namespace FH.UI.Views.GameUI {
     public class GameUIViewController : ViewController<GameUIView> {
         [SerializeField] private ScoreCounter _scoreCounter;
         [SerializeField] private UnityEvent _resetPressed;
+        [SerializeField] private UnityEvent _pausePressed;
 
         protected override void OnScreenControllerSet() {
             base.OnScreenControllerSet();
             view.ResetPressed += OnResetPressed;
+            view.PausePressed += OnPausePressed;
         }
 
         private void Start() {
@@ -23,6 +25,7 @@ namespace FH.UI.Views.GameUI {
 
         private void OnDisable() {
             view.ResetPressed -= OnResetPressed;
+            view.PausePressed -= OnPausePressed;
         }
 
         private void OnTimeChanged(float seconds) {
@@ -37,6 +40,10 @@ namespace FH.UI.Views.GameUI {
 
         private void OnResetPressed() {
             _resetPressed.Invoke();
+        }
+
+        private void OnPausePressed() {
+            _pausePressed.Invoke();
         }
     }
 }

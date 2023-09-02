@@ -107,6 +107,10 @@ MonoBehaviour:
     m_Key: CONTINUE
     m_Metadata:
       m_Items: []
+  - m_Id: 2153142514655232
+    m_Key: PRESS_TO_CONTINUE
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

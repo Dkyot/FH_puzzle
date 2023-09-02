@@ -99,7 +99,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2073994639822848
-    m_Localized: Pause
+    m_Localized: '- Pause -'
     m_Metadata:
       m_Items: []
   - m_Id: 2075487371644928
@@ -108,6 +108,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 2093382751342592
     m_Localized: Continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2153142514655232
+    m_Localized: Press at the screen to continue
     m_Metadata:
       m_Items: []
   references:

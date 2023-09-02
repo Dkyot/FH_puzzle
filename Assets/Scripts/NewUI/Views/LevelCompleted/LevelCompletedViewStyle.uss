@@ -6,15 +6,8 @@ LevelCompletedView {
     bottom: 0;
 }
 
-#Title {
-    font-size: 70px;
-    justify-content: flex-start;
-    margin-bottom: 40px;
-    text-shadow: -5px 5px 0 var(--shadow-color);
-}
-
 .score-title {
-    font-size: 50px;
+    font-size: 60px;
     -unity-text-align: upper-center;
     margin-bottom: 0;
     -unity-font-style: bold;
@@ -26,10 +19,11 @@ LevelCompletedView {
     flex-direction: row;
     align-self: stretch;
     flex-grow: 1;
+    margin-bottom: 20px;
 }
 
 .score-line-title {
-    font-size: 40px;
+    font-size: 50px;
     text-shadow: 0 12px 0 var(--shadow-color);
     -unity-text-align: middle-left;
     flex-grow: 0;
@@ -39,7 +33,7 @@ LevelCompletedView {
 }
 
 .score-line-value {
-    font-size: 40px;
+    font-size: 50px;
     text-shadow: 0 12px 0 var(--shadow-color);
     flex-grow: 0;
     align-items: auto;
@@ -47,4 +41,47 @@ LevelCompletedView {
     text-overflow: ellipsis;
     white-space: nowrap;
     -unity-font-style: bold;
+}
+
+#Rang > .rang {
+    font-size: 300px;
+    -unity-text-align: middle-center;
+}
+
+.title {
+    transition-duration: 500ms;
+    transition-property: translate, opacity;
+}
+
+.title.transition {
+    translate: 0 500px;
+    opacity: 0;
+}
+
+.view-container {
+    padding-top: 1%;
+    padding-right: 1%;
+    padding-bottom: 1%;
+    padding-left: 1%;
+    -unity-background-scale-mode: scale-and-crop;
+    transition-duration: 500ms;
+    transition-property: -unity-background-image-tint-color;
+}
+
+.view-container.transition {
+    -unity-background-image-tint-color: rgba(255, 255, 255, 0);
+}
+
+.content-container {
+    transition-duration: 500ms;
+    transition-property: opacity;
+}
+
+.content-container.transition {
+    opacity: 0;
+}
+
+.base-button > .background {
+    padding-right: 10px;
+    padding-left: 10px;
 }

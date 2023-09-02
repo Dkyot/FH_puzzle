@@ -1,3 +1,4 @@
+using FH.Cards;
 using System;
 using UnityEngine;
 
@@ -21,6 +22,8 @@ namespace FH.Level {
                 MismatchChanged?.Invoke(value);
             }
         }
+
+        public float FinalScore => finalScore;
 
         [SerializeField] private int mismatchCounter;
         [SerializeField] private float timer;

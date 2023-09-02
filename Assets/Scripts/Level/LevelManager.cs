@@ -1,12 +1,14 @@
+using FH.Cards;
 using System;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.UI;
 
 namespace FH.Level {
     public class LevelManager : MonoBehaviour {
         [SerializeField] private UnityEvent GamePaused;
         [SerializeField] private UnityEvent GameResumed;
+
+        [SerializeField] private UnityEvent GameFinished;
 
         [SerializeField] private CardManager cardManager;
 
@@ -14,10 +16,7 @@ namespace FH.Level {
         [SerializeField] private ScoreCounter scoreCounter;
 
         private void Awake() {
-            cardManager = cardManager.GetComponent<CardManager>();
             cardManager.OnWin += OnWin;
-
-            scoreCounter = scoreCounter.GetComponent<ScoreCounter>();
         }
 
         private void Start() {
@@ -44,6 +43,7 @@ namespace FH.Level {
             scoreTimer.IsRunning = false;
             scoreCounter.CalculateScore();
             Debug.Log(scoreCounter.GetScoreJson());
+            GameFinished?.Invoke();
         }
     }
 }

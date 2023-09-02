@@ -1,97 +1,99 @@
 using UnityEngine;
 using TMPro;
 
-public class Card : MonoBehaviour
-{
-    public int value { get; private set; }
-    public SpriteRenderer sprite;
-    private TextMeshProUGUI cardTextValue;
-    
-    private bool isPicked;
-    public bool isMatched;
+namespace FH.Cards {
+    public class Card : MonoBehaviour {
+        public int value { get; private set; }
+        public SpriteRenderer sprite;
+        private TextMeshProUGUI cardTextValue;
 
-    private float rotationSpeed = 0.045f;
+        private bool isPicked;
+        public bool isMatched;
 
-    public CardState currentState { get; private set; }
+        private float rotationSpeed = 0.045f;
 
-    public delegate bool OnFlipDelegate(Card card);
-	public static event OnFlipDelegate OnFlip;
+        public CardState currentState { get; private set; }
 
-    public delegate void OnResetDelegate();
-	public static event OnResetDelegate OnReset;
+        public delegate bool OnFlipDelegate(Card card);
+        public static event OnFlipDelegate OnFlip;
 
-    private float timeUntilClosing = 0.55f;
-    private float timer;
-    private bool delay;
-    
-    float reference;
+        public delegate void OnResetDelegate();
+        public static event OnResetDelegate OnReset;
 
-    private void Awake() {
-        sprite = sprite.GetComponent<SpriteRenderer>();
-        cardTextValue = GetComponentInChildren<TextMeshProUGUI>();
-    }
+        private float timeUntilClosing = 0.55f;
+        private float timer;
+        private bool delay;
 
-    private void Start() {
-        currentState = CardState.Closed;
-    }
+        float reference;
 
-    private void Update() {
-        if (isPicked && (currentState == CardState.Closed || currentState == CardState.Opening))
-            OpenRotation();
-        else if (isPicked && (currentState == CardState.Opened || currentState == CardState.Closing))
-            CloseRotation();
-
-        if (delay) {
-            timer += Time.deltaTime;
-            if (timer >= timeUntilClosing) {
-                CloseRotation();
-            }
+        private void Awake() {
+            sprite = sprite.GetComponent<SpriteRenderer>();
+            cardTextValue = GetComponentInChildren<TextMeshProUGUI>();
         }
-    }
 
-    public void Pick() {
-        if (delay) return;
-
-        if (OnFlip(this)) {
-            isPicked = true;
-        }
-    }
-
-    public void SetValue(int value) {
-        this.value = value;
-        if (cardTextValue != null)
-            cardTextValue.text = this.value.ToString();
-    }
-
-    public void StartMismatchTimer() {
-        delay = true;
-    }
-
-    #region Rotation methods
-    private void OpenRotation() {
-        currentState = CardState.Opening;
-        float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, 180, ref reference, rotationSpeed);
-        transform.rotation = Quaternion.Euler(0, angle, 0);
-        if (transform.rotation == Quaternion.Euler(0, 180, 0)) {
-            isPicked = false;
-            currentState = CardState.Opened;
-        }  
-    }
-
-    private void CloseRotation() {
-        currentState = CardState.Closing; 
-        float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, 0, ref reference, rotationSpeed);
-        transform.rotation = Quaternion.Euler(0, angle, 0);
-        if (transform.rotation == Quaternion.Euler(0, 0, 0)) {
-            isPicked = false;
+        private void Start() {
             currentState = CardState.Closed;
+        }
+
+        private void Update() {
+            if (isPicked && (currentState == CardState.Closed || currentState == CardState.Opening))
+                OpenRotation();
+            else if (isPicked && (currentState == CardState.Opened || currentState == CardState.Closing))
+                CloseRotation();
 
             if (delay) {
-                delay = false;
-                timer = 0;
-                OnReset();
+                timer += Time.deltaTime;
+                if (timer >= timeUntilClosing) {
+                    CloseRotation();
+                }
             }
-        }   
+        }
+
+        public void Pick() {
+            if (delay)
+                return;
+
+            if (OnFlip(this)) {
+                isPicked = true;
+            }
+        }
+
+        public void SetValue(int value) {
+            this.value = value;
+            if (cardTextValue != null)
+                cardTextValue.text = this.value.ToString();
+        }
+
+        public void StartMismatchTimer() {
+            delay = true;
+        }
+
+        #region Rotation methods
+        private void OpenRotation() {
+            currentState = CardState.Opening;
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, 180, ref reference, rotationSpeed);
+            transform.rotation = Quaternion.Euler(0, angle, 0);
+            if (transform.rotation == Quaternion.Euler(0, 180, 0)) {
+                isPicked = false;
+                currentState = CardState.Opened;
+            }
+        }
+
+        private void CloseRotation() {
+            currentState = CardState.Closing;
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, 0, ref reference, rotationSpeed);
+            transform.rotation = Quaternion.Euler(0, angle, 0);
+            if (transform.rotation == Quaternion.Euler(0, 0, 0)) {
+                isPicked = false;
+                currentState = CardState.Closed;
+
+                if (delay) {
+                    delay = false;
+                    timer = 0;
+                    OnReset();
+                }
+            }
+        }
+        #endregion
     }
-    #endregion
 }

@@ -1,12 +1,10 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <ui:Template name="SettingsViewLayout" src="project://database/Assets/Scripts/NewUI/Views/Settings/SettingsViewLayout.uxml?fileID=9197481963319205126&amp;guid=ad7123e29b0fb1a4cab1899845faab52&amp;type=3#SettingsViewLayout" />
     <ui:Template name="MainMenuView" src="project://database/Assets/Scripts/NewUI/Views/MainMenu/MainMenuViewLayout.uxml?fileID=9197481963319205126&amp;guid=70b52e6a24bf5e84cb3290e867f1b564&amp;type=3#MainMenuViewLayout" />
-    <ui:Template name="LevelCompletedViewLayout" src="project://database/Assets/Scripts/NewUI/Views/LevelCompleted/LevelCompletedViewLayout.uxml?fileID=9197481963319205126&amp;guid=f872632140f26ba4f94864db848d1a5f&amp;type=3#LevelCompletedViewLayout" />
     <ui:Template name="GalleryViewLayout" src="project://database/Assets/Scripts/NewUI/Views/Gallery/GalleryViewLayout.uxml?fileID=9197481963319205126&amp;guid=7a7fef718ebfbda4aa3d429cab0dd74b&amp;type=3#GalleryViewLayout" />
     <ui:Template name="LevelSelectViewLayout" src="project://database/Assets/Scripts/NewUI/Views/LevelSelect/LevelSelectViewLayout.uxml?fileID=9197481963319205126&amp;guid=83e8b92d7816ac74f94c40104d6d4252&amp;type=3#LevelSelectViewLayout" />
     <ui:Instance template="SettingsViewLayout" name="SettingsViewLayout" picking-mode="Ignore" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0;" />
     <ui:Instance template="MainMenuView" name="MainMenuView" focusable="false" picking-mode="Ignore" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0;" />
-    <ui:Instance template="LevelCompletedViewLayout" name="LevelCompletedViewLayout" picking-mode="Ignore" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0;" />
     <ui:Instance template="GalleryViewLayout" name="GalleryViewLayout" picking-mode="Ignore" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0;" />
     <ui:Instance template="LevelSelectViewLayout" name="LevelSelectViewLayout" picking-mode="Ignore" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0;" />
 </ui:UXML>

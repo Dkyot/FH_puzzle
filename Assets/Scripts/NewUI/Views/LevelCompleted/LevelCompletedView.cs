@@ -4,13 +4,35 @@ using System.Collections.Generic;
 using FH.UI;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static FH.UI.Rang;
 
 namespace FH.UI.Views.LevelCompleted {
     public sealed class LevelCompletedView : ViewBase {
         private const string _transitionClass = "transition";
 
+        public string TimeLabelText {
+            set => _timeSoreLabel.text = value;
+        }
+
+        public string MistakesLabelText {
+            set => _mistakesScoreLabel.text = value;
+        }
+
+        public string TotalScoreLableText {
+            set => _totalScoreLabel.text = value;
+        }
+
+        public RangTypes Rang {
+            set => _rang.RangType = value;
+        }
+
         private Rang _rang;
         private PhotoCard _photo;
+
+        private Label _timeSoreLabel;
+        private Label _mistakesScoreLabel;
+        private Label _totalScoreLabel;
+
         private LocalizedLabel _title;
         private LocalizedLabel _pressToContinueLabel;
 
@@ -44,6 +66,10 @@ namespace FH.UI.Views.LevelCompleted {
             schedule.Execute(() => _photo.StartAnimation()).ExecuteLater(200);
         }
 
+        public void ShowRang() {
+            _rang.StartAnimation();
+        }
+
         protected override void OnInit() {
             _rang = this.Q<Rang>("Rang");
             _photo = this.Q<PhotoCard>("Photo");
@@ -53,6 +79,10 @@ namespace FH.UI.Views.LevelCompleted {
 
             _title = this.Q<LocalizedLabel>("Title");
             _pressToContinueLabel = this.Q<LocalizedLabel>("PressToContinueLabel");
+
+            _timeSoreLabel = this.Q<Label>("TimeValue");
+            _mistakesScoreLabel = this.Q<Label>("MistakesValue");
+            _totalScoreLabel = this.Q<Label>("TotalValue");
 
             _continueButton = this.Q<Button>("ContinueButton");
             _toMainMenuButton = this.Q<Button>("ToMainMenuButton");

@@ -13,7 +13,7 @@
                         <ui:VisualElement picking-mode="Ignore" class="score-list" style="flex-grow: 1; align-self: stretch; justify-content: flex-start; align-items: center;">
                             <ui:VisualElement picking-mode="Ignore" class="score-line">
                                 <FH.UI.LocalizedLabel tabindex="-1" Label="TIME" class="score-line-title" style="align-self: auto; align-items: auto; flex-grow: 1;" />
-                                <ui:Label tabindex="-1" text="00:00:00" display-tooltip-when-elided="true" picking-mode="Ignore" name="TimeValue" class="score-line-value" />
+                                <ui:Label tabindex="-1" text="00:00:000" display-tooltip-when-elided="true" picking-mode="Ignore" name="TimeValue" class="score-line-value" />
                             </ui:VisualElement>
                             <ui:VisualElement picking-mode="Ignore" class="score-line">
                                 <FH.UI.LocalizedLabel tabindex="-1" Label="MISTAKES" class="score-line-title" style="flex-grow: 1;" />

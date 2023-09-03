@@ -12,7 +12,7 @@
 
     --secondary: #fff;
 
-    --default-font: resource('LiberationSans SDF');
+    --default-font: resource('FiraSans/FiraSans SDF');
     --fancy-font: resource('BalsamiqSans SDF');
     --handwritten-font: resource('ComforterBrush SDF');
 }
@@ -23,7 +23,7 @@
 
     font-size: 30px;
     color: var(--text-color);
-    -unity-font-definition: resource('LiberationSans SDF');
+    -unity-font-definition: var(--default-font);
 }
 
 .fancy {

@@ -111,6 +111,10 @@ MonoBehaviour:
     m_Key: PRESS_TO_CONTINUE
     m_Metadata:
       m_Items: []
+  - m_Id: 3176868828532736
+    m_Key: LEVEL_START
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

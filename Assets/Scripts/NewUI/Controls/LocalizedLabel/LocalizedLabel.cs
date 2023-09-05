@@ -90,11 +90,11 @@ namespace FH.UI {
                 base.Init(ve, bag, cc);
 
                 var label = ve as LocalizedLabel;
-                var key = _label.GetValueFromBag(bag, cc);
-                label.Label = key;
-
                 var isLocalizable = _isLocalizable.GetValueFromBag(bag, cc);
                 label.IsLocalizable = isLocalizable;
+
+                var key = _label.GetValueFromBag(bag, cc);
+                label.Label = key;
             }
         }
 

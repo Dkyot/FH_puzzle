@@ -45,9 +45,7 @@ namespace FH.UI.Views.LevelCompleted {
             // Await Content apearing animation
             await Awaitable.WaitForSecondsAsync(1);
             await StartTimeAnimation();
-            Debug.Log("!!!");
             await Awaitable.WaitForSecondsAsync(.5f);
-            Debug.Log("???");
             await StartMistakesAnimation();
             await Awaitable.WaitForSecondsAsync(.5f);
             await StartTotalScoreAnimation();

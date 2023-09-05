@@ -114,6 +114,10 @@ MonoBehaviour:
     m_Localized: Press at the screen to continue
     m_Metadata:
       m_Items: []
+  - m_Id: 3176868828532736
+    m_Localized: Start
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

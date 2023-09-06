@@ -149,8 +149,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c992dd7a3e11304baa3c02e05bcd50e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mainMenuSceneName: NewMainMenu
-  _levelSceneName: GameLevelScene
+  _mainMenuScene: NewMainMenu
+  _levelScene: GameLevelScene
   _sceneManagerProxy: {fileID: 11400000, guid: 487de81e18cfb7b4cb1151c0d80f840e, type: 2}
 --- !u!4 &1289836686
 Transform:

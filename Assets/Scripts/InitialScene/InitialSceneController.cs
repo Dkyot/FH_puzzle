@@ -1,18 +1,13 @@
 ﻿using FH.SO;
+using NaughtyAttributes;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.Localization.Settings;
-using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts.InitialScene {
     public sealed class InitialSceneController : MonoBehaviour {
-        [SerializeField] private string _mainMenuSceneName;
-        [SerializeField] private string _levelSceneName;
+        [Scene] public string _mainMenuScene;
+        [Scene] public string _levelScene;
 
         [SerializeField] private SceneManagerProxy _sceneManagerProxy;
 
@@ -44,7 +39,9 @@ namespace Assets.Scripts.InitialScene {
             _sceneManagerProxy.SceneControllerSet += OnControllerSet;
 
             try {
-                await SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+                var scene = SceneManager.GetSceneByName(sceneName);
+                await SceneManager.LoadSceneAsync(scene.name, LoadSceneMode.Additive);
+                SceneManager.SetActiveScene(scene);
             }
             catch (Exception ex) {
                 Debug.LogError(ex);
@@ -71,16 +68,17 @@ namespace Assets.Scripts.InitialScene {
         private async Awaitable PrepareScene() {
             await _sceneManagerProxy.SceneController.StartPreloading();
             await Awaitable.NextFrameAsync();
+
             _sceneManagerProxy.SceneController.StartScene();
             _isLoading = false;
         }
 
         private Awaitable LoadMainMenuScene() {
-            return LoadScene(_mainMenuSceneName);
+            return LoadScene(_mainMenuScene);
         }
 
         private Awaitable LoadLevelScene() {
-            return LoadScene(_levelSceneName);
+            return LoadScene(_levelScene);
         }
     }
 }

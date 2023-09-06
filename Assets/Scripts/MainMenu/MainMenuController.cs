@@ -1,14 +1,11 @@
 ﻿using FH.Scenes;
 using FH.SO;
-using System.Collections;
-using System.Collections.Generic;
+using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace FH.MainMenu {
     public class MainMenuController : MonoBehaviour, ISceneController {
-        [SerializeField] private string _sceneName;
-
         [Header("System Referenses")]
         [SerializeField] private SceneManagerProxy _sceneManagerProxy;
 
@@ -24,7 +21,7 @@ namespace FH.MainMenu {
         }
 
         public async Awaitable UnloadScene() {
-            await SceneManager.UnloadSceneAsync(_sceneName);
+            await SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
         }
     }
 }

@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 3bb84b9801d302a448833f1fb2f6166c
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {fileID: 2800000, guid: e60853cfffc760a4f899906440a6a3cf, type: 3}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225607
+  packageName: Easy Transitions
+  packageVersion: 1.4
+  assetPath: Assets/EasyTransitions/Demo/DemoLoadScene.cs
+  uploadId: 587727

@@ -6,13 +6,12 @@ using FH.UI.Views.LevelStart;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using NaughtyAttributes;
 
 namespace FH.Level {
     [RequireComponent(typeof(ScoreCounter))]
     [RequireComponent(typeof(ScoreTimer))]
     public class LevelSceneController : MonoBehaviour, ISceneController {
-        [SerializeField] private string _sceneName;
-
         [Header("Level Events")]
         [SerializeField] private UnityEvent GamePaused;
         [SerializeField] private UnityEvent GameResumed;
@@ -58,7 +57,7 @@ namespace FH.Level {
         }
 
         public async Awaitable UnloadScene() {
-            var operation = SceneManager.UnloadSceneAsync(_sceneName);
+            var operation = SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
             await operation;
         }
 

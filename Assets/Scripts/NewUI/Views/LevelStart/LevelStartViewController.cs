@@ -8,10 +8,9 @@ namespace FH.UI.Views.LevelStart {
 
         public override void ShowView() {
             base.ShowView();
-            _ = StartAnimation();
         }
 
-        private async Awaitable StartAnimation() {
+        public async Awaitable StartAnimation() {
             const float showAnimationDelay = 0.5f;
             const float hideAnimationDelay = 0.2f;
 

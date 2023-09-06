@@ -1,3 +1,6 @@
+using FH.Inputs;
+using FH.SO;
+using FH.Utils;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -5,24 +8,24 @@ using System.Linq;
 using UnityEngine;
 
 namespace FH.Cards {
+    [RequireComponent(typeof(CardFlipper))]
     public class CardManager : MonoBehaviour {
+        private const float offset = 1;
+
+        public CardFlipper CardFlipper { get; private set; }
+
+        public int rows;
+        public int columns;
+        public ColorsSO pallete;
+
         [SerializeField] private Card cardPrefab;
         [SerializeField] private Transform spawnPosition;
-
-        [Range(4, 6)]
-        [SerializeField] private int rows;
-        [Range(4, 6)]
-        [SerializeField] private int columns;
-
-        [SerializeField] private float offset;
 
         private List<Card> cards;
         private int pairCount;
 
-        [SerializeField] private Card card1 = null;
-        [SerializeField] private Card card2 = null;
-
-        [SerializeField] private ColorsSO pallete;
+        private Card card1 = null;
+        private Card card2 = null;
 
         public event EventHandler OnWin;
 
@@ -36,6 +39,8 @@ namespace FH.Cards {
         public static event OnMismatchDelegate OnMismatch;
 
         private void Awake() {
+            CardFlipper = GetComponent<CardFlipper>();
+
             cards = new List<Card>();
             AddCardEvents();
             AddTipsEvents();

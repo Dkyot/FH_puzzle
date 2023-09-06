@@ -1,21 +1,18 @@
 ﻿using UnityEngine;
 
 namespace FH.Level {
+    [RequireComponent(typeof(ScoreCounter))]
     public sealed class ScoreTimer : MonoBehaviour {
-        public bool IsRunning {
-            get => _isRunning;
-            set => _isRunning = value;
-        }
+        public bool IsRunning { get; set; }
 
         private ScoreCounter _score;
-        private bool _isRunning;
 
         private void Awake() {
             _score = GetComponent<ScoreCounter>();
         }
 
         public void Update() {
-            if (!_isRunning)
+            if (!IsRunning)
                 return;
 
             _score.Time += Time.deltaTime;

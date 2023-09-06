@@ -5,11 +5,15 @@ namespace FH.Inputs {
     public class CardFlipper : MonoBehaviour {
         [SerializeField] private PlayerInputHandler inputHandler;
 
+        public bool IsEnable { get; set; }
+
         private void Start() {
             inputHandler.Pressed += PerformeFlip;
         }
 
         public void PerformeFlip(Vector2 screenPosition) {
+            if (!IsEnable) return;
+
             Vector3 mousePosition = screenPosition;
             mousePosition.z = Camera.main.nearClipPlane;
             mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);

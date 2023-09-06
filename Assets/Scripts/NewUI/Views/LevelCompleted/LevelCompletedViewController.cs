@@ -75,8 +75,6 @@ namespace FH.UI.Views.LevelCompleted {
         }
 
         private async Awaitable StartMistakesAnimation() {
-            Debug.Log("StartMistakesAnimation");
-
             var cancellationToken = Application.exitCancellationToken;
             int mistakes = _scoreCounter.Mismatch;
 

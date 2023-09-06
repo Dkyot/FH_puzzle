@@ -118,6 +118,10 @@ MonoBehaviour:
     m_Localized: Start
     m_Metadata:
       m_Items: []
+  - m_Id: 3694568838832128
+    m_Localized: Loading...
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

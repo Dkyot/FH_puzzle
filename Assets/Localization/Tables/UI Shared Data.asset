@@ -115,6 +115,10 @@ MonoBehaviour:
     m_Key: LEVEL_START
     m_Metadata:
       m_Items: []
+  - m_Id: 3694568838832128
+    m_Key: LOADING
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

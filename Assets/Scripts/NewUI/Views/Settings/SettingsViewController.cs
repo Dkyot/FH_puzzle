@@ -9,7 +9,6 @@ using UnityEngine.UIElements;
 namespace FH.UI.Views.Settings {
     public sealed class SettingsViewController : ViewController<SettingsView> {
         [SerializeField] private ViewController _viewAfter;
-        [SerializeField] private ScrollingBgTextureController _bgTextureController;
 
         [SerializeField] private LocalizationOption[] _avalibleLanguages;
 
@@ -21,12 +20,12 @@ namespace FH.UI.Views.Settings {
         }
 
         public override void ShowView() {
-            _bgTextureController.EnableRendering();
+            ScrollingBgTextureController.Instance?.EnableRendering();
             base.ShowView();
         }
 
         public override void HideView() {
-            _bgTextureController.DisableRendering();
+            ScrollingBgTextureController.Instance?.DisableRendering();
             base.HideView();
         }
 

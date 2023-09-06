@@ -10,6 +10,7 @@ namespace FH.SO {
         [field: SerializeField] public LocalizableString CharacterName { get; private set; }
         [field: SerializeField] public AssetReferenceSprite LevelImage { get; private set; }
 
+        public float score;
         public bool isCompleted;
 
         [Serializable]

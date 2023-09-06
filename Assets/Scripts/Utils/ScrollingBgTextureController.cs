@@ -5,9 +5,12 @@ using UnityEngine;
 
 namespace FH.Utils {
     public class ScrollingBgTextureController : MonoBehaviour {
+        public static ScrollingBgTextureController Instance { get; private set; }
+
         [SerializeField] private Camera _renderCamera;
 
         private void Awake() {
+            Instance = this;
             DisableRendering();
         }
 

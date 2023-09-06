@@ -318,6 +318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4535bfe45232fc54e908ecf8fb4dc9fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _sceneName: LevelManager
   GamePaused:
     m_PersistentCalls:
       m_Calls:
@@ -439,9 +440,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c477930c608e63498a375e6e890ce03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rows: 4
-  columns: 4
-  pallete: {fileID: 11400000, guid: 3772058dbf4f0fd43bfcccd8047b44f2, type: 2}
   cardPrefab: {fileID: -1641438583517545994, guid: d369345c610bd3c449a469319cab768a, type: 3}
   spawnPosition: {fileID: 539184203}
 --- !u!4 &918102902
@@ -631,78 +629,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1785016218
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 411228976356754582, guid: 8f44efa456066e44a84c3b344ce25bbd, type: 3}
-      propertyPath: m_Name
-      value: ScrollingBgSetup
-      objectReference: {fileID: 0}
-    - target: {fileID: 411228976356754582, guid: 8f44efa456066e44a84c3b344ce25bbd, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7767005616650172724, guid: 8f44efa456066e44a84c3b344ce25bbd, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 7767005616650172724, guid: 8f44efa456066e44a84c3b344ce25bbd, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 7767005616650172724, guid: 8f44efa456066e44a84c3b344ce25bbd, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7767005616650172724, guid: 8f44efa456066e44a84c3b344ce25bbd, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7767005616650172724, guid: 8f44efa456066e44a84c3b344ce25bbd, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7767005616650172724, guid: 8f44efa456066e44a84c3b344ce25bbd, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7767005616650172724, guid: 8f44efa456066e44a84c3b344ce25bbd, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7767005616650172724, guid: 8f44efa456066e44a84c3b344ce25bbd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7767005616650172724, guid: 8f44efa456066e44a84c3b344ce25bbd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7767005616650172724, guid: 8f44efa456066e44a84c3b344ce25bbd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 8f44efa456066e44a84c3b344ce25bbd, type: 3}
---- !u!114 &1785016219 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1560780883296810152, guid: 8f44efa456066e44a84c3b344ce25bbd, type: 3}
-  m_PrefabInstance: {fileID: 1785016218}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9035150e5b5ea5543aedd5a52c1e8a27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1813562679
 GameObject:
   m_ObjectHideFlags: 0
@@ -903,7 +829,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b38e5014b7bd8c04e8a1187d73984126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bgTextureController: {fileID: 1785016219}
   _playerInputHandler: {fileID: 1813562680}
   _scoreCounter: {fileID: 710374887}
 --- !u!114 &2097693597
@@ -931,4 +856,3 @@ SceneRoots:
   - {fileID: 918102902}
   - {fileID: 2097693592}
   - {fileID: 965037837}
-  - {fileID: 1785016218}

@@ -56,5 +56,5 @@ SettingsView {
 }
 
 .right-button > .background > .icon {
-    background-image: url('project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=-4521532143779581420&guid=38d2a10a3e24acd43a18a63bfff3aa76&type=3#arrow-right');
+    background-image: url('project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=-1087164816274819069&guid=38d2a10a3e24acd43a18a63bfff3aa76&type=3#arrow-right@2x');
 }

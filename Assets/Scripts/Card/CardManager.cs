@@ -14,9 +14,9 @@ namespace FH.Cards {
 
         public CardFlipper CardFlipper { get; private set; }
 
-        public int rows;
-        public int columns;
-        public ColorsSO pallete;
+        public int Rows { get; set; }
+        public int Columns { get; set; }
+        public ColorsSO Pallete { get; set; }
 
         [SerializeField] private Card cardPrefab;
         [SerializeField] private Transform spawnPosition;
@@ -61,8 +61,8 @@ namespace FH.Cards {
 
         #region Main methods
         private void SpawnCards() {
-            for (int col = 0; col < columns; col++) {
-                for (int row = 0; row < rows; row++) {
+            for (int col = 0; col < Columns; col++) {
+                for (int row = 0; row < Rows; row++) {
                     Vector3 position = new Vector3((spawnPosition.position.x + (offset * row)), (spawnPosition.position.y + (offset * col)), 0);
                     Card card = Instantiate(cardPrefab, position, Quaternion.identity);
                     card.name = "card_" + 'c' + col + 'r' + row;
@@ -198,17 +198,17 @@ namespace FH.Cards {
 
         private void TwoEqualCards(List<Pair<int, Color>> values) {
             for (int i = 0; i < cards.Count / 2; i++) {
-                values.Add(new Pair<int, Color>(i, pallete.pallete[i]));
-                values.Add(new Pair<int, Color>(i, pallete.pallete[i]));
+                values.Add(new Pair<int, Color>(i, Pallete.pallete[i]));
+                values.Add(new Pair<int, Color>(i, Pallete.pallete[i]));
             }
         }
 
         private void FourEqualCards(List<Pair<int, Color>> values) {
             for (int i = 0; i < cards.Count / 4; i++) {
-                values.Add(new Pair<int, Color>(i, pallete.pallete[i]));
-                values.Add(new Pair<int, Color>(i, pallete.pallete[i]));
-                values.Add(new Pair<int, Color>(i, pallete.pallete[i]));
-                values.Add(new Pair<int, Color>(i, pallete.pallete[i]));
+                values.Add(new Pair<int, Color>(i, Pallete.pallete[i]));
+                values.Add(new Pair<int, Color>(i, Pallete.pallete[i]));
+                values.Add(new Pair<int, Color>(i, Pallete.pallete[i]));
+                values.Add(new Pair<int, Color>(i, Pallete.pallete[i]));
             }
         }
 

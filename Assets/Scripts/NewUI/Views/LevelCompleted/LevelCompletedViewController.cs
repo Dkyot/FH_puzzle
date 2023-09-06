@@ -10,7 +10,6 @@ using UnityEngine.UIElements;
 
 namespace FH.UI.Views.LevelCompleted {
     public sealed class LevelCompletedController : ViewController<LevelCompletedView> {
-        [SerializeField] private ScrollingBgTextureController _bgTextureController;
         [SerializeField] private PlayerInputHandler _playerInputHandler;
         [SerializeField] private ScoreCounter _scoreCounter;
 
@@ -20,7 +19,7 @@ namespace FH.UI.Views.LevelCompleted {
         }
 
         public override void ShowView() {
-            _bgTextureController.EnableRendering();
+            ScrollingBgTextureController.Instance?.EnableRendering();
             view.Show();
             view.ShowTitle();
             _ = AwaitTitleAnimation();
@@ -28,7 +27,7 @@ namespace FH.UI.Views.LevelCompleted {
         }
 
         public override void HideView() {
-            _bgTextureController.DisableRendering();
+            ScrollingBgTextureController.Instance?.DisableRendering();
             view.Hide();
         }
 

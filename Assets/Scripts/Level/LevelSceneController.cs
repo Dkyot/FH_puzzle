@@ -5,11 +5,14 @@ using System;
 using FH.UI.Views.LevelStart;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 namespace FH.Level {
     [RequireComponent(typeof(ScoreCounter))]
     [RequireComponent(typeof(ScoreTimer))]
-    public class LevelManager : MonoBehaviour, ISceneController {
+    public class LevelSceneController : MonoBehaviour, ISceneController {
+        [SerializeField] private string _sceneName;
+
         [Header("Level Events")]
         [SerializeField] private UnityEvent GamePaused;
         [SerializeField] private UnityEvent GameResumed;
@@ -35,9 +38,9 @@ namespace FH.Level {
             cardManager.CardFlipper.IsEnable = false;
 
             var levelData = _levelContext.currentLevel;
-            cardManager.columns = levelData.Params.Columns;
-            cardManager.pallete = levelData.Params.Palete;
-            cardManager.rows = levelData.Params.Rows;
+            cardManager.Columns = levelData.Params.Columns;
+            cardManager.Pallete = levelData.Params.Palete;
+            cardManager.Rows = levelData.Params.Rows;
 
             cardManager.OnWin += OnWin;
 
@@ -52,6 +55,11 @@ namespace FH.Level {
 
         public void StartScene() {
             _ = StartSceneAsync();
+        }
+
+        public async Awaitable UnloadScene() {
+            var operation = SceneManager.UnloadSceneAsync(_sceneName);
+            await operation;
         }
 
         public void Restart() {

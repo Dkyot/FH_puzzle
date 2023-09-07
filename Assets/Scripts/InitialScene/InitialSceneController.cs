@@ -3,6 +3,7 @@ using FH.SO;
 using FH.Utils;
 using NaughtyAttributes;
 using System;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -17,7 +18,6 @@ namespace Assets.Scripts.InitialScene {
         [SerializeField] private SceneManagerProxy _sceneManagerProxy;
 
         [Header("Level References")]
-        [SerializeField] private Camera _sceneCamera;
         [SerializeField] private UIDocument _uiDocument;
         [SerializeField] private TransitionSettings _transitionSettings;
         [SerializeField] private ScrollingBgTextureController _textureController;
@@ -25,25 +25,44 @@ namespace Assets.Scripts.InitialScene {
         private bool _isLoading = false;
 
         private void Start() {
-            ShowScene();
+            ShowLoadingScreen();
+
             _sceneManagerProxy.IsManaged = true;
+            _sceneManagerProxy.MainMenuTransitionRequested += () => { if (!_isLoading) LoadMainMenuScene(); };
+            _sceneManagerProxy.LevelTransitionRequested += () => { if (!_isLoading) LoadLevelScene(); };
+
             _ = InitGame();
         }
 
         private async Awaitable InitGame() {
             // Init game here
 
-            await Awaitable.WaitForSecondsAsync(1);
+            await Awaitable.WaitForSecondsAsync(2);
             await LoadMainMenuScene();
         }
 
-        private async Awaitable LoadScene(string sceneName) {
+        private Awaitable LoadMainMenuScene() {
+            return LoadScene(_mainMenuScene, false);
+        }
+
+        private Awaitable LoadLevelScene() {
+            return LoadScene(_levelScene, true);
+        }
+
+        private async Awaitable LoadScene(string sceneName, bool showAd) {
             if (_isLoading)
                 return;
 
             _isLoading = true;
 
-            await UnloadCurrentScene();
+            if (_sceneManagerProxy.SceneController != null) {
+                await ExitCurrentScene();
+            }
+
+            if (showAd) {
+                // Show Ad Here
+            }
+
             await LoadNewScene(sceneName);
         }
 
@@ -60,9 +79,9 @@ namespace Assets.Scripts.InitialScene {
             }
         }
 
-        private async Awaitable UnloadCurrentScene() {
-            if (_sceneManagerProxy.SceneController == null)
-                return;
+        private async Awaitable ExitCurrentScene() {
+            await StartTransition();
+            ShowLoadingScreen();
 
             try {
                 await _sceneManagerProxy.SceneController.UnloadScene();
@@ -89,28 +108,23 @@ namespace Assets.Scripts.InitialScene {
         }
 
         private async Awaitable EnterScene() {
-            TransitionManager.Instance().Transition(_transitionSettings, 0);
-            await Awaitable.WaitForSecondsAsync(1f);
-            HideScene();
+            await StartTransition();
+            HideLoadingScreen();
             _sceneManagerProxy.SceneController.StartScene();
         }
 
-        private Awaitable LoadMainMenuScene() {
-            return LoadScene(_mainMenuScene);
+        private Awaitable StartTransition() {
+            TransitionManager.Instance().Transition(_transitionSettings, 0);
+            return Awaitable.WaitForSecondsAsync(1f);
         }
 
-        private Awaitable LoadLevelScene() {
-            return LoadScene(_levelScene);
-        }
 
-        private void ShowScene() {
-            _sceneCamera.enabled = true;
+        private void ShowLoadingScreen() {
             _uiDocument.enabled = true;
             _textureController.EnableRendering();
         }
 
-        private void HideScene() {
-            _sceneCamera.enabled = false;
+        private void HideLoadingScreen() {
             _uiDocument.enabled = false;
             _textureController.DisableRendering();
         }

@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 468a46d0ae32c3544b7d98094e6448a9, type: 3}
   m_Name: AddressableAssetSettings
   m_EditorClassIdentifier: 
-  m_DefaultGroup: e47eac2d5a21df44cb82abb3fd78edc7
+  m_DefaultGroup: 8a3a690b455f6c14ebaea2306ea40cf4
   m_currentHash:
     serializedVersion: 2
-    Hash: 0dbe11bf01d7f3b49996c44a15e3c478
+    Hash: 557858b19cb79a388152015654a2c59c
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_BundleLocalCatalog: 0
@@ -38,18 +38,19 @@ MonoBehaviour:
     m_Id: 
   m_RemoteCatalogLoadPath:
     m_Id: 
-  m_ContentStateBuildPathProfileVariableName: 
+  m_ContentStateBuildPathProfileVariableName: <default settings path>
   m_CustomContentStateBuildPath: 
   m_ContentStateBuildPath: 
   m_BuildAddressablesWithPlayerBuild: 0
   m_overridePlayerVersion: '[UnityEditor.PlayerSettings.bundleVersion]'
   m_GroupAssets:
   - {fileID: 11400000, guid: f9f5546f08544234e8995a7fc526fb14, type: 2}
-  - {fileID: 11400000, guid: 2792af256531afa40ab2ee3c041fdfec, type: 2}
   - {fileID: 11400000, guid: 0db35c84c7f639e46b4dc5ff0af6826a, type: 2}
   - {fileID: 11400000, guid: 3db9cfbf4d6f1b3449e1d2aa208c36c1, type: 2}
   - {fileID: 11400000, guid: 5f0657ab8a093084a877a74ce4f275a0, type: 2}
   - {fileID: 11400000, guid: ce320700d54d93f488d781981011de19, type: 2}
+  - {fileID: 11400000, guid: 2792af256531afa40ab2ee3c041fdfec, type: 2}
+  - {fileID: 11400000, guid: 153820948be82b54b9434d04ae3ffdd3, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -68,9 +69,9 @@ MonoBehaviour:
       - m_Id: 041f2f606d7096649b5d41af9ce3fb77
         m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/[BuildTarget]'
       - m_Id: 7f52932a7d7d90342a89188c570d75d4
-        m_Value: ServerData/[BuildTarget]
+        m_Value: 'ServerData/[BuildTarget]'
       - m_Id: c18dad8c75728644caf73d9441067211
-        m_Value: http://[PrivateIpAddress]:[HostingServicePort]
+        m_Value: 'http://[PrivateIpAddress]:[HostingServicePort]'
     m_ProfileEntryNames:
     - m_Id: abd167651da91414891a8eaccda93dbd
       m_Name: BuildTarget

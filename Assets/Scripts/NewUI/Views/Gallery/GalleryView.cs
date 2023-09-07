@@ -1,3 +1,4 @@
+using FH.SO;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -16,7 +17,23 @@ namespace FH.UI.Views.Gallery {
         private VisualElement _photoContainer;
         private VisualElement _photoScrollView;
 
-        public void SetPhotos() { }
+        public void SetImages(IEnumerable<Sprite> sprites) {
+            _photoContainer.Clear();
+            foreach (var sprite in sprites) {
+                var photoCard = new PhotoCard();
+                photoCard.SetImage(sprite);
+                _photoContainer.Add(photoCard);
+            }
+
+            if (_photoContainer.hierarchy.childCount == 0) {
+                _photoScrollView.style.display = DisplayStyle.None;
+                _noPhotoLabel.style.display = DisplayStyle.Flex;
+            }
+            else {
+                _photoScrollView.style.display = DisplayStyle.Flex;
+                _noPhotoLabel.style.display = DisplayStyle.None;
+            }
+        }
 
         protected override void OnInit() {
             _backButton = this.Q<Button>("BackButton");

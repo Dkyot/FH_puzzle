@@ -20,8 +20,10 @@ MonoBehaviour:
     <Value>k__BackingField: 
     <IsLocalizable>k__BackingField: 0
   <LevelImage>k__BackingField:
-    m_AssetGUID: 
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
+    m_AssetGUID: 252481c01fc93d84182a7efe4fddf8d9
+    m_SubObjectName: window_0
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 1
+  score: 0
   isCompleted: 0

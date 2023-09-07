@@ -3,7 +3,7 @@ using FH.SO;
 using FH.Utils;
 using NaughtyAttributes;
 using System;
-using System.Threading.Tasks;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -16,6 +16,7 @@ namespace Assets.Scripts.InitialScene {
 
         [Header("System Referenses")]
         [SerializeField] private SceneManagerProxy _sceneManagerProxy;
+        [SerializeField] private LevelsDataBaseSO _levelDataBase;
 
         [Header("Level References")]
         [SerializeField] private UIDocument _uiDocument;
@@ -36,7 +37,17 @@ namespace Assets.Scripts.InitialScene {
 
         private async Awaitable InitGame() {
             // Init game here
+            // Load saved player level data
 
+            // Indexing levels
+            var levels = _levelDataBase.LevelData.Select((l, i) => {
+                l.number = i;
+                return l;
+            });
+
+            foreach (var level in levels) { }
+
+            // Load Mian Menu
             await Awaitable.WaitForSecondsAsync(2);
             await LoadMainMenuScene();
         }

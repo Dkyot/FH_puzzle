@@ -1,3 +1,4 @@
+using FH.SO;
 using FH.Utils;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,6 +16,10 @@ namespace FH.UI.Views.Gallery {
         public override void ShowView() {
             view.Show();
             ScrollingBgTextureController.Instance?.EnableRendering();
+        }
+
+        public void SetInages(IEnumerable<Sprite> sprites) {
+            view.SetImages(sprites);
         }
 
         protected override void OnScreenControllerSet() {

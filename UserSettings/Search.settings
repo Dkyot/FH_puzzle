@@ -8,6 +8,9 @@ onBoardingDoNotAskAgain = true
 showPackageIndexes = false
 showStatusBar = false
 scopes = {
+	"last_search.45C55C98" = ""
+	"OpenInspectorPreview.45C55C98" = "0"
+	"currentGroup.45C55C98" = "asset"
 }
 providers = {
 	log = {
@@ -53,6 +56,21 @@ providers = {
 	adb = {
 		active = false
 		priority = 2500
+		defaultAction = null
+	}
+	st = {
+		active = true
+		priority = 100
+		defaultAction = null
+	}
+	at = {
+		active = true
+		priority = 100
+		defaultAction = null
+	}
+	presets_provider = {
+		active = false
+		priority = -10
 		defaultAction = null
 	}
 }

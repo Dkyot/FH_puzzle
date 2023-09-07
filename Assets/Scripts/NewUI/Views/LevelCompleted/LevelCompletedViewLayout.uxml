@@ -32,7 +32,7 @@
             </ui:VisualElement>
             <ui:VisualElement name="ButtonsContainer" style="flex-grow: 0; flex-direction: row; justify-content: space-between; margin-top: 40px;">
                 <FH.UI.SquareButton focusable="true" name="ToMainMenuButton" Label="TO_MAIN_MENU" style="min-width: 300px;" />
-                <FH.UI.RoundButton Label="CONTINUE" name="BackButton" style="min-width: 300px;" />
+                <FH.UI.RoundButton Label="CONTINUE" name="ContinueButton" style="min-width: 300px;" />
             </ui:VisualElement>
         </ui:VisualElement>
         <FH.UI.LocalizedLabel tabindex="-1" Label="PRESS_TO_CONTINUE" name="PressToContinueLabel" class="text_shadow" style="position: absolute; left: 0; bottom: 0; -unity-text-align: lower-center; right: 0; margin-bottom: 3%; font-size: 40px; -unity-font-style: bold;" />

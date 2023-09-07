@@ -3,7 +3,7 @@
     width: 200px;
     height: 200px;
     background-color: var(--primary);
-    border-width: 20px;
+    border-width: 10px;
     border-radius: 20px;
     border-color: var(--primary-3);
     margin: 15px;

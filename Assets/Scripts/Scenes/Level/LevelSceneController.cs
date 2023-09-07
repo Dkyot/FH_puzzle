@@ -44,6 +44,7 @@ namespace FH.Level {
         public async Awaitable UnloadScene() {
             _image = null;
             _spriteRef.ReleaseAsset();
+
             await SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
         }
 
@@ -69,6 +70,28 @@ namespace FH.Level {
             _gameContext.SceneManagerProxy.RequestMainMenuTrastion();
         }
 
+        public void NextLevel() {
+            var currentLevel = _gameContext.CurrentLevel;
+            LevelDataSO nextLevel = null;
+            bool findCurrent = false;
+
+            foreach (var level in _gameContext.LevelDataBase.Levels) {
+                if (!findCurrent) {
+                    if (level == currentLevel)
+                        findCurrent = true;
+                    continue;
+                }
+
+                nextLevel = level;
+                break;
+            }
+
+            if (nextLevel == null)  return; 
+
+            _gameContext.CurrentLevel = nextLevel;
+            _gameContext.SceneManagerProxy.RequestLevelTransition();
+        }
+
         private void Awake() {
             scoreCounter = GetComponent<ScoreCounter>();
             scoreTimer = GetComponent<ScoreTimer>();
@@ -77,7 +100,7 @@ namespace FH.Level {
         private void Start() {
             cardManager.CardFlipper.IsEnable = false;
 
-            var levelData = _gameContext.LevelContext.currentLevel;
+            var levelData = _gameContext.CurrentLevel;
             cardManager.Columns = levelData.Params.Columns;
             cardManager.Pallete = levelData.Params.Palete;
             cardManager.Rows = levelData.Params.Rows;
@@ -102,12 +125,15 @@ namespace FH.Level {
             scoreTimer.IsRunning = false;
             scoreCounter.CalculateScore();
 
-            Debug.Log(scoreCounter.GetScoreJson());
+            var currentLevel = _gameContext.CurrentLevel;
+            currentLevel.isCompleted = true;
+            currentLevel.score = scoreCounter.FinalScore;
+
             GameFinished.Invoke();
         }
 
         private async Awaitable LoadImage() {
-            _spriteRef = _gameContext.LevelContext.currentLevel.LevelImage;
+            _spriteRef = _gameContext.CurrentLevel.LevelImage;
             var operation = await _spriteRef.LoadAssetAsync().CompleteAsync();
 
             if (operation.Status == AsyncOperationStatus.Failed) {

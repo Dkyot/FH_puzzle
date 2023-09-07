@@ -5,6 +5,6 @@ namespace FH.SO {
     public class GameContext : ScriptableObject {
         [field: SerializeField] public LevelsDataBaseSO LevelDataBase { get; private set; }
         [field: SerializeField] public SceneManagerProxy SceneManagerProxy { get; private set; }
-        [field: SerializeField] public LevelContext LevelContext { get; private set; }
+        [field: SerializeField] public LevelDataSO CurrentLevel { get; set; }
     }
 }

@@ -6,10 +6,14 @@ using FH.Level;
 using FH.Utils;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UIElements;
 
 namespace FH.UI.Views.LevelCompleted {
     public sealed class LevelCompletedController : ViewController<LevelCompletedView> {
+        [SerializeField] private UnityEvent _toMainMenuPressed;
+        [SerializeField] private UnityEvent _nextLevelPressed;
+
         [SerializeField] private PlayerInputHandler _playerInputHandler;
         [SerializeField] private ScoreCounter _scoreCounter;
 
@@ -33,6 +37,16 @@ namespace FH.UI.Views.LevelCompleted {
 
         protected override void OnScreenControllerSet() {
             base.OnScreenControllerSet();
+            view.ToMainMenuPressed += OnToMainMenUPressed;
+            view.NexLevelPressed += OnNexLevelPressed;
+        }
+
+        private void OnToMainMenUPressed() {
+            _toMainMenuPressed.Invoke();
+        }
+
+        private void OnNexLevelPressed() {
+            _nextLevelPressed.Invoke();
         }
 
         private async Awaitable AwaitTitleAnimation() {
@@ -109,6 +123,8 @@ namespace FH.UI.Views.LevelCompleted {
         }
 
         private void OnDisable() {
+            view.NexLevelPressed -= OnNexLevelPressed;
+            view.ToMainMenuPressed -= OnToMainMenUPressed;
         }
     }
 }

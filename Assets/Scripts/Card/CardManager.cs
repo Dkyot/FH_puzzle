@@ -46,6 +46,11 @@ namespace FH.Cards {
             AddTipsEvents();
         }
 
+        private void OnDisable() {
+            UnsubscribeCardEvents();
+            UnsubscribeTipsEvents();
+        }
+
         public void CreateCards() {
             foreach (Card card in cards) {
                 Destroy(card.gameObject);
@@ -224,8 +229,17 @@ namespace FH.Cards {
             Card.OnReset += Reset;
         }
 
+        private void UnsubscribeCardEvents() {
+            Card.OnFlip -= TryToFlip;
+            Card.OnReset -= Reset;
+        }
+
         private void AddTipsEvents() {
             CardTipsController.OnActivate += FindEqualCards;
+        }
+
+        private void UnsubscribeTipsEvents() {
+            CardTipsController.OnActivate -= FindEqualCards;
         }
         #endregion
     }

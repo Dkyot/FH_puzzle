@@ -22,7 +22,7 @@ namespace FH.MainMenu {
         private List<Sprite> _galleryImages = new();
 
         public void GoToLevel(LevelDataSO levelData) {
-            _gameContext.LevelContext.currentLevel = levelData;
+            _gameContext.CurrentLevel = levelData;
             _gameContext.SceneManagerProxy.RequestLevelTransition();
         }
 

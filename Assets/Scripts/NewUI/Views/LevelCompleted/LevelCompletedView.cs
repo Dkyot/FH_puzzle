@@ -10,6 +10,16 @@ namespace FH.UI.Views.LevelCompleted {
     public sealed class LevelCompletedView : ViewBase {
         private const string _transitionClass = "transition";
 
+        public event Action ToMainMenuPressed {
+            add => _toMainMenuButton.clicked += value;
+            remove => _toMainMenuButton.clicked -= value;
+        }
+
+        public event Action NexLevelPressed {
+            add => _continueButton.clicked += value;
+            remove => _continueButton.clicked -= value;
+        }
+
         public string TimeLabelText {
             set => _timeSoreLabel.text = value;
         }

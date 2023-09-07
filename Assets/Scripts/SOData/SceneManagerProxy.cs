@@ -20,6 +20,14 @@ namespace FH.SO {
             }
         }
 
+        public void RequestLevelTransition() {
+            LevelTransitionRequested?.Invoke();
+        }
+
+        public void RequestMainMenuTrastion() {
+            MainMenuTransitionRequested?.Invoke();
+        }
+
         private ISceneController _sceneController;
 
         private void OnControllerSet() {

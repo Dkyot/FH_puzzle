@@ -18,7 +18,7 @@ namespace FH.UI.Views.Gallery {
             ScrollingBgTextureController.Instance?.EnableRendering();
         }
 
-        public void SetInages(IEnumerable<Sprite> sprites) {
+        public void SetImages(IEnumerable<Sprite> sprites) {
             view.SetImages(sprites);
         }
 

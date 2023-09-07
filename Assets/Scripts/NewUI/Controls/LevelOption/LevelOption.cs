@@ -11,7 +11,7 @@ namespace FH.UI {
         private const string _enabledClass = "level-option-enabled";
         private const string _completedClass = "level-option-completed";
 
-        public event Action<LevelOption> Pressed;
+        public event Action Pressed;
 
         public bool IsEnabled {
             get => _isEnabled;
@@ -95,7 +95,7 @@ namespace FH.UI {
             // if (@event.propagationPhase != PropagationPhase.AtTarget)
                 // return;
 
-            Pressed?.Invoke(this);
+            Pressed?.Invoke();
         }
 
         public new sealed class UxmlTraits : VisualElement.UxmlTraits {

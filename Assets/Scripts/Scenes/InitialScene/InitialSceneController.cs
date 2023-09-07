@@ -41,7 +41,7 @@ namespace Assets.Scripts.InitialScene {
 
             // Indexing levels
             var levels = _levelDataBase.LevelData.Select((l, i) => {
-                l.number = i;
+                l.number = i + 1;
                 return l;
             });
 
@@ -68,6 +68,7 @@ namespace Assets.Scripts.InitialScene {
 
             if (_sceneManagerProxy.SceneController != null) {
                 await ExitCurrentScene();
+                await Awaitable.WaitForSecondsAsync(2f);
             }
 
             if (showAd) {

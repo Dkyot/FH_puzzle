@@ -1,6 +1,7 @@
 ﻿using FH.Scenes;
 using FH.SO;
 using FH.UI.Views.Gallery;
+using FH.UI.Views.LevelSelect;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,21 +14,29 @@ namespace FH.MainMenu {
         [Header("System Referenses")]
         [SerializeField] private SceneManagerProxy _sceneManagerProxy;
         [SerializeField] private LevelsDataBaseSO _levelsDataBase;
+        [SerializeField] private LevelContext _levelContext;
 
         [Header("SceneReferences")]
         [SerializeField] private GalleryViewController _galleryController;
+        [SerializeField] private LevelSelectController _levelSelectController;
 
         private List<Sprite> _galleryImages = new();
+
+        public void GoToLevel(LevelDataSO levelData) {
+            _levelContext.currentLevel = levelData;
+            _sceneManagerProxy.RequestLevelTransition();
+        }
 
         public async Awaitable StartPreloading() {
             try {
                 await LoadGalleryImages();
+                _galleryController.SetImages(_galleryImages);
             }
             catch (Exception ex) {
                 Debug.LogException(ex);
             }
 
-            _galleryController.SetInages(_galleryImages);
+            _levelSelectController.SetLevels(_levelsDataBase.LevelData);
         }
 
         public void StartScene() {
@@ -59,7 +68,8 @@ namespace FH.MainMenu {
 
                     if (result != null)
                         _galleryImages.Add(loadOperation.Result);
-                    else Debug.Log($"Loaded image is null: {levelImageRef.AssetGUID}");
+                    else
+                        Debug.Log($"Loaded image is null: {levelImageRef.AssetGUID}");
                 }
                 else {
                     Debug.Log(loadOperation.OperationException);

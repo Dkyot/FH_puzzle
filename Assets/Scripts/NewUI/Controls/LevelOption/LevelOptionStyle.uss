@@ -1,7 +1,7 @@
 .level-option-container {
     flex-grow: 0;
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
     background-color: var(--primary);
     border-width: 20px;
     border-radius: 20px;

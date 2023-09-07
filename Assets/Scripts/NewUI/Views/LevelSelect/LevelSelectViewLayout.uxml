@@ -7,56 +7,7 @@
         </ui:VisualElement>
         <ui:VisualElement style="flex-grow: 1; margin-top: 40px; align-items: auto; overflow: visible;">
             <ui:ScrollView scroll-deceleration-rate="0,135" elasticity="0.1" vertical-scroller-visibility="AlwaysVisible" mouse-wheel-scroll-size="36" style="flex-grow: 1; justify-content: flex-start; align-items: stretch; flex-direction: column; flex-wrap: nowrap; position: relative; left: auto; top: auto; right: auto; bottom: auto; align-self: stretch; overflow: hidden;">
-                <ui:VisualElement name="LevelsContainer" style="flex-grow: 1; flex-direction: row; flex-wrap: wrap; align-items: flex-start; justify-content: center; height: auto; align-self: auto; overflow: visible; padding-right: 40px;">
-                    <FH.UI.LevelOption Number="1" IsEnabled="true" IsCompleted="true" name="Level" />
-                    <FH.UI.LevelOption Number="2" Rang="A" IsEnabled="true" />
-                    <FH.UI.LevelOption Number="3" Rang="C" IsEnabled="false" />
-                    <FH.UI.LevelOption Number="1" Rang="B" IsEnabled="false" />
-                    <FH.UI.LevelOption Number="1" Rang="S" IsEnabled="false" />
-                    <FH.UI.LevelOption Number="1" Rang="D" />
-                    <FH.UI.LevelOption Number="1" />
-                    <FH.UI.LevelOption Number="1" />
-                    <FH.UI.LevelOption Number="1" />
-                    <FH.UI.LevelOption Number="1" />
-                    <FH.UI.LevelOption Number="1" />
-                    <FH.UI.LevelOption Number="1" />
-                    <FH.UI.LevelOption Number="1" />
-                    <FH.UI.LevelOption Number="1" />
-                    <FH.UI.LevelOption Number="1" />
-                    <FH.UI.LevelOption Number="1" />
-                    <FH.UI.LevelOption Number="1" />
-                    <FH.UI.LevelOption Number="1" />
-                    <FH.UI.LevelOption Number="1" />
-                    <FH.UI.LevelOption Number="1" />
-                    <FH.UI.LevelOption Number="1" />
-                    <FH.UI.LevelOption Number="1" />
-                    <FH.UI.LevelOption Number="1" />
-                    <FH.UI.LevelOption Number="1" />
-                    <FH.UI.LevelOption Number="1" />
-                    <FH.UI.LevelOption Number="1" />
-                    <FH.UI.LevelOption Number="1" />
-                    <FH.UI.LevelOption Number="1" />
-                    <FH.UI.LevelOption Number="1" />
-                    <FH.UI.LevelOption Number="1" />
-                    <FH.UI.LevelOption Number="1" />
-                    <FH.UI.LevelOption Number="1" />
-                    <FH.UI.LevelOption Number="1" />
-                    <FH.UI.LevelOption Number="1" />
-                    <FH.UI.LevelOption Number="1" />
-                    <FH.UI.LevelOption Number="1" />
-                    <FH.UI.LevelOption Number="1" />
-                    <FH.UI.LevelOption Number="1" />
-                    <FH.UI.LevelOption Number="1" />
-                    <FH.UI.LevelOption Number="1" />
-                    <FH.UI.LevelOption Number="1" />
-                    <FH.UI.LevelOption Number="1" />
-                    <FH.UI.LevelOption Number="1" />
-                    <FH.UI.LevelOption Number="1" />
-                    <FH.UI.LevelOption Number="1" />
-                    <FH.UI.LevelOption Number="1" />
-                    <FH.UI.LevelOption Number="1" />
-                    <FH.UI.LevelOption Number="1" />
-                </ui:VisualElement>
+                <ui:VisualElement name="LevelsContainer" style="flex-grow: 1; flex-direction: row; flex-wrap: wrap; align-items: flex-start; justify-content: center; height: auto; align-self: auto; overflow: visible; padding-right: 40px;" />
             </ui:ScrollView>
         </ui:VisualElement>
     </FH.UI.Views.LevelSelect.LevelSelectView>

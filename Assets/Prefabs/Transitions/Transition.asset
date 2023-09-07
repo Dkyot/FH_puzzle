@@ -17,13 +17,13 @@ MonoBehaviour:
   refrenceResolution: {x: 1920, y: 1080}
   blockRaycasts: 1
   colorTintMode: 1
-  colorTint: {r: 0.27058825, g: 0.25490198, b: 0.4, a: 1}
+  colorTint: {r: 0.34816176, g: 0.33090067, b: 0.49056602, a: 1}
   isCutoutTransition: 0
   transitionSpeed: 1
   autoAdjustTransitionTime: 1
   flipX: 0
   flipY: 0
-  transitionTime: 1.5
-  destroyTime: 0.75
+  transitionTime: 1
+  destroyTime: 0.5
   transitionIn: {fileID: 501235885848192162, guid: 278370681279aad4093aaab29aadd98e, type: 3}
   transitionOut: {fileID: 410111082859399802, guid: 28c9e4b137f5a424fb352eb97b777b04, type: 3}

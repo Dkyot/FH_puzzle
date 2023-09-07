@@ -35,11 +35,10 @@ namespace FH.UI.Views.LevelSelect {
                     levelOption.IsEnabled = false;
                 }
 
-                levelOption.IsCompleted = levelOption.IsCompleted;
-
+                levelOption.IsCompleted = level.isCompleted;
                 _levelsContainer.Add(levelOption);
 
-                if (!levelOption.IsCompleted) {
+                if (!level.isCompleted) {
                     isAvalible = false;
                 }
             }

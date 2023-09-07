@@ -300,7 +300,7 @@ GameObject:
   - component: {fileID: 710374887}
   - component: {fileID: 710374888}
   m_Layer: 0
-  m_Name: '[LevelManager]'
+  m_Name: '[LevelConroller]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -318,7 +318,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4535bfe45232fc54e908ecf8fb4dc9fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sceneName: LevelManager
   GamePaused:
     m_PersistentCalls:
       m_Calls:
@@ -364,8 +363,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _levelContext: {fileID: 11400000, guid: ab69d8096afa9154b90a8440ffb21426, type: 2}
-  _sceneManagerProxy: {fileID: 11400000, guid: 487de81e18cfb7b4cb1151c0d80f840e, type: 2}
+  _gameContext: {fileID: 11400000, guid: e6e5a395ae8fa894ca3fe345a83556a5, type: 2}
   cardManager: {fileID: 918102901}
   _starAnimationView: {fileID: 2097693597}
 --- !u!4 &710374886
@@ -816,7 +814,19 @@ MonoBehaviour:
         m_CallState: 2
   _exitPressed:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 710374885}
+        m_TargetAssemblyTypeName: FH.Level.LevelSceneController, Assembly-CSharp
+        m_MethodName: GoToMainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2097693596
 MonoBehaviour:
   m_ObjectHideFlags: 0

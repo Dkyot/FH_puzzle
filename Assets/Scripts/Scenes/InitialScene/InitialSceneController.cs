@@ -15,8 +15,7 @@ namespace Assets.Scripts.InitialScene {
         [SerializeField, Scene] private string _levelScene;
 
         [Header("System Referenses")]
-        [SerializeField] private SceneManagerProxy _sceneManagerProxy;
-        [SerializeField] private LevelsDataBaseSO _levelDataBase;
+        [SerializeField] private GameContext _gameContext;
 
         [Header("Level References")]
         [SerializeField] private UIDocument _uiDocument;
@@ -28,9 +27,9 @@ namespace Assets.Scripts.InitialScene {
         private void Start() {
             ShowLoadingScreen();
 
-            _sceneManagerProxy.IsManaged = true;
-            _sceneManagerProxy.MainMenuTransitionRequested += () => { if (!_isLoading) LoadMainMenuScene(); };
-            _sceneManagerProxy.LevelTransitionRequested += () => { if (!_isLoading) LoadLevelScene(); };
+            _gameContext.SceneManagerProxy.IsManaged = true;
+            _gameContext.SceneManagerProxy.MainMenuTransitionRequested += () => { if (!_isLoading) LoadMainMenuScene(); };
+            _gameContext.SceneManagerProxy.LevelTransitionRequested += () => { if (!_isLoading) LoadLevelScene(); };
 
             _ = InitGame();
         }
@@ -40,7 +39,7 @@ namespace Assets.Scripts.InitialScene {
             // Load saved player level data
 
             // Indexing levels
-            var levels = _levelDataBase.LevelData.Select((l, i) => {
+            var levels = _gameContext.LevelDataBase.Levels.Select((l, i) => {
                 l.number = i + 1;
                 return l;
             });
@@ -66,7 +65,7 @@ namespace Assets.Scripts.InitialScene {
 
             _isLoading = true;
 
-            if (_sceneManagerProxy.SceneController != null) {
+            if (_gameContext.SceneManagerProxy.SceneController != null) {
                 await ExitCurrentScene();
                 await Awaitable.WaitForSecondsAsync(2f);
             }
@@ -79,7 +78,7 @@ namespace Assets.Scripts.InitialScene {
         }
 
         private async Awaitable LoadNewScene(string sceneName) {
-            _sceneManagerProxy.SceneControllerSet += OnControllerSet;
+            _gameContext.SceneManagerProxy.SceneControllerSet += OnControllerSet;
 
             try {
                 await SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
@@ -96,7 +95,7 @@ namespace Assets.Scripts.InitialScene {
             ShowLoadingScreen();
 
             try {
-                await _sceneManagerProxy.SceneController.UnloadScene();
+                await _gameContext.SceneManagerProxy.SceneController.UnloadScene();
             }
             catch (Exception ex) {
                 Debug.LogError(ex);
@@ -104,7 +103,7 @@ namespace Assets.Scripts.InitialScene {
         }
 
         private void OnControllerSet() {
-            _sceneManagerProxy.SceneControllerSet -= OnControllerSet;
+            _gameContext.SceneManagerProxy.SceneControllerSet -= OnControllerSet;
             _ = OnControllerSetAsync();
         }
 
@@ -116,13 +115,13 @@ namespace Assets.Scripts.InitialScene {
         }
 
         private async Awaitable PrepareScene() {
-            await _sceneManagerProxy.SceneController.StartPreloading();
+            await _gameContext.SceneManagerProxy.SceneController.StartPreloading();
         }
 
         private async Awaitable EnterScene() {
             await StartTransition();
             HideLoadingScreen();
-            _sceneManagerProxy.SceneController.StartScene();
+            _gameContext.SceneManagerProxy.SceneController.StartScene();
         }
 
         private Awaitable StartTransition() {

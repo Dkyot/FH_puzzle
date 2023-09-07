@@ -388,9 +388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91e3b9e331876da47a1844c6bd0dc000, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sceneManagerProxy: {fileID: 11400000, guid: 487de81e18cfb7b4cb1151c0d80f840e, type: 2}
-  _levelsDataBase: {fileID: 11400000, guid: 3f6aec6f858e946438c7a1cf86f65a2a, type: 2}
-  _levelContext: {fileID: 11400000, guid: ab69d8096afa9154b90a8440ffb21426, type: 2}
+  _gameContext: {fileID: 11400000, guid: e6e5a395ae8fa894ca3fe345a83556a5, type: 2}
   _galleryController: {fileID: 192632334}
   _levelSelectController: {fileID: 192632335}
 --- !u!4 &879675091
@@ -490,7 +488,7 @@ MonoBehaviour:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 879675091}
   - {fileID: 568939119}
   - {fileID: 1105396484}
   - {fileID: 192632329}
-  - {fileID: 879675091}

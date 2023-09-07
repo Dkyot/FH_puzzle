@@ -2,6 +2,7 @@
 using FH.SO;
 using FH.UI.Views.Gallery;
 using FH.UI.Views.LevelSelect;
+using FH.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +13,7 @@ using UnityEngine.SceneManagement;
 namespace FH.MainMenu {
     public class MainMenuController : MonoBehaviour, ISceneController {
         [Header("System Referenses")]
-        [SerializeField] private SceneManagerProxy _sceneManagerProxy;
-        [SerializeField] private LevelsDataBaseSO _levelsDataBase;
-        [SerializeField] private LevelContext _levelContext;
+        [SerializeField] private GameContext _gameContext;
 
         [Header("SceneReferences")]
         [SerializeField] private GalleryViewController _galleryController;
@@ -23,8 +22,8 @@ namespace FH.MainMenu {
         private List<Sprite> _galleryImages = new();
 
         public void GoToLevel(LevelDataSO levelData) {
-            _levelContext.currentLevel = levelData;
-            _sceneManagerProxy.RequestLevelTransition();
+            _gameContext.LevelContext.currentLevel = levelData;
+            _gameContext.SceneManagerProxy.RequestLevelTransition();
         }
 
         public async Awaitable StartPreloading() {
@@ -36,12 +35,10 @@ namespace FH.MainMenu {
                 Debug.LogException(ex);
             }
 
-            _levelSelectController.SetLevels(_levelsDataBase.LevelData);
+            _levelSelectController.SetLevels(_gameContext.LevelDataBase.Levels);
         }
 
-        public void StartScene() {
-
-        }
+        public void StartScene() { }
 
         public async Awaitable UnloadScene() {
             RealeseImages();
@@ -49,31 +46,36 @@ namespace FH.MainMenu {
         }
 
         private void Start() {
-            _sceneManagerProxy.SceneController = this;
+            _gameContext.SceneManagerProxy.SceneController = this;
         }
 
         private async Awaitable LoadGalleryImages() {
-            var comopletedLevels = _levelsDataBase.LevelData.Where(l => l.isCompleted);
+            var comopletedLevels = _gameContext.LevelDataBase.Levels.Where(l => l.isCompleted);
 
             foreach (var level in comopletedLevels) {
                 var levelImageRef = level.LevelImage;
-                var loadOperation = levelImageRef.LoadAssetAsync();
+                AsyncOperationHandle<Sprite> loadOperation;
 
-                while (!loadOperation.IsDone) {
-                    await Awaitable.NextFrameAsync();
+                try {
+                    loadOperation = await levelImageRef.LoadAssetAsync().CompleteAsync();
+                }
+                catch (Exception ex) {
+                    Debug.LogException(ex);
+                    continue;
                 }
 
-                if (loadOperation.Status == AsyncOperationStatus.Succeeded) {
-                    var result = loadOperation.Result;
-
-                    if (result != null)
-                        _galleryImages.Add(loadOperation.Result);
-                    else
-                        Debug.Log($"Loaded image is null: {levelImageRef.AssetGUID}");
-                }
-                else {
+                if (loadOperation.Status == AsyncOperationStatus.Failed) {
                     Debug.Log(loadOperation.OperationException);
+                    continue;
                 }
+
+                var result = loadOperation.Result;
+                if (result == null) {
+                    Debug.Log($"Loaded image is null: {levelImageRef.AssetGUID}");
+                    continue;
+                }
+
+                _galleryImages.Add(result);
             }
 
             Debug.Log($"Loaded {_galleryImages.Count} images");
@@ -83,7 +85,7 @@ namespace FH.MainMenu {
             _galleryImages.Clear();
             _galleryImages = null;
 
-            var comopletedLevels = _levelsDataBase.LevelData.Where(l => l.isCompleted);
+            var comopletedLevels = _gameContext.LevelDataBase.Levels.Where(l => l.isCompleted);
 
             foreach (var level in comopletedLevels) {
                 var levelImageRef = level.LevelImage;

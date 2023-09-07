@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 617e49d9fc889c1459fb7d69c628e89d, type: 3}
-  m_Name: LevelData_1
+  m_Name: LevelData_4
   m_EditorClassIdentifier: 
   <Params>k__BackingField:
     <Palete>k__BackingField: {fileID: 11400000, guid: 3772058dbf4f0fd43bfcccd8047b44f2, type: 2}
@@ -20,10 +20,10 @@ MonoBehaviour:
     <Value>k__BackingField: 
     <IsLocalizable>k__BackingField: 0
   <LevelImage>k__BackingField:
-    m_AssetGUID: 252481c01fc93d84182a7efe4fddf8d9
-    m_SubObjectName: window_0
+    m_AssetGUID: 7c3a8188d9f41d6409de14e28619d881
+    m_SubObjectName: square-format-composition-6_0
     m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
     m_EditorAssetChanged: 1
   score: 0
-  isCompleted: 1
+  isCompleted: 0

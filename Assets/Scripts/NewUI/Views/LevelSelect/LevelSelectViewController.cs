@@ -1,5 +1,6 @@
 using FH.SO;
 using FH.UI;
+using FH.Utils;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,16 @@ namespace FH.UI.Views.LevelSelect {
 
         public void SetLevels(IEnumerable<LevelDataSO> levels) {
             view.SetLevels(levels);
+        }
+
+        public override void HideView() {
+            base.HideView();
+            ScrollingBgTextureController.Instance.DisableRendering();
+        }
+
+        public override void ShowView() {
+            base.ShowView();
+            ScrollingBgTextureController.Instance.EnableRendering();
         }
 
         protected override void OnScreenControllerSet() {

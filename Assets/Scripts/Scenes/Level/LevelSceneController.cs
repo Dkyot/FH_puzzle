@@ -7,6 +7,9 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using NaughtyAttributes;
+using FH.Utils;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.AddressableAssets;
 
 namespace FH.Level {
     [RequireComponent(typeof(ScoreCounter))]
@@ -18,8 +21,7 @@ namespace FH.Level {
         [SerializeField] private UnityEvent GameFinished;
 
         [Header("System Object References")]
-        [SerializeField] private LevelContext _levelContext;
-        [SerializeField] private SceneManagerProxy _sceneManagerProxy;
+        [SerializeField] private GameContext _gameContext;
 
         [Header("Level References")]
         [SerializeField] private CardManager cardManager;
@@ -28,28 +30,11 @@ namespace FH.Level {
         private ScoreTimer scoreTimer;
         private ScoreCounter scoreCounter;
 
-        private void Awake() {
-            scoreCounter = GetComponent<ScoreCounter>();
-            scoreTimer = GetComponent<ScoreTimer>();
-        }
-
-        private void Start() {
-            cardManager.CardFlipper.IsEnable = false;
-
-            var levelData = _levelContext.currentLevel;
-            cardManager.Columns = levelData.Params.Columns;
-            cardManager.Pallete = levelData.Params.Palete;
-            cardManager.Rows = levelData.Params.Rows;
-
-            cardManager.OnWin += OnWin;
-
-            cardManager.CreateCards();
-
-            _sceneManagerProxy.SceneController = this;
-        }
+        private AssetReferenceSprite _spriteRef;
+        private Sprite _image;
 
         public async Awaitable StartPreloading() {
-            return;
+            await LoadImage();
         }
 
         public void StartScene() {
@@ -57,8 +42,9 @@ namespace FH.Level {
         }
 
         public async Awaitable UnloadScene() {
-            var operation = SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
-            await operation;
+            _image = null;
+            _spriteRef.ReleaseAsset();
+            await SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
         }
 
         public void Restart() {
@@ -79,6 +65,30 @@ namespace FH.Level {
             GameResumed.Invoke();
         }
 
+        public void GoToMainMenu() {
+            _gameContext.SceneManagerProxy.RequestMainMenuTrastion();
+        }
+
+        private void Awake() {
+            scoreCounter = GetComponent<ScoreCounter>();
+            scoreTimer = GetComponent<ScoreTimer>();
+        }
+
+        private void Start() {
+            cardManager.CardFlipper.IsEnable = false;
+
+            var levelData = _gameContext.LevelContext.currentLevel;
+            cardManager.Columns = levelData.Params.Columns;
+            cardManager.Pallete = levelData.Params.Palete;
+            cardManager.Rows = levelData.Params.Rows;
+
+            cardManager.OnWin += OnWin;
+
+            cardManager.CreateCards();
+
+            _gameContext.SceneManagerProxy.SceneController = this;
+        }
+
         private async Awaitable StartSceneAsync() {
             await _starAnimationView.StartAnimation();
 
@@ -96,5 +106,22 @@ namespace FH.Level {
             GameFinished.Invoke();
         }
 
+        private async Awaitable LoadImage() {
+            _spriteRef = _gameContext.LevelContext.currentLevel.LevelImage;
+            var operation = await _spriteRef.LoadAssetAsync().CompleteAsync();
+
+            if (operation.Status == AsyncOperationStatus.Failed) {
+                Debug.LogException(operation.OperationException);
+                return;
+            }
+
+            var result = operation.Result;
+            if (result == null) {
+                Debug.LogError("Failed load image");
+                return;
+            }
+
+            _image = result;
+        }
     }
 }

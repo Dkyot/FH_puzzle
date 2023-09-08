@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 5733047856433891235}
+  backSprite: {fileID: 7071703244586183324}
   isMatched: 0
 --- !u!61 &3246045421182892464
 BoxCollider2D:

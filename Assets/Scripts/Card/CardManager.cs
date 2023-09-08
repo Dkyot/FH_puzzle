@@ -70,8 +70,9 @@ namespace FH.Cards {
 
         #region Main methods
         private void SpawnCards() {
-            Vector2 cardPrefabSize = cardPrefab.sprite.bounds.size;
+            Vector2 cardPrefabSize = cardPrefab.backSprite.bounds.size;
             Vector2 cardRequiredSize = new Vector2(_width / Colums, _height / Rows);
+            Vector2 cardScale = cardRequiredSize / cardPrefabSize;
 
             float cardHalfWidth = cardRequiredSize.x / 2;
             float cardHalfHeight = cardRequiredSize.y / 2;
@@ -92,7 +93,7 @@ namespace FH.Cards {
                     );
 
                     Card card = Instantiate(cardPrefab);
-                    card.transform.localScale = cardRequiredSize;
+                    card.transform.localScale = cardScale;
                     card.transform.position = cardPosition;
 
                     card.name = "card_" + 'c' + col + 'r' + row;

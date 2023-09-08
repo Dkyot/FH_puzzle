@@ -5,6 +5,7 @@ namespace FH.Cards {
     public class Card : MonoBehaviour {
         public int value { get; private set; }
         public SpriteRenderer sprite;
+        public SpriteRenderer backSprite;
         private TextMeshProUGUI cardTextValue;
 
         private bool isPicked;

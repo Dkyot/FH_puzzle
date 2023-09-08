@@ -10,7 +10,8 @@ namespace FH.SO {
         public event Action MainMenuTransitionRequested;
         public event Action LevelTransitionRequested;
 
-        public bool IsManaged { get; set; }
+        [field: NonSerialized]
+        public bool IsManaged { get; set; } = false;
 
         public ISceneController SceneController {
             get => _sceneController;

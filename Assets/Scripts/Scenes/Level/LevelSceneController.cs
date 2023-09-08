@@ -10,6 +10,7 @@ using NaughtyAttributes;
 using FH.Utils;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.AddressableAssets;
+using FH.UI.Views.LevelCompleted;
 
 namespace FH.Level {
     [RequireComponent(typeof(ScoreCounter))]
@@ -25,7 +26,8 @@ namespace FH.Level {
 
         [Header("Level References")]
         [SerializeField] private CardManager cardManager;
-        [SerializeField] private LevelStartViewController _starAnimationView;
+        [SerializeField] private LevelStartViewController _starAnimationViewController;
+        [SerializeField] private LevelCompletedController _levelCompletedViewController;
 
         private ScoreTimer scoreTimer;
         private ScoreCounter scoreCounter;
@@ -101,7 +103,7 @@ namespace FH.Level {
             cardManager.CardFlipper.IsEnable = false;
 
             var levelData = _gameContext.CurrentLevel;
-            cardManager.Columns = levelData.Params.Columns;
+            cardManager.Colums = levelData.Params.Columns;
             cardManager.Pallete = levelData.Params.Palete;
             cardManager.Rows = levelData.Params.Rows;
 
@@ -113,7 +115,7 @@ namespace FH.Level {
         }
 
         private async Awaitable StartSceneAsync() {
-            await _starAnimationView.StartAnimation();
+            await _starAnimationViewController.StartAnimation();
 
             cardManager.CardFlipper.IsEnable = true;
 
@@ -148,6 +150,7 @@ namespace FH.Level {
             }
 
             _image = result;
+            _levelCompletedViewController.SetImage(result);
         }
     }
 }

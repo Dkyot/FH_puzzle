@@ -80,6 +80,10 @@ namespace FH.UI.Views.LevelCompleted {
             _rang.StartAnimation();
         }
 
+        public void SetImage(Sprite sprite) {
+            _photo.SetImage(sprite);
+        }
+
         protected override void OnInit() {
             _rang = this.Q<Rang>("Rang");
             _photo = this.Q<PhotoCard>("Photo");

@@ -15,11 +15,14 @@ namespace FH.Cards {
         public CardFlipper CardFlipper { get; private set; }
 
         public int Rows { get; set; }
-        public int Columns { get; set; }
+        public int Colums { get; set; }
         public ColorsSO Pallete { get; set; }
 
         [SerializeField] private Card cardPrefab;
         [SerializeField] private Transform spawnPosition;
+
+        [SerializeField] private float _width;
+        [SerializeField] private float _height;
 
         private List<Card> cards;
         private int pairCount;
@@ -55,7 +58,8 @@ namespace FH.Cards {
             foreach (Card card in cards) {
                 Destroy(card.gameObject);
             }
-            cards = new List<Card>();
+
+            cards.Clear();
             SpawnCards();
             DistributionOfValues();
 
@@ -66,13 +70,38 @@ namespace FH.Cards {
 
         #region Main methods
         private void SpawnCards() {
-            for (int col = 0; col < Columns; col++) {
+            Vector2 cardPrefabSize = cardPrefab.sprite.bounds.size;
+            Vector2 cardRequiredSize = new Vector2(_width / Colums, _height / Rows);
+
+            float cardHalfWidth = cardRequiredSize.x / 2;
+            float cardHalfHeight = cardRequiredSize.y / 2;
+
+            float halfWidth = _width / 2;
+            float halfHeight = _height / 2;
+
+            float rowY = spawnPosition.position.y - halfHeight;
+
+            for (int col = 0; col < Colums; col++) {
+                float colX = spawnPosition.position.x - halfWidth;
+
                 for (int row = 0; row < Rows; row++) {
-                    Vector3 position = new Vector3((spawnPosition.position.x + (offset * row)), (spawnPosition.position.y + (offset * col)), 0);
-                    Card card = Instantiate(cardPrefab, position, Quaternion.identity);
+                    var cardPosition = new Vector3(
+                        colX + cardHalfWidth,
+                        rowY + cardHalfHeight,
+                        0
+                    );
+
+                    Card card = Instantiate(cardPrefab);
+                    card.transform.localScale = cardRequiredSize;
+                    card.transform.position = cardPosition;
+
                     card.name = "card_" + 'c' + col + 'r' + row;
                     cards.Add(card);
+
+                    colX += cardRequiredSize.x;
                 }
+
+                rowY += cardRequiredSize.y;
             }
         }
 
@@ -242,5 +271,15 @@ namespace FH.Cards {
             CardTipsController.OnActivate -= FindEqualCards;
         }
         #endregion
+
+#if UNITY_EDITOR
+        private void OnDrawGizmos() {
+            if (spawnPosition == null)
+                return;
+
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireCube(spawnPosition.position, new Vector3(_width, _height, 0));
+        }
+#endif
     }
 }

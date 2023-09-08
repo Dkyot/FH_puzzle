@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Params>k__BackingField:
     <Palete>k__BackingField: {fileID: 11400000, guid: 3772058dbf4f0fd43bfcccd8047b44f2, type: 2}
-    <Rows>k__BackingField: 6
-    <Columns>k__BackingField: 6
+    <Rows>k__BackingField: 4
+    <Columns>k__BackingField: 4
   <CharacterName>k__BackingField:
     <Value>k__BackingField: 
     <IsLocalizable>k__BackingField: 0
@@ -25,5 +25,5 @@ MonoBehaviour:
     m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
     m_EditorAssetChanged: 1
-  score: 0
-  isCompleted: 0
+  score: 9858.55
+  isCompleted: 1

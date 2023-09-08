@@ -35,6 +35,10 @@ namespace FH.UI.Views.LevelCompleted {
             view.Hide();
         }
 
+        public void SetImage(Sprite sprite) {
+            view.SetImage(sprite);
+        }
+
         protected override void OnScreenControllerSet() {
             base.OnScreenControllerSet();
             view.ToMainMenuPressed += OnToMainMenUPressed;

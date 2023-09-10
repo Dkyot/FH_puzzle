@@ -72,7 +72,8 @@ namespace FH.Cards {
         private void SpawnCards() {
             Vector2 cardPrefabSize = cardPrefab.backSprite.bounds.size;
             Vector2 cardRequiredSize = new Vector2(_width / Colums, _height / Rows);
-            Vector2 cardScale = cardRequiredSize / cardPrefabSize;
+            Vector3 cardScale = cardRequiredSize / cardPrefabSize;
+            cardScale.z = 1;
 
             float cardHalfWidth = cardRequiredSize.x / 2;
             float cardHalfHeight = cardRequiredSize.y / 2;
@@ -93,8 +94,8 @@ namespace FH.Cards {
                     );
 
                     Card card = Instantiate(cardPrefab);
-                    card.transform.localScale = cardScale;
                     card.transform.position = cardPosition;
+                    card.transform.localScale = cardScale;
 
                     card.name = "card_" + 'c' + col + 'r' + row;
                     cards.Add(card);

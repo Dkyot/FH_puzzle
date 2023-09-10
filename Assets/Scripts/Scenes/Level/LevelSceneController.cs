@@ -11,6 +11,7 @@ using FH.Utils;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.AddressableAssets;
 using FH.UI.Views.LevelCompleted;
+using TMPro;
 
 namespace FH.Level {
     [RequireComponent(typeof(ScoreCounter))]
@@ -26,6 +27,7 @@ namespace FH.Level {
 
         [Header("Level References")]
         [SerializeField] private CardManager cardManager;
+        [SerializeField] private SpriteRenderer _levelImage;
         [SerializeField] private LevelStartViewController _starAnimationViewController;
         [SerializeField] private LevelCompletedController _levelCompletedViewController;
 
@@ -37,6 +39,8 @@ namespace FH.Level {
 
         public async Awaitable StartPreloading() {
             await LoadImage();
+            _levelCompletedViewController.SetImage(_image);
+            _levelImage.sprite = _image;
         }
 
         public void StartScene() {
@@ -88,7 +92,8 @@ namespace FH.Level {
                 break;
             }
 
-            if (nextLevel == null)  return; 
+            if (nextLevel == null)
+                return;
 
             _gameContext.CurrentLevel = nextLevel;
             _gameContext.SceneManagerProxy.RequestLevelTransition();
@@ -150,7 +155,6 @@ namespace FH.Level {
             }
 
             _image = result;
-            _levelCompletedViewController.SetImage(result);
         }
     }
 }

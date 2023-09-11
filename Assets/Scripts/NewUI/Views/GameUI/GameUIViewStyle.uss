@@ -3,7 +3,7 @@
 }
 
 .reset-button > .background > .icon {
-    background-image: url('project://database/Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/d_refresh@2x.png?fileID=2800000&guid=602b72d4617c3694aa94419fc1b68e04&type=3#d_refresh@2x');
+    background-image: url('project://database/Assets/Images/Sprites/Refresh.png?fileID=4886145448319111261&guid=a7045e62d813d4e4dbe4a2617d174273&type=3#Refresh_0');
     transition-duration: 100ms;
     transition-property: rotate;
 }

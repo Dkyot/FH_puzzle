@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a7045e62d813d4e4dbe4a2617d174273
+guid: 1296b4702afa7a744a78d8c5b48dd281
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4886145448319111261
-    second: Refresh_0
+      213: 5842654155883284172
+    second: AdIcon_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -122,43 +122,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Refresh_0
+      name: AdIcon_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.399}
-      border: {x: 0, y: 0, z: 0, w: 0}
+        x: 40
+        y: 56
+        width: 176
+        height: 144
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 1, z: 0, w: 1}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d50d3f7b5631fc340800000000000000
-      internalID: 4886145448319111261
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Refresh_1
-      rect:
-        serializedVersion: 2
-        x: 121
-        y: 46
-        width: 7
-        height: 9
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0498e4a847c46fd40ac29d60990c2473
-      internalID: 264920749
+      spriteID: cc602e2cff6451150800000000000000
+      internalID: 5842654155883284172
       vertices: []
       indices: 
       edges: []
@@ -166,7 +145,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 83256a2edbc2c524fa8fba6c40e718fb
+    spriteID: 5f1c63a4677e2f54e80e3334e1293e0b
     internalID: 0
     vertices: []
     indices: 
@@ -174,7 +153,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Refresh_1: 264920749
+      AdIcon_0: 5842654155883284172
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

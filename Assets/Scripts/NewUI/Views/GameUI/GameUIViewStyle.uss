@@ -4,7 +4,7 @@
 }
 
 .reset-button > .background > .icon {
-    background-image: url('project://database/Assets/Images/Sprites/Refresh.png?fileID=4886145448319111261&guid=a7045e62d813d4e4dbe4a2617d174273&type=3#Refresh_0');
+    background-image: url('project://database/Assets/Images/Sprites/Refresh.png?fileID=2800000&guid=a7045e62d813d4e4dbe4a2617d174273&type=3#Refresh');
     transition-duration: 100ms;
     transition-property: rotate;
 }
@@ -59,9 +59,30 @@
 }
 
 .peek-button > .background > .icon {
-    background-image: url('project://database/Packages/com.unity.2d.animation/Editor/Assets/EditorIcons/Selected/d_Visibility_Tool@4x.png?fileID=2800000&guid=0167a2d235421ca4f8095daaa1defd4f&type=3#d_Visibility_Tool@4x');
+    background-image: url('project://database/Assets/Images/Sprites/EyeIcon.png?fileID=2800000&guid=291c521a820c6f04aa2b38d52dbf1a76&type=3#EyeIcon');
+    -unity-background-scale-mode: scale-to-fit;
 }
 
 .find-button > .background > .icon {
-    background-image: resource('FlatSkin/SearchSmallDownOn@2x');
+    background-image: url('project://database/Assets/Images/Sprites/SearchIcon.png?fileID=2800000&guid=6bc4c330b8b36fe40aa4f97fc33be7f7&type=3#SearchIcon');
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+.ad-icon {
+    flex-grow: 0;
+    background-image: url('project://database/Assets/Images/Sprites/AdIcon.png?fileID=5842654155883284172&guid=1296b4702afa7a744a78d8c5b48dd281&type=3#AdIcon_0');
+    width: 70px;
+    height: 70px;
+    -unity-background-scale-mode: scale-to-fit;
+    translate: -5px 5px;
+    -unity-background-image-tint-color: rgba(0, 0, 0, 0.2);
+}
+
+.ad-icon-front {
+    flex-grow: 0;
+    background-image: url('project://database/Assets/Images/Sprites/AdIcon.png?fileID=5842654155883284172&guid=1296b4702afa7a744a78d8c5b48dd281&type=3#AdIcon_0');
+    width: 70px;
+    height: 70px;
+    -unity-background-scale-mode: scale-to-fit;
+    translate: 5px -5px;
 }

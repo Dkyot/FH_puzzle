@@ -11,11 +11,15 @@ namespace FH.UI.Views.GameUI {
         [SerializeField] private ScoreCounter _scoreCounter;
         [SerializeField] private UnityEvent _resetPressed;
         [SerializeField] private UnityEvent _pausePressed;
+        [SerializeField] private UnityEvent _peekPressed;
+        [SerializeField] private UnityEvent _findPairPressed;
 
         protected override void OnScreenControllerSet() {
             base.OnScreenControllerSet();
             view.ResetPressed += OnResetPressed;
             view.PausePressed += OnPausePressed;
+            view.PeekPressed += OnPeekPressed;
+            view.FindPairPressed += OnFindPairPressed;
         }
 
         private void Start() {
@@ -44,6 +48,14 @@ namespace FH.UI.Views.GameUI {
 
         private void OnPausePressed() {
             _pausePressed.Invoke();
+        }
+
+        private void OnPeekPressed() {
+            _peekPressed.Invoke();
+        }
+
+        private void OnFindPairPressed() {
+            _findPairPressed.Invoke();
         }
     }
 }

@@ -15,6 +15,16 @@ namespace FH.UI.Views.GameUI {
             add => _resetButton.clicked += value;
             remove => _resetButton.clicked -= value;
         }
+
+        public event Action FindPairPressed {
+            add => _findPairButton.clicked += value;
+            remove => _findPairButton.clicked -= value;
+        }
+
+        public event Action PeekPressed {
+            add => _peekButton.clicked += value;
+            remove => _peekButton.clicked -= value;
+        }
         
         public string MistakesText {
             set => _mistakesLabel.text = value;
@@ -26,6 +36,8 @@ namespace FH.UI.Views.GameUI {
 
         private Button _pauseButton;
         private Button _resetButton;
+        private Button _peekButton;
+        private Button _findPairButton;
 
         private Label _mistakesLabel;
         private Label _timeLabel;
@@ -33,6 +45,8 @@ namespace FH.UI.Views.GameUI {
         protected override void OnInit() {
             _pauseButton = this.Q<Button>("PauseButton");
             _resetButton = this.Q<Button>("ResetButton");
+            _peekButton = this.Q<Button>("PeekButton");
+            _findPairButton = this.Q<Button>("FindPairButton");
 
             _timeLabel = this.Q<Label>("Timer");
             _mistakesLabel = this.Q<Label>("Mistakes");

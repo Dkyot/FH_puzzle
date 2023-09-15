@@ -1,10 +1,10 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/Scripts/NewUI/Views/GameUI/GameUIViewStyle.uss?fileID=7433441132597879392&amp;guid=ee0be934023f99f4c9f8eb4514e51963&amp;type=3#GameUIViewStyle" />
     <FH.UI.Views.GameUI.GameUIView picking-mode="Ignore" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0;">
-        <ui:VisualElement picking-mode="Ignore" style="flex-grow: 1; padding-top: 1%; padding-right: 1%; padding-bottom: 1%; padding-left: 1%; align-items: flex-start; flex-direction: row;">
+        <ui:VisualElement picking-mode="Ignore" style="flex-grow: 1; padding-top: 1%; padding-right: 1%; padding-bottom: 1%; padding-left: 1%; align-items: flex-start; flex-direction: row; position: absolute; right: 0; top: 0; left: 0; bottom: auto;">
             <ui:VisualElement picking-mode="Ignore" class="buttons-container" style="flex-grow: 0; flex-direction: row; position: absolute;">
-                <FH.UI.SquareIconButton name="PauseButton" class="pause-button" style="width: 100px; height: 100px; align-self: auto;" />
-                <FH.UI.SquareIconButton name="ResetButton" class="reset-button" style="width: 100px; height: 100px; align-self: auto;" />
+                <FH.UI.SquareIconButton name="PauseButton" class="pause-button" style="align-self: auto;" />
+                <FH.UI.SquareIconButton name="ResetButton" class="reset-button" style="align-self: auto;" />
             </ui:VisualElement>
             <ui:VisualElement picking-mode="Ignore" class="counters-container" style="flex-grow: 1; position: relative; right: 0;">
                 <ui:VisualElement picking-mode="Ignore" style="flex-grow: 0; flex-direction: row; justify-content: flex-end;">
@@ -14,6 +14,18 @@
                 <ui:VisualElement picking-mode="Ignore" style="flex-grow: 0; flex-direction: row; align-items: flex-start; justify-content: flex-end;">
                     <FH.UI.LocalizedLabel tabindex="-1" Label="MISTAKES" picking-mode="Ignore" class="text_shadow counters-text" style="margin-right: 10px; align-items: auto; align-self: stretch; flex-grow: 0; -unity-text-align: middle-right; white-space: nowrap;" />
                     <ui:Label tabindex="-1" text="0" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Mistakes" picking-mode="Ignore" class="text_shadow counters-text" style="align-items: stretch; align-self: stretch; flex-grow: 0; white-space: nowrap;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement style="flex-grow: 1; position: absolute; bottom: 0; right: 0; left: 0; top: auto; padding-top: 1%; padding-right: 1%; padding-bottom: 1%; padding-left: 1%;">
+            <ui:VisualElement class="helpers-container">
+                <ui:VisualElement class="helper-container">
+                    <ui:Label tabindex="-1" text="3X" display-tooltip-when-elided="true" class="text_shadow" style="-unity-font-style: bold; font-size: 40px;" />
+                    <FH.UI.SquareIconButton name="FindPairButton" class="find-button" />
+                </ui:VisualElement>
+                <ui:VisualElement class="helper-container peek-button" style="flex-grow: 1;">
+                    <ui:VisualElement style="flex-grow: 0; background-image: url(&apos;project://database/Packages/com.unity.2d.animation/Editor/Assets/EditorIcons/Selected/Bone_Influence@4x.png?fileID=2800000&amp;guid=daf2ab606d4db0d4f9ecf4c02137d2a8&amp;type=3#Bone_Influence@4x&apos;); width: 50px; height: 50px; -unity-background-scale-mode: stretch-to-fill;" />
+                    <FH.UI.SquareIconButton name="PeekButton" class="peek-button" />
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>

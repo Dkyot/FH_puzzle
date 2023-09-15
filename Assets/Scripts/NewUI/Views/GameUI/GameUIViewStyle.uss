@@ -1,5 +1,5 @@
 .pause-button > .background > .icon {
-    background-image: url('project://database/Packages/com.unity.addressables/Editor/BuildReportVisualizer/BuildReport%20Resources/Icons/d_History.Forward@2x.png?fileID=2800000&guid=741fd6a7eb857a74b939184269d01239&type=3#d_History.Forward@2x');
+    background-image: url('project://database/Assets/Images/Sprites/Pause.png?fileID=2800000&guid=b2acd7b0c96bbf0478f6391c6b2e4b39&type=3#Pause');
 }
 
 .reset-button > .background > .icon {

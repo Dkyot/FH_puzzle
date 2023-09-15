@@ -17,12 +17,12 @@ namespace FH.UI.Views.LevelSelect {
 
         public override void HideView() {
             base.HideView();
-            ScrollingBgTextureController.Instance.DisableRendering();
+            ScrollingBgTextureController.Instance?.DisableRendering();
         }
 
         public override void ShowView() {
             base.ShowView();
-            ScrollingBgTextureController.Instance.EnableRendering();
+            ScrollingBgTextureController.Instance?.EnableRendering();
         }
 
         protected override void OnScreenControllerSet() {

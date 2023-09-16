@@ -36,15 +36,12 @@ namespace Assets.Scripts.InitialScene {
 
         private async Awaitable InitGame() {
             // Init game here
-            // Load saved player level data
+            // Todo Load saved player data
 
-            // Indexing levels
-            var levels = _gameContext.LevelDataBase.Levels.Select((l, i) => {
-                l.number = i + 1;
-                return l;
-            });
-
-            foreach (var level in levels) { }
+            int index = 1;
+            foreach (var level in _gameContext.LevelDataBase.Levels) { 
+                level.number = index++;
+            }
 
             // Load Mian Menu
             await Awaitable.WaitForSecondsAsync(2);

@@ -71,7 +71,7 @@ namespace Assets.Scripts.InitialScene {
             }
 
             if (showAd) {
-                // Show Ad Here
+                // Todo Show Ad Here
             }
 
             await LoadNewScene(sceneName);

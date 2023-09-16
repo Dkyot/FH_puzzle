@@ -26,7 +26,7 @@ SpriteAtlas:
       m_MaxTextureSize: 2048
       m_ResizeAlgorithm: 0
       m_TextureFormat: -1
-      m_TextureCompression: 1
+      m_TextureCompression: 2
       m_CompressionQuality: 50
       m_CrunchedCompression: 0
       m_AllowsAlphaSplitting: 0
@@ -44,46 +44,49 @@ SpriteAtlas:
     secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
-    - {fileID: 2800000, guid: 388916f8305efc146be5c041652647b1, type: 3}
-    - {fileID: 2800000, guid: 497d23aa791e78646866622160963733, type: 3}
-    - {fileID: 2800000, guid: a7045e62d813d4e4dbe4a2617d174273, type: 3}
-    - {fileID: 2800000, guid: 1296b4702afa7a744a78d8c5b48dd281, type: 3}
-    - {fileID: 2800000, guid: 1acc0a2e7cd53d74ba25d5b37346709b, type: 3}
-    - {fileID: 2800000, guid: 291c521a820c6f04aa2b38d52dbf1a76, type: 3}
-    - {fileID: 2800000, guid: b2acd7b0c96bbf0478f6391c6b2e4b39, type: 3}
-    - {fileID: 2800000, guid: 6bc4c330b8b36fe40aa4f97fc33be7f7, type: 3}
-    - {fileID: 2800000, guid: 57575374bc99fd74a8e990880a9f383d, type: 3}
+    - {fileID: 2800000, guid: 2b58e8c380c224e4490a4652706a1115, type: 3}
+    - {fileID: 2800000, guid: 07c3d91abd87cb24685ba64c9998dd3a, type: 3}
+    - {fileID: 2800000, guid: 42458489684211c45bab7b61a75f1234, type: 3}
+    - {fileID: 21300000, guid: c0dbbe531d91b924b92f29dade1cf5b2, type: 3}
+    - {fileID: 2800000, guid: 9735bfa6612e8b543bf18cc134b85ec8, type: 3}
+    - {fileID: 2800000, guid: 28a24e87701c6834e9fd3192ce717d35, type: 3}
+    - {fileID: 2800000, guid: 92ba61c3afaed294d96732393a338142, type: 3}
+    - {fileID: 2800000, guid: a20b4e5c6850db347a876c28e963e2aa, type: 3}
+    - {fileID: 2800000, guid: ce0993e3fa4f9494ab7003976bf848ba, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
     packedSpriteRenderDataKeys:
-    - 1296b4702afa7a744a78d8c5b48dd281: 5842654155883284172
-    - a7045e62d813d4e4dbe4a2617d174273: 264920749
-    - a7045e62d813d4e4dbe4a2617d174273: 4886145448319111261
-    - 57575374bc99fd74a8e990880a9f383d: -4346244404228752641
-    - 388916f8305efc146be5c041652647b1: -8622259438476403829
-    - 291c521a820c6f04aa2b38d52dbf1a76: -7314849102679700127
-    - 497d23aa791e78646866622160963733: -4630562183247585374
-    - 1acc0a2e7cd53d74ba25d5b37346709b: 4606908045521496030
+    - c0dbbe531d91b924b92f29dade1cf5b2: 21300000
+    - 92ba61c3afaed294d96732393a338142: 21300000
+    - 2b58e8c380c224e4490a4652706a1115: 21300000
+    - ce0993e3fa4f9494ab7003976bf848ba: 21300000
+    - 9735bfa6612e8b543bf18cc134b85ec8: 21300000
+    - 28a24e87701c6834e9fd3192ce717d35: 21300000
+    - 42458489684211c45bab7b61a75f1234: 21300000
+    - 07c3d91abd87cb24685ba64c9998dd3a: 21300000
+    - a20b4e5c6850db347a876c28e963e2aa: 21300000
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
-  - {fileID: 5842654155883284172, guid: 1296b4702afa7a744a78d8c5b48dd281, type: 3}
-  - {fileID: 264920749, guid: a7045e62d813d4e4dbe4a2617d174273, type: 3}
-  - {fileID: 4886145448319111261, guid: a7045e62d813d4e4dbe4a2617d174273, type: 3}
-  - {fileID: -4346244404228752641, guid: 57575374bc99fd74a8e990880a9f383d, type: 3}
-  - {fileID: -8622259438476403829, guid: 388916f8305efc146be5c041652647b1, type: 3}
-  - {fileID: -7314849102679700127, guid: 291c521a820c6f04aa2b38d52dbf1a76, type: 3}
-  - {fileID: -4630562183247585374, guid: 497d23aa791e78646866622160963733, type: 3}
-  - {fileID: 4606908045521496030, guid: 1acc0a2e7cd53d74ba25d5b37346709b, type: 3}
+  - {fileID: 21300000, guid: c0dbbe531d91b924b92f29dade1cf5b2, type: 3}
+  - {fileID: 21300000, guid: 92ba61c3afaed294d96732393a338142, type: 3}
+  - {fileID: 21300000, guid: 2b58e8c380c224e4490a4652706a1115, type: 3}
+  - {fileID: 21300000, guid: ce0993e3fa4f9494ab7003976bf848ba, type: 3}
+  - {fileID: 21300000, guid: 9735bfa6612e8b543bf18cc134b85ec8, type: 3}
+  - {fileID: 21300000, guid: 28a24e87701c6834e9fd3192ce717d35, type: 3}
+  - {fileID: 21300000, guid: 42458489684211c45bab7b61a75f1234, type: 3}
+  - {fileID: 21300000, guid: 07c3d91abd87cb24685ba64c9998dd3a, type: 3}
+  - {fileID: 21300000, guid: a20b4e5c6850db347a876c28e963e2aa, type: 3}
   m_PackedSpriteNamesToIndex:
-  - AdIcon_0
-  - Refresh_1
-  - Refresh_0
-  - Arrow_0
-  - CardBack_0
-  - EyeIcon_0
-  - CardFront_0
-  - Heart_0
+  - CardFront
+  - Pause
+  - AdIcon
+  - SearchIcon
+  - EyeIcon
+  - Heart
+  - CardBack
+  - Arrow
+  - Refresh
   m_RenderDataMap: {}
   m_Tag: Atlas
   m_IsVariant: 0

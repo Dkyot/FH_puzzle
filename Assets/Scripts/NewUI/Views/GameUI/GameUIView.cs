@@ -91,7 +91,7 @@ namespace FH.UI.Views.GameUI {
             _peekUsageCounter = this.Q<Label>("PeekUseCounterLabel");
 
             _findPairAdIcon = this.Q<VisualElement>("FindPairAdIcon");
-            _peekAdIcon = this.Q<VisualElement>("PeekAdIocn");
+            _peekAdIcon = this.Q<VisualElement>("PeekAdIcon");
         }
 
         public new sealed class UxmlFactory : UxmlFactory<GameUIView, UxmlTraits> { }

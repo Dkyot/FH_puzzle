@@ -1,3 +1,4 @@
+using FH.Cards;
 using FH.UI.Views.GameUI;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ namespace FH.Level {
         [Header("Scene References")]
         [SerializeField] private LevelSceneController _levelController;
         [SerializeField] private GameUIViewController _gameUIViewController;
+        [SerializeField] private CardManager _cardManager;
 
         public async void TryUseFindPair() {
             if (_findPairFreeUsage <= 0) {
@@ -24,7 +26,7 @@ namespace FH.Level {
                 _gameUIViewController.SetFindPairUsageCount(_findPairFreeUsage);
             }
 
-            // Todo add find pair logic
+            _cardManager.FindPair();
         }
 
         public async void TryUsePeek() {

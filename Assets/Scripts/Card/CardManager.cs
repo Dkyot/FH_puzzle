@@ -18,9 +18,13 @@ namespace FH.Cards {
         public int Colums { get; set; }
         public ColorsSO Pallete { get; set; }
 
+        [SerializeField] private GameObject _markerPrefab;
+
+        [Header("Scene References")]
         [SerializeField] private Card cardPrefab;
         [SerializeField] private Transform spawnPosition;
 
+        [Header("Card Desc Size")]
         [SerializeField] private float _width;
         [SerializeField] private float _height;
 
@@ -29,6 +33,9 @@ namespace FH.Cards {
 
         private Card card1 = null;
         private Card card2 = null;
+        private GameObject _firstMarker;
+        private GameObject _secondMarker;
+        private (Card, Card)? _cardHighlightedPair;
 
         public event EventHandler OnWin;
 
@@ -41,17 +48,38 @@ namespace FH.Cards {
         public delegate void OnMismatchDelegate();
         public static event OnMismatchDelegate OnMismatch;
 
+
         private void Awake() {
+            _firstMarker = Instantiate(_markerPrefab);
+            _firstMarker.gameObject.SetActive(false);
+
+            _secondMarker = Instantiate(_markerPrefab);
+            _secondMarker.gameObject.SetActive(false);
+
             CardFlipper = GetComponent<CardFlipper>();
 
             cards = new List<Card>();
             AddCardEvents();
-            AddTipsEvents();
         }
 
         private void OnDisable() {
             UnsubscribeCardEvents();
-            UnsubscribeTipsEvents();
+        }
+
+        public void FindPair() {
+            _firstMarker.gameObject.SetActive(false);
+            _secondMarker.gameObject.SetActive(false);
+            _cardHighlightedPair = null;
+
+            var cardPair = GetTwoEqualCards();
+            if (cardPair == null)
+                return;
+
+            _cardHighlightedPair = cardPair;
+            _firstMarker.SetActive(true);
+            _secondMarker.SetActive(true);
+            _firstMarker.transform.position = cardPair.Value.firstCard.transform.position;
+            _secondMarker.transform.position = cardPair.Value.secondCard.transform.position;
         }
 
         public void CreateCards() {
@@ -74,6 +102,9 @@ namespace FH.Cards {
             Vector2 cardRequiredSize = new Vector2(_width / Colums, _height / Rows);
             Vector3 cardScale = cardRequiredSize / cardPrefabSize;
             cardScale.z = 1;
+
+            _firstMarker.transform.localScale = cardScale;
+            _secondMarker.transform.localScale = cardScale;
 
             float cardHalfWidth = cardRequiredSize.x / 2;
             float cardHalfHeight = cardRequiredSize.y / 2;
@@ -139,26 +170,62 @@ namespace FH.Cards {
 
 
         #region Tip methods
-        private void FindEqualCards() {
+        private (Card firstCard, Card secondCard)? FindTwoEqualCards() {
             List<Card> closedCards = cards.Where(x => x.isMatched == false).ToList();
             if (closedCards.Count == 0)
-                return;
+                return null;
 
             int firstCardIndex = UnityEngine.Random.Range(0, closedCards.Count);
-            int firstCardValue = closedCards[firstCardIndex].value;
+            var firstCard = closedCards[firstCardIndex];
+            int firstCardValue = firstCard.value;
 
             foreach (Card card in closedCards) {
-                if (card.value == firstCardValue)
-                    if (!card.Equals(closedCards[firstCardIndex])) {
-                        SuggestionOfPositions(card, closedCards[firstCardIndex]);
-                    }
+                if (card == firstCard || card.value != firstCardValue)
+                    continue;
+
+                return (firstCard, card);
             }
+
+            Debug.Log("WTF??? Could not fiund another card with the same value!!!");
+            return null;
         }
 
-        private void SuggestionOfPositions(Card first, Card second) {
-            //Debug.Log(first.name);
-            //Debug.Log(second.name);
+        private Card FindEqualCard(Card card) {
+            var closedCards = cards.Where(x => x.isMatched == false);
+
+            foreach (Card anotherCard in closedCards) {
+                if (anotherCard == card || anotherCard.value != card.value)
+                    continue;
+
+                return anotherCard;
+            }
+
+            Debug.Log("WTF??? Could not fiund another card with the same value!!!");
+            return null;
         }
+
+        private (Card firstCard, Card secondCard)? GetTwoEqualCards() {
+            (Card firstCard, Card secondCard) cardPair;
+
+            if (card1 == null) {
+                var twoEqualCards = FindTwoEqualCards();
+                if (twoEqualCards == null)
+                    return null;
+
+                cardPair = twoEqualCards.Value;
+            }
+            else {
+                var secondCard = FindEqualCard(card1);
+                if (secondCard == null)
+                    return null;
+
+                cardPair.firstCard = card1;
+                cardPair.secondCard = secondCard;
+            }
+
+            return cardPair;
+        }
+
         #endregion
 
         #region Match Checking
@@ -176,6 +243,8 @@ namespace FH.Cards {
                 obj1.isMatched = true;
                 obj2.isMatched = true;
 
+                CheckHighlightedCards(card1, card2);
+
                 Reset();
                 StartCoroutine(SetInactive(obj1, obj2));
 
@@ -187,6 +256,20 @@ namespace FH.Cards {
                 //Debug.Log("mismatch!");
                 card1.StartMismatchTimer();
                 card2.StartMismatchTimer();
+            }
+        }
+
+        private void CheckHighlightedCards(Card card1, Card card2) {
+            if (_cardHighlightedPair != null) {
+                var hightlightedCards = _cardHighlightedPair.Value;
+                if (hightlightedCards.Item1 == card1
+                    || hightlightedCards.Item2 == card2
+                    || hightlightedCards.Item2 == card1
+                    || hightlightedCards.Item2 == card2) {
+                    _cardHighlightedPair = null;
+                    _firstMarker.SetActive(false);
+                    _secondMarker.SetActive(false);
+                }
             }
         }
 
@@ -263,14 +346,6 @@ namespace FH.Cards {
         private void UnsubscribeCardEvents() {
             Card.OnFlip -= TryToFlip;
             Card.OnReset -= Reset;
-        }
-
-        private void AddTipsEvents() {
-            CardTipsController.OnActivate += FindEqualCards;
-        }
-
-        private void UnsubscribeTipsEvents() {
-            CardTipsController.OnActivate -= FindEqualCards;
         }
         #endregion
 

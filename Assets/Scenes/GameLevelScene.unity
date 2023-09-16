@@ -466,6 +466,7 @@ GameObject:
   - component: {fileID: 710374885}
   - component: {fileID: 710374887}
   - component: {fileID: 710374888}
+  - component: {fileID: 710374889}
   m_Layer: 0
   m_Name: '[LevelConroller]'
   m_TagString: Untagged
@@ -577,6 +578,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 491c489e90edaa746aef4bbb7c7ac2c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &710374889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 710374884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac5508c0d546244fbc03a52461a08be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _findPairFreeUsage: 3
+  _peekFreeUsage: 0
+  _levelController: {fileID: 710374885}
+  _gameUIViewController: {fileID: 2097693593}
 --- !u!1 &918102900
 GameObject:
   m_ObjectHideFlags: 0
@@ -881,6 +898,36 @@ MonoBehaviour:
       - m_Target: {fileID: 710374885}
         m_TargetAssemblyTypeName: FH.Level.LevelManager, Assembly-CSharp
         m_MethodName: PauseGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _peekPressed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 710374889}
+        m_TargetAssemblyTypeName: FH.Level.LevelAdController, Assembly-CSharp
+        m_MethodName: TryUsePeek
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _findPairPressed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 710374889}
+        m_TargetAssemblyTypeName: FH.Level.LevelAdController, Assembly-CSharp
+        m_MethodName: TryUseFindPair
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

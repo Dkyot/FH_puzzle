@@ -34,13 +34,49 @@ namespace FH.UI.Views.GameUI {
             set => _timeLabel.text = value;
         }
 
+        public int PeekUsageCount {
+            set {
+                if (value <= 0) {
+                    _peekUsageCounter.style.display = DisplayStyle.None;
+                    _peekAdIcon.style.display = DisplayStyle.Flex;
+                }
+                else {
+                    _peekUsageCounter.style.display = DisplayStyle.Flex;
+                    _peekAdIcon.style.display = DisplayStyle.None;
+
+                    _peekUsageCounter.text = $"{value}X";
+                }
+            }
+        }
+
+        public int FindPairUsageCount {
+            set {
+                if (value <= 0) {
+                    _findPairUsageCounter.style.display = DisplayStyle.None;
+                    _findPairAdIcon.style.display = DisplayStyle.Flex;
+                }
+                else {
+                    _findPairUsageCounter.style.display = DisplayStyle.Flex;
+                    _findPairAdIcon.style.display = DisplayStyle.None;
+
+                    _findPairUsageCounter.text = $"{value}X";
+                }
+            }
+        }
+
         private Button _pauseButton;
         private Button _resetButton;
         private Button _peekButton;
         private Button _findPairButton;
 
+        private Label _findPairUsageCounter;
+        private Label _peekUsageCounter;
+
         private Label _mistakesLabel;
         private Label _timeLabel;
+
+        private VisualElement _findPairAdIcon;
+        private VisualElement _peekAdIcon;
 
         protected override void OnInit() {
             _pauseButton = this.Q<Button>("PauseButton");
@@ -50,6 +86,12 @@ namespace FH.UI.Views.GameUI {
 
             _timeLabel = this.Q<Label>("Timer");
             _mistakesLabel = this.Q<Label>("Mistakes");
+
+            _findPairUsageCounter = this.Q<Label>("FindPairUseCounterLabel");
+            _peekUsageCounter = this.Q<Label>("PeekUseCounterLabel");
+
+            _findPairAdIcon = this.Q<VisualElement>("FindPairAdIcon");
+            _peekAdIcon = this.Q<VisualElement>("PeekAdIocn");
         }
 
         public new sealed class UxmlFactory : UxmlFactory<GameUIView, UxmlTraits> { }

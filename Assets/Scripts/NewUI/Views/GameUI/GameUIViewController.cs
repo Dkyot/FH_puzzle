@@ -14,6 +14,14 @@ namespace FH.UI.Views.GameUI {
         [SerializeField] private UnityEvent _peekPressed;
         [SerializeField] private UnityEvent _findPairPressed;
 
+        public void SetFindPairUsageCount(int count) {
+            view.FindPairUsageCount = count;
+        }
+
+        public void SetPeekUsegeCount(int count) {
+            view.PeekUsageCount = count;
+        }
+
         protected override void OnScreenControllerSet() {
             base.OnScreenControllerSet();
             view.ResetPressed += OnResetPressed;

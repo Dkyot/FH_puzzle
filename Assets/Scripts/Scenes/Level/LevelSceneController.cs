@@ -60,15 +60,24 @@ namespace FH.Level {
             scoreTimer.IsRunning = true;
         }
 
-        public void PauseGame() {
+        /// <summary> Stops time and card flipper, but doesn't trigger pause event</summary>
+        public void FreezeGame() {
             cardManager.CardFlipper.IsEnable = false;
             scoreTimer.IsRunning = false;
+        }
+
+        public void UnFreezeGame() {
+            cardManager.CardFlipper.IsEnable = true;
+            scoreTimer.IsRunning = true;
+        }
+
+        public void PauseGame() {
+            FreezeGame();
             GamePaused.Invoke();
         }
 
         public void ResumeGame() {
-            cardManager.CardFlipper.IsEnable = true;
-            scoreTimer.IsRunning = true;
+            UnFreezeGame();
             GameResumed.Invoke();
         }
 
@@ -105,7 +114,7 @@ namespace FH.Level {
         }
 
         private void Start() {
-            cardManager.CardFlipper.IsEnable = false;
+            FreezeGame();
 
             var levelData = _gameContext.CurrentLevel;
             cardManager.Colums = levelData.Params.Columns;
@@ -122,14 +131,12 @@ namespace FH.Level {
         private async Awaitable StartSceneAsync() {
             await _starAnimationViewController.StartAnimation();
 
-            cardManager.CardFlipper.IsEnable = true;
-
             scoreCounter.Reset();
-            scoreTimer.IsRunning = true;
+            UnFreezeGame();
         }
 
         private void OnWin(object sender, EventArgs e) {
-            scoreTimer.IsRunning = false;
+            FreezeGame();
             scoreCounter.CalculateScore();
 
             var currentLevel = _gameContext.CurrentLevel;

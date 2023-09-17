@@ -12,6 +12,7 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.AddressableAssets;
 using FH.UI.Views.LevelCompleted;
 using TMPro;
+using UnityEngine.Localization.SmartFormat.PersistentVariables;
 
 namespace FH.Level {
     [RequireComponent(typeof(ScoreCounter))]
@@ -115,6 +116,11 @@ namespace FH.Level {
 
         private void Start() {
             FreezeGame();
+
+            var levelNumberVariable = _gameContext.GlobalGroupVariables["levelNumber"];
+            if (levelNumberVariable is StringVariable stringVariable) {
+                stringVariable.Value = _gameContext.CurrentLevel.number.ToString();
+            }
 
             var levelData = _gameContext.CurrentLevel;
             cardManager.Colums = levelData.Params.Columns;

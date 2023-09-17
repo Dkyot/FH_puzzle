@@ -85,3 +85,19 @@ LevelCompletedView {
     padding-right: 10px;
     padding-left: 10px;
 }
+
+.splash-screen {
+    flex-grow: 1;
+    position: absolute;
+    right: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgb(255, 255, 255);
+    transition-duration: 250ms;
+    transition-property: background-color;
+}
+
+.splash-screen.transition {
+    background-color: rgba(255, 255, 255, 0);
+}

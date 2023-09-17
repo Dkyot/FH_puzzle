@@ -25,9 +25,13 @@ namespace FH.UI.Views.LevelCompleted {
         public override void ShowView() {
             ScrollingBgTextureController.Instance?.EnableRendering();
             view.Show();
-            view.ShowTitle();
-            _ = AwaitTitleAnimation();
+            _ = StartLevelCompleteAnimation();
 
+        }
+
+        private async Awaitable StartLevelCompleteAnimation() {
+            await view.ShowFlash();
+            await StartTitleAnimation();
         }
 
         public override void HideView() {
@@ -53,7 +57,8 @@ namespace FH.UI.Views.LevelCompleted {
             _nextLevelPressed.Invoke();
         }
 
-        private async Awaitable AwaitTitleAnimation() {
+        private async Awaitable StartTitleAnimation() {
+            view.ShowTitle();
             await Awaitable.WaitForSecondsAsync(0.5f);
             _playerInputHandler.Pressed += ShowContentOnPressed;
         }

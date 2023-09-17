@@ -36,5 +36,6 @@
             </ui:VisualElement>
         </ui:VisualElement>
         <FH.UI.LocalizedLabel tabindex="-1" Label="PRESS_TO_CONTINUE" name="PressToContinueLabel" class="text_shadow" style="position: absolute; left: 0; bottom: 0; -unity-text-align: lower-center; right: 0; margin-bottom: 3%; font-size: 40px; -unity-font-style: bold;" />
+        <ui:VisualElement name="FlashScreen" picking-mode="Ignore" class="splash-screen" />
     </FH.UI.Views.LevelCompleted.LevelCompletedView>
 </ui:UXML>

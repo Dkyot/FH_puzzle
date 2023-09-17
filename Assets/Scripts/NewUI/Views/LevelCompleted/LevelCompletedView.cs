@@ -49,12 +49,18 @@ namespace FH.UI.Views.LevelCompleted {
         private VisualElement _viewContainer;
         private VisualElement _contentContainer;
 
+        private VisualElement _flashScreen;
+
         private Button _continueButton;
         private Button _toMainMenuButton;
 
         public override void Show() {
             base.Show();
 
+            _pressToContinueLabel.style.display = DisplayStyle.None;
+            ResetFlashAnimation();
+            ResetTitleAnimation();
+            ResetContentAnimation();
             _rang.ResetAnimation();
             _photo.ResetAnimation();
         }
@@ -65,15 +71,23 @@ namespace FH.UI.Views.LevelCompleted {
             ResetContentAnimation();
         }
 
+        public async Awaitable ShowFlash() {
+            StartFlashAnimation();
+            await Awaitable.WaitForSecondsAsync(0.5f);
+            ResetFlashAnimation();
+            await Awaitable.WaitForSecondsAsync(0.5f);
+        }
+
         public void ShowTitle() {
             _pressToContinueLabel.style.display = DisplayStyle.Flex;
             StartTitleAnimation();
         }
 
-        public void ShowContent() {
+        public async Awaitable ShowContent() {
             _pressToContinueLabel.style.display = DisplayStyle.None;
             StartContentAnimation();
-            schedule.Execute(() => _photo.StartAnimation()).ExecuteLater(200);
+            await Awaitable.WaitForSecondsAsync(0.2f);
+            _photo.StartAnimation();
         }
 
         public void ShowRang() {
@@ -101,8 +115,19 @@ namespace FH.UI.Views.LevelCompleted {
             _continueButton = this.Q<Button>("ContinueButton");
             _toMainMenuButton = this.Q<Button>("ToMainMenuButton");
 
+            _flashScreen = this.Q("FlashScreen");
+
+            ResetFlashAnimation();
             ResetTitleAnimation();
             ResetContentAnimation();
+        }
+
+        private void StartFlashAnimation() {
+            _flashScreen.RemoveFromClassList(_transitionClass);
+        }
+
+        private void ResetFlashAnimation() {
+            _flashScreen.AddToClassList(_transitionClass);
         }
 
         private void StartTitleAnimation() {

@@ -11,5 +11,8 @@
             </ui:ScrollView>
             <ui:Label tabindex="-1" text="No Photo Yet" parse-escape-sequences="true" display-tooltip-when-elided="true" name="NoPhotoLabel" picking-mode="Ignore" class="fancy cool-text" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; -unity-text-align: middle-center; font-size: 70px; visibility: visible;" />
         </ui:VisualElement>
+        <ui:VisualElement name="ImageView" style="flex-grow: 1; position: absolute; top: 0; bottom: 0; left: 0; right: 0; background-color: rgba(0, 0, 0, 0.39); -unity-background-scale-mode: scale-to-fit;">
+            <ui:VisualElement name="ImageContainer" style="flex-grow: 1; position: absolute; top: 0; right: 0; left: 0; bottom: 0; background-image: url(&apos;project://database/Assets/Images/LevelsImage/Level2Image.jpg?fileID=-433920296402344043&amp;guid=7c3a8188d9f41d6409de14e28619d881&amp;type=3#square-format-composition-6_0&apos;); -unity-background-scale-mode: scale-to-fit; margin-top: 5%; margin-right: 5%; margin-bottom: 5%; margin-left: 5%;" />
+        </ui:VisualElement>
     </FH.UI.Views.Gallery.GalleryView>
 </ui:UXML>

@@ -14,14 +14,19 @@ namespace FH.UI.Views.Gallery {
 
         private Button _backButton;
         private Label _noPhotoLabel;
+
         private VisualElement _photoContainer;
         private VisualElement _photoScrollView;
+
+        private VisualElement _imageView;
+        private VisualElement _imageContainer;
 
         public void SetImages(IEnumerable<Sprite> sprites) {
             _photoContainer.Clear();
             foreach (var sprite in sprites) {
                 var photoCard = new PhotoCard();
                 photoCard.SetImage(sprite);
+                photoCard.RegisterCallback<ClickEvent>((_) => OnImageClicled(sprite));
                 _photoContainer.Add(photoCard);
             }
 
@@ -38,8 +43,20 @@ namespace FH.UI.Views.Gallery {
         protected override void OnInit() {
             _backButton = this.Q<Button>("BackButton");
             _noPhotoLabel = this.Q<Label>("NoPhotoLabel");
+
             _photoScrollView = this.Q<VisualElement>("PhotoScrollView");
             _photoContainer = this.Q<VisualElement>("PhotoContainer");
+
+            _imageView = this.Q<VisualElement>("ImageView");
+            _imageContainer = this.Q<VisualElement>("ImageContainer");
+
+            _imageView.RegisterCallback<ClickEvent>((_) => _imageView.style.display = DisplayStyle.None);
+            _imageView.style.display = DisplayStyle.None;
+        }
+
+        private void OnImageClicled(Sprite sprite) {
+            _imageView.style.display = DisplayStyle.Flex;
+            _imageContainer.style.backgroundImage = new StyleBackground(sprite);
         }
 
         public new sealed class UxmlFactory : UxmlFactory<GalleryView, UxmlTraits> { }

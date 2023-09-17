@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <LevelDataBase>k__BackingField: {fileID: 11400000, guid: 3f6aec6f858e946438c7a1cf86f65a2a, type: 2}
   <SceneManagerProxy>k__BackingField: {fileID: 11400000, guid: 487de81e18cfb7b4cb1151c0d80f840e, type: 2}
-  <CurrentLevel>k__BackingField: {fileID: 11400000, guid: 188480b514b7f2f408b742a33312df4a, type: 2}
+  <CurrentLevel>k__BackingField: {fileID: 11400000, guid: c0a14ef1a20ce6041bb97d98de4915d4, type: 2}

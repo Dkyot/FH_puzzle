@@ -22,15 +22,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "ScreenPressed",
-                    "type": "PassThrough",
-                    "id": "abca6dbc-b7f4-4890-bcb9-49da8a53c9e9",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -53,17 +44,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "Position",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "8582fb70-8004-4627-bb68-b9768e64b91c",
-                    "path": "<Touchscreen>/primaryTouch/position",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ScreenPressed",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

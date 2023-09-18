@@ -4,6 +4,7 @@ using FH.Utils;
 using NaughtyAttributes;
 using System;
 using System.Linq;
+using SkibidiRunner.Managers;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -68,7 +69,7 @@ namespace Assets.Scripts.InitialScene {
             }
 
             if (showAd) {
-                // Todo Show Ad Here
+                FullscreenAdManager.Instance.ShowAdv();
             }
 
             await LoadNewScene(sceneName);

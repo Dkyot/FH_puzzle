@@ -44,6 +44,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ScreenPressed"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""abca6dbc-b7f4-4890-bcb9-49da8a53c9e9"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -68,6 +77,17 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""Position"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8582fb70-8004-4627-bb68-b9768e64b91c"",
+                    ""path"": ""<Touchscreen>/primaryTouch/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ScreenPressed"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -78,6 +98,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_InGame = asset.FindActionMap("InGame", throwIfNotFound: true);
         m_InGame_LMB_click = m_InGame.FindAction("LMB_click", throwIfNotFound: true);
         m_InGame_Position = m_InGame.FindAction("Position", throwIfNotFound: true);
+        m_InGame_ScreenPressed = m_InGame.FindAction("ScreenPressed", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -141,12 +162,14 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private List<IInGameActions> m_InGameActionsCallbackInterfaces = new List<IInGameActions>();
     private readonly InputAction m_InGame_LMB_click;
     private readonly InputAction m_InGame_Position;
+    private readonly InputAction m_InGame_ScreenPressed;
     public struct InGameActions
     {
         private @Controls m_Wrapper;
         public InGameActions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @LMB_click => m_Wrapper.m_InGame_LMB_click;
         public InputAction @Position => m_Wrapper.m_InGame_Position;
+        public InputAction @ScreenPressed => m_Wrapper.m_InGame_ScreenPressed;
         public InputActionMap Get() { return m_Wrapper.m_InGame; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -162,6 +185,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Position.started += instance.OnPosition;
             @Position.performed += instance.OnPosition;
             @Position.canceled += instance.OnPosition;
+            @ScreenPressed.started += instance.OnScreenPressed;
+            @ScreenPressed.performed += instance.OnScreenPressed;
+            @ScreenPressed.canceled += instance.OnScreenPressed;
         }
 
         private void UnregisterCallbacks(IInGameActions instance)
@@ -172,6 +198,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Position.started -= instance.OnPosition;
             @Position.performed -= instance.OnPosition;
             @Position.canceled -= instance.OnPosition;
+            @ScreenPressed.started -= instance.OnScreenPressed;
+            @ScreenPressed.performed -= instance.OnScreenPressed;
+            @ScreenPressed.canceled -= instance.OnScreenPressed;
         }
 
         public void RemoveCallbacks(IInGameActions instance)
@@ -193,5 +222,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     {
         void OnLMB_click(InputAction.CallbackContext context);
         void OnPosition(InputAction.CallbackContext context);
+        void OnScreenPressed(InputAction.CallbackContext context);
     }
 }

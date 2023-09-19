@@ -34,7 +34,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""Position"",
@@ -43,7 +43,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -53,7 +53,18 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": ""Press"",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Mouse"",
+                    ""action"": ""LMB_click"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""55039ac4-e69c-4217-8c35-61be3f3b82de"",
+                    ""path"": ""<Touchscreen>/touch*/Press"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": ""Touch Screen"",
                     ""action"": ""LMB_click"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -64,7 +75,18 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""path"": ""<Mouse>/position"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Mouse"",
+                    ""action"": ""Position"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6455c5a6-8f25-4ad2-9c80-f459bcf1d0f2"",
+                    ""path"": ""<Touchscreen>/touch0/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Touch Screen"",
                     ""action"": ""Position"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -72,7 +94,30 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             ]
         }
     ],
-    ""controlSchemes"": []
+    ""controlSchemes"": [
+        {
+            ""name"": ""Mouse"",
+            ""bindingGroup"": ""Mouse"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<Mouse>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Touch Screen"",
+            ""bindingGroup"": ""Touch Screen"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<Touchscreen>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
+        }
+    ]
 }");
         // InGame
         m_InGame = asset.FindActionMap("InGame", throwIfNotFound: true);
@@ -189,6 +234,24 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         }
     }
     public InGameActions @InGame => new InGameActions(this);
+    private int m_MouseSchemeIndex = -1;
+    public InputControlScheme MouseScheme
+    {
+        get
+        {
+            if (m_MouseSchemeIndex == -1) m_MouseSchemeIndex = asset.FindControlSchemeIndex("Mouse");
+            return asset.controlSchemes[m_MouseSchemeIndex];
+        }
+    }
+    private int m_TouchScreenSchemeIndex = -1;
+    public InputControlScheme TouchScreenScheme
+    {
+        get
+        {
+            if (m_TouchScreenSchemeIndex == -1) m_TouchScreenSchemeIndex = asset.FindControlSchemeIndex("Touch Screen");
+            return asset.controlSchemes[m_TouchScreenSchemeIndex];
+        }
+    }
     public interface IInGameActions
     {
         void OnLMB_click(InputAction.CallbackContext context);

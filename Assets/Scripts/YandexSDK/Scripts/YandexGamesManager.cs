@@ -129,6 +129,10 @@ namespace YandexSDK.Scripts
 
         public static void LoadPlayerData(GameObject gameObject, string methodName)
         {
+#if UNITY_EDITOR
+            gameObject.SendMessage(methodName, "DEBUG");
+            return;
+#endif
             try
             {
                 loadPlayerData(gameObject.name, methodName);

@@ -13,6 +13,7 @@ namespace FH.SO {
         [NonSerialized]
         public int number;
 
+        //Data that is stored outside
         public float score;
         public bool isCompleted;
 

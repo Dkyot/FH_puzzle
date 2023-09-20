@@ -8,6 +8,7 @@ using SkibidiRunner.Managers;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
+using YandexSDK.Scripts;
 
 namespace Assets.Scripts.InitialScene {
     public sealed class InitialSceneController : MonoBehaviour {
@@ -37,8 +38,16 @@ namespace Assets.Scripts.InitialScene {
 
         private async Awaitable InitGame() {
             // Init game here
-            // Todo Load saved player data
-
+            await PlayerDataLoader.Instance.TryLoadAwaitable(20);
+            
+            var data = LocalYandexData.Instance.SaveInfo.Levels;
+            for (int i = 0; i < data.Count; i++)
+            {
+                var element = _gameContext.LevelDataBase.Levels.ElementAt(i);
+                element.score = data[i].Score;
+                element.isCompleted = data[i].IsCompleted;
+            }
+            
             int index = 1;
             foreach (var level in _gameContext.LevelDataBase.Levels) { 
                 level.number = index++;

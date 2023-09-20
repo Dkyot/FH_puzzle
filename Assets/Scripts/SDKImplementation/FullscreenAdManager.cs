@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
@@ -16,6 +17,8 @@ namespace SkibidiRunner.Managers
 
         private static DateTime _adsTime;
         private static readonly DateTime StartTime;
+
+        private bool _adClosed;
 
         static FullscreenAdManager()
         {
@@ -48,8 +51,22 @@ namespace SkibidiRunner.Managers
             if (DateTime.UtcNow - StartTime <= TimeSpan.FromSeconds(delayStartup)) return;
             if (DateTime.UtcNow - _adsTime > TimeSpan.FromSeconds(delaySeconds))
             {
-                YandexGamesManager.ShowSplashAdv(gameObject.name, nameof(AdvCallback));
+                YandexGamesManager.ShowSplashAdv(gameObject, nameof(AdvCallback));
             }
+        }
+
+        public async Awaitable<bool> ShowAdvAwaitable()
+        {
+            if (DateTime.UtcNow - StartTime <= TimeSpan.FromSeconds(delayStartup)) return false;
+            if (DateTime.UtcNow - _adsTime <= TimeSpan.FromSeconds(delaySeconds)) return false;
+            _adClosed = false;
+            YandexGamesManager.ShowSplashAdv(gameObject, nameof(AdvCallback));
+            while (!_adClosed)
+            {
+                await Awaitable.NextFrameAsync();
+            }
+
+            return true;
         }
 
         public void AdvCallback(int result)
@@ -62,6 +79,7 @@ namespace SkibidiRunner.Managers
                 case 1:
                     PauseManager.Instance.ResumeGame();
                     _adsTime = DateTime.UtcNow;
+                    _adClosed = true;
                     break;
             }
         }

@@ -163,11 +163,14 @@ namespace YandexSDK.Scripts
             }
         }
 
-        public static void ShowSplashAdv(string objectName, string methodName)
+        public static void ShowSplashAdv(GameObject gameObject, string methodName)
         {
+#if UNITY_EDITOR
+            gameObject.SendMessage(methodName, 1);
+#endif
             try
             {
-                showSplashPageAdv(objectName, methodName);
+                showSplashPageAdv(gameObject.name, methodName);
             }
             catch
             {

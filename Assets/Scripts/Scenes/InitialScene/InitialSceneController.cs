@@ -69,7 +69,7 @@ namespace Assets.Scripts.InitialScene {
             }
 
             if (showAd) {
-                FullscreenAdManager.Instance.ShowAdv();
+                await FullscreenAdManager.Instance.ShowAdvAwaitable();
             }
 
             await LoadNewScene(sceneName);

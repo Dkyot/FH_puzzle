@@ -10,9 +10,9 @@ namespace YandexSDK.Scripts
     {
         private static LocalYandexData _instance;
         public static LocalYandexData Instance => _instance ??= new LocalYandexData();
-        
+
         public bool YandexDataLoaded { get; private set; }
-        
+
         public event Action OnYandexDataLoaded;
 
         public SaveInfo SaveInfo { get; private set; }
@@ -21,7 +21,7 @@ namespace YandexSDK.Scripts
         {
             SaveInfo = new SaveInfo();
         }
-        
+
         public void SetPlayerData(SaveInfo playerData)
         {
             YandexDataLoaded = true;
@@ -29,9 +29,10 @@ namespace YandexSDK.Scripts
             {
                 SaveInfo = playerData;
             }
+
             OnYandexDataLoaded?.Invoke();
         }
-        
+
         public void DebugSetPlayerData(SaveInfo playerData)
         {
             YandexDataLoaded = true;
@@ -47,18 +48,18 @@ namespace YandexSDK.Scripts
 
         public void TrySaveLevelInfo(LevelDataSO level)
         {
-            if (SaveInfo.LevelsScore.Count < level.number)
+            if (!SaveInfo.LevelsScore.TryGetValue(level.number, out float score))
             {
-                SaveInfo.LevelsScore.Add(level.score);
+                SaveInfo.LevelsScore.Add(level.number, level.score);
             }
             else
             {
-                if (level.score > SaveInfo.LevelsScore[level.number - 1])
+                if (level.score > score)
                 {
-                    SaveInfo.LevelsScore[level.number - 1] = level.score;
+                    SaveInfo.LevelsScore[level.number] = score;
                 }
             }
-            
+
             SaveData();
         }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 using UnityEngine;
 using YandexSDK.Scripts;
 
@@ -57,7 +58,7 @@ namespace SkibidiRunner.Managers
             {
                 if (json != "DEBUG" && !LocalYandexData.Instance.YandexDataLoaded)
                 {
-                    LocalYandexData.Instance.SetPlayerData(JsonUtility.FromJson<SaveInfo>(json));
+                    LocalYandexData.Instance.SetPlayerData(JsonConvert.DeserializeObject<SaveInfo>(json));
                 }
 
                 Debug.Log("Yandex data successfully loaded");

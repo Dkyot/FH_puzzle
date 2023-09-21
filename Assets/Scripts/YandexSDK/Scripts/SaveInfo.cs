@@ -11,7 +11,7 @@ namespace YandexSDK.Scripts
     [Serializable]
     public class SaveInfo
     {
-        [field: SerializeField] public List<float> LevelsScore { get; set; } = new();
+        [field: SerializeField] public Dictionary<int, float> LevelsScore { get; set; } = new();
         [field: SerializeField] public float MasterSoundVolume { get; set; } = 1;
         [field: SerializeField] public float MusicVolume { get; set; } = 1;
         [field: SerializeField] public float SfxVolume { get; set; } = 1;

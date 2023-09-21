@@ -40,12 +40,12 @@ namespace Assets.Scripts.InitialScene {
             // Init game here
             await PlayerDataLoader.Instance.TryLoadAwaitable(20);
             
-            var data = LocalYandexData.Instance.SaveInfo.Levels;
+            var data = LocalYandexData.Instance.SaveInfo.LevelsScore;
             for (int i = 0; i < data.Count; i++)
             {
                 var element = _gameContext.LevelDataBase.Levels.ElementAt(i);
-                element.score = data[i].Score;
-                element.isCompleted = data[i].IsCompleted;
+                element.score = data[i];
+                element.isCompleted = true;
             }
             
             int index = 1;

@@ -47,19 +47,15 @@ namespace YandexSDK.Scripts
 
         public void TrySaveLevelInfo(LevelDataSO level)
         {
-            if (SaveInfo.Levels.Count < level.number)
+            if (SaveInfo.LevelsScore.Count < level.number)
             {
-                SaveInfo.Levels.Add(new LevelDataOutside()
-                {
-                    Score = level.score,
-                    IsCompleted = level.isCompleted
-                });
+                SaveInfo.LevelsScore.Add(level.score);
             }
             else
             {
-                if (level.score > SaveInfo.Levels[level.number - 1].Score)
+                if (level.score > SaveInfo.LevelsScore[level.number - 1])
                 {
-                    SaveInfo.Levels[level.number - 1].Score = level.score;
+                    SaveInfo.LevelsScore[level.number - 1] = level.score;
                 }
             }
             

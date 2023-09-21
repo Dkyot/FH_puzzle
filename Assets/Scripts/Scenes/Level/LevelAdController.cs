@@ -2,6 +2,7 @@ using FH.Cards;
 using FH.UI.Views.GameUI;
 using System.Collections;
 using System.Collections.Generic;
+using SkibidiRunner.Managers;
 using UnityEngine;
 
 namespace FH.Level {
@@ -17,8 +18,14 @@ namespace FH.Level {
         public async void TryUseFindPair() {
             if (_findPairFreeUsage <= 0) {
                 _levelController.FreezeGame();
-                // Todo add Ad logic
-                // await ShowAd();
+                if (await RewardedAdManager.Instance.ShowAdAwaitable())
+                {
+                    _findPairFreeUsage += 2;
+                    _gameUIViewController.SetFindPairUsageCount(_findPairFreeUsage);
+                }
+
+                //Waiting for the user to switch to the game after watching the ad
+                await RewardedAdManager.Instance.WaitingAdClose();
                 _levelController.UnFreezeGame();
             }
             else {
@@ -32,8 +39,14 @@ namespace FH.Level {
         public async void TryUsePeek() {
             if (_peekFreeUsage <= 0) {
                 _levelController.FreezeGame();
-                // Todo add Ad logic
-                // await ShowAd();
+                if (await RewardedAdManager.Instance.ShowAdAwaitable())
+                {
+                    //TODO: award issuance
+                    Debug.Log("НАГРАДА");
+                }
+
+                //Waiting for the user to switch to the game after watching the ad
+                await RewardedAdManager.Instance.WaitingAdClose();
                 _levelController.UnFreezeGame();
             }
             else {

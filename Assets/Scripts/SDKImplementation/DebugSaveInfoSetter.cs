@@ -2,13 +2,13 @@
 using UnityEngine;
 using YandexSDK.Scripts;
 
-public class DebugSaveInfoSetter : MonoBehaviourInitializable
+public class DebugSaveInfoSetter : MonoBehaviour
 {
     [SerializeField] private SaveInfo saveInfo;
 
     private static bool _set;
 
-    protected override void Initialize()
+    private void Awake()
     {
 #if UNITY_EDITOR
         if (_set)

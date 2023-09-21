@@ -170,6 +170,7 @@ namespace YandexSDK.Scripts
         public static void ShowSplashAdv(GameObject gameObject, string methodName)
         {
 #if UNITY_EDITOR
+            gameObject.SendMessage(methodName, (object)0);
             gameObject.SendMessage(methodName, 1);
 #endif
             try
@@ -185,7 +186,9 @@ namespace YandexSDK.Scripts
         public static void ShowRewardedAdv(GameObject gameObject, string methodName)
         {
 #if UNITY_EDITOR
+            gameObject.SendMessage(methodName, (object)0);
             gameObject.SendMessage(methodName, 1);
+            gameObject.SendMessage(methodName, 2);
 #endif
             try
             {

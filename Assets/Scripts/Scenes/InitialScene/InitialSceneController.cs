@@ -53,8 +53,9 @@ namespace Assets.Scripts.InitialScene {
                 level.number = index++;
             }
 
-            // Load Mian Menu
-            await Awaitable.WaitForSecondsAsync(2);
+            // Load Main Menu
+            Debug.Log("API READY");
+            YandexGamesManager.ApiReady();
             await LoadMainMenuScene();
         }
 
@@ -78,7 +79,7 @@ namespace Assets.Scripts.InitialScene {
             }
 
             if (showAd) {
-                await FullscreenAdManager.Instance.ShowAdvAwaitable();
+                await FullscreenAdManager.Instance.ShowAdAwaitable();
             }
 
             await LoadNewScene(sceneName);

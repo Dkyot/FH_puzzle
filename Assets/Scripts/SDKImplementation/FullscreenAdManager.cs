@@ -10,12 +10,11 @@ namespace SkibidiRunner.Managers
     public class FullscreenAdManager : MonoBehaviour
     {
         public static FullscreenAdManager Instance { get; private set; }
-
-        [SerializeField] private bool showStartup;
+        
         [SerializeField] private int delayStartup;
         [SerializeField] private int delaySeconds;
 
-        private static DateTime _adsTime;
+        private static DateTime _adTime;
         private static readonly DateTime StartTime;
 
         private bool _adClosed;
@@ -38,29 +37,21 @@ namespace SkibidiRunner.Managers
             }
         }
 
-        private void Start()
-        {
-            if (showStartup)
-            {
-                ShowAdv();
-            }
-        }
-
-        public void ShowAdv()
+        public void ShowAd()
         {
             if (DateTime.UtcNow - StartTime <= TimeSpan.FromSeconds(delayStartup)) return;
-            if (DateTime.UtcNow - _adsTime > TimeSpan.FromSeconds(delaySeconds))
+            if (DateTime.UtcNow - _adTime > TimeSpan.FromSeconds(delaySeconds))
             {
-                YandexGamesManager.ShowSplashAdv(gameObject, nameof(AdvCallback));
+                YandexGamesManager.ShowSplashAdv(gameObject, nameof(AdCallback));
             }
         }
 
-        public async Awaitable<bool> ShowAdvAwaitable()
+        public async Awaitable<bool> ShowAdAwaitable()
         {
             if (DateTime.UtcNow - StartTime <= TimeSpan.FromSeconds(delayStartup)) return false;
-            if (DateTime.UtcNow - _adsTime <= TimeSpan.FromSeconds(delaySeconds)) return false;
+            if (DateTime.UtcNow - _adTime <= TimeSpan.FromSeconds(delaySeconds)) return false;
             _adClosed = false;
-            YandexGamesManager.ShowSplashAdv(gameObject, nameof(AdvCallback));
+            YandexGamesManager.ShowSplashAdv(gameObject, nameof(AdCallback));
             while (!_adClosed)
             {
                 await Awaitable.NextFrameAsync();
@@ -69,7 +60,7 @@ namespace SkibidiRunner.Managers
             return true;
         }
 
-        public void AdvCallback(int result)
+        public void AdCallback(int result)
         {
             switch (result)
             {
@@ -78,7 +69,7 @@ namespace SkibidiRunner.Managers
                     break;
                 case 1:
                     PauseManager.Instance.ResumeGame();
-                    _adsTime = DateTime.UtcNow;
+                    _adTime = DateTime.UtcNow;
                     _adClosed = true;
                     break;
             }

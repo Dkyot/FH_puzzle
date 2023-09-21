@@ -17,6 +17,7 @@ namespace SkibidiRunner.Managers
             {
                 Instance = this;
                 DontDestroyOnLoad(gameObject);
+                TryStartLoad();
             }
             else
             {
@@ -32,7 +33,6 @@ namespace SkibidiRunner.Managers
 
         public async Awaitable<bool> TryLoadAwaitable(int waitingTimeSeconds)
         {
-            Debug.Log("START LOAD PLAYER DATA");
             if (LocalYandexData.Instance.YandexDataLoaded) return true;
             _dataLoaded = false;
             YandexGamesManager.LoadPlayerData(gameObject, nameof(OnPlayerDataReceived));
@@ -40,7 +40,7 @@ namespace SkibidiRunner.Managers
             var timeout = TimeSpan.FromSeconds(waitingTimeSeconds);
             while (!_dataLoaded && DateTime.UtcNow - time < timeout)
             {
-                await Awaitable.FixedUpdateAsync();
+                await Awaitable.NextFrameAsync();
             }
 
             return _dataLoaded;
@@ -55,12 +55,12 @@ namespace SkibidiRunner.Managers
             }
             else
             {
-                if (json != "DEBUG")
+                if (json != "DEBUG" && !LocalYandexData.Instance.YandexDataLoaded)
                 {
                     LocalYandexData.Instance.SetPlayerData(JsonUtility.FromJson<SaveInfo>(json));
                 }
 
-                Debug.Log("Data loaded");
+                Debug.Log("Yandex data successfully loaded");
                 _dataLoaded = true;
             }
         }

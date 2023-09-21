@@ -168,6 +168,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &467230829
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 467230831}
+  - component: {fileID: 467230830}
+  m_Layer: 0
+  m_Name: RewardedAdManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &467230830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 467230829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a3d3fc3022c42ad85bcf4f479a4502a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &467230831
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 467230829}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &499471707
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,7 +241,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc697832536e494899c80419f005a244, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waitingTimeSeconds: 20
 --- !u!4 &499471709
 Transform:
   m_ObjectHideFlags: 0
@@ -337,7 +380,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bacc7f44852d4a0db3f5737d7804c1f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showStartup: 0
   delayStartup: 0
   delaySeconds: 60
 --- !u!4 &1606111105
@@ -441,3 +483,4 @@ SceneRoots:
   - {fileID: 1661968417}
   - {fileID: 1606111105}
   - {fileID: 499471709}
+  - {fileID: 467230831}

@@ -4,9 +4,11 @@ using FH.Utils;
 using NaughtyAttributes;
 using System;
 using System.Linq;
+using SkibidiRunner.Managers;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
+using YandexSDK.Scripts;
 
 namespace Assets.Scripts.InitialScene {
     public sealed class InitialSceneController : MonoBehaviour {
@@ -36,15 +38,24 @@ namespace Assets.Scripts.InitialScene {
 
         private async Awaitable InitGame() {
             // Init game here
-            // Todo Load saved player data
-
+            await PlayerDataLoader.Instance.TryLoadAwaitable(20);
+            
             int index = 1;
             foreach (var level in _gameContext.LevelDataBase.Levels) { 
                 level.number = index++;
             }
+            
+            var data = LocalYandexData.Instance.SaveInfo.LevelsScore;
+            foreach (var pair in data)
+            {
+                var element = _gameContext.LevelDataBase.Levels.First(x => x.number == pair.Key);
+                if (element == null) continue;
+                element.score = pair.Value;
+                element.isCompleted = true;
+            }
 
-            // Load Mian Menu
-            await Awaitable.WaitForSecondsAsync(2);
+            // Load Main Menu
+            YandexGamesManager.ApiReady();
             await LoadMainMenuScene();
         }
 
@@ -68,7 +79,7 @@ namespace Assets.Scripts.InitialScene {
             }
 
             if (showAd) {
-                // Todo Show Ad Here
+                await FullscreenAdManager.Instance.ShowAdAwaitable();
             }
 
             await LoadNewScene(sceneName);

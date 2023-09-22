@@ -59,10 +59,6 @@ LevelCompletedView {
 }
 
 .view-container {
-    padding-top: 1%;
-    padding-right: 1%;
-    padding-bottom: 1%;
-    padding-left: 1%;
     -unity-background-scale-mode: scale-and-crop;
     transition-duration: 500ms;
     transition-property: -unity-background-image-tint-color;

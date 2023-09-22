@@ -16,7 +16,8 @@ MonoBehaviour:
     m_Code: en
   m_SharedData: {fileID: 11400000, guid: 85714bec580b2784ba93d648e54bd039, type: 2}
   m_Metadata:
-    m_Items: []
+    m_Items:
+    - rid: 3637457540483383302
   m_TableData:
   - m_Id: 312619059421184
     m_Localized: Play
@@ -122,6 +123,15 @@ MonoBehaviour:
     m_Localized: Loading...
     m_Metadata:
       m_Items: []
+  - m_Id: 7606252842295296
+    m_Localized: Level {global.levelNumber}
+    m_Metadata:
+      m_Items:
+      - rid: 3637457540483383302
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 3637457540483383302
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 00a0bcbed8051b00

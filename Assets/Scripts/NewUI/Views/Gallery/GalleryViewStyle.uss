@@ -6,4 +6,10 @@
     margin-left: 20px;
     width: 550px;
     height: 550px;
+    transition-property: scale;
+    transition-duration: 100ms;
+}
+
+#PhotoContainer > *:hover {
+    scale: 1.1 1.1;
 }

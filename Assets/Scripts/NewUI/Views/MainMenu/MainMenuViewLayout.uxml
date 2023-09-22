@@ -1,7 +1,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
     <Style src="project://database/Assets/Scripts/NewUI/Views/MainMenu/MainMenuViewStyle.uss?fileID=7433441132597879392&amp;guid=f3683f1169294e818982a315529fcb10&amp;type=3#MainMenuViewStyle" />
     <FH.UI.Views.MainMenu.MainMenuView picking-mode="Ignore">
-        <ui:VisualElement name="VisualElement" picking-mode="Ignore" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); position: absolute; top: 0; right: 0; bottom: 0; left: 0; justify-content: center; align-items: center;">
+        <ui:VisualElement picking-mode="Ignore" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); position: absolute; top: 0; right: 0; bottom: 0; left: 0; justify-content: center; align-items: center;">
             <ui:Label tabindex="-1" text="...&#10;На фоне какая-нибудь &#10;картинка с девочкой&#10;..." display-tooltip-when-elided="true" style="-unity-text-align: upper-center;" />
         </ui:VisualElement>
         <ui:VisualElement name="Menu" picking-mode="Ignore" style="left: auto; top: 0; right: 0; bottom: 0; position: absolute; justify-content: flex-end; align-items: auto;">

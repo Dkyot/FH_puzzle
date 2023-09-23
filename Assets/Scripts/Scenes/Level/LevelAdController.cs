@@ -18,43 +18,47 @@ namespace FH.Level {
         public async void TryUseFindPair() {
             if (_findPairFreeUsage <= 0) {
                 _levelController.FreezeGame();
-                if (await RewardedAdManager.Instance.ShowAdAwaitable())
-                {
+
+                if (await ShowAd()) {
                     _findPairFreeUsage += 2;
-                    _gameUIViewController.SetFindPairUsageCount(_findPairFreeUsage);
                 }
 
-                //Waiting for the user to switch to the game after watching the ad
-                await RewardedAdManager.Instance.WaitingAdClose();
                 _levelController.UnFreezeGame();
             }
             else {
                 _findPairFreeUsage--;
-                _gameUIViewController.SetFindPairUsageCount(_findPairFreeUsage);
             }
 
+            _gameUIViewController.SetFindPairUsageCount(_findPairFreeUsage);
             _cardManager.FindPair();
         }
 
         public async void TryUsePeek() {
             if (_peekFreeUsage <= 0) {
                 _levelController.FreezeGame();
-                if (await RewardedAdManager.Instance.ShowAdAwaitable())
-                {
-                    //TODO: award issuance
+
+                if (await ShowAd()) {
                     Debug.Log("НАГРАДА");
                 }
 
-                //Waiting for the user to switch to the game after watching the ad
-                await RewardedAdManager.Instance.WaitingAdClose();
                 _levelController.UnFreezeGame();
             }
             else {
                 _peekFreeUsage--;
-                _gameUIViewController.SetFindPairUsageCount(_peekFreeUsage);
             }
 
+            _gameUIViewController.SetFindPairUsageCount(_peekFreeUsage);
             // Todo add peek logic
+        }
+
+        private async Awaitable<bool> ShowAd() {
+            var adManager = RewardedAdManager.Instance;
+            if (adManager == null)
+                return true;
+
+            var adResult = await adManager.ShowAdAwaitable();
+            await adManager.WaitingAdClose();
+            return adResult;
         }
 
         private void Start() {

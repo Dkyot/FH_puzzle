@@ -12,6 +12,7 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.AddressableAssets;
 using FH.UI.Views.LevelCompleted;
 using TMPro;
+using YandexSDK.Scripts;
 using UnityEngine.Localization.SmartFormat.PersistentVariables;
 
 namespace FH.Level {
@@ -148,6 +149,8 @@ namespace FH.Level {
             var currentLevel = _gameContext.CurrentLevel;
             currentLevel.isCompleted = true;
             currentLevel.score = scoreCounter.FinalScore;
+            
+            LocalYandexData.Instance.TrySaveLevelInfo(currentLevel);
 
             GameFinished.Invoke();
         }

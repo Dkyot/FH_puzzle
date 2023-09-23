@@ -28,7 +28,7 @@ SpriteAtlas:
       m_TextureFormat: -1
       m_TextureCompression: 2
       m_CompressionQuality: 50
-      m_CrunchedCompression: 0
+      m_CrunchedCompression: 1
       m_AllowsAlphaSplitting: 0
       m_Overridden: 0
       m_AndroidETC2FallbackOverride: 0
@@ -53,36 +53,44 @@ SpriteAtlas:
     - {fileID: 2800000, guid: 92ba61c3afaed294d96732393a338142, type: 3}
     - {fileID: 2800000, guid: a20b4e5c6850db347a876c28e963e2aa, type: 3}
     - {fileID: 2800000, guid: ce0993e3fa4f9494ab7003976bf848ba, type: 3}
+    - {fileID: 2800000, guid: f9f000d68671c1647b4d51361e63fa72, type: 3}
+    - {fileID: 2800000, guid: 0ea884704e2b55b4a99d6802b3f9230d, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
     packedSpriteRenderDataKeys:
+    - 0ea884704e2b55b4a99d6802b3f9230d: 21300000
     - c0dbbe531d91b924b92f29dade1cf5b2: 21300000
     - 92ba61c3afaed294d96732393a338142: 21300000
     - 2b58e8c380c224e4490a4652706a1115: 21300000
     - ce0993e3fa4f9494ab7003976bf848ba: 21300000
     - 9735bfa6612e8b543bf18cc134b85ec8: 21300000
+    - f9f000d68671c1647b4d51361e63fa72: 21300000
     - 28a24e87701c6834e9fd3192ce717d35: 21300000
     - 42458489684211c45bab7b61a75f1234: 21300000
     - 07c3d91abd87cb24685ba64c9998dd3a: 21300000
     - a20b4e5c6850db347a876c28e963e2aa: 21300000
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
+  - {fileID: 21300000, guid: 0ea884704e2b55b4a99d6802b3f9230d, type: 3}
   - {fileID: 21300000, guid: c0dbbe531d91b924b92f29dade1cf5b2, type: 3}
   - {fileID: 21300000, guid: 92ba61c3afaed294d96732393a338142, type: 3}
   - {fileID: 21300000, guid: 2b58e8c380c224e4490a4652706a1115, type: 3}
   - {fileID: 21300000, guid: ce0993e3fa4f9494ab7003976bf848ba, type: 3}
   - {fileID: 21300000, guid: 9735bfa6612e8b543bf18cc134b85ec8, type: 3}
+  - {fileID: 21300000, guid: f9f000d68671c1647b4d51361e63fa72, type: 3}
   - {fileID: 21300000, guid: 28a24e87701c6834e9fd3192ce717d35, type: 3}
   - {fileID: 21300000, guid: 42458489684211c45bab7b61a75f1234, type: 3}
   - {fileID: 21300000, guid: 07c3d91abd87cb24685ba64c9998dd3a, type: 3}
   - {fileID: 21300000, guid: a20b4e5c6850db347a876c28e963e2aa, type: 3}
   m_PackedSpriteNamesToIndex:
+  - Triangle-R
   - CardFront
   - Pause
   - AdIcon
   - SearchIcon
   - EyeIcon
+  - Triangle-L
   - Heart
   - CardBack
   - Arrow

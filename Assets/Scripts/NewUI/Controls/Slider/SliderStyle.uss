@@ -30,8 +30,6 @@
 }
 
 .unity-base-slider__dragger {
-    width: 36px;
-    height: 36px;
     border-color: var(--button-border-color);
     border-width: var(--border-width);
     border-radius: 5px;
@@ -39,9 +37,11 @@
 }
 
 .unity-base-slider--horizontal .unity-base-slider__dragger {
+    width: 45px;
+    height: 45px;
     background-color: var(--primary-2);
     padding: 4px;
-    margin-top: -19px;
+    margin-top: -22px;
     margin-left: -10px;
     margin-right: -10px;
     rotate: 45deg;
@@ -49,6 +49,8 @@
 }
 
 .unity-base-slider--vertical .unity-base-slider__dragger {
+    width: 36px;
+    height: 36px;
     background-color: var(--primary);
     margin-left: -19px;
     left: 50%;
@@ -81,7 +83,7 @@
 }
 
 .unity-base-slider--horizontal .unity-base-field__input {
-    height: 40px;
+    height: 50px;
     flex-grow: 1;
 }
 

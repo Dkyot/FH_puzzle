@@ -16,7 +16,7 @@ SettingsView {
 }
 
 .field-name {
-    min-width: 20%;
+    min-width: 35%;
     margin-right: 20px;
     -unity-font-style: bold;
     font-size: 40px;
@@ -47,14 +47,23 @@ SettingsView {
     -unity-text-outline-color: var(--primary-3);
 }
 
-.settings-section > * {
-    margin-bottom: 30px;
+.settings-section#VolumeSection > * {
+    margin-bottom: 40px;
 }
 
 .left-button > .background > .icon {
-    background-image: url('project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=-2236324273849735119&guid=38d2a10a3e24acd43a18a63bfff3aa76&type=3#arrow-left@2x');
+    background-image: url('project://database/Assets/Images/Sprites/Triangle-L.png?fileID=21300000&guid=f9f000d68671c1647b4d51361e63fa72&type=3#Triangle-L');
+    width: 30px;
+    height: 30px;
 }
 
 .right-button > .background > .icon {
-    background-image: url('project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=-1087164816274819069&guid=38d2a10a3e24acd43a18a63bfff3aa76&type=3#arrow-right@2x');
+    background-image: url('project://database/Assets/Images/Sprites/Triangle-R.png?fileID=21300000&guid=0ea884704e2b55b4a99d6802b3f9230d&type=3#Triangle-R');
+    -unity-background-scale-mode: scale-to-fit;
+    width: 30px;
+    height: 30px;
+}
+
+.settings-section#LanguageSection > * {
+    margin-bottom: 20px;
 }

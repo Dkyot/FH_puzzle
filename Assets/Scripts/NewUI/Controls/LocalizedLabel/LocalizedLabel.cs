@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Localization;
+using UnityEngine.Localization.Components;
 using UnityEngine.Localization.Settings;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.UIElements;
@@ -9,6 +10,7 @@ namespace FH.UI {
         public string Label {
             get => _label;
             set {
+                if (_label ==  value) return;   
                 _label = value;
                 UpdateLable();
             }
@@ -18,14 +20,13 @@ namespace FH.UI {
             get => _isLocalizable;
             set {
                 _isLocalizable = value;
-                UpdateIsLocalizable();
             }
         }
 
         private bool _isLocalizable = true;
         private string _label;
 
-        private AsyncOperationHandle<string>? _handle;
+        private LocalizedString _localizedString;
 
         public LocalizedLabel() {
         }
@@ -44,42 +45,20 @@ namespace FH.UI {
             text = $"# {_label}";
         }
 
-        private void UpdateIsLocalizable() {
-            if (_isLocalizable) {
-                LocalizationSettings.Instance.OnSelectedLocaleChanged += OnLocaleChanged;
-                UpdateLable();
-            }
-            else {
-                LocalizationSettings.Instance.OnSelectedLocaleChanged -= OnLocaleChanged;
-                UpdateLable();
-            }
-        }
-
-        private void OnLocaleChanged(Locale locale) {
-            LoadString();
-        }
-
         private void LoadString() {
+            if (_localizedString != null) {
+                _localizedString.StringChanged -= OnStringChanged;
+            }
+
             if (_label is null || _label.Length == 0)
                 return;
 
-            var operation = LocalizationSettings.StringDatabase.GetLocalizedStringAsync(
-                "UI",
-                _label
-            );
-
-            if (_handle.HasValue) {
-                _handle.Value.Completed -= OnStringLoadCompleted;
-            }
-
-            _handle = operation;
-
-            operation.Completed += OnStringLoadCompleted;
+            _localizedString = new LocalizedString("UI", _label);
+            _localizedString.StringChanged += OnStringChanged;
         }
 
-        private void OnStringLoadCompleted(AsyncOperationHandle<string> operationHandle) {
-            text = operationHandle.Result;
-            _handle = null;
+        private void OnStringChanged(string newString) {
+            text = newString;
         }
 
         public new sealed class UxmlTraits : VisualElement.UxmlTraits {

@@ -37,6 +37,12 @@ namespace FH.Cards {
         private GameObject _secondMarker;
         private (Card, Card)? _cardHighlightedPair;
 
+        private float _tipFlipCooldown = 0.05f;
+        private float _tipFlipTimer = 0;
+        private int _tipFlipIndex = 0;
+        private bool _tipFlipEnded = false;
+        private List<Card> _waveCardList = new List<Card>();
+
         public event EventHandler OnWin;
 
         public delegate void OnMatchCheckDelegate();
@@ -226,6 +232,45 @@ namespace FH.Cards {
             return cardPair;
         }
 
+        private List<Card> TipMegaWaveFlip(List<Card> cardsList, int w, int h) {
+            List<Card> list = new List<Card>();
+
+            for (int i = 0; i < h; i++) {
+                for (int j = 0; j < (i+1) - (i/w); j++) {
+                    list.Add(cardsList[w*i-(w-1)*j]);
+                }
+            }  
+
+            int start = (h-1) * w + 1;
+            int iter = cardsList.Count - start;
+
+            for (int i = 0; i < iter; i++) {
+                int x = 0;
+                for (int j = iter - i;  j > 0; j--) {
+                    list.Add(cardsList[start - x*(w -1) + i]);
+                    x++;
+                }
+                x = 0;
+            }
+
+            return list;
+        }
+
+        private void WaveTip() {
+            if (_tipFlipEnded) return;
+
+            _tipFlipTimer += Time.deltaTime;
+
+            if (_tipFlipTimer >= _tipFlipCooldown) {
+                _waveCardList[_tipFlipIndex].StartFullRotation();
+                _tipFlipIndex++;
+                _tipFlipTimer = 0;
+            }
+
+            if (_tipFlipIndex == _waveCardList.Count) {
+                _tipFlipEnded = true;
+            }
+        }
         #endregion
 
         #region Match Checking

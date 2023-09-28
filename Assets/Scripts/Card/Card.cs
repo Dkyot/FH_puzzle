@@ -25,6 +25,12 @@ namespace FH.Cards {
         private float timer;
         private bool delay;
 
+        private float fullRotationSpeed = 0.2f;
+        private bool fullRotation = false;
+        private bool halfRotationCompleted = false;
+        private float rotationTimer = 0;
+        private float rotationCooldown = 0.6f;
+
         float reference;
 
         private void Awake() {
@@ -37,6 +43,11 @@ namespace FH.Cards {
         }
 
         private void Update() {
+            if (fullRotation) {
+                TipFullRotation();
+                return;
+            }
+
             if (isPicked && (currentState == CardState.Closed || currentState == CardState.Opening))
                 OpenRotation();
             else if (isPicked && (currentState == CardState.Opened || currentState == CardState.Closing))
@@ -69,6 +80,10 @@ namespace FH.Cards {
             delay = true;
         }
 
+        public void StartFullRotation() {
+            fullRotation = true;
+        }
+
         #region Rotation methods
         private void OpenRotation() {
             currentState = CardState.Opening;
@@ -92,6 +107,28 @@ namespace FH.Cards {
                     delay = false;
                     timer = 0;
                     OnReset();
+                }
+            }
+        }
+
+        public void TipFullRotation() {
+            if (halfRotationCompleted == false) {
+                float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, 180, ref reference, fullRotationSpeed);
+                transform.rotation = Quaternion.Euler(0, angle, 0);
+                if (transform.rotation == Quaternion.Euler(0, 180, 0)) {
+                    halfRotationCompleted = true;
+                }
+            }
+            else {
+                rotationTimer += Time.deltaTime;
+                if (rotationTimer < rotationCooldown) return;
+    
+                float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, 0, ref reference, fullRotationSpeed);
+                transform.rotation = Quaternion.Euler(0, angle, 0);
+                if (transform.rotation == Quaternion.Euler(0, 0, 0)) {
+                    halfRotationCompleted = false;
+                    fullRotation = false;
+                    rotationTimer = 0;
                 }
             }
         }

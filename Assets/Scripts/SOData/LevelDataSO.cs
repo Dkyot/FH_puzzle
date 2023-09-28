@@ -7,7 +7,6 @@ namespace FH.SO {
     [CreateAssetMenu(fileName = "LevelData_", menuName = "SOData/LevelData")]
     public sealed class LevelDataSO : ScriptableObject {
         [field: SerializeField] public LevelParams Params { get; private set; }
-        [field: SerializeField] public LocalizableString CharacterName { get; private set; }
         [field: SerializeField] public AssetReferenceSprite LevelImage { get; private set; }
 
         [NonSerialized]

@@ -48,7 +48,7 @@ namespace FH.Level {
             }
 
             _gameUIViewController.SetFindPairUsageCount(_peekFreeUsage);
-            // Todo add peek logic
+            await _cardManager.WaveTip();
         }
 
         private async Awaitable<bool> ShowAd() {

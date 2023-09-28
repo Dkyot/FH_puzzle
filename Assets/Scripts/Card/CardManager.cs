@@ -37,6 +37,7 @@ namespace FH.Cards {
         private GameObject _secondMarker;
         private (Card, Card)? _cardHighlightedPair;
 
+        private bool _isRunning = false;
         private float _tipFlipCooldown = 0.05f;
         private float _tipFlipTimer = 0;
         private int _tipFlipIndex = 0;
@@ -98,6 +99,8 @@ namespace FH.Cards {
             DistributionOfValues();
 
             pairCount = cards.Count / 2;
+
+            _waveCardList = TipMegaWaveFlip(cards, Rows, Colums);
 
             OnReset?.Invoke();
         }
@@ -236,18 +239,19 @@ namespace FH.Cards {
             List<Card> list = new List<Card>();
 
             for (int i = 0; i < h; i++) {
-                for (int j = 0; j < (i+1) - (i/w); j++) {
-                    list.Add(cardsList[w*i-(w-1)*j]);
+                for (int j = 0; j < (i + 1) - (i / w); j++) {
+                    Debug.Log($"{j} {i} {w * i - (w - 1) * j}");
+                    list.Add(cardsList[w * i - (w - 1) * j]);
                 }
-            }  
+            }
 
-            int start = (h-1) * w + 1;
+            int start = (h - 1) * w + 1;
             int iter = cardsList.Count - start;
 
             for (int i = 0; i < iter; i++) {
                 int x = 0;
-                for (int j = iter - i;  j > 0; j--) {
-                    list.Add(cardsList[start - x*(w -1) + i]);
+                for (int j = iter - i; j > 0; j--) {
+                    list.Add(cardsList[start - x * (w - 1) + i]);
                     x++;
                 }
                 x = 0;
@@ -256,20 +260,33 @@ namespace FH.Cards {
             return list;
         }
 
-        private void WaveTip() {
-            if (_tipFlipEnded) return;
+        public async Awaitable WaveTip() {
+            if (_isRunning)
+                return;
 
-            _tipFlipTimer += Time.deltaTime;
+            _isRunning = true;
 
-            if (_tipFlipTimer >= _tipFlipCooldown) {
-                _waveCardList[_tipFlipIndex].StartFullRotation();
-                _tipFlipIndex++;
-                _tipFlipTimer = 0;
+            _tipFlipTimer = 0;
+            _tipFlipIndex = 0;
+            _tipFlipEnded = false;
+
+            while (!_tipFlipEnded) {
+                _tipFlipTimer += Time.deltaTime;
+
+                if (_tipFlipTimer >= _tipFlipCooldown) {
+                    _waveCardList[_tipFlipIndex].StartFullRotation();
+                    _tipFlipIndex++;
+                    _tipFlipTimer = 0;
+                }
+
+                if (_tipFlipIndex == _waveCardList.Count) {
+                    _tipFlipEnded = true;
+                }
+
+                await Awaitable.NextFrameAsync();
             }
 
-            if (_tipFlipIndex == _waveCardList.Count) {
-                _tipFlipEnded = true;
-            }
+            _isRunning = false;
         }
         #endregion
 

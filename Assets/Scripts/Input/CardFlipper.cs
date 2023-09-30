@@ -3,16 +3,19 @@ using UnityEngine;
 
 namespace FH.Inputs {
     public class CardFlipper : MonoBehaviour {
-        [SerializeField] private PlayerInputHandler inputHandler;
+        [SerializeField] private PlayerInputHandler _inputHandler;
+        private int _lockCounter = 0;
 
-        public bool IsEnable { get; set; }
+        public void Lock() {
+            _lockCounter++;
+        }
 
-        private void Start() {
-            inputHandler.Pressed += PerformeFlip;
+        public void Unlock() {
+            _lockCounter = Mathf.Max(_lockCounter - 1, 0);
         }
 
         public void PerformeFlip(Vector2 screenPosition) {
-            if (!IsEnable) return;
+            if (_lockCounter != 0) return;
 
             Vector3 mousePosition = screenPosition;
             mousePosition.z = Camera.main.nearClipPlane;
@@ -23,6 +26,10 @@ namespace FH.Inputs {
                 return;
 
             Interaction(hit);
+        }
+
+        private void Start() {
+            _inputHandler.Pressed += PerformeFlip;
         }
 
         private void Interaction(RaycastHit2D hit) {

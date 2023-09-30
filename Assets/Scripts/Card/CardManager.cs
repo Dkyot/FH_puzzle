@@ -55,24 +55,6 @@ namespace FH.Cards {
         public delegate void OnMismatchDelegate();
         public static event OnMismatchDelegate OnMismatch;
 
-
-        private void Awake() {
-            _firstMarker = Instantiate(_markerPrefab);
-            _firstMarker.gameObject.SetActive(false);
-
-            _secondMarker = Instantiate(_markerPrefab);
-            _secondMarker.gameObject.SetActive(false);
-
-            CardFlipper = GetComponent<CardFlipper>();
-
-            cards = new List<Card>();
-            AddCardEvents();
-        }
-
-        private void OnDisable() {
-            UnsubscribeCardEvents();
-        }
-
         public void FindPair() {
             _firstMarker.gameObject.SetActive(false);
             _secondMarker.gameObject.SetActive(false);
@@ -87,6 +69,35 @@ namespace FH.Cards {
             _secondMarker.SetActive(true);
             _firstMarker.transform.position = cardPair.Value.firstCard.transform.position;
             _secondMarker.transform.position = cardPair.Value.secondCard.transform.position;
+        }
+
+        public async Awaitable WaveTip() {
+            if (_isRunning)
+                return;
+
+            _isRunning = true;
+
+            _tipFlipTimer = 0;
+            _tipFlipIndex = 0;
+            _tipFlipEnded = false;
+
+            while (!_tipFlipEnded) {
+                _tipFlipTimer += Time.deltaTime;
+
+                if (_tipFlipTimer >= _tipFlipCooldown) {
+                    _waveCardList[_tipFlipIndex].StartFullRotation();
+                    _tipFlipIndex++;
+                    _tipFlipTimer = 0;
+                }
+
+                if (_tipFlipIndex == _waveCardList.Count) {
+                    _tipFlipEnded = true;
+                }
+
+                await Awaitable.NextFrameAsync();
+            }
+
+            _isRunning = false;
         }
 
         public void CreateCards() {
@@ -105,7 +116,25 @@ namespace FH.Cards {
             OnReset?.Invoke();
         }
 
+        private void Awake() {
+            _firstMarker = Instantiate(_markerPrefab);
+            _firstMarker.gameObject.SetActive(false);
+
+            _secondMarker = Instantiate(_markerPrefab);
+            _secondMarker.gameObject.SetActive(false);
+
+            CardFlipper = GetComponent<CardFlipper>();
+
+            cards = new List<Card>();
+            AddCardEvents();
+        }
+
+        private void OnDisable() {
+            UnsubscribeCardEvents();
+        }
+
         #region Main methods
+
         private void SpawnCards() {
             Vector2 cardPrefabSize = cardPrefab.backSprite.bounds.size;
             Vector2 cardRequiredSize = new Vector2(_width / Colums, _height / Rows);
@@ -258,35 +287,6 @@ namespace FH.Cards {
             }
 
             return list;
-        }
-
-        public async Awaitable WaveTip() {
-            if (_isRunning)
-                return;
-
-            _isRunning = true;
-
-            _tipFlipTimer = 0;
-            _tipFlipIndex = 0;
-            _tipFlipEnded = false;
-
-            while (!_tipFlipEnded) {
-                _tipFlipTimer += Time.deltaTime;
-
-                if (_tipFlipTimer >= _tipFlipCooldown) {
-                    _waveCardList[_tipFlipIndex].StartFullRotation();
-                    _tipFlipIndex++;
-                    _tipFlipTimer = 0;
-                }
-
-                if (_tipFlipIndex == _waveCardList.Count) {
-                    _tipFlipEnded = true;
-                }
-
-                await Awaitable.NextFrameAsync();
-            }
-
-            _isRunning = false;
         }
         #endregion
 

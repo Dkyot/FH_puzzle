@@ -549,7 +549,7 @@ MonoBehaviour:
   _findPairFreeUsage: 3
   _peekFreeUsage: 0
   _levelController: {fileID: 710374885}
-  _gameUIViewController: {fileID: 2097693593}
+  _gameUIController: {fileID: 2097693593}
   _cardManager: {fileID: 918102901}
 --- !u!1 &918102900
 GameObject:
@@ -614,7 +614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e67e5297edac9b04a9fafd95e71ea280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputHandler: {fileID: 1813562680}
+  _inputHandler: {fileID: 1813562680}
 --- !u!1 &1691604971
 GameObject:
   m_ObjectHideFlags: 0

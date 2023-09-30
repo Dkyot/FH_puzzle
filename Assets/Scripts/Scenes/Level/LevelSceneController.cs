@@ -64,12 +64,12 @@ namespace FH.Level {
 
         /// <summary> Stops time and card flipper, but doesn't trigger pause event</summary>
         public void FreezeGame() {
-            cardManager.CardFlipper.IsEnable = false;
+            cardManager.CardFlipper.Lock();
             scoreTimer.IsRunning = false;
         }
 
         public void UnFreezeGame() {
-            cardManager.CardFlipper.IsEnable = true;
+            cardManager.CardFlipper?.Unlock();
             scoreTimer.IsRunning = true;
         }
 

@@ -31,8 +31,8 @@ namespace FH.Cards {
         private List<Card> cards;
         private int pairCount;
 
-        private Card card1 = null;
-        private Card card2 = null;
+        public Card card1 = null;
+        public Card card2 = null;
         private GameObject _firstMarker;
         private GameObject _secondMarker;
         private (Card, Card)? _cardHighlightedPair;
@@ -74,6 +74,8 @@ namespace FH.Cards {
         public async Awaitable WaveTip() {
             if (_isRunning)
                 return;
+
+            Reset();
 
             _isRunning = true;
 

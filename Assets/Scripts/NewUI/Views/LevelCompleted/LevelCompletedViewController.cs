@@ -17,6 +17,12 @@ namespace FH.UI.Views.LevelCompleted {
         [SerializeField] private PlayerInputHandler _playerInputHandler;
         [SerializeField] private ScoreCounter _scoreCounter;
 
+        [SerializeField] private AudioSource _scoreAudioSource;
+
+        private void Awake() {
+            _scoreAudioSource.Stop();
+        }
+
         public void ShowContent() {
             view.ShowContent();
             _ = StartScoreAnimation();
@@ -86,6 +92,8 @@ namespace FH.UI.Views.LevelCompleted {
             const float stepSpeed = 2f;
             float step = 0f;
 
+            _scoreAudioSource.loop = true;
+            _scoreAudioSource.Play();
             while (!cancellationToken.IsCancellationRequested && step < 1) {
                 await Awaitable.NextFrameAsync();
                 step = math.clamp(step + stepSpeed * Time.deltaTime, 0, 1);
@@ -94,6 +102,7 @@ namespace FH.UI.Views.LevelCompleted {
                 int currentMSeconds = (int)math.lerp(0, mseconds, step);
                 view.TimeLabelText = $"{currentMinutes:00}:{currentSeconds:00}:{currentMSeconds:000}";
             }
+            _scoreAudioSource.loop = false;
         }
 
         private async Awaitable StartMistakesAnimation() {
@@ -103,12 +112,15 @@ namespace FH.UI.Views.LevelCompleted {
             const float stepSpeed = 1f;
             float step = 0f;
 
+            _scoreAudioSource.loop = true;
+            _scoreAudioSource.Play();
             while (!cancellationToken.IsCancellationRequested && step < 1) {
                 await Awaitable.NextFrameAsync();
                 step = math.clamp(step + stepSpeed * Time.deltaTime, 0, 1);
                 int currentValue = (int)math.lerp(0, mistakes, step);
                 view.MistakesLabelText = currentValue.ToString();
             }
+            _scoreAudioSource.loop = false;
         }
 
         private async Awaitable StartTotalScoreAnimation() {
@@ -118,12 +130,15 @@ namespace FH.UI.Views.LevelCompleted {
             const float stepSpeed = 1f;
             float step = 0f;
 
+            _scoreAudioSource.loop = true;
+            _scoreAudioSource.Play();
             while (!cancellationToken.IsCancellationRequested && step < 1) {
                 await Awaitable.NextFrameAsync();
                 step = math.clamp(step + stepSpeed * Time.deltaTime, 0, 1);
                 int currentValue = (int)math.lerp(0, totalScore, step);
                 view.TotalScoreLableText = currentValue.ToString();
             }
+            _scoreAudioSource.loop = false;
         }
 
         private void ShowContentOnPressed(Vector2 position) {

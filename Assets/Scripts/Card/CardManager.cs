@@ -106,6 +106,9 @@ namespace FH.Cards {
                 await Awaitable.NextFrameAsync();
             }
 
+            // Wait for all cards closed
+            await Awaitable.WaitForSecondsAsync(1f);
+
             _isRunning = false;
         }
 

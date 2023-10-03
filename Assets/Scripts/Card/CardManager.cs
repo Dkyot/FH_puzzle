@@ -1,3 +1,4 @@
+using Assets.Scripts.Sound;
 using FH.Inputs;
 using FH.SO;
 using FH.Utils;
@@ -11,6 +12,17 @@ namespace FH.Cards {
     [RequireComponent(typeof(CardFlipper))]
     public class CardManager : MonoBehaviour {
         private const float offset = 1;
+
+        public event EventHandler OnWin;
+
+        public delegate void OnMatchCheckDelegate();
+        public static event OnMatchCheckDelegate OnMatchCheck;
+
+        public delegate void OnResetDelegate();
+        public static event OnResetDelegate OnReset;
+
+        public delegate void OnMismatchDelegate();
+        public static event OnMismatchDelegate OnMismatch;
 
         public CardFlipper CardFlipper { get; private set; }
 
@@ -28,11 +40,15 @@ namespace FH.Cards {
         [SerializeField] private float _width;
         [SerializeField] private float _height;
 
+        [Header("Cards Sound")]
+        [SerializeField] private AudioClip _cardFlipSound;
+
         private List<Card> cards;
         private int pairCount;
 
-        public Card card1 = null;
-        public Card card2 = null;
+        private Card card1 = null;
+        private Card card2 = null;
+
         private GameObject _firstMarker;
         private GameObject _secondMarker;
         private (Card, Card)? _cardHighlightedPair;
@@ -44,16 +60,7 @@ namespace FH.Cards {
         private bool _tipFlipEnded = false;
         private List<Card> _waveCardList = new List<Card>();
 
-        public event EventHandler OnWin;
-
-        public delegate void OnMatchCheckDelegate();
-        public static event OnMatchCheckDelegate OnMatchCheck;
-
-        public delegate void OnResetDelegate();
-        public static event OnResetDelegate OnReset;
-
-        public delegate void OnMismatchDelegate();
-        public static event OnMismatchDelegate OnMismatch;
+        private const float _cardFlipSoundScale = 0.5f;
 
         public void FindPair() {
             _firstMarker.gameObject.SetActive(false);
@@ -182,11 +189,13 @@ namespace FH.Cards {
             if (card.currentState == CardState.Closed) {
                 if (card1 == null && !card.Equals(card2)) {
                     card1 = card;
+                    SoundManager.Instance.PlayOneShot(_cardFlipSound, _cardFlipSoundScale);
                     MatchChecking(card1, card2);
                     return true;
                 }
                 else if (card2 == null && !card.Equals(card1)) {
                     card2 = card;
+                    SoundManager.Instance.PlayOneShot(_cardFlipSound, _cardFlipSoundScale);
                     MatchChecking(card1, card2);
                     return true;
                 }
@@ -195,10 +204,12 @@ namespace FH.Cards {
             else if (card.currentState == CardState.Opened) {
                 if (card.Equals(card1)) {
                     card1 = null;
+                    SoundManager.Instance.PlayOneShot(_cardFlipSound, _cardFlipSoundScale);
                     return true;
                 }
                 else if (card.Equals(card2)) {
                     card2 = null;
+                    SoundManager.Instance.PlayOneShot(_cardFlipSound, _cardFlipSoundScale);
                     return true;
                 }
                 return false;

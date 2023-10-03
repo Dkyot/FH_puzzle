@@ -6,7 +6,6 @@ namespace FH.Cards {
         public int value { get; private set; }
         public SpriteRenderer sprite;
         public SpriteRenderer backSprite;
-        public AudioSource swipeSound;
         private TextMeshProUGUI cardTextValue;
 
         private bool isPicked;
@@ -68,7 +67,6 @@ namespace FH.Cards {
 
             if (OnFlip(this)) {
                 isPicked = true;
-                swipeSound.Play();
             }
         }
 

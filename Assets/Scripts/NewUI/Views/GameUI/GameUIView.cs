@@ -25,7 +25,7 @@ namespace FH.UI.Views.GameUI {
             add => _peekButton.clicked += value;
             remove => _peekButton.clicked -= value;
         }
-        
+
         public string MistakesText {
             set => _mistakesLabel.text = value;
         }
@@ -92,6 +92,11 @@ namespace FH.UI.Views.GameUI {
 
             _findPairAdIcon = this.Q<VisualElement>("FindPairAdIcon");
             _peekAdIcon = this.Q<VisualElement>("PeekAdIcon");
+
+            _pauseButton.RegisterCallback<MouseEnterEvent>(OnButtonHovered);
+            _resetButton.RegisterCallback<MouseEnterEvent>(OnButtonHovered);
+            _findPairButton.RegisterCallback<MouseEnterEvent>(OnButtonHovered);
+            _peekButton.RegisterCallback<MouseEnterEvent>(OnButtonHovered);
         }
 
         public new sealed class UxmlFactory : UxmlFactory<GameUIView, UxmlTraits> { }

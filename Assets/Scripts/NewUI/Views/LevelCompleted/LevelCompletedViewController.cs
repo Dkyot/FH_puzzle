@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts.Sound;
 using FH.Inputs;
 using FH.Level;
 using FH.Utils;
@@ -17,27 +18,30 @@ namespace FH.UI.Views.LevelCompleted {
         [SerializeField] private PlayerInputHandler _playerInputHandler;
         [SerializeField] private ScoreCounter _scoreCounter;
 
-        [SerializeField] private AudioSource _scoreAudioSource;
+        [Header("Sounds")]
+        [SerializeField] private AudioClip _scoreCountSound;
+        [SerializeField] private AudioClip _cameraShotSound;
 
-        private void Awake() {
-            _scoreAudioSource.Stop();
-        }
-
-        public void ShowContent() {
-            view.ShowContent();
-            _ = StartScoreAnimation();
-        }
+        private float _scoreSoundVolume = 0.2f;
 
         public override void ShowView() {
             ScrollingBgTextureController.Instance?.EnableRendering();
             view.Show();
             _ = StartLevelCompleteAnimation();
-
         }
 
+
         private async Awaitable StartLevelCompleteAnimation() {
-            await view.ShowFlash();
             await StartTitleAnimation();
+            _playerInputHandler.Pressed += ShowContentOnPressed;
+        }
+
+        private async Awaitable ShowContent() {
+            view.HidePressToContinueLabel();
+            SoundManager.Instance.PlayOneShot(_cameraShotSound);
+            await view.ShowFlash();
+            await view.ShowContent();
+            _ = StartScoreAnimation();
         }
 
         public override void HideView() {
@@ -64,9 +68,9 @@ namespace FH.UI.Views.LevelCompleted {
         }
 
         private async Awaitable StartTitleAnimation() {
+            view.ShowPressToContinueLabel();
             view.ShowTitle();
             await Awaitable.WaitForSecondsAsync(0.5f);
-            _playerInputHandler.Pressed += ShowContentOnPressed;
         }
 
         private async Awaitable StartScoreAnimation() {
@@ -92,8 +96,8 @@ namespace FH.UI.Views.LevelCompleted {
             const float stepSpeed = 2f;
             float step = 0f;
 
-            _scoreAudioSource.loop = true;
-            _scoreAudioSource.Play();
+            var soundManager = SoundManager.Instance;
+            soundManager.Play(_scoreCountSound, _scoreSoundVolume, true);
             while (!cancellationToken.IsCancellationRequested && step < 1) {
                 await Awaitable.NextFrameAsync();
                 step = math.clamp(step + stepSpeed * Time.deltaTime, 0, 1);
@@ -102,7 +106,7 @@ namespace FH.UI.Views.LevelCompleted {
                 int currentMSeconds = (int)math.lerp(0, mseconds, step);
                 view.TimeLabelText = $"{currentMinutes:00}:{currentSeconds:00}:{currentMSeconds:000}";
             }
-            _scoreAudioSource.loop = false;
+            soundManager.StopLoop();
         }
 
         private async Awaitable StartMistakesAnimation() {
@@ -112,15 +116,18 @@ namespace FH.UI.Views.LevelCompleted {
             const float stepSpeed = 1f;
             float step = 0f;
 
-            _scoreAudioSource.loop = true;
-            _scoreAudioSource.Play();
+            var soundManager = SoundManager.Instance;
+            int currentValue = 0;
             while (!cancellationToken.IsCancellationRequested && step < 1) {
                 await Awaitable.NextFrameAsync();
                 step = math.clamp(step + stepSpeed * Time.deltaTime, 0, 1);
-                int currentValue = (int)math.lerp(0, mistakes, step);
-                view.MistakesLabelText = currentValue.ToString();
+                int newValue = (int)math.lerp(0, mistakes, step);
+                if (newValue != currentValue) {
+                    currentValue = newValue;
+                    view.MistakesLabelText = currentValue.ToString();
+                    soundManager.PlayOneShot(_scoreCountSound, _scoreSoundVolume);
+                }
             }
-            _scoreAudioSource.loop = false;
         }
 
         private async Awaitable StartTotalScoreAnimation() {
@@ -130,15 +137,15 @@ namespace FH.UI.Views.LevelCompleted {
             const float stepSpeed = 1f;
             float step = 0f;
 
-            _scoreAudioSource.loop = true;
-            _scoreAudioSource.Play();
+            var soundManager = SoundManager.Instance;
+            soundManager.Play(_scoreCountSound, _scoreSoundVolume, true);
             while (!cancellationToken.IsCancellationRequested && step < 1) {
                 await Awaitable.NextFrameAsync();
                 step = math.clamp(step + stepSpeed * Time.deltaTime, 0, 1);
                 int currentValue = (int)math.lerp(0, totalScore, step);
                 view.TotalScoreLableText = currentValue.ToString();
             }
-            _scoreAudioSource.loop = false;
+            soundManager.StopLoop();
         }
 
         private void ShowContentOnPressed(Vector2 position) {

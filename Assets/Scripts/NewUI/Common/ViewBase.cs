@@ -1,7 +1,10 @@
+using System;
 using UnityEngine.UIElements;
 
 namespace FH.UI {
     public abstract class ViewBase : VisualElement {
+        public event Action ButtonHovered;
+
         private bool _isInited = false;
 
         public void Init() {
@@ -12,7 +15,6 @@ namespace FH.UI {
 
         public virtual void Show() {
             style.display = DisplayStyle.Flex;
-            // this.BringToFront();
         }
 
         public virtual void Hide() {
@@ -20,5 +22,13 @@ namespace FH.UI {
         }
 
         protected abstract void OnInit();
+
+        protected void OnButtonHovered(MouseEnterEvent e) {
+            OnButtonHovered();
+        }
+
+        protected void OnButtonHovered() {
+            ButtonHovered?.Invoke();
+        }
     }
 }

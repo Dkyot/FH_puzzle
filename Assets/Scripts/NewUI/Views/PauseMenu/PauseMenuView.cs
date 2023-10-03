@@ -37,6 +37,9 @@ namespace FH.UI.Views.PauseMenu {
             _continueButton = this.Q<Button>("ContinueButton");
             _toMainMenuButton = this.Q<Button>("ToMainMenuButton");
             _container = this.Q<VisualElement>("ContentContainer");
+
+            _continueButton.RegisterCallback<MouseEnterEvent>(OnButtonHovered);
+            _toMainMenuButton.RegisterCallback<MouseEnterEvent>(OnButtonHovered);
         }
 
         public new sealed class UxmlFactory : UxmlFactory<PauseMenuView, UxmlTraits> { }

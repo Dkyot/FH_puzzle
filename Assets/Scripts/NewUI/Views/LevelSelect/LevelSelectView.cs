@@ -1,7 +1,6 @@
 using FH.SO;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine.UIElements;
 
 namespace FH.UI.Views.LevelSelect {
@@ -11,6 +10,7 @@ namespace FH.UI.Views.LevelSelect {
             remove => _backButton.clicked -= value;
         }
 
+        public event Action LevelContainerHovered;
         public event Action<LevelDataSO> LevelSelected;
 
         private Button _backButton;
@@ -36,6 +36,7 @@ namespace FH.UI.Views.LevelSelect {
                 }
 
                 levelOption.IsCompleted = level.isCompleted;
+                levelOption.RegisterCallback<MouseEnterEvent>(OnLevelContainerHovered);
                 _levelsContainer.Add(levelOption);
 
                 if (!level.isCompleted) {
@@ -47,6 +48,11 @@ namespace FH.UI.Views.LevelSelect {
         protected override void OnInit() {
             _backButton = this.Q<Button>("BackButton");
             _levelsContainer = this.Q<VisualElement>("LevelsContainer");
+            _backButton.RegisterCallback<MouseEnterEvent>(OnButtonHovered);
+        }
+
+        private void OnLevelContainerHovered(MouseEnterEvent mouseEnterEvent) {
+            LevelContainerHovered?.Invoke();
         }
 
         public new sealed class UxmlFactory : UxmlFactory<LevelSelectView, UxmlTraits> { }

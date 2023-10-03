@@ -1,11 +1,18 @@
 fileFormatVersion: 2
 guid: 45dd760e7266b434688409fe32085836
+AssetOrigin:
+  serializedVersion: 1
+  productId: 27803
+  packageName: 'UI Sound Effects Collection Pack 2: Buttons'
+  packageVersion: 1.0
+  assetPath: Assets/UI_Buttons_Pack2/Button_18_Pack2.wav
+  uploadId: 46455
 AudioImporter:
   externalObjects: {}
   serializedVersion: 7
   defaultSettings:
     serializedVersion: 2
-    loadType: 1
+    loadType: 0
     sampleRateSetting: 0
     sampleRateOverride: 0
     compressionFormat: 0
@@ -21,10 +28,3 @@ AudioImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 27803
-  packageName: 'UI Sound Effects Collection Pack 2: Buttons'
-  packageVersion: 1.0
-  assetPath: Assets/UI_Buttons_Pack2/Button_18_Pack2.wav
-  uploadId: 46455

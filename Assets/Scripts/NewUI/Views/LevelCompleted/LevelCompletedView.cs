@@ -57,7 +57,7 @@ namespace FH.UI.Views.LevelCompleted {
         public override void Show() {
             base.Show();
 
-            _pressToContinueLabel.style.display = DisplayStyle.None;
+            HidePressToContinueLabel();
             ResetFlashAnimation();
             ResetTitleAnimation();
             ResetContentAnimation();
@@ -79,12 +79,18 @@ namespace FH.UI.Views.LevelCompleted {
         }
 
         public void ShowTitle() {
-            _pressToContinueLabel.style.display = DisplayStyle.Flex;
             StartTitleAnimation();
         }
 
-        public async Awaitable ShowContent() {
+        public void ShowPressToContinueLabel() {
+            _pressToContinueLabel.style.display = DisplayStyle.Flex;
+        }
+
+        public void HidePressToContinueLabel() {
             _pressToContinueLabel.style.display = DisplayStyle.None;
+        }
+
+        public async Awaitable ShowContent() {
             StartContentAnimation();
             await Awaitable.WaitForSecondsAsync(0.2f);
             _photo.StartAnimation();
@@ -114,6 +120,8 @@ namespace FH.UI.Views.LevelCompleted {
 
             _continueButton = this.Q<Button>("ContinueButton");
             _toMainMenuButton = this.Q<Button>("ToMainMenuButton");
+            _contentContainer.RegisterCallback<MouseEnterEvent>(OnButtonHovered);
+            _toMainMenuButton.RegisterCallback<MouseEnterEvent>(OnButtonHovered);
 
             _flashScreen = this.Q("FlashScreen");
 

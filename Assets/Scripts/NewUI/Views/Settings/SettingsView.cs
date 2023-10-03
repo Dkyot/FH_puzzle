@@ -25,9 +25,9 @@ namespace FH.UI.Views.Settings {
             add => _rightLanguageSwitchButton.clicked += value;
             remove => _rightLanguageSwitchButton.clicked -= value;
         }
-       
+
         private Button _doneButton;
-        
+
         private Slider _masterSlider;
         private Slider _musicSlider;
         private Slider _sfxSlider;
@@ -37,18 +37,24 @@ namespace FH.UI.Views.Settings {
         private Button _rightLanguageSwitchButton;
 
         public void SetMasterValue(float value, bool notifyListeners = false) {
-            if (notifyListeners) _masterSlider.SetValueWithoutNotify(value);
-            else _masterSlider.value = value;
+            if (notifyListeners)
+                _masterSlider.SetValueWithoutNotify(value);
+            else
+                _masterSlider.value = value;
         }
 
         public void SetMusicValue(float value, bool notifyListeners = false) {
-            if (notifyListeners) _musicSlider.SetValueWithoutNotify(value);
-            else _musicSlider.value = value; 
+            if (notifyListeners)
+                _musicSlider.SetValueWithoutNotify(value);
+            else
+                _musicSlider.value = value;
         }
 
         public void SetSfxValue(float value, bool notifyListeners = false) {
-            if (notifyListeners) _sfxSlider.SetValueWithoutNotify(value);
-            else _sfxSlider.value = value; 
+            if (notifyListeners)
+                _sfxSlider.SetValueWithoutNotify(value);
+            else
+                _sfxSlider.value = value;
         }
 
         public void SetLanguageNameKey(string key) {
@@ -70,7 +76,11 @@ namespace FH.UI.Views.Settings {
 
             _masterSlider.RegisterValueChangedCallback(OnMasterValueChanged);
             _musicSlider.RegisterValueChangedCallback(OnMusicValueChanged);
-            _sfxSlider.RegisterValueChangedCallback(OnSfxValueChanged); 
+            _sfxSlider.RegisterValueChangedCallback(OnSfxValueChanged);
+
+            _doneButton.RegisterCallback<MouseEnterEvent>(OnButtonHovered);
+            _leftLanguageSwitchButton.RegisterCallback<MouseEnterEvent>(OnButtonHovered);
+            _rightLanguageSwitchButton.RegisterCallback<MouseEnterEvent>(OnButtonHovered);
         }
 
         private void OnMasterValueChanged(ChangeEvent<float> @event) => MasterValueChanged?.Invoke(@event.newValue);

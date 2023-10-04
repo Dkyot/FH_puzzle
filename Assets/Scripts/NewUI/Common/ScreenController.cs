@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Assets.Scripts.Sound;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -9,6 +10,7 @@ namespace FH.UI {
 
         [SerializeField] private ViewController _initialView;
         [SerializeField] private List<ViewController> _controllers;
+
         private UIDocument _document;
 
         public void ShowView(ViewController view) {

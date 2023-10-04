@@ -13,6 +13,7 @@ namespace FH.UI {
             }
 
         }
+
         public abstract void ShowView();
         public abstract void HideView();
         protected abstract void OnScreenControllerSet();

@@ -27,31 +27,31 @@ namespace FH.UI.Views.LevelStart {
             await Awaitable.NextFrameAsync();
 
             view.ShowLevelName();
-            soundManager.PlayOneShot(_startSound, _volumeScale);
+            soundManager.Play(_startSound, _volumeScale);
             await Awaitable.WaitForSecondsAsync(2f);
             view.HideLevelName();
             await Awaitable.WaitForSecondsAsync(hideAnimationDelay);
 
             view.ShowThirdCount();
-            soundManager.PlayOneShot(_contDownSound, _volumeScale);
+            soundManager.Play(_contDownSound, _volumeScale);
             await Awaitable.WaitForSecondsAsync(showAnimationDelay);
             view.HideThirdCount();
             await Awaitable.WaitForSecondsAsync(hideAnimationDelay);
 
             view.ShowSecondCount();
-            soundManager.PlayOneShot(_contDownSound, _volumeScale);
+            soundManager.Play(_contDownSound, _volumeScale);
             await Awaitable.WaitForSecondsAsync(showAnimationDelay);
             view.HideSecondCount();
             await Awaitable.WaitForSecondsAsync(hideAnimationDelay);
 
             view.ShowFirstCount();
-            soundManager.PlayOneShot(_contDownSound, _volumeScale);
+            soundManager.Play(_contDownSound, _volumeScale);
             await Awaitable.WaitForSecondsAsync(showAnimationDelay);
             view.HideFirstCount();
             await Awaitable.WaitForSecondsAsync(hideAnimationDelay);
 
             view.ShowStartLabel();
-            soundManager.PlayOneShot(_lastCoundDownSound, _volumeScale);
+            soundManager.Play(_lastCoundDownSound, _volumeScale);
             await Awaitable.WaitForSecondsAsync(showAnimationDelay);
             view.HideStartLabel();
 

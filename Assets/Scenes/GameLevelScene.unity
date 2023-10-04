@@ -630,7 +630,7 @@ MonoBehaviour:
   spawnPosition: {fileID: 539184203}
   _width: 9
   _height: 9
-  _cardFlipSound: {fileID: 8300000, guid: 2a14cf22392fa224ab5c599d1031685d, type: 3}
+  _cardFlipSound: {fileID: 8300000, guid: 5cba93e90c136e7459fb15b2a43c1943, type: 3}
 --- !u!4 &918102902
 Transform:
   m_ObjectHideFlags: 0
@@ -801,6 +801,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scoreCounter: {fileID: 710374887}
+  _hoverSound: {fileID: 8300000, guid: e215fcba2f0eb39418fe7f0ac949cec2, type: 3}
   _resetPressed:
     m_PersistentCalls:
       m_Calls:
@@ -966,7 +967,7 @@ MonoBehaviour:
   _playerInputHandler: {fileID: 1813562680}
   _scoreCounter: {fileID: 710374887}
   _scoreCountSound: {fileID: 8300000, guid: ffb159a21c8a04135a5616979c828fab, type: 3}
-  _cameraShotSound: {fileID: 8300000, guid: 83b2d35792e9c0e4e95791d77c7194b5, type: 3}
+  _cameraShotSound: {fileID: 8300000, guid: b5c0b3805f0a374499009a235a04388b, type: 3}
 --- !u!114 &2097693597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -980,6 +981,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _viewAfterStart: {fileID: 2097693593}
+  _startSound: {fileID: 8300000, guid: d57dce7f224af0f47b7e86c97d2ba9d1, type: 3}
+  _contDownSound: {fileID: 8300000, guid: 438aa3c1164a6b04c86363d56d293891, type: 3}
+  _lastCoundDownSound: {fileID: 8300000, guid: 7d60d956e2f9b0f48887d05c8ddacb3d, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -751,7 +751,7 @@ GameObject:
   - component: {fileID: 2097693596}
   - component: {fileID: 2097693597}
   m_Layer: 5
-  m_Name: '[UIDocument]'
+  m_Name: '[UI]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -880,7 +880,7 @@ MonoBehaviour:
   - {fileID: 2097693596}
   - {fileID: 2097693597}
   _buttonHoverSound: {fileID: 8300000, guid: e215fcba2f0eb39418fe7f0ac949cec2, type: 3}
-  _buttonPressedSound: {fileID: 0}
+  _buttonPressedSound: {fileID: 8300000, guid: 0d0312cc9ba32ad4598a67f7edba9643, type: 3}
 --- !u!114 &2097693595
 MonoBehaviour:
   m_ObjectHideFlags: 0

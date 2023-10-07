@@ -115,12 +115,15 @@ namespace FH.UI.Views.LevelCompleted {
             _pressToContinueLabel = this.Q<LocalizedLabel>("PressToContinueLabel");
 
             _timeSoreLabel = this.Q<Label>("TimeValue");
-            _mistakesScoreLabel = this.Q<Label>("MistakesValue");
             _totalScoreLabel = this.Q<Label>("TotalValue");
+            _mistakesScoreLabel = this.Q<Label>("MistakesValue");
 
             _continueButton = this.Q<Button>("ContinueButton");
             _toMainMenuButton = this.Q<Button>("ToMainMenuButton");
-            _contentContainer.RegisterCallback<MouseEnterEvent>(OnButtonHovered);
+
+            _continueButton.clicked += InvokeButtonPressed;
+            _toMainMenuButton.clicked += InvokeButtonPressed;
+            _continueButton.RegisterCallback<MouseEnterEvent>(OnButtonHovered);
             _toMainMenuButton.RegisterCallback<MouseEnterEvent>(OnButtonHovered);
 
             _flashScreen = this.Q("FlashScreen");

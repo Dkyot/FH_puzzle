@@ -16,6 +16,9 @@ namespace FH.UI {
         [SerializeField] private AudioClip _buttonHoverSound;
         [SerializeField] private AudioClip _buttonPressedSound;
 
+        private const float _hoverSoundScale = 0.6f;
+        private const float _pressSoundScale = 0.1f;
+
         private UIDocument _document;
 
         public void ShowView(ViewController view) {
@@ -48,11 +51,11 @@ namespace FH.UI {
         }
 
         private void OnButtonHovered() {
-            SoundManager.Instance.PlayOneShot(_buttonHoverSound);
+            SoundManager.Instance.PlayOneShot(_buttonHoverSound, _hoverSoundScale);
         }
 
         private void OnButtonPressed() {
-            SoundManager.Instance.PlayOneShot(_buttonPressedSound);
+            SoundManager.Instance.PlayOneShot(_buttonPressedSound, _pressSoundScale);
         }
     }
 }

@@ -1,18 +1,5 @@
 fileFormatVersion: 2
-guid: ffb159a21c8a04135a5616979c828fab
-labels:
-- Audio
-- Casual
-- Sound
-- SFX
-- Effect
-AssetOrigin:
-  serializedVersion: 1
-  productId: 54116
-  packageName: Casual Game Sounds
-  packageVersion: 1.0
-  assetPath: Assets/CasualGameSounds/DM-CGS-21.wav
-  uploadId: 98720
+guid: 0d0312cc9ba32ad4598a67f7edba9643
 AudioImporter:
   externalObjects: {}
   serializedVersion: 7
@@ -24,10 +11,10 @@ AudioImporter:
     compressionFormat: 1
     quality: 1
     conversionMode: 0
-    preloadAudioData: 1
+    preloadAudioData: 0
   platformSettingOverrides: {}
-  forceToMono: 1
-  normalize: 0
+  forceToMono: 0
+  normalize: 1
   loadInBackground: 0
   ambisonic: 0
   3D: 1

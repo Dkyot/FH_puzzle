@@ -43,6 +43,7 @@ namespace FH.UI {
             view.Init();
 
             view.ButtonHovered += InvokeButtonHovered;
+            view.ButtonPressed += InvokeButtonPressed;
         }
     }
 }

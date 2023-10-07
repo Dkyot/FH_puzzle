@@ -18,8 +18,8 @@ namespace FH.Cards {
         public bool isMatched;
 
         [SerializeField] private AudioClip _flipSound;
-        private const float _cardFlipSoundScale = 0.5f;
-        private const float _cardTipFlipSoundScale = 0.1f;
+        private const float _cardFlipSoundScale = 0.4f;
+        private const float _cardTipFlipSoundScale = 0.2f;
 
         private TextMeshProUGUI cardTextValue;
         private bool isPicked;
@@ -89,7 +89,10 @@ namespace FH.Cards {
         }
 
         public void StartFullRotation() {
-            SoundManager.Instance.PlayOneShot(_flipSound, _cardTipFlipSoundScale);
+            if (gameObject.activeSelf) {
+                SoundManager.Instance.PlayOneShot(_flipSound, _cardTipFlipSoundScale);
+            }
+
             fullRotation = true;
         }
 
@@ -132,7 +135,7 @@ namespace FH.Cards {
                 rotationTimer += Time.deltaTime;
                 if (rotationTimer < rotationCooldown) return;
 
-                if (!_playedSoundOnClose) {
+                if (gameObject.activeSelf && !_playedSoundOnClose) {
                     SoundManager.Instance.PlayOneShot(_flipSound, _cardTipFlipSoundScale);
                     _playedSoundOnClose = true;
                 }

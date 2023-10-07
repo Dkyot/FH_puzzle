@@ -93,6 +93,11 @@ namespace FH.UI.Views.GameUI {
             _findPairAdIcon = this.Q<VisualElement>("FindPairAdIcon");
             _peekAdIcon = this.Q<VisualElement>("PeekAdIcon");
 
+            _peekButton.clicked += InvokeButtonPressed;
+            _resetButton.clicked += InvokeButtonPressed;
+            _pauseButton.clicked += InvokeButtonPressed;
+            _findPairButton.clicked += InvokeButtonPressed;
+
             _pauseButton.RegisterCallback<MouseEnterEvent>(OnButtonHovered);
             _resetButton.RegisterCallback<MouseEnterEvent>(OnButtonHovered);
             _findPairButton.RegisterCallback<MouseEnterEvent>(OnButtonHovered);

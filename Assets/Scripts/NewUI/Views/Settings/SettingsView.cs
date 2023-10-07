@@ -78,6 +78,10 @@ namespace FH.UI.Views.Settings {
             _musicSlider.RegisterValueChangedCallback(OnMusicValueChanged);
             _sfxSlider.RegisterValueChangedCallback(OnSfxValueChanged);
 
+            _doneButton.clicked += InvokeButtonPressed;
+            _leftLanguageSwitchButton.clicked += InvokeButtonPressed;
+            _rightLanguageSwitchButton.clicked += InvokeButtonPressed;
+
             _doneButton.RegisterCallback<MouseEnterEvent>(OnButtonHovered);
             _leftLanguageSwitchButton.RegisterCallback<MouseEnterEvent>(OnButtonHovered);
             _rightLanguageSwitchButton.RegisterCallback<MouseEnterEvent>(OnButtonHovered);

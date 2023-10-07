@@ -54,8 +54,10 @@ namespace FH.UI.Views.Gallery {
             _imageContainer = this.Q<VisualElement>("ImageContainer");
 
             _imageView.style.display = DisplayStyle.None;
-            _backButton.RegisterCallback<MouseEnterEvent>(OnButtonHovered);
             _imageView.RegisterCallback<ClickEvent>((_) => _imageView.style.display = DisplayStyle.None);
+
+            _backButton.clicked += InvokeButtonPressed;
+            _backButton.RegisterCallback<MouseEnterEvent>(OnButtonHovered);
         }
 
         private void OnPhotoHovered(MouseEnterEvent _) {

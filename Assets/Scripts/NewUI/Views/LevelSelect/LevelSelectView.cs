@@ -48,6 +48,8 @@ namespace FH.UI.Views.LevelSelect {
         protected override void OnInit() {
             _backButton = this.Q<Button>("BackButton");
             _levelsContainer = this.Q<VisualElement>("LevelsContainer");
+
+            _backButton.clicked += InvokeButtonPressed;
             _backButton.RegisterCallback<MouseEnterEvent>(OnButtonHovered);
         }
 

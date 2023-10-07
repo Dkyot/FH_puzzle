@@ -34,6 +34,13 @@ namespace FH.UI.Views.MainMenu {
             _playButton = _buttonsContainer.Q<Button>("PlayButton");
             _galleryButton = _buttonsContainer.Q<Button>("GalleryButton");
             _settingsButton = _buttonsContainer.Q<Button>("SettingsButton");
+
+            _playButton.clicked += InvokeButtonPressed;
+            _galleryButton.clicked+= InvokeButtonPressed;
+            _settingsButton.clicked+= InvokeButtonPressed;
+            _playButton.RegisterCallback<MouseEnterEvent>(OnButtonHovered);
+            _galleryButton.RegisterCallback<MouseEnterEvent>(OnButtonHovered);
+            _settingsButton.RegisterCallback<MouseEnterEvent>(OnButtonHovered);
         }
 
         public new sealed class UxmlFactory : UxmlFactory<MainMenuView, UxmlTraits> { }

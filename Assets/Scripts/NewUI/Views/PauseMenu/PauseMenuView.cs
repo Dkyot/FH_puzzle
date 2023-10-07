@@ -38,6 +38,9 @@ namespace FH.UI.Views.PauseMenu {
             _toMainMenuButton = this.Q<Button>("ToMainMenuButton");
             _container = this.Q<VisualElement>("ContentContainer");
 
+            _continueButton.clicked += InvokeButtonPressed;
+            _toMainMenuButton.clicked+= InvokeButtonPressed;
+
             _continueButton.RegisterCallback<MouseEnterEvent>(OnButtonHovered);
             _toMainMenuButton.RegisterCallback<MouseEnterEvent>(OnButtonHovered);
         }

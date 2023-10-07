@@ -12,7 +12,7 @@ namespace FH.UI.Views.Gallery {
             remove => _backButton.clicked -= value;
         }
 
-        public event Action PhotoCardHovered;
+        //public event Action PhotoCardHovered;
 
         private Button _backButton;
         private Label _noPhotoLabel;
@@ -29,7 +29,7 @@ namespace FH.UI.Views.Gallery {
                 var photoCard = new PhotoCard();
                 photoCard.SetImage(sprite);
                 photoCard.RegisterCallback<ClickEvent>((_) => OnImageClicled(sprite));
-                photoCard.RegisterCallback<MouseEnterEvent>(OnPhotoHovered);
+                photoCard.RegisterCallback<MouseEnterEvent>(OnButtonHovered);
                 _photoContainer.Add(photoCard);
             }
 
@@ -60,11 +60,12 @@ namespace FH.UI.Views.Gallery {
             _backButton.RegisterCallback<MouseEnterEvent>(OnButtonHovered);
         }
 
-        private void OnPhotoHovered(MouseEnterEvent _) {
-            PhotoCardHovered?.Invoke();
-        }
+        //private void OnPhotoHovered(MouseEnterEvent _) {
+            //PhotoCardHovered?.Invoke();
+        //}
 
         private void OnImageClicled(Sprite sprite) {
+            InvokeButtonPressed();
             _imageView.style.display = DisplayStyle.Flex;
             _imageContainer.style.backgroundImage = new StyleBackground(sprite);
         }

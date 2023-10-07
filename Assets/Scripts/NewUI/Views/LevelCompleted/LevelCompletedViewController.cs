@@ -16,8 +16,10 @@ namespace FH.UI.Views.LevelCompleted {
         [SerializeField] private ScoreCounter _scoreCounter;
 
         [Header("Sounds")]
+        [SerializeField] private AudioClip _levelCompletedSound;
         [SerializeField] private AudioClip _scoreCountSound;
         [SerializeField] private AudioClip _cameraShotSound;
+        [SerializeField] private AudioClip _rangApearedSound;
 
         private float _scoreSoundVolume = 0.2f;
 
@@ -29,6 +31,7 @@ namespace FH.UI.Views.LevelCompleted {
 
 
         private async Awaitable StartLevelCompleteAnimation() {
+            SoundManager.Instance?.PlayOneShot(_levelCompletedSound, 0.7f);
             await StartTitleAnimation();
             _playerInputHandler.Pressed += ShowContentOnPressed;
         }
@@ -80,6 +83,8 @@ namespace FH.UI.Views.LevelCompleted {
             await StartTotalScoreAnimation();
             await Awaitable.WaitForSecondsAsync(.1f);
             view.ShowRang();
+            await Awaitable.WaitForSecondsAsync(0.25f);
+            SoundManager.Instance?.PlayOneShot(_rangApearedSound, 0.3f);
         }
 
         private async Awaitable StartTimeAnimation() {

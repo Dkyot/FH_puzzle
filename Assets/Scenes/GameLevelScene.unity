@@ -968,8 +968,10 @@ MonoBehaviour:
         m_CallState: 2
   _playerInputHandler: {fileID: 1813562680}
   _scoreCounter: {fileID: 710374887}
+  _levelCompletedSound: {fileID: 8300000, guid: 6362dc82c01266f4099527e462c7538b, type: 3}
   _scoreCountSound: {fileID: 8300000, guid: ffb159a21c8a04135a5616979c828fab, type: 3}
   _cameraShotSound: {fileID: 8300000, guid: b5c0b3805f0a374499009a235a04388b, type: 3}
+  _rangApearedSound: {fileID: 8300000, guid: 130a177e727814a2ea78a886ab72213d, type: 3}
 --- !u!114 &2097693597
 MonoBehaviour:
   m_ObjectHideFlags: 0

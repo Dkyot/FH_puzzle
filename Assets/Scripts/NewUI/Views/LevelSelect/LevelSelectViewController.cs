@@ -1,4 +1,5 @@
 using FH.SO;
+using FH.Sound;
 using FH.UI;
 using FH.Utils;
 using System.Collections;
@@ -10,6 +11,9 @@ namespace FH.UI.Views.LevelSelect {
     public class LevelSelectController : ViewController<LevelSelectView> {
         [SerializeField] private ViewController _viewOnBack;
         [SerializeField] private UnityEvent<LevelDataSO> LevelSelected;
+
+        [Header("Sounds")]
+        [SerializeField] private AudioClip _levelSelectedSound;
 
         public void SetLevels(IEnumerable<LevelDataSO> levels) {
             view.SetLevels(levels);
@@ -36,6 +40,7 @@ namespace FH.UI.Views.LevelSelect {
         }
 
         private void OnLevelSelected(LevelDataSO level) {
+            SoundManager.Instance?.PlayOneShot(_levelSelectedSound, 0.5f);
             LevelSelected?.Invoke(level);
         }
 

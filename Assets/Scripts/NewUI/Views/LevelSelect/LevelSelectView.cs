@@ -10,7 +10,7 @@ namespace FH.UI.Views.LevelSelect {
             remove => _backButton.clicked -= value;
         }
 
-        public event Action LevelContainerHovered;
+        //public event Action LevelContainerHovered;
         public event Action<LevelDataSO> LevelSelected;
 
         private Button _backButton;
@@ -36,7 +36,7 @@ namespace FH.UI.Views.LevelSelect {
                 }
 
                 levelOption.IsCompleted = level.isCompleted;
-                levelOption.RegisterCallback<MouseEnterEvent>(OnLevelContainerHovered);
+                levelOption.RegisterCallback<MouseEnterEvent>(OnButtonHovered);
                 _levelsContainer.Add(levelOption);
 
                 if (!level.isCompleted) {
@@ -53,9 +53,9 @@ namespace FH.UI.Views.LevelSelect {
             _backButton.RegisterCallback<MouseEnterEvent>(OnButtonHovered);
         }
 
-        private void OnLevelContainerHovered(MouseEnterEvent mouseEnterEvent) {
-            LevelContainerHovered?.Invoke();
-        }
+        //private void OnLevelContainerHovered(MouseEnterEvent mouseEnterEvent) {
+            //LevelContainerHovered?.Invoke();
+        //}
 
         public new sealed class UxmlFactory : UxmlFactory<LevelSelectView, UxmlTraits> { }
     }

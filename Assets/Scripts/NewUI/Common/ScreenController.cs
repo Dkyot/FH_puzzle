@@ -16,8 +16,8 @@ namespace FH.UI {
         [SerializeField] private AudioClip _buttonHoverSound;
         [SerializeField] private AudioClip _buttonPressedSound;
 
-        private const float _hoverSoundScale = 0.6f;
-        private const float _pressSoundScale = 0.1f;
+        private const float _hoverSoundScale = 1f;
+        private const float _pressSoundScale = 0.4f;
 
         private UIDocument _document;
 

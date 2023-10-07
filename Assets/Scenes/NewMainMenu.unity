@@ -221,6 +221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _viewAfter: {fileID: 192632330}
+  _settings: {fileID: 11400000, guid: b4992057bcc22b049b520d071541a6b9, type: 2}
   _avalibleLanguages:
   - localizationNameKey: RUSSIAN
     localeIdentifier:
@@ -228,6 +229,7 @@ MonoBehaviour:
   - localizationNameKey: ENGLISH
     localeIdentifier:
       m_Code: en
+  _sfxChangeSound: {fileID: 8300000, guid: 29bde6326b4c34ad8a12da475f79b50a, type: 3}
 --- !u!114 &192632334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -437,6 +439,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd487a3f66205894884d3ed0e9e90c28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _settings: {fileID: 11400000, guid: b4992057bcc22b049b520d071541a6b9, type: 2}
 --- !u!4 &1016132374
 Transform:
   m_ObjectHideFlags: 0

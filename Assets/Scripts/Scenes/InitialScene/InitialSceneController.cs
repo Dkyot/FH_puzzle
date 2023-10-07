@@ -9,8 +9,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 using YandexSDK.Scripts;
+using UnityEngine.Localization.Settings;
 
-namespace Assets.Scripts.InitialScene {
+namespace FH.Init {
     public sealed class InitialSceneController : MonoBehaviour {
         [Header("Registred Scenes")]
         [SerializeField, Scene] private string _mainMenuScene;
@@ -18,11 +19,14 @@ namespace Assets.Scripts.InitialScene {
 
         [Header("System Referenses")]
         [SerializeField] private GameContext _gameContext;
+        [SerializeField] private SettingsSO _settings;
 
         [Header("Level References")]
         [SerializeField] private UIDocument _uiDocument;
         [SerializeField] private TransitionSettings _transitionSettings;
         [SerializeField] private ScrollingBgTextureController _textureController;
+
+        private readonly SettingsObserver _settingsObserver = new SettingsObserver();
 
         private bool _isLoading = false;
 
@@ -38,6 +42,11 @@ namespace Assets.Scripts.InitialScene {
 
         private async Awaitable InitGame() {
             // Init game here
+
+            // Set current language definded by unity
+            _settings.LocaleIdentifier = LocalizationSettings.SelectedLocale.Identifier;
+            await _settingsObserver.Init(_settings);
+
             await PlayerDataLoader.Instance.TryLoadAwaitable(20);
             
             int index = 1;

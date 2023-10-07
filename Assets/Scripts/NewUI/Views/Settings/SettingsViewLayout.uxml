@@ -17,17 +17,17 @@
                 </ui:VisualElement>
                 <ui:VisualElement name="VolumeSection" picking-mode="Ignore" class="settings-section" style="flex-grow: 0; margin-top: 10px;">
                     <FH.UI.LocalizedLabel tabindex="-1" Label="VOLUME" class="text_shadow" style="-unity-text-align: middle-center; font-size: 40px; -unity-font-style: bold;" />
-                    <ui:VisualElement style="flex-grow: 1; flex-direction: row;">
+                    <ui:VisualElement style="flex-grow: 1; flex-direction: row; display: none;">
                         <FH.UI.LocalizedLabel tabindex="-1" Label="MASTER" IsLocalizable="true" class="field-name" />
                         <FH.UI.SimpleSlider name="MasterSlider" style="flex-grow: 1;" />
                     </ui:VisualElement>
                     <ui:VisualElement style="flex-grow: 1; flex-direction: row;">
                         <FH.UI.LocalizedLabel tabindex="-1" Label="MUSIC" class="field-name" />
-                        <FH.UI.SimpleSlider name="MusicSlider" style="flex-grow: 1;" />
+                        <FH.UI.SimpleSlider name="MusicSlider" high-value="1" style="flex-grow: 1;" />
                     </ui:VisualElement>
                     <ui:VisualElement style="flex-grow: 1; flex-direction: row;">
                         <FH.UI.LocalizedLabel tabindex="-1" Label="SFX" class="field-name" />
-                        <FH.UI.SimpleSlider name="SFXSlider" style="flex-grow: 1;" />
+                        <FH.UI.SimpleSlider name="SFXSlider" high-value="1" style="flex-grow: 1;" />
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>

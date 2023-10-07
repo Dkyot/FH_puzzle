@@ -1,9 +1,12 @@
-﻿using UnityEngine;
+﻿using FH.SO;
+using UnityEngine;
 using UnityEngine.Pool;
 
 namespace Assets.Scripts.Sound {
     public sealed class SoundManager : MonoBehaviour {
         public static SoundManager Instance { get; private set; }
+
+        [SerializeField] private SettingsSO _settings;
 
         public float Volume {
             get => _volume;
@@ -42,13 +45,19 @@ namespace Assets.Scripts.Sound {
         }
 
         private void SetVolume(float volume) {
+            _volume = volume;
             _oneShotAudioSource.volume = volume;
+            _playAudioSource.volume = volume;
         }
 
         private void PlaySound(AudioClip clip, bool loop) {
             _playAudioSource.loop = loop;
             _playAudioSource.clip = clip;
             _playAudioSource.Play();
+        }
+
+        private void OnVolumeChanged() {
+            Volume = _settings.SfxVolume;
         }
 
         private void Awake() {
@@ -59,6 +68,13 @@ namespace Assets.Scripts.Sound {
 
             Instance = this;
 
+            CreateSources();
+
+            Volume = _settings.SfxVolume;
+            _settings.SfxVolumeChanged += OnVolumeChanged;
+        }
+
+        private void CreateSources() {
             var source = gameObject.AddComponent<AudioSource>();
             source.loop = false;
             source.playOnAwake = false;
@@ -68,6 +84,11 @@ namespace Assets.Scripts.Sound {
             source.loop = false;
             source.playOnAwake = false;
             _playAudioSource = source;
+        }
+
+        private void OnDestroy() {
+            _settings.SfxVolumeChanged -= OnVolumeChanged;
+            Instance = null;
         }
     }
 }

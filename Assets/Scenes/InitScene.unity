@@ -333,6 +333,7 @@ MonoBehaviour:
   _mainMenuScene: NewMainMenu
   _levelScene: GameLevelScene
   _gameContext: {fileID: 11400000, guid: e6e5a395ae8fa894ca3fe345a83556a5, type: 2}
+  _settings: {fileID: 11400000, guid: b4992057bcc22b049b520d071541a6b9, type: 2}
   _uiDocument: {fileID: 123454060}
   _transitionSettings: {fileID: 11400000, guid: b37bc597928caab4cbf90645c875fd0f, type: 2}
   _textureController: {fileID: 1700396896}

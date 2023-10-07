@@ -7,7 +7,7 @@ using UnityEngine.UIElements;
 
 namespace FH.UI.Views.Settings {
     public sealed class SettingsView : ViewBase {
-        public event Action<float> MasterValueChanged;
+        //public event Action<float> MasterValueChanged;
         public event Action<float> MusicValueChanged;
         public event Action<float> SfxValueChanged;
 
@@ -28,13 +28,17 @@ namespace FH.UI.Views.Settings {
 
         private Button _doneButton;
 
-        private Slider _masterSlider;
-        private Slider _musicSlider;
-        private Slider _sfxSlider;
+        private SimpleSlider _masterSlider;
+        private SimpleSlider _musicSlider;
+        private SimpleSlider _sfxSlider;
 
         private LocalizedLabel _languageLabel;
         private Button _leftLanguageSwitchButton;
         private Button _rightLanguageSwitchButton;
+
+        public override void Show() {
+            base.Show();
+        }
 
         public void SetMasterValue(float value, bool notifyListeners = false) {
             if (notifyListeners)
@@ -63,9 +67,9 @@ namespace FH.UI.Views.Settings {
 
         protected override void OnInit() {
             var volumeSection = this.Q("VolumeSection");
-            _masterSlider = volumeSection.Q<Slider>("MasterSlider");
-            _musicSlider = volumeSection.Q<Slider>("MusicSlider");
-            _sfxSlider = volumeSection.Q<Slider>("SFXSlider");
+            _masterSlider = volumeSection.Q<SimpleSlider>("MasterSlider");
+            _musicSlider = volumeSection.Q<SimpleSlider>("MusicSlider");
+            _sfxSlider = volumeSection.Q<SimpleSlider>("SFXSlider");
 
             var languageSection = this.Q("LanguageSection");
             _leftLanguageSwitchButton = languageSection.Q<Button>("LeftLanguageButton");
@@ -74,7 +78,7 @@ namespace FH.UI.Views.Settings {
 
             _doneButton = this.Q<Button>("DoneButton");
 
-            _masterSlider.RegisterValueChangedCallback(OnMasterValueChanged);
+            //_masterSlider.RegisterValueChangedCallback(OnMasterValueChanged);
             _musicSlider.RegisterValueChangedCallback(OnMusicValueChanged);
             _sfxSlider.RegisterValueChangedCallback(OnSfxValueChanged);
 
@@ -87,7 +91,7 @@ namespace FH.UI.Views.Settings {
             _rightLanguageSwitchButton.RegisterCallback<MouseEnterEvent>(OnButtonHovered);
         }
 
-        private void OnMasterValueChanged(ChangeEvent<float> @event) => MasterValueChanged?.Invoke(@event.newValue);
+        //private void OnMasterValueChanged(ChangeEvent<float> @event) => MasterValueChanged?.Invoke(@event.newValue);
         private void OnMusicValueChanged(ChangeEvent<float> @event) => MusicValueChanged?.Invoke(@event.newValue);
         private void OnSfxValueChanged(ChangeEvent<float> @event) => SfxValueChanged?.Invoke(@event.newValue);
 

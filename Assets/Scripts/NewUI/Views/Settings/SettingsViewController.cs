@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Linq;
+using Assets.Scripts.Sound;
+using FH.SO;
 using FH.Utils;
 using UnityEngine;
 using UnityEngine.Localization;
@@ -10,14 +12,13 @@ namespace FH.UI.Views.Settings {
     public sealed class SettingsViewController : ViewController<SettingsView> {
         [SerializeField] private ViewController _viewAfter;
 
+        [SerializeField] private SettingsSO _settings;
         [SerializeField] private LocalizationOption[] _avalibleLanguages;
 
-        private int _currentLanguageIndex;
+        [Header("Sounds")]
+        [SerializeField] private AudioClip _sfxChangeSound;
 
-        private void Start() {
-            SetCurrentLanguageIndex();
-            view.SetLanguageNameKey(_avalibleLanguages[_currentLanguageIndex].localizationNameKey);
-        }
+        private int _currentLanguageIndex;
 
         public override void ShowView() {
             ScrollingBgTextureController.Instance?.EnableRendering();
@@ -31,9 +32,26 @@ namespace FH.UI.Views.Settings {
 
         protected override void OnScreenControllerSet() {
             base.OnScreenControllerSet();
+
+            view.SetMusicValue(_settings.MusicVolume);
+            view.SetSfxValue(_settings.SfxVolume);
+
             view.DonePressed += OnDonePressed;
+
             view.LanguageLeftSwitched += OnLanguageChangedLeft;
             view.LanguageRightSwitched += OnLanguageChangedRight;
+
+            view.SfxValueChanged += OnSfxVolumeChanged;
+            view.MusicValueChanged += OnMusicVolumeChanged;
+        }
+
+        private void OnSfxVolumeChanged(float volume) {
+            _settings.SfxVolume = volume;
+            SoundManager.Instance.PlayOneShot(_sfxChangeSound, 0.05f);
+        }
+
+        private void OnMusicVolumeChanged(float volume) {
+            _settings.MusicVolume = volume;
         }
 
         private void OnDonePressed() {
@@ -57,12 +75,15 @@ namespace FH.UI.Views.Settings {
 
             ChangeLanguage();
         }
+        private void Start() {
+            SetCurrentLanguageIndex();
+            view.SetLanguageNameKey(_avalibleLanguages[_currentLanguageIndex].localizationNameKey);
+        }
 
         private void ChangeLanguage() {
             var option = _avalibleLanguages[_currentLanguageIndex];
-            var newLocale = LocalizationSettings.AvailableLocales.GetLocale(option.localeIdentifier);
-            LocalizationSettings.SelectedLocale = newLocale;
             view.SetLanguageNameKey(option.localizationNameKey);
+            _settings.LocaleIdentifier = option.localeIdentifier;
         }
 
         private void OnDisable() {
@@ -72,11 +93,12 @@ namespace FH.UI.Views.Settings {
         }
 
         private void SetCurrentLanguageIndex() {
-            var locale = LocalizationSettings.SelectedLocale;
+            var locale = _settings.LocaleIdentifier;
+
             int index = -1;
             for (int o = 0; o < _avalibleLanguages.Length; o++) {
                 LocalizationOption item = _avalibleLanguages[o];
-                if (locale.Identifier != item.localeIdentifier)
+                if (locale != item.localeIdentifier)
                     continue;
 
                 index = o;
@@ -85,9 +107,9 @@ namespace FH.UI.Views.Settings {
 
             if (index < 0) {
                 Debug.LogError("Current language is not in avaliabe locale list!!!");
+
                 _currentLanguageIndex = 0;
-                var newLocale = LocalizationSettings.AvailableLocales.GetLocale(_avalibleLanguages[_currentLanguageIndex].localeIdentifier);
-                LocalizationSettings.SelectedLocale = newLocale;
+                _settings.LocaleIdentifier = _avalibleLanguages[_currentLanguageIndex].localeIdentifier;
             }
             else {
                 _currentLanguageIndex = index;

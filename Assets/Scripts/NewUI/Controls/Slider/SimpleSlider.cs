@@ -29,11 +29,17 @@ namespace FH.UI {
             // Remove(labelElement);
             labelElement.RemoveFromHierarchy();
             _label = new LocalizedLabel();
-            
+
             _dragContainer = this.Q<VisualElement>("unity-drag-container");
             _dragContainer.Insert(0, _leftFiller);
             UpdateFillers(value);
             this.RegisterValueChangedCallback(OnValueChanged);
+            RegisterCallback<GeometryChangedEvent>(OnGeometryChanged);
+        }
+
+        private void OnGeometryChanged(GeometryChangedEvent @event) {
+            if (Application.isPlaying)
+                UpdateFillers(value);
         }
 
         private void OnValueChanged(ChangeEvent<float> newValue) {
@@ -58,7 +64,7 @@ namespace FH.UI {
                 style.width = new StyleLength(StyleKeyword.Null);
             }
             else {
-                style.height = new StyleLength(StyleKeyword.Null); 
+                style.height = new StyleLength(StyleKeyword.Null);
             }
 
             UpdateFillers(value);

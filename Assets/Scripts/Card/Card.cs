@@ -1,6 +1,6 @@
 using UnityEngine;
 using TMPro;
-using Assets.Scripts.Sound;
+using FH.Sound;
 
 namespace FH.Cards {
     public class Card : MonoBehaviour {

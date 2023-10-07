@@ -1,9 +1,9 @@
-﻿using Assets.Scripts.Sound;
+﻿using FH.Sound;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace FH.UI { 
+namespace FH.UI {
     [RequireComponent(typeof(UIDocument))]
     public sealed class ScreenController : MonoBehaviour, IScreenController {
         public UIDocument Document => _document;
@@ -24,13 +24,14 @@ namespace FH.UI {
         public void ShowView(ViewController view) {
             for (var o = 0; o < _controllers.Count; o++) {
                 var v = _controllers[o];
-                if (v == view) continue;
+                if (v == view)
+                    continue;
                 v.HideView();
             }
 
             view.ShowView();
         }
-        
+
         private void Awake() {
             _document = GetComponent<UIDocument>();
             SetUpControllers();

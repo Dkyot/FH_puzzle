@@ -1,9 +1,5 @@
-using Assets.Scripts.Sound;
 using FH.Level;
-using FH.UI;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 

@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Linq;
-using Assets.Scripts.Sound;
 using FH.SO;
+using FH.Sound;
 using FH.Utils;
 using UnityEngine;
 using UnityEngine.Localization;
-using UnityEngine.Localization.Settings;
-using UnityEngine.UIElements;
 
 namespace FH.UI.Views.Settings {
     public sealed class SettingsViewController : ViewController<SettingsView> {

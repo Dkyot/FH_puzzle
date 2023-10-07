@@ -1,14 +1,11 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using Assets.Scripts.Sound;
 using FH.Inputs;
 using FH.Level;
+using FH.Sound;
 using FH.Utils;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.UIElements;
 
 namespace FH.UI.Views.LevelCompleted {
     public sealed class LevelCompletedController : ViewController<LevelCompletedView> {

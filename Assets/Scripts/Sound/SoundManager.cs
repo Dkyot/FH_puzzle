@@ -1,8 +1,7 @@
 ﻿using FH.SO;
 using UnityEngine;
-using UnityEngine.Pool;
 
-namespace Assets.Scripts.Sound {
+namespace FH.Sound {
     public sealed class SoundManager : MonoBehaviour {
         public static SoundManager Instance { get; private set; }
 
@@ -62,7 +61,7 @@ namespace Assets.Scripts.Sound {
 
         private void Awake() {
             if (Instance != null) {
-                Destroy(gameObject);
+                Destroy(this);
                 return;
             }
 

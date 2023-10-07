@@ -1,8 +1,12 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace FH.UI {
     public abstract class ViewController : MonoBehaviour {
+        public event Action ButtonHovered;
+        public event Action ButtonPressed;
+
         private IScreenController _screenController;
 
         public IScreenController ScreenController {
@@ -16,7 +20,11 @@ namespace FH.UI {
 
         public abstract void ShowView();
         public abstract void HideView();
+
         protected abstract void OnScreenControllerSet();
+
+        protected void InvokeButtonHovered() => ButtonHovered?.Invoke();
+        protected void InvokeButtonPressed() => ButtonPressed?.Invoke(); 
     }
 
     public abstract class ViewController<T> : ViewController where T : ViewBase {
@@ -33,6 +41,8 @@ namespace FH.UI {
         protected override void OnScreenControllerSet() {
             view = ScreenController.Document.rootVisualElement.Q<T>();
             view.Init();
+
+            view.ButtonHovered += InvokeButtonHovered;
         }
     }
 }

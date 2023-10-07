@@ -4,6 +4,7 @@ using UnityEngine.UIElements;
 namespace FH.UI {
     public abstract class ViewBase : VisualElement {
         public event Action ButtonHovered;
+        public event Action ButtonPressed;
 
         private bool _isInited = false;
 
@@ -24,11 +25,15 @@ namespace FH.UI {
         protected abstract void OnInit();
 
         protected void OnButtonHovered(MouseEnterEvent e) {
-            OnButtonHovered();
+            InvokeButtonHovered();
         }
 
-        protected void OnButtonHovered() {
+        protected void InvokeButtonHovered() {
             ButtonHovered?.Invoke();
+        }
+
+        protected void InvokeButtonPressed() {
+            ButtonPressed?.Invoke();
         }
     }
 }

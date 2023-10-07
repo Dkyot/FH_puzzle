@@ -1,25 +1,30 @@
 using UnityEngine;
 using TMPro;
+using Assets.Scripts.Sound;
 
 namespace FH.Cards {
     public class Card : MonoBehaviour {
-        public int value { get; private set; }
-        public SpriteRenderer sprite;
-        public SpriteRenderer backSprite;
-        private TextMeshProUGUI cardTextValue;
-
-        private bool isPicked;
-        public bool isMatched;
-
-        private float rotationSpeed = 0.045f;
-
-        public CardState currentState { get; private set; }
-
         public delegate bool OnFlipDelegate(Card card);
         public static event OnFlipDelegate OnFlip;
 
         public delegate void OnResetDelegate();
         public static event OnResetDelegate OnReset;
+
+        public int Value { get; private set; }
+        public CardState CurrentState { get; private set; }
+
+        public SpriteRenderer sprite;
+        public SpriteRenderer backSprite;
+        public bool isMatched;
+
+        [SerializeField] private AudioClip _flipSound;
+        private const float _cardFlipSoundScale = 0.5f;
+        private const float _cardTipFlipSoundScale = 0.1f;
+
+        private TextMeshProUGUI cardTextValue;
+        private bool isPicked;
+
+        private float rotationSpeed = 0.045f;
 
         private float timeUntilClosing = 0.55f;
         private float timer;
@@ -31,6 +36,8 @@ namespace FH.Cards {
         private float rotationTimer = 0;
         private float rotationCooldown = 0.6f;
 
+        private bool _playedSoundOnClose = false;
+
         float reference;
 
         private void Awake() {
@@ -39,7 +46,7 @@ namespace FH.Cards {
         }
 
         private void Start() {
-            currentState = CardState.Closed;
+            CurrentState = CardState.Closed;
         }
 
         private void Update() {
@@ -48,9 +55,9 @@ namespace FH.Cards {
                 return;
             }
 
-            if (isPicked && (currentState == CardState.Closed || currentState == CardState.Opening))
+            if (isPicked && (CurrentState == CardState.Closed || CurrentState == CardState.Opening))
                 OpenRotation();
-            else if (isPicked && (currentState == CardState.Opened || currentState == CardState.Closing))
+            else if (isPicked && (CurrentState == CardState.Opened || CurrentState == CardState.Closing))
                 CloseRotation();
 
             if (delay) {
@@ -66,14 +73,15 @@ namespace FH.Cards {
                 return;
 
             if (OnFlip(this)) {
+                SoundManager.Instance.PlayOneShot(_flipSound);
                 isPicked = true;
             }
         }
 
         public void SetValue(int value) {
-            this.value = value;
+            this.Value = value;
             if (cardTextValue != null)
-                cardTextValue.text = this.value.ToString();
+                cardTextValue.text = this.Value.ToString();
         }
 
         public void StartMismatchTimer() {
@@ -81,27 +89,28 @@ namespace FH.Cards {
         }
 
         public void StartFullRotation() {
+            SoundManager.Instance.PlayOneShot(_flipSound, _cardTipFlipSoundScale);
             fullRotation = true;
         }
 
         #region Rotation methods
         private void OpenRotation() {
-            currentState = CardState.Opening;
+            CurrentState = CardState.Opening;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, 180, ref reference, rotationSpeed);
             transform.rotation = Quaternion.Euler(0, angle, 0);
             if (transform.rotation == Quaternion.Euler(0, 180, 0)) {
                 isPicked = false;
-                currentState = CardState.Opened;
+                CurrentState = CardState.Opened;
             }
         }
 
         private void CloseRotation() {
-            currentState = CardState.Closing;
+            CurrentState = CardState.Closing;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, 0, ref reference, rotationSpeed);
             transform.rotation = Quaternion.Euler(0, angle, 0);
             if (transform.rotation == Quaternion.Euler(0, 0, 0)) {
                 isPicked = false;
-                currentState = CardState.Closed;
+                CurrentState = CardState.Closed;
 
                 if (delay) {
                     delay = false;
@@ -122,15 +131,22 @@ namespace FH.Cards {
             else {
                 rotationTimer += Time.deltaTime;
                 if (rotationTimer < rotationCooldown) return;
+
+                if (!_playedSoundOnClose) {
+                    SoundManager.Instance.PlayOneShot(_flipSound, _cardTipFlipSoundScale);
+                    _playedSoundOnClose = true;
+                }
     
                 float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, 0, ref reference, fullRotationSpeed);
                 transform.rotation = Quaternion.Euler(0, angle, 0);
                 if (transform.rotation == Quaternion.Euler(0, 0, 0)) {
                     halfRotationCompleted = false;
+                    _playedSoundOnClose = false;
                     fullRotation = false;
+
                     rotationTimer = 0;
 
-                    currentState = CardState.Closed;
+                    CurrentState = CardState.Closed;
                 }
             }
         }

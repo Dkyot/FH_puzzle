@@ -11,9 +11,6 @@ namespace FH.UI.Views.GameUI {
     public class GameUIViewController : ViewController<GameUIView> {
         [SerializeField] private ScoreCounter _scoreCounter;
 
-        [Header("Sounds")]
-        [SerializeField] private AudioClip _hoverSound;
-
         [Header("UI Events")]
         [SerializeField] private UnityEvent _resetPressed;
         [SerializeField] private UnityEvent _pausePressed;
@@ -34,8 +31,6 @@ namespace FH.UI.Views.GameUI {
             view.PausePressed += OnPausePressed;
             view.PeekPressed += OnPeekPressed;
             view.FindPairPressed += OnFindPairPressed;
-
-            view.ButtonHovered += OnButtonHovered;
         }
 
         private void Start() {
@@ -46,10 +41,6 @@ namespace FH.UI.Views.GameUI {
         private void OnDisable() {
             view.ResetPressed -= OnResetPressed;
             view.PausePressed -= OnPausePressed;
-        }
-
-        private void OnButtonHovered() {
-            SoundManager.Instance.PlayOneShot(_hoverSound);
         }
 
         private void OnTimeChanged(float seconds) {

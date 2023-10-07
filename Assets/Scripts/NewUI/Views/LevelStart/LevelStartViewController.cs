@@ -12,7 +12,7 @@ namespace FH.UI.Views.LevelStart {
         [SerializeField] private AudioClip _contDownSound;
         [SerializeField] private AudioClip _lastCoundDownSound;
 
-        private readonly float _volumeScale = 0.5f;
+        private readonly float _volumeScale = 0.2f;
 
         public override void ShowView() {
             base.ShowView();

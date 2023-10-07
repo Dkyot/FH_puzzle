@@ -60,8 +60,6 @@ namespace FH.Cards {
         private bool _tipFlipEnded = false;
         private List<Card> _waveCardList = new List<Card>();
 
-        private const float _cardFlipSoundScale = 0.5f;
-
         public void FindPair() {
             _firstMarker.gameObject.SetActive(false);
             _secondMarker.gameObject.SetActive(false);
@@ -94,7 +92,11 @@ namespace FH.Cards {
                 _tipFlipTimer += Time.deltaTime;
 
                 if (_tipFlipTimer >= _tipFlipCooldown) {
-                    _waveCardList[_tipFlipIndex].StartFullRotation();
+                    var card = _waveCardList[_tipFlipIndex];
+                    if (card.isActiveAndEnabled) {
+                        card.StartFullRotation();
+                    }
+
                     _tipFlipIndex++;
                     _tipFlipTimer = 0;
                 }
@@ -189,30 +191,26 @@ namespace FH.Cards {
         }
 
         private bool TryToFlip(Card card) {
-            if (card.currentState == CardState.Closed) {
+            if (card.CurrentState == CardState.Closed) {
                 if (card1 == null && !card.Equals(card2)) {
                     card1 = card;
-                    SoundManager.Instance.PlayOneShot(_cardFlipSound, _cardFlipSoundScale);
                     MatchChecking(card1, card2);
                     return true;
                 }
                 else if (card2 == null && !card.Equals(card1)) {
                     card2 = card;
-                    SoundManager.Instance.PlayOneShot(_cardFlipSound, _cardFlipSoundScale);
                     MatchChecking(card1, card2);
                     return true;
                 }
                 return false;
             }
-            else if (card.currentState == CardState.Opened) {
+            else if (card.CurrentState == CardState.Opened) {
                 if (card.Equals(card1)) {
                     card1 = null;
-                    SoundManager.Instance.PlayOneShot(_cardFlipSound, _cardFlipSoundScale);
                     return true;
                 }
                 else if (card.Equals(card2)) {
                     card2 = null;
-                    SoundManager.Instance.PlayOneShot(_cardFlipSound, _cardFlipSoundScale);
                     return true;
                 }
                 return false;
@@ -231,10 +229,10 @@ namespace FH.Cards {
 
             int firstCardIndex = UnityEngine.Random.Range(0, closedCards.Count);
             var firstCard = closedCards[firstCardIndex];
-            int firstCardValue = firstCard.value;
+            int firstCardValue = firstCard.Value;
 
             foreach (Card card in closedCards) {
-                if (card == firstCard || card.value != firstCardValue)
+                if (card == firstCard || card.Value != firstCardValue)
                     continue;
 
                 return (firstCard, card);
@@ -248,7 +246,7 @@ namespace FH.Cards {
             var closedCards = cards.Where(x => x.isMatched == false);
 
             foreach (Card anotherCard in closedCards) {
-                if (anotherCard == card || anotherCard.value != card.value)
+                if (anotherCard == card || anotherCard.Value != card.Value)
                     continue;
 
                 return anotherCard;
@@ -285,7 +283,7 @@ namespace FH.Cards {
 
             for (int i = 0; i < h; i++) {
                 for (int j = 0; j < (i + 1) - (i / w); j++) {
-                    Debug.Log($"{j} {i} {w * i - (w - 1) * j}");
+                    // Debug.Log($"{j} {i} {w * i - (w - 1) * j}");
                     list.Add(cardsList[w * i - (w - 1) * j]);
                 }
             }
@@ -313,7 +311,7 @@ namespace FH.Cards {
 
             OnMatchCheck?.Invoke();
 
-            if (card1.value == card2.value) {
+            if (card1.Value == card2.Value) {
                 //Debug.Log("match!");
                 Card obj1 = card1;
                 Card obj2 = card2;
@@ -359,8 +357,7 @@ namespace FH.Cards {
         private void WinVerification() {
             pairCount--;
             if (pairCount == 0)
-                if (OnWin != null)
-                    OnWin(this, EventArgs.Empty);
+                OnWin?.Invoke(this, EventArgs.Empty);
         }
 
         private IEnumerator SetInactive(Card card1, Card card2) {

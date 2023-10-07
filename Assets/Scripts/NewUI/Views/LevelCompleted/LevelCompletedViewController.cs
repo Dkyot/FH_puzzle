@@ -149,7 +149,7 @@ namespace FH.UI.Views.LevelCompleted {
         }
 
         private void ShowContentOnPressed(Vector2 position) {
-            ShowContent();
+            _ = ShowContent();
             _playerInputHandler.Pressed -= ShowContentOnPressed;
         }
 

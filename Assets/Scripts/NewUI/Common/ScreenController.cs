@@ -8,8 +8,13 @@ namespace FH.UI {
     public sealed class ScreenController : MonoBehaviour, IScreenController {
         public UIDocument Document => _document;
 
+        [Header("Views")]
         [SerializeField] private ViewController _initialView;
         [SerializeField] private List<ViewController> _controllers;
+
+        [Header("Sounds")]
+        [SerializeField] private AudioClip _buttonHoverSound;
+        [SerializeField] private AudioClip _buttonPressedSound;
 
         private UIDocument _document;
 
@@ -36,7 +41,18 @@ namespace FH.UI {
             for (var o = 0; o < _controllers.Count; o++) {
                 var controller = _controllers[o];
                 controller.ScreenController = this;
+
+                controller.ButtonHovered += OnButtonHovered;
+                controller.ButtonPressed += OnButtonPressed;
             }
+        }
+
+        private void OnButtonHovered() {
+            SoundManager.Instance.PlayOneShot(_buttonHoverSound);
+        }
+
+        private void OnButtonPressed() {
+            SoundManager.Instance.PlayOneShot(_buttonPressedSound);
         }
     }
 }

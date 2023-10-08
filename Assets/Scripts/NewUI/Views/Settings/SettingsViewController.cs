@@ -4,6 +4,7 @@ using FH.Sound;
 using FH.Utils;
 using UnityEngine;
 using UnityEngine.Localization;
+using YandexSDK.Scripts;
 
 namespace FH.UI.Views.Settings {
     public sealed class SettingsViewController : ViewController<SettingsView> {
@@ -53,6 +54,7 @@ namespace FH.UI.Views.Settings {
 
         private void OnDonePressed() {
             ScreenController.ShowView(_viewAfter);
+            LocalYandexData.Instance.SaveData();
         }
 
         private void OnLanguageChangedLeft() {

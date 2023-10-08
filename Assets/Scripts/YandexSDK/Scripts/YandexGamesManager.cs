@@ -144,11 +144,11 @@ namespace YandexSDK.Scripts
             }
         }
 
-        public static void SetToLeaderboard(int value)
+        public static void SetToLeaderboard(int value, string lbName = "gameScore")
         {
             try
             {
-                setToLeaderboard("gameScore", value);
+                setToLeaderboard(lbName, value);
             }
             catch
             {

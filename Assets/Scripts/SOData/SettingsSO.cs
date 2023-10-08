@@ -43,8 +43,8 @@ namespace FH.SO {
             }
         }
 
-        private LocaleIdentifier _localeIndetifier = "en";
-        private float _musicVolume = 0.5f;
-        private float _sfxVolume = 0.5f;
+        [SerializeField] private LocaleIdentifier _localeIndetifier = "en";
+        [SerializeField] private float _musicVolume = 0.5f;
+        [SerializeField] private float _sfxVolume = 0.5f;
     }
 }

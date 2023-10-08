@@ -20,6 +20,7 @@ namespace FH.Sound {
         public void Play(AudioClip music, bool loop = true) {
             _audioSource.clip = music;
             _audioSource.loop = loop;
+            _audioSource.Play();
         }
 
         public void Stop() {
@@ -27,31 +28,34 @@ namespace FH.Sound {
             _audioSource.clip = null;
         }
 
-        public Awaitable FadeIn(float time) {
+        public Awaitable FadeIn(float time, AudioClip music, bool loop = true) {
+            _audioSource.volume = 0;
+            _volume = 0;
+            Play(music, loop);
             return Fade(time, _settings.MusicVolume);
         }
 
-        public Awaitable FadeOut(float time) {
-            return Fade(time, 0);
+        public async Awaitable FadeOut(float time) {
+            await Fade(time, 0);
+            _audioSource.Stop();
         }
 
         private async Awaitable Fade(float time, float destination) {
             var cancellToken = Application.exitCancellationToken;
 
             float initialVolume = _volume;
-            float fadeSpeed = (destination - initialVolume) / time;
+            float fadeSpeed = Mathf.Abs((destination - initialVolume) / time);
 
             if (fadeSpeed == 0)
                 return;
 
             float t = 0;
 
-            while (!cancellToken.IsCancellationRequested) {
+            while (!cancellToken.IsCancellationRequested && t < 1) {
                 await Awaitable.NextFrameAsync();
-                float newVolume = Mathf.Lerp(initialVolume, 0f, t);
-                Volume = newVolume;
-
                 t = Mathf.Clamp(t + fadeSpeed * Time.deltaTime, 0f, 1f);
+                float newVolume = Mathf.Lerp(initialVolume, destination, t);
+                Volume = newVolume;
             }
         }
 

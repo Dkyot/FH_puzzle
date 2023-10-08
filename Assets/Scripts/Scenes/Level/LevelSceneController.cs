@@ -14,11 +14,14 @@ using FH.UI.Views.LevelCompleted;
 using TMPro;
 using YandexSDK.Scripts;
 using UnityEngine.Localization.SmartFormat.PersistentVariables;
+using FH.Sound;
 
 namespace FH.Level {
     [RequireComponent(typeof(ScoreCounter))]
     [RequireComponent(typeof(ScoreTimer))]
     public class LevelSceneController : MonoBehaviour, ISceneController {
+        private static int _trackCounter;
+
         [Header("Level Events")]
         [SerializeField] private UnityEvent GamePaused;
         [SerializeField] private UnityEvent GameResumed;
@@ -33,6 +36,10 @@ namespace FH.Level {
         [SerializeField] private LevelStartViewController _starAnimationViewController;
         [SerializeField] private LevelCompletedController _levelCompletedViewController;
 
+        [Header("Music")]
+        [SerializeField] private AudioClip _music1;
+        [SerializeField] private AudioClip _music2;
+
         private ScoreTimer scoreTimer;
         private ScoreCounter scoreCounter;
 
@@ -40,6 +47,7 @@ namespace FH.Level {
         private Sprite _image;
 
         public async Awaitable StartPreloading() {
+            MusicManager.Instance?.FadeIn(0.3f, GetCurrentTrack(), true);
             await LoadImage();
             _levelCompletedViewController.SetImage(_image);
             _levelImage.sprite = _image;
@@ -53,6 +61,7 @@ namespace FH.Level {
             _image = null;
             _spriteRef.ReleaseAsset();
 
+            await MusicManager.Instance?.FadeOut(0.3f);
             await SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
         }
 
@@ -171,6 +180,19 @@ namespace FH.Level {
             }
 
             _image = result;
+        }
+
+        private AudioClip GetCurrentTrack() {
+            AudioClip track = null;
+            if (_trackCounter % 2  == 0) {
+                track = _music1;
+            }
+            else {
+                track = _music2;
+            }
+
+            _trackCounter++;
+            return track;
         }
     }
 }

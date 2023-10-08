@@ -1,5 +1,6 @@
 ﻿using FH.Scenes;
 using FH.SO;
+using FH.Sound;
 using FH.UI.Views.Gallery;
 using FH.UI.Views.LevelSelect;
 using FH.Utils;
@@ -18,6 +19,9 @@ namespace FH.MainMenu {
         [Header("SceneReferences")]
         [SerializeField] private GalleryViewController _galleryController;
         [SerializeField] private LevelSelectController _levelSelectController;
+
+        [Header("Music")]
+        [SerializeField] private AudioClip _music;
 
         private List<Sprite> _galleryImages = new();
 
@@ -38,9 +42,12 @@ namespace FH.MainMenu {
             _levelSelectController.SetLevels(_gameContext.LevelDataBase.Levels);
         }
 
-        public void StartScene() { }
+        public void StartScene() {
+            MusicManager.Instance?.FadeIn(0.3f, _music, true);
+        }
 
         public async Awaitable UnloadScene() {
+            await MusicManager.Instance?.FadeOut(0.3f);
             RealeseImages();
             await SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
         }

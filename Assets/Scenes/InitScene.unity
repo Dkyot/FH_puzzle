@@ -407,6 +407,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1614967275}
+  - component: {fileID: 1614967276}
   m_Layer: 0
   m_Name: '[Music]'
   m_TagString: Untagged
@@ -429,6 +430,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1614967276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614967274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e30b335d0ec59b498fff66d32683f3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _settings: {fileID: 11400000, guid: b4992057bcc22b049b520d071541a6b9, type: 2}
 --- !u!1001 &1661968417
 PrefabInstance:
   m_ObjectHideFlags: 0

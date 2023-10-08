@@ -131,8 +131,8 @@ namespace FH.Init {
             _isLoading = false;
         }
 
-        private async Awaitable PrepareScene() {
-            await _gameContext.SceneManagerProxy.SceneController.StartPreloading();
+        private Awaitable PrepareScene() {
+            return _gameContext.SceneManagerProxy.SceneController.StartPreloading();
         }
 
         private async Awaitable EnterScene() {

@@ -492,6 +492,8 @@ MonoBehaviour:
   _levelImage: {fileID: 115296876}
   _starAnimationViewController: {fileID: 2097693597}
   _levelCompletedViewController: {fileID: 2097693596}
+  _music1: {fileID: 8300000, guid: 12973f4e6e8f6a648932d8f639c3ae8b, type: 3}
+  _music2: {fileID: 8300000, guid: 11471fb1a53ac054fbd4b9df5cfa6f4f, type: 3}
 --- !u!4 &710374886
 Transform:
   m_ObjectHideFlags: 0

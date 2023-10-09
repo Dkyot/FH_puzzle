@@ -16,12 +16,9 @@ MonoBehaviour:
     <Palete>k__BackingField: {fileID: 11400000, guid: 3772058dbf4f0fd43bfcccd8047b44f2, type: 2}
     <Rows>k__BackingField: 6
     <Columns>k__BackingField: 6
-  <CharacterName>k__BackingField:
-    <Value>k__BackingField: 
-    <IsLocalizable>k__BackingField: 0
   <LevelImage>k__BackingField:
-    m_AssetGUID: 7c3a8188d9f41d6409de14e28619d881
-    m_SubObjectName: square-format-composition-6_0
+    m_AssetGUID: 46195a7d8194a964bb494e5eb7d8fa65
+    m_SubObjectName: lDAHicJ-Sfk_0
     m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
     m_EditorAssetChanged: 1

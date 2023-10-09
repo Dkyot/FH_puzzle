@@ -10,16 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 617e49d9fc889c1459fb7d69c628e89d, type: 3}
-  m_Name: LevelData_4
+  m_Name: LevelData_13
   m_EditorClassIdentifier: 
   <Params>k__BackingField:
     <Palete>k__BackingField: {fileID: 11400000, guid: 3772058dbf4f0fd43bfcccd8047b44f2, type: 2}
     <Rows>k__BackingField: 6
     <Columns>k__BackingField: 6
-    <UseTwoPair>k__BackingField: 1
   <LevelImage>k__BackingField:
-    m_AssetGUID: 8cd99691bb7a21e46a474973174ebbfa
-    m_SubObjectName: 7CuH5OIbTFY_0
+    m_AssetGUID: 14f2f48000d7b504d9c56395f4b90ecd
+    m_SubObjectName: 1dls-gMdJas_0
     m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
     m_EditorAssetChanged: 1

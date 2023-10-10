@@ -1,4 +1,5 @@
 using FH.SO;
+using FH.Utils;
 using System;
 using System.Collections.Generic;
 using UnityEngine.UIElements;
@@ -36,7 +37,9 @@ namespace FH.UI.Views.LevelSelect {
                 }
 
                 levelOption.IsCompleted = level.isCompleted;
+                levelOption.Rang = RangHelpers.CalculateRang(level.score);
                 levelOption.RegisterCallback<MouseEnterEvent>(OnButtonHovered);
+
                 _levelsContainer.Add(levelOption);
 
                 if (!level.isCompleted) {

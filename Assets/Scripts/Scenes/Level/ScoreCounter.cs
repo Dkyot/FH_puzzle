@@ -44,7 +44,7 @@ namespace FH.Level {
         }
 
         public void CalculateScore() {
-            finalScore = 10000 - (timer * 4) - (mismatchCounter * 17);
+            finalScore = 8000 - timer - (mismatchCounter * 100);
             if (finalScore <= 0)
                 finalScore = 1;
         }

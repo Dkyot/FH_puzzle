@@ -14,13 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Params>k__BackingField:
     <Palete>k__BackingField: {fileID: 11400000, guid: 3772058dbf4f0fd43bfcccd8047b44f2, type: 2}
-    <Rows>k__BackingField: 6
-    <Columns>k__BackingField: 6
+    <Rows>k__BackingField: 4
+    <Columns>k__BackingField: 4
+    <UseTwoPair>k__BackingField: 1
   <LevelImage>k__BackingField:
-    m_AssetGUID: 7c3a8188d9f41d6409de14e28619d881
-    m_SubObjectName: square-format-composition-6_0
+    m_AssetGUID: a3bd5703fdb286246920b77a2e7391be
+    m_SubObjectName: by1PQHZHMGk_0
     m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
     m_EditorAssetChanged: 1
-  score: 8008.0615
-  isCompleted: 1
+  score: 0
+  isCompleted: 0

@@ -19,8 +19,9 @@ namespace FH.SO {
         [Serializable]
         public sealed class LevelParams {
             [field: SerializeField] public ColorsSO Palete { get; private set; }
-            [field: SerializeField, Range(4, 6)] public int Rows { get; private set; }
-            [field: SerializeField, Range(4, 6)] public int Columns { get; private set; }
+            [field: SerializeField, Range(2, 6)] public int Rows { get; private set; }
+            [field: SerializeField, Range(2, 6)] public int Columns { get; private set; }
+            [field: SerializeField] public bool UseTwoPair { get; private set; }
         }
     }
 

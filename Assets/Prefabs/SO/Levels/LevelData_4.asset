@@ -16,12 +16,10 @@ MonoBehaviour:
     <Palete>k__BackingField: {fileID: 11400000, guid: 3772058dbf4f0fd43bfcccd8047b44f2, type: 2}
     <Rows>k__BackingField: 6
     <Columns>k__BackingField: 6
-  <CharacterName>k__BackingField:
-    <Value>k__BackingField: 
-    <IsLocalizable>k__BackingField: 0
+    <UseTwoPair>k__BackingField: 1
   <LevelImage>k__BackingField:
-    m_AssetGUID: 7c3a8188d9f41d6409de14e28619d881
-    m_SubObjectName: square-format-composition-6_0
+    m_AssetGUID: 8cd99691bb7a21e46a474973174ebbfa
+    m_SubObjectName: 7CuH5OIbTFY_0
     m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
     m_EditorAssetChanged: 1

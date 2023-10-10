@@ -6,6 +6,7 @@ using FH.Utils;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Events;
+using static FH.UI.Rang;
 
 namespace FH.UI.Views.LevelCompleted {
     public sealed class LevelCompletedController : ViewController<LevelCompletedView> {
@@ -82,6 +83,7 @@ namespace FH.UI.Views.LevelCompleted {
             await Awaitable.WaitForSecondsAsync(.5f);
             await StartTotalScoreAnimation();
             await Awaitable.WaitForSecondsAsync(.1f);
+            view.Rang = RangHelpers.CalculateRang(_scoreCounter.FinalScore);
             view.ShowRang();
             await Awaitable.WaitForSecondsAsync(0.25f);
             SoundManager.Instance?.PlayOneShot(_rangApearedSound, 0.3f);

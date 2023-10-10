@@ -43,6 +43,8 @@ namespace FH.Init {
         private async Awaitable InitGame() {
             // Init game here
 
+            await LocalizationSettings.InitializationOperation.CompleteAsync();
+
             // Set current language definded by unity
             _settings.LocaleIdentifier = LocalizationSettings.SelectedLocale.Identifier;
             await _settingsObserver.Init(_settings);

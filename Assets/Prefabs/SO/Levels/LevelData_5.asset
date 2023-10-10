@@ -16,6 +16,7 @@ MonoBehaviour:
     <Palete>k__BackingField: {fileID: 11400000, guid: 3772058dbf4f0fd43bfcccd8047b44f2, type: 2}
     <Rows>k__BackingField: 6
     <Columns>k__BackingField: 6
+    <UseTwoPair>k__BackingField: 0
   <LevelImage>k__BackingField:
     m_AssetGUID: 46195a7d8194a964bb494e5eb7d8fa65
     m_SubObjectName: lDAHicJ-Sfk_0

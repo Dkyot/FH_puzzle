@@ -28,6 +28,7 @@ namespace FH.Cards {
         public int Rows { get; set; }
         public int Colums { get; set; }
         public ColorsSO Pallete { get; set; }
+        public bool UseTwoPairs { get; set; }
 
         [SerializeField] private GameObject _markerPrefab;
 
@@ -378,8 +379,12 @@ namespace FH.Cards {
 
             List<Pair<int, Color>> values = new List<Pair<int, Color>>();
 
-            TwoEqualCards(values);
-            //FourEqualCards(values);
+            if (UseTwoPairs) {
+                FourEqualCards(values);
+            }
+            else {
+                TwoEqualCards(values);
+            }
 
             values = Shuffle(values);
 

@@ -136,6 +136,7 @@ namespace FH.Level {
             cardManager.Colums = levelData.Params.Columns;
             cardManager.Pallete = levelData.Params.Palete;
             cardManager.Rows = levelData.Params.Rows;
+            cardManager.UseTwoPairs = levelData.Params.UseTwoPair;
 
             cardManager.OnWin += OnWin;
 
@@ -149,6 +150,10 @@ namespace FH.Level {
 
             scoreCounter.Reset();
             UnFreezeGame();
+
+            if (_gameContext.CurrentLevel.number == 1) {
+                cardManager.FindPair();
+            }
         }
 
         private void OnWin(object sender, EventArgs e) {
@@ -158,7 +163,7 @@ namespace FH.Level {
             var currentLevel = _gameContext.CurrentLevel;
             currentLevel.isCompleted = true;
             currentLevel.score = scoreCounter.FinalScore;
-            
+
             LocalYandexData.Instance.TrySaveLevelInfo(currentLevel);
 
             GameFinished.Invoke();
@@ -184,7 +189,7 @@ namespace FH.Level {
 
         private AudioClip GetCurrentTrack() {
             AudioClip track = null;
-            if (_trackCounter % 2  == 0) {
+            if (_trackCounter % 2 == 0) {
                 track = _music1;
             }
             else {

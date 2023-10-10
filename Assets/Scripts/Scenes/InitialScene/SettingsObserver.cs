@@ -10,17 +10,10 @@ namespace FH.Init {
 
         public async Awaitable Init(SettingsSO settingsSO) {
             _settings = settingsSO;
-
-            if (LocalYandexData.Instance.SaveInfo.LastSaveTimeTicks > 0)
-            {
-                _settings.SfxVolume = LocalYandexData.Instance.SaveInfo.SfxVolume;
-                _settings.MusicVolume = LocalYandexData.Instance.SaveInfo.MusicVolume;
-                _settings.LocaleIdentifier = new LocaleIdentifier(LocalYandexData.Instance.SaveInfo.Language);
-            }
-
             _settings.MusicVolumeChanged += OnMusicVolumeChanged;
             _settings.SfxVolumeChanged += OnSfxVolumeChanged;
-            _settings.LocaleChanged += OnLocaleCHanged;
+            _settings.LocaleChanged += OnLocaleChanged;
+            OnLocaleChanged();
         }
 
         private void OnMusicVolumeChanged()
@@ -33,7 +26,7 @@ namespace FH.Init {
             LocalYandexData.Instance.SaveInfo.SfxVolume = _settings.SfxVolume;
         }
 
-        private void OnLocaleCHanged() {
+        private void OnLocaleChanged() {
             var newLocale = LocalizationSettings.AvailableLocales.GetLocale(_settings.LocaleIdentifier);
             LocalizationSettings.SelectedLocale = newLocale;
 

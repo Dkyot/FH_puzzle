@@ -6,6 +6,7 @@ using System;
 using System.Linq;
 using SkibidiRunner.Managers;
 using UnityEngine;
+using UnityEngine.Localization;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 using YandexSDK.Scripts;
@@ -42,14 +43,20 @@ namespace FH.Init {
 
         private async Awaitable InitGame() {
             // Init game here
-
+            await PlayerDataLoader.Instance.TryLoadAwaitable(20);
             await LocalizationSettings.InitializationOperation.CompleteAsync();
 
             // Set current language definded by unity
-            _settings.LocaleIdentifier = LocalizationSettings.SelectedLocale.Identifier;
+            if (LocalYandexData.Instance.SaveInfo.LastSaveTimeTicks > 0) {
+                _settings.SfxVolume = LocalYandexData.Instance.SaveInfo.SfxVolume;
+                _settings.MusicVolume = LocalYandexData.Instance.SaveInfo.MusicVolume;
+                _settings.LocaleIdentifier = new LocaleIdentifier(LocalYandexData.Instance.SaveInfo.Language);
+            }
+            else {
+                _settings.LocaleIdentifier = LocalizationSettings.SelectedLocale.Identifier;
+            }
+            
             await _settingsObserver.Init(_settings);
-
-            await PlayerDataLoader.Instance.TryLoadAwaitable(20);
             
             int index = 1;
             foreach (var level in _gameContext.LevelDataBase.Levels) { 

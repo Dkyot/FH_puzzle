@@ -6,7 +6,7 @@
             <ui:VisualElement name="ContentContainer" class="content-container" style="flex-grow: 1;">
                 <ui:VisualElement picking-mode="Ignore" name="MainContainer" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; min-height: auto; min-width: auto;">
                     <ui:VisualElement picking-mode="Ignore" name="RightSide" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); position: relative; width: auto; height: auto; bottom: auto; min-height: auto; left: auto; top: auto; justify-content: center; align-items: center; align-self: center;">
-                        <FH.UI.PhotoCard name="Photo" style="rotate: -7deg;" />
+                        <FH.UI.PhotoCard name="Photo" Text="Лето" IsHidden="false" style="rotate: -7deg;" />
                     </ui:VisualElement>
                     <ui:VisualElement picking-mode="Ignore" name="LeftSide" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); width: 30%;">
                         <ui:VisualElement picking-mode="Ignore" name="ScoreContainer" class="card-container" style="flex-grow: 0; align-items: center; justify-content: flex-start; align-self: auto;">
@@ -38,6 +38,6 @@
             </ui:VisualElement>
             <FH.UI.LocalizedLabel tabindex="-1" Label="PRESS_TO_CONTINUE" name="PressToContinueLabel" class="text_shadow" style="position: absolute; left: 0; bottom: 0; -unity-text-align: lower-center; right: 0; margin-bottom: 3%; font-size: 40px; -unity-font-style: bold;" />
         </FH.UI.SafeArea>
-        <ui:VisualElement name="FlashScreen" picking-mode="Ignore" class="splash-screen" style="overflow: visible;" />
+        <ui:VisualElement name="FlashScreen" picking-mode="Ignore" class="splash-screen" style="overflow: visible; display: none;" />
     </FH.UI.Views.LevelCompleted.LevelCompletedView>
 </ui:UXML>

@@ -17,7 +17,7 @@
                 <ui:VisualElement class="decorative-line" style="translate: -70px 0; rotate: 0;" />
                 <ui:VisualElement class="decorative-line" style="rotate: -20deg; translate: 0 32px;" />
             </ui:VisualElement>
-            <ui:Label tabindex="-1" text="Cool Anime Furry &#10;Something" display-tooltip-when-elided="true" name="Title" class="fancy text_shadow title" />
+            <FH.UI.LocalizedLabel name="Title" Label="GAME_TITLE" class="fancy" style="-unity-text-align: middle-center;" />
             <ui:VisualElement style="flex-grow: 0; background-color: rgba(0, 0, 0, 0);">
                 <ui:VisualElement class="decorative-line" style="rotate: -20deg; translate: 31px -29px;" />
                 <ui:VisualElement class="decorative-line" style="translate: 118px 0; rotate: 7deg;" />

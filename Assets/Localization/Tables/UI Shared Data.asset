@@ -123,6 +123,10 @@ MonoBehaviour:
     m_Key: LEVEL_NUMBER
     m_Metadata:
       m_Items: []
+  - m_Id: 16423124048060416
+    m_Key: GAME_TITLE
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

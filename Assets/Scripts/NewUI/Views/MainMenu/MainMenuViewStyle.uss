@@ -1,4 +1,4 @@
-﻿MainMenuView {
+MainMenuView {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -12,7 +12,7 @@ MainMenuView #ButtonsContainer {
 }
 
 MainMenuView #ButtonsContainer > * {
-    margin-bottom: 30px;
+    margin-bottom: 5%;
 }
 
 MainMenuView .base-button {
@@ -20,7 +20,6 @@ MainMenuView .base-button {
     margin-right: 20px;
     transition-duration: 100ms;
     transition-property: margin, rotate, scale;
-    /*border-width: 0;*/
 }
 
 MainMenuView .base-button:focus {
@@ -66,17 +65,17 @@ MainMenuView .reversed-rotate:focus {
 }
 
 MainMenuView #Title {
-    font-size: 70px;
+    font-size: 60px;
     justify-content: flex-start;
     -unity-text-align: upper-center;
     -unity-font-style: bold;
-    -unity-text-outline-width: 12px;
+    -unity-text-outline-width: 5px;
     -unity-text-outline-color: var(--primary-3);
     color: var(--primary);
     text-shadow: -10px 10px 0 var(--shadow-color);
     letter-spacing: 0;
     word-spacing: 0;
-    -unity-paragraph-spacing: -50px;
+    -unity-paragraph-spacing: -15px;
 }
 
 MainMenuView .decorative-line {

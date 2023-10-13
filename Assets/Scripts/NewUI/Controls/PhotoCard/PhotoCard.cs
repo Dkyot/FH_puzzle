@@ -33,9 +33,10 @@ namespace FH.UI {
         private string _text;
         private bool _isHidden;
 
-        private Label _photoLabel;
         private Label _heartLabel;
         private Label _hiddenPhotoLabel;
+        private LocalizedLabel _photoLabel;
+
         private VisualElement _photoImage;
 
         public PhotoCard() {
@@ -55,7 +56,7 @@ namespace FH.UI {
             labelContainer.AddToClassList(photoCardLabelContainerClass);
             Add(labelContainer);
 
-            _photoLabel = new Label();
+            _photoLabel = new LocalizedLabel();
             _photoLabel.ClearClassList();
             _photoLabel.AddToClassList(photoCardTextClass);
             labelContainer.Add(_photoLabel);
@@ -91,19 +92,21 @@ namespace FH.UI {
         private void SetText() {
             if (_isHidden)
                 return;
-            _photoLabel.text = _text;
+            _photoLabel.Label = _text;
         }
 
         private void SetHidden() {
             if (_isHidden) {
                 _heartLabel.style.display = DisplayStyle.None;
                 _hiddenPhotoLabel.style.display = DisplayStyle.Flex;
-                _photoLabel.text = "???";
+                _photoLabel.IsLocalizable = false;
+                _photoLabel.Label = "???";
             }
             else {
                 _heartLabel.style.display = DisplayStyle.Flex;
                 _hiddenPhotoLabel.style.display = DisplayStyle.None;
-                _photoLabel.text = _text;
+                _photoLabel.IsLocalizable = true;
+                _photoLabel.Label = _text;
             }
         }
 

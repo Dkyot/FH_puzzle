@@ -134,6 +134,10 @@ MonoBehaviour:
       Summer Photo Session'
     m_Metadata:
       m_Items: []
+  - m_Id: 17156443291897856
+    m_Localized: Summer
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

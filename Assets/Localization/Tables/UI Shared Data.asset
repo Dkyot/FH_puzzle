@@ -127,6 +127,10 @@ MonoBehaviour:
     m_Key: GAME_TITLE
     m_Metadata:
       m_Items: []
+  - m_Id: 17156443291897856
+    m_Key: PHOTO_CAPTION
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

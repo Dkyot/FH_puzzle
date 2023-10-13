@@ -61,7 +61,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""55039ac4-e69c-4217-8c35-61be3f3b82de"",
-                    ""path"": ""<Touchscreen>/touch*/Press"",
+                    ""path"": ""<Touchscreen>/Press"",
                     ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": ""Touch Screen"",
@@ -83,7 +83,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""6455c5a6-8f25-4ad2-9c80-f459bcf1d0f2"",
-                    ""path"": ""<Touchscreen>/touch0/position"",
+                    ""path"": ""<Touchscreen>/position"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Touch Screen"",

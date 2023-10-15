@@ -58,24 +58,24 @@ namespace YandexSDK.Scripts
             return getPlayerName();
         }
 
-        /// <summary>
-        /// User avatar on the Yandex platform 
-        /// </summary>
-        /// <returns>Avatar texture, null on errors</returns>
-        public static async Task<Texture2D> GetPlayerPhoto()
-        {
-            var request = UnityWebRequestTexture.GetTexture(getPlayerPhotoURL());
-            request.SendWebRequest();
-            while (!request.isDone)
-            {
-                await Task.Yield();
-            }
-
-            if (request.result is not (UnityWebRequest.Result.ConnectionError or UnityWebRequest.Result.ProtocolError))
-                return ((DownloadHandlerTexture)request.downloadHandler).texture;
-            Debug.Log(request.error);
-            return null;
-        }
+        // /// <summary>
+        // /// User avatar on the Yandex platform 
+        // /// </summary>
+        // /// <returns>Avatar texture, null on errors</returns>
+        // public static async Task<Texture2D> GetPlayerPhoto()
+        // {
+        //     var request = UnityWebRequestTexture.GetTexture(getPlayerPhotoURL());
+        //     request.SendWebRequest();
+        //     while (!request.isDone)
+        //     {
+        //         await Task.Yield();
+        //     }
+        //
+        //     if (request.result is not (UnityWebRequest.Result.ConnectionError or UnityWebRequest.Result.ProtocolError))
+        //         return ((DownloadHandlerTexture)request.downloadHandler).texture;
+        //     Debug.Log(request.error);
+        //     return null;
+        // }
 
         /// <summary>
         /// Shows the game rating window when there are no errors
@@ -134,6 +134,7 @@ namespace YandexSDK.Scripts
             gameObject.SendMessage(methodName, "DEBUG");
             return;
 #endif
+#pragma warning disable 0162
             try
             {
                 loadPlayerData(gameObject.name, methodName);
@@ -142,6 +143,7 @@ namespace YandexSDK.Scripts
             {
                 gameObject.SendMessage(methodName, "");
             }
+#pragma warning restore 0162
         }
 
         public static void SetToLeaderboard(int value, string lbName = "gameScore")

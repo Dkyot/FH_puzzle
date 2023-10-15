@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using FH.SO;
 using SkibidiRunner.Managers;
@@ -43,7 +44,7 @@ namespace YandexSDK.Scripts
         {
             SaveInfo.LastSaveTimeTicks = DateTime.UtcNow.Ticks;
             YandexGamesManager.SavePlayerData(SaveInfo);
-            Debug.Log("Data save");
+            Debug.Log("Data save Unity");
         }
 
         public void TrySaveLevelInfo(LevelDataSO level)
@@ -61,6 +62,7 @@ namespace YandexSDK.Scripts
             }
 
             SaveData();
+            SetToLeaderboard();
         }
 
         public void ResetProgress()
@@ -68,6 +70,12 @@ namespace YandexSDK.Scripts
             SaveInfo = new SaveInfo();
             YandexGamesManager.SavePlayerData(SaveInfo);
             OnYandexDataLoaded?.Invoke();
+        }
+
+        private void SetToLeaderboard()
+        {
+            float totalScore = SaveInfo.LevelsScore.Sum(pair => pair.Value);
+            YandexGamesManager.SetToLeaderboard(Mathf.RoundToInt(totalScore));
         }
     }
 }

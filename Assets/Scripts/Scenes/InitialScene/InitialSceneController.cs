@@ -53,7 +53,9 @@ namespace FH.Init {
                 _settings.LocaleIdentifier = new LocaleIdentifier(LocalYandexData.Instance.SaveInfo.Language);
             }
             else {
-                _settings.LocaleIdentifier = LocalizationSettings.SelectedLocale.Identifier;
+                string yandexLan = YandexGamesManager.GetLanguageString();
+                _settings.LocaleIdentifier = yandexLan != null ? new LocaleIdentifier(yandexLan) 
+                    : LocalizationSettings.SelectedLocale.Identifier;
             }
             
             await _settingsObserver.Init(_settings);

@@ -68,18 +68,18 @@ namespace FH.Level {
         public void Restart() {
             cardManager.CreateCards();
             scoreCounter.Reset();
-            scoreTimer.IsRunning = true;
+            scoreTimer.Unlock();
         }
 
         /// <summary> Stops time and card flipper, but doesn't trigger pause event</summary>
         public void FreezeGame() {
             cardManager.CardFlipper.Lock();
-            scoreTimer.IsRunning = false;
+            scoreTimer.Lock();
         }
 
         public void UnFreezeGame() {
             cardManager.CardFlipper?.Unlock();
-            scoreTimer.IsRunning = true;
+            scoreTimer.Unlock();
         }
 
         public void PauseGame() {

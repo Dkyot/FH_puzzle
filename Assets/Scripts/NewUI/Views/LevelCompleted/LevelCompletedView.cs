@@ -71,6 +71,9 @@ namespace FH.UI.Views.LevelCompleted {
             ResetContentAnimation();
         }
 
+        public void ShowNextLevelButton() => _continueButton.style.display = DisplayStyle.Flex;
+        public void HideNextLevelButton() => _continueButton.style.display = DisplayStyle.None;
+
         public async Awaitable ShowFlash() {
             StartFlashAnimation();
             await Awaitable.WaitForSecondsAsync(0.5f);

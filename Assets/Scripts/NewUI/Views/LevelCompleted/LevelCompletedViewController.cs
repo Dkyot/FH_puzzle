@@ -45,6 +45,9 @@ namespace FH.UI.Views.LevelCompleted {
             _ = StartScoreAnimation();
         }
 
+        public void ShowNextLevelButton() => view.ShowNextLevelButton();
+        public void HideNextLevelButton() => view.HideNextLevelButton();
+
         public override void HideView() {
             ScrollingBgTextureController.Instance?.DisableRendering();
             view.Hide();

@@ -97,20 +97,7 @@ namespace FH.Level {
         }
 
         public void NextLevel() {
-            var currentLevel = _gameContext.CurrentLevel;
-            LevelDataSO nextLevel = null;
-            bool findCurrent = false;
-
-            foreach (var level in _gameContext.LevelDataBase.Levels) {
-                if (!findCurrent) {
-                    if (level == currentLevel)
-                        findCurrent = true;
-                    continue;
-                }
-
-                nextLevel = level;
-                break;
-            }
+            var nextLevel = GetNextLevel();
 
             if (nextLevel == null)
                 return;
@@ -127,21 +114,27 @@ namespace FH.Level {
         private void Start() {
             FreezeGame();
 
+            // Hide next level button if there are no next level
+            bool hasNextLevel = GetNextLevel() != null;
+            if  (!hasNextLevel) _levelCompletedViewController.HideNextLevelButton();
+
+            // Set current level number to global variable
             var levelNumberVariable = _gameContext.GlobalGroupVariables["levelNumber"];
             if (levelNumberVariable is StringVariable stringVariable) {
                 stringVariable.Value = _gameContext.CurrentLevel.number.ToString();
             }
 
+            // Configure card manager
             var levelData = _gameContext.CurrentLevel;
+            cardManager.UseTwoPairs = levelData.Params.UseTwoPair;
             cardManager.Colums = levelData.Params.Columns;
             cardManager.Pallete = levelData.Params.Palete;
             cardManager.Rows = levelData.Params.Rows;
-            cardManager.UseTwoPairs = levelData.Params.UseTwoPair;
-
             cardManager.OnWin += OnWin;
 
             cardManager.CreateCards();
 
+            // Finish initialization 
             _gameContext.SceneManagerProxy.SceneController = this;
         }
 
@@ -185,6 +178,25 @@ namespace FH.Level {
             }
 
             _image = result;
+        }
+
+        private LevelDataSO GetNextLevel() {
+            var currentLevel = _gameContext.CurrentLevel;
+            LevelDataSO nextLevel = null;
+            bool findCurrent = false;
+
+            foreach (var level in _gameContext.LevelDataBase.Levels) {
+                if (!findCurrent) {
+                    if (level == currentLevel)
+                        findCurrent = true;
+                    continue;
+                }
+
+                nextLevel = level;
+                break;
+            }
+
+            return nextLevel;
         }
 
         private AudioClip GetCurrentTrack() {

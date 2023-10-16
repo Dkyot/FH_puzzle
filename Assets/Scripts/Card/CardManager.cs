@@ -5,6 +5,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using UnityEngine;
 
 namespace FH.Cards {
@@ -60,9 +61,11 @@ namespace FH.Cards {
         private bool _tipFlipEnded = false;
         private List<Card> _waveCardList = new List<Card>();
 
+        private CancellationTokenSource _waveCancellationSource;
+
         public void FindPair() {
-            _firstMarker.gameObject.SetActive(false);
-            _secondMarker.gameObject.SetActive(false);
+            _firstMarker.SetActive(false);
+            _secondMarker.SetActive(false);
             _cardHighlightedPair = null;
 
             var cardPair = GetTwoEqualCards();
@@ -80,6 +83,11 @@ namespace FH.Cards {
             if (_isRunning)
                 return;
 
+            _waveCancellationSource?.Cancel();
+            _waveCancellationSource = new CancellationTokenSource();
+
+            var cancellToken = _waveCancellationSource.Token;
+
             Reset();
 
             _isRunning = true;
@@ -89,6 +97,11 @@ namespace FH.Cards {
             _tipFlipEnded = false;
 
             while (!_tipFlipEnded) {
+                if (cancellToken.IsCancellationRequested) {
+                    _isRunning = false;
+                    return;
+                }
+
                 _tipFlipTimer += Time.deltaTime;
 
                 if (_tipFlipTimer >= _tipFlipCooldown) {
@@ -115,6 +128,8 @@ namespace FH.Cards {
         }
 
         public void CreateCards() {
+            _waveCancellationSource?.Cancel();
+
             foreach (Card card in cards) {
                 Destroy(card.gameObject);
             }

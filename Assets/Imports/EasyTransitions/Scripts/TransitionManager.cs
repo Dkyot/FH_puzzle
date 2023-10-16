@@ -174,7 +174,7 @@ namespace EasyTransition
             while (this.gameObject.activeInHierarchy)
             {
                 //Check for multiple instances of the Transition Manager component
-                var managerCount = GameObject.FindObjectsOfType<TransitionManager>(true).Length;
+                var managerCount = FindObjectsByType<TransitionManager>(FindObjectsSortMode.None).Length;
                 if (managerCount > 1)
                     Debug.LogError($"There are {managerCount.ToString()} Transition Managers in your scene. Please ensure there is only one Transition Manager in your scene or overlapping transitions may occur.");
             

@@ -82,7 +82,7 @@ MainMenuView .decorative-line {
     flex-grow: 0;
     background-color: rgb(255, 255, 255);
     width: 70px;
-    height: 30px;
+    height: 25px;
     border-color: var(--primary-3);
     border-width: 10px;
     border-radius: 15px;

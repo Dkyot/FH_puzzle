@@ -131,6 +131,10 @@ MonoBehaviour:
     m_Key: PHOTO_CAPTION
     m_Metadata:
       m_Items: []
+  - m_Id: 18035859920375808
+    m_Key: NO_PHOTO
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

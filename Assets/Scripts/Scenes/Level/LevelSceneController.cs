@@ -47,7 +47,7 @@ namespace FH.Level {
         private Sprite _image;
 
         public async Awaitable StartPreloading() {
-            MusicManager.Instance?.FadeIn(0.3f, GetCurrentTrack(), true);
+            MusicManager.Instance?.FadeIn(0.5f, GetCurrentTrack(), true);
             await LoadImage();
             _levelCompletedViewController.SetImage(_image);
             _levelImage.sprite = _image;

@@ -43,7 +43,7 @@ namespace FH.MainMenu {
         }
 
         public void StartScene() {
-            MusicManager.Instance?.FadeIn(0.3f, _music, true);
+            MusicManager.Instance?.FadeIn(0.5f, _music, true);
         }
 
         public async Awaitable UnloadScene() {

@@ -138,6 +138,10 @@ MonoBehaviour:
     m_Localized: Summer
     m_Metadata:
       m_Items: []
+  - m_Id: 18035859920375808
+    m_Localized: No Photo Yet
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

@@ -230,6 +230,12 @@ MonoBehaviour:
   - localizationNameKey: ENGLISH
     localeIdentifier:
       m_Code: en
+  - localizationNameKey: SPANISH
+    localeIdentifier:
+      m_Code: es
+  - localizationNameKey: TURKISH
+    localeIdentifier:
+      m_Code: tr
   _sfxChangeSound: {fileID: 8300000, guid: 29bde6326b4c34ad8a12da475f79b50a, type: 3}
 --- !u!114 &192632334
 MonoBehaviour:

@@ -75,8 +75,8 @@ namespace FH.Init {
             }
 
             // Load Main Menu
-            YandexGamesManager.ApiReady();
             await LoadMainMenuScene();
+            YandexGamesManager.ApiReady();
         }
 
         private Awaitable LoadMainMenuScene() {

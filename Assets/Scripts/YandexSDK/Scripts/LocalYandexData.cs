@@ -44,7 +44,6 @@ namespace YandexSDK.Scripts
         {
             SaveInfo.LastSaveTimeTicks = DateTime.UtcNow.Ticks;
             YandexGamesManager.SavePlayerData(SaveInfo);
-            Debug.Log("Data save Unity");
         }
 
         public void TrySaveLevelInfo(LevelDataSO level)
@@ -58,8 +57,8 @@ namespace YandexSDK.Scripts
             {
                 if (level.score > score)
                 {
-                    Debug.Log("New record level");
-                    SaveInfo.LevelsScore[level.number] = score;
+                    Debug.Log($"New record level. Old {score}, new {level.score}");
+                    SaveInfo.LevelsScore[level.number] = level.score;
                 }
             }
 

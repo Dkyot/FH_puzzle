@@ -51,12 +51,14 @@ namespace YandexSDK.Scripts
         {
             if (!SaveInfo.LevelsScore.TryGetValue(level.number, out float score))
             {
+                Debug.Log("New level complete");
                 SaveInfo.LevelsScore.Add(level.number, level.score);
             }
             else
             {
                 if (level.score > score)
                 {
+                    Debug.Log("New record level");
                     SaveInfo.LevelsScore[level.number] = score;
                 }
             }

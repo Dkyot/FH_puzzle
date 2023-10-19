@@ -204,4 +204,9 @@ mergeInto(LibraryManager.library, {
       return null;
     }
   },
+
+  callYandexMetric: function (id, goalName) {
+    var name = UTF8ToString(methodName);
+    ym(id, 'reachGoal', goalName);
+  },
 });

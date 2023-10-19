@@ -548,8 +548,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ac5508c0d546244fbc03a52461a08be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _findPairFreeUsage: 3
-  _peekFreeUsage: 0
+  _findPairFreeUsage: 2
+  _peekFreeUsage: 1
+  _findPairAdUsage: 6
+  _peekAdUsage: 3
   _levelController: {fileID: 710374885}
   _gameUIController: {fileID: 2097693593}
   _cardManager: {fileID: 918102901}

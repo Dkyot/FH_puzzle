@@ -206,7 +206,11 @@ mergeInto(LibraryManager.library, {
   },
 
   callYandexMetric: function (id, goalName) {
-    var name = UTF8ToString(methodName);
-    ym(id, 'reachGoal', goalName);
+    try {
+      var name = UTF8ToString(goalName);
+      ym(id, 'reachGoal', name);
+    } catch (err) {
+      console.error(err);
+    }
   },
 });

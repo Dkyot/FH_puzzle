@@ -1,5 +1,6 @@
 using FH.Sound;
 using UnityEngine;
+using YandexSDK.Scripts;
 
 namespace FH.UI.Views.LevelStart {
     public class LevelStartViewController : ViewController<LevelStartView> {
@@ -14,6 +15,7 @@ namespace FH.UI.Views.LevelStart {
 
         public override void ShowView() {
             base.ShowView();
+            YandexGamesManager.CallYandexMetric("LevelLoaded");
         }
 
         public async Awaitable StartAnimation() {

@@ -3,6 +3,7 @@ using FH.Utils;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using YandexSDK.Scripts;
 
 namespace FH.UI.Views.Gallery {
     public sealed class GalleryViewController : ViewController<GalleryView> {
@@ -16,6 +17,7 @@ namespace FH.UI.Views.Gallery {
         public override void ShowView() {
             view.Show();
             ScrollingBgTextureController.Instance?.EnableRendering();
+            YandexGamesManager.CallYandexMetric("GalleryOpened");
         }
 
         public void SetImages(IEnumerable<Sprite> sprites) {

@@ -3,11 +3,15 @@ using FH.UI.Views.GameUI;
 using SkibidiRunner.Managers;
 using UnityEngine;
 using FH.Inputs;
+using YandexSDK.Scripts;
 
 namespace FH.Level {
     public sealed class LevelAdController : MonoBehaviour {
         [SerializeField] private int _findPairFreeUsage = 3;
-        [SerializeField] private int _peekFreeUsage = 0;
+        [SerializeField] private int _peekFreeUsage = 1;
+        
+        [SerializeField] private int _findPairAdUsage = 5;
+        [SerializeField] private int _peekAdUsage = 3;
 
         [Header("Scene References")]
         [SerializeField] private LevelSceneController _levelController;
@@ -17,6 +21,9 @@ namespace FH.Level {
         private bool _findPairIsRunning = false;
         private bool _peekIsRunning = false;
 
+        private int _currentPairUsage;
+        private int _currentPeekUsage;
+
         public async void TryUseFindPair() {
             if (_findPairIsRunning)
                 return;
@@ -24,23 +31,29 @@ namespace FH.Level {
             _findPairIsRunning = true;
             bool shouldUse = false;
 
-            if (_findPairFreeUsage <= 0) {
+            if (_currentPairUsage <= 0 && await ShowAd()) {
                 if (await ShowAd()) {
                     shouldUse = true;
-                    _findPairFreeUsage += 2;
+                    _currentPairUsage += _findPairAdUsage;
+                    YandexGamesManager.CallYandexMetric("PairReceived");
                 }
             }
             else {
                 shouldUse = true;
-                _findPairFreeUsage--;
+                _currentPairUsage--;
             }
 
-            _gameUIController.SetFindPairUsageCount(_findPairFreeUsage);
+            _gameUIController.SetFindPairUsageCount(_currentPairUsage);
 
             if (shouldUse)
                 _cardManager.FindPair();
 
             _findPairIsRunning = false;
+
+            if (_currentPairUsage == 0)
+            {
+                YandexGamesManager.CallYandexMetric("PairAllUsed");
+            }
         }
 
         public async void TryUsePeek() {
@@ -48,17 +61,22 @@ namespace FH.Level {
                 return;
 
             _peekIsRunning = true;
-            bool shouldUse;
+            bool shouldUse = false;
 
-            if (_peekFreeUsage <= 0) {
-                shouldUse = await ShowAd();
+            if (_currentPeekUsage <= 0) {
+                if (await ShowAd())
+                {
+                    shouldUse = true;
+                    _currentPeekUsage += _peekAdUsage;
+                    YandexGamesManager.CallYandexMetric("EyeReceived");
+                }
             }
             else {
                 shouldUse = true;
-                _peekFreeUsage--;
+                _currentPeekUsage--;
             }
 
-            _gameUIController.SetPeekUsegeCount(_peekFreeUsage);
+            _gameUIController.SetPeekUsegeCount(_currentPeekUsage);
 
             if (shouldUse) {
                 _levelController.FreezeGame();
@@ -67,6 +85,11 @@ namespace FH.Level {
             }
 
             _peekIsRunning = false;
+            
+            if (_currentPeekUsage == 0)
+            {
+                YandexGamesManager.CallYandexMetric("EyeAllUsed");
+            }
         }
 
         private async Awaitable<bool> ShowAd() {
@@ -80,11 +103,14 @@ namespace FH.Level {
             _levelController.UnFreezeGame();
             return adResult;
         }
-
-
-        private void Start() {
-            _gameUIController.SetFindPairUsageCount(_findPairFreeUsage);
-            _gameUIController.SetPeekUsegeCount(_peekFreeUsage);
+        
+        private void Start()
+        {
+            _currentPairUsage = _findPairFreeUsage;
+            _currentPeekUsage = _peekFreeUsage;
+            
+            _gameUIController.SetFindPairUsageCount(_currentPairUsage);
+            _gameUIController.SetPeekUsegeCount(_currentPeekUsage);
         }
     }
 }

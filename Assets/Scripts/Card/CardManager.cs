@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using UnityEngine;
+using YandexSDK.Scripts;
 
 namespace FH.Cards {
     [RequireComponent(typeof(CardFlipper))]
@@ -222,10 +223,12 @@ namespace FH.Cards {
             else if (card.CurrentState == CardState.Opened) {
                 if (card.Equals(card1)) {
                     card1 = null;
+                    YandexGamesManager.CallYandexMetric("CardReturn");
                     return true;
                 }
                 else if (card.Equals(card2)) {
                     card2 = null;
+                    YandexGamesManager.CallYandexMetric("CardReturn");
                     return true;
                 }
                 return false;

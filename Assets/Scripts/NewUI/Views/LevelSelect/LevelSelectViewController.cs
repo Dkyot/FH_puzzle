@@ -6,6 +6,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using YandexSDK.Scripts;
 
 namespace FH.UI.Views.LevelSelect {
     public class LevelSelectController : ViewController<LevelSelectView> {
@@ -27,6 +28,7 @@ namespace FH.UI.Views.LevelSelect {
         public override void ShowView() {
             base.ShowView();
             ScrollingBgTextureController.Instance?.EnableRendering();
+            YandexGamesManager.CallYandexMetric("LevelShowed");
         }
 
         protected override void OnScreenControllerSet() {
@@ -42,6 +44,7 @@ namespace FH.UI.Views.LevelSelect {
         private void OnLevelSelected(LevelDataSO level) {
             SoundManager.Instance?.PlayOneShot(_levelSelectedSound, 0.5f);
             LevelSelected?.Invoke(level);
+            YandexGamesManager.CallYandexMetric("LevelStarted");
         }
 
         private void OnDisable() {

@@ -28,7 +28,6 @@ namespace FH.UI.Views.LevelCompleted {
         public override void ShowView() {
             ScrollingBgTextureController.Instance?.EnableRendering();
             view.Show();
-            YandexGamesManager.CallYandexMetric("LevelComplete");
             _ = StartLevelCompleteAnimation();
         }
 

@@ -52,10 +52,13 @@ namespace FH.Init {
                 _settings.MusicVolume = LocalYandexData.Instance.SaveInfo.MusicVolume;
                 _settings.LocaleIdentifier = new LocaleIdentifier(LocalYandexData.Instance.SaveInfo.Language);
             }
-            else {
-                string yandexLan = YandexGamesManager.GetLanguageString();
-                _settings.LocaleIdentifier = yandexLan != null ? new LocaleIdentifier(yandexLan) 
-                    : LocalizationSettings.SelectedLocale.Identifier;
+            else
+            {
+                _settings.LocaleIdentifier = new LocaleIdentifier("promo");
+
+                // string yandexLan = YandexGamesManager.GetLanguageString();
+                // _settings.LocaleIdentifier = yandexLan != null ? new LocaleIdentifier(yandexLan) 
+                //     : LocalizationSettings.SelectedLocale.Identifier;
             }
             
             await _settingsObserver.Init(_settings);

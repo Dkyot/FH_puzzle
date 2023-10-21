@@ -135,10 +135,10 @@ namespace YandexSDK.Scripts
 
         public static void LoadPlayerData(GameObject gameObject, string methodName)
         {
-#if UNITY_EDITOR
+//#if UNITY_EDITOR
             gameObject.SendMessage(methodName, "DEBUG");
             return;
-#endif
+//#endif
 #pragma warning disable 0162
             try
             {
@@ -177,35 +177,35 @@ namespace YandexSDK.Scripts
 
         public static void ShowSplashAdv(GameObject gameObject, string methodName)
         {
-#if UNITY_EDITOR
+//#if UNITY_EDITOR
             gameObject.SendMessage(methodName, (object)0);
             gameObject.SendMessage(methodName, 1);
-#endif
-            try
-            {
-                showSplashPageAdv(gameObject.name, methodName);
-            }
-            catch
-            {
-                // ignored
-            }
+//#endif
+            // try
+            // {
+            //     showSplashPageAdv(gameObject.name, methodName);
+            // }
+            // catch
+            // {
+            //     // ignored
+            // }
         }
 
         public static void ShowRewardedAdv(GameObject gameObject, string methodName)
         {
-#if UNITY_EDITOR
+//#if UNITY_EDITOR
             gameObject.SendMessage(methodName, (object)0);
             gameObject.SendMessage(methodName, 1);
             gameObject.SendMessage(methodName, 2);
-#endif
-            try
-            {
-                showRewardedAdv(gameObject.name, methodName);
-            }
-            catch
-            {
-                // ignored
-            }
+//#endif
+            // try
+            // {
+            //     showRewardedAdv(gameObject.name, methodName);
+            // }
+            // catch
+            // {
+            //     // ignored
+            // }
         }
 
         public static void ApiReady()

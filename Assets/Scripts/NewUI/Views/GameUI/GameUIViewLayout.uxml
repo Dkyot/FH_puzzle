@@ -7,7 +7,7 @@
                     <FH.UI.SquareIconButton name="PauseButton" class="pause-button" style="align-self: auto;" />
                     <FH.UI.SquareIconButton name="ResetButton" class="reset-button" style="align-self: auto;" />
                 </ui:VisualElement>
-                <ui:VisualElement picking-mode="Ignore" class="counters-container" style="flex-grow: 1; position: relative; right: 0;">
+                <ui:VisualElement picking-mode="Ignore" class="counters-container" style="flex-grow: 1; position: relative; right: 0; visibility: hidden; display: flex;">
                     <ui:VisualElement picking-mode="Ignore" style="flex-grow: 0; flex-direction: row; justify-content: flex-end;">
                         <FH.UI.LocalizedLabel tabindex="-1" Label="TIME" picking-mode="Ignore" class="text_shadow counters-text" style="margin-right: 10px; align-items: stretch; align-self: stretch; flex-grow: 0; -unity-text-align: middle-right; white-space: nowrap;" />
                         <ui:Label tabindex="-1" text="00:00" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Timer" picking-mode="Ignore" class="text_shadow counters-text" style="align-items: center; align-self: stretch; flex-grow: 0; -unity-text-align: middle-right; white-space: nowrap;" />

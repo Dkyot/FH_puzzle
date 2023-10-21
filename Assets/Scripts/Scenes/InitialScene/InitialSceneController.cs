@@ -41,7 +41,10 @@ namespace FH.Init {
             _ = InitGame();
         }
 
-        private async Awaitable InitGame() {
+        private async Awaitable InitGame()
+        {
+            await Awaitable.WaitForSecondsAsync(10);
+            
             // Init game here
             await PlayerDataLoader.Instance.TryLoadAwaitable(20);
             await LocalizationSettings.InitializationOperation.CompleteAsync();

@@ -16,14 +16,12 @@ MonoBehaviour:
     m_Code: promo
   m_SharedData: {fileID: 11400000, guid: 85714bec580b2784ba93d648e54bd039, type: 2}
   m_Metadata:
-    m_Items:
-    - rid: 4948837450088972288
+    m_Items: []
   m_TableData:
   - m_Id: 7606252842295296
-    m_Localized: '{global.levelNumber}'
+    m_Localized: ' '
     m_Metadata:
-      m_Items:
-      - rid: 4948837450088972288
+      m_Items: []
   - m_Id: 372474214391808
     m_Localized: ' '
     m_Metadata:
@@ -150,8 +148,4 @@ MonoBehaviour:
       m_Items: []
   references:
     version: 2
-    RefIds:
-    - rid: 4948837450088972288
-      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
-      data:
-        m_Entries: 00a0bcbed8051b00
+    RefIds: []

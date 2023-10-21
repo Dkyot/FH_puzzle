@@ -82,10 +82,10 @@ namespace FH.UI.Views.LevelCompleted {
         private async Awaitable StartScoreAnimation() {
             // Await Content apearing animation
             await Awaitable.WaitForSecondsAsync(1);
-            await StartTimeAnimation();
-            await Awaitable.WaitForSecondsAsync(.5f);
-            await StartMistakesAnimation();
-            await Awaitable.WaitForSecondsAsync(.5f);
+            // await StartTimeAnimation();
+            // await Awaitable.WaitForSecondsAsync(.5f);
+            // await StartMistakesAnimation();
+            // await Awaitable.WaitForSecondsAsync(.5f);
             await StartTotalScoreAnimation();
             await Awaitable.WaitForSecondsAsync(.1f);
             view.Rang = RangHelpers.CalculateRang(_scoreCounter.FinalScore);

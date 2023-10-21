@@ -2,8 +2,8 @@
     <Style src="project://database/Assets/Scripts/NewUI/Views/LevelSelect/LevelSelectViewStyle.uss?fileID=7433441132597879392&amp;guid=387c8b654e763b64fba5177919a659cb&amp;type=3#LevelSelectViewStyle" />
     <FH.UI.Views.LevelSelect.LevelSelectView picking-mode="Ignore" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; background-image: url(&apos;project://database/Assets/Materials/RenderTexture/ScrollingBGTexture.renderTexture?fileID=8400000&amp;guid=239445fec4c99714d96f1206e5e54a23&amp;type=2#ScrollingBGTexture&apos;); -unity-background-scale-mode: scale-and-crop;">
         <FH.UI.SafeArea Margin_Top="20" Margin_Left="20" Margin_Bottom="20" Margin_Right="20" picking-mode="Ignore" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0;">
-            <ui:VisualElement style="flex-grow: 0; -unity-text-align: upper-left; align-items: auto;">
-                <FH.UI.SquareButton Label="BACK" name="BackButton" style="position: absolute; width: 300px;" />
+            <ui:VisualElement style="flex-grow: 0; -unity-text-align: upper-left; align-items: auto; visibility: hidden; display: flex;">
+                <FH.UI.SquareButton Label="BACK" name="BackButton" style="position: absolute; width: 300px; visibility: hidden;" />
                 <FH.UI.LocalizedLabel tabindex="-1" Label="LEVEL_SELECT_TITLE" IsLocalizable="true" picking-mode="Ignore" class="fancy cool-text" style="flex-grow: 1; align-self: stretch; align-items: auto; -unity-text-align: middle-center; font-size: 70px;" />
             </ui:VisualElement>
             <ui:VisualElement style="flex-grow: 1; margin-top: 40px; align-items: auto; overflow: visible;">

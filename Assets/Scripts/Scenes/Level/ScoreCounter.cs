@@ -35,7 +35,7 @@ namespace FH.Level {
         }
 
         private void IncreaseMismatch() {
-            Mismatch++;
+            //Mismatch++;
         }
 
         public void Reset() {

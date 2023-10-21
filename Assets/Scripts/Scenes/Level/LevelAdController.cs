@@ -31,7 +31,7 @@ namespace FH.Level {
             _findPairIsRunning = true;
             bool shouldUse = false;
 
-            if (_currentPairUsage <= 0 && await ShowAd()) {
+            if (_currentPairUsage <= 0) {
                 if (await ShowAd()) {
                     shouldUse = true;
                     _currentPairUsage += _findPairAdUsage;
@@ -66,7 +66,6 @@ namespace FH.Level {
             if (_currentPeekUsage <= 0) {
                 if (await ShowAd())
                 {
-                    shouldUse = true;
                     _currentPeekUsage += _peekAdUsage;
                     YandexGamesManager.CallYandexMetric("EyeReceived");
                 }

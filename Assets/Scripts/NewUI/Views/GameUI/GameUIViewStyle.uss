@@ -1,10 +1,10 @@
 .pause-button > .background > .icon {
-    background-image: url('project://database/Assets/Images/Sprites/Pause.png?fileID=21300000&guid=92ba61c3afaed294d96732393a338142&type=3#Pause');
+    background-image: url('project://database/Assets/Images/BeachAnimeGirls/Sprites/Pause.png?fileID=21300000&guid=92ba61c3afaed294d96732393a338142&type=3#Pause');
     -unity-background-scale-mode: scale-to-fit;
 }
 
 .reset-button > .background > .icon {
-    background-image: url('project://database/Assets/Images/Sprites/Refresh.png?fileID=21300000&guid=a20b4e5c6850db347a876c28e963e2aa&type=3#Refresh');
+    background-image: url('project://database/Assets/Images/BeachAnimeGirls/Sprites/Refresh.png?fileID=21300000&guid=a20b4e5c6850db347a876c28e963e2aa&type=3#Refresh');
     transition-duration: 100ms;
     transition-property: rotate;
 }
@@ -59,18 +59,18 @@
 }
 
 .peek-button > .background > .icon {
-    background-image: url('project://database/Assets/Images/Sprites/EyeIcon.png?fileID=21300000&guid=9735bfa6612e8b543bf18cc134b85ec8&type=3#EyeIcon');
+    background-image: url('project://database/Assets/Images/BeachAnimeGirls/Sprites/EyeIcon.png?fileID=21300000&guid=9735bfa6612e8b543bf18cc134b85ec8&type=3#EyeIcon');
     -unity-background-scale-mode: scale-to-fit;
 }
 
 .find-button > .background > .icon {
-    background-image: url('project://database/Assets/Images/Sprites/SearchIcon.png?fileID=21300000&guid=ce0993e3fa4f9494ab7003976bf848ba&type=3#SearchIcon');
+    background-image: url('project://database/Assets/Images/BeachAnimeGirls/Sprites/SearchIcon.png?fileID=21300000&guid=ce0993e3fa4f9494ab7003976bf848ba&type=3#SearchIcon');
     -unity-background-scale-mode: scale-to-fit;
 }
 
 .ad-icon {
     flex-grow: 0;
-    background-image: url('project://database/Assets/Images/Sprites/AdIcon.png?fileID=21300000&guid=2b58e8c380c224e4490a4652706a1115&type=3#AdIcon');
+    background-image: url('project://database/Assets/Images/BeachAnimeGirls/Sprites/AdIcon.png?fileID=21300000&guid=2b58e8c380c224e4490a4652706a1115&type=3#AdIcon');
     width: 70px;
     height: 70px;
     -unity-background-scale-mode: scale-to-fit;
@@ -80,7 +80,7 @@
 
 .ad-icon-front {
     flex-grow: 0;
-    background-image: url('project://database/Assets/Images/Sprites/AdIcon.png?fileID=21300000&guid=2b58e8c380c224e4490a4652706a1115&type=3#AdIcon');
+    background-image: url('project://database/Assets/Images/BeachAnimeGirls/Sprites/AdIcon.png?fileID=21300000&guid=2b58e8c380c224e4490a4652706a1115&type=3#AdIcon');
     width: 70px;
     height: 70px;
     -unity-background-scale-mode: scale-to-fit;

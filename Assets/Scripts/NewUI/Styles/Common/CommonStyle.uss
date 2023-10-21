@@ -1,16 +1,5 @@
 :root {
-    --text-color: rgb(255, 255, 255);
-    --shadow-color: rgba(0, 0, 0, 0.3);
-    --focused-button-border-color: rgb(21, 197, 197);
     --border-width: 10px;
-    
-    --button-border-color: var(--primary-3);
-
-    --primary: #925DD3;
-    --primary-2: #554e74;
-    --primary-3: #39284A;
-
-    --secondary: #fff;
 
     --default-font: resource('FiraSans/FiraSans SDF');
     --fancy-font: resource('BalsamiqSans SDF');

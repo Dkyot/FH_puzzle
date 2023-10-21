@@ -1,0 +1,56 @@
+.rang {
+    font-size: 250px;
+    -unity-text-align: middle-center;
+    -unity-font-style: bold;
+    -unity-text-outline-width: 12px;
+    -unity-text-outline-color: var(--primary-3);
+    text-shadow: -10px 10px 0 var(--shadow-color);
+    -unity-font-definition: var(--default-font);
+    letter-spacing: -25px;
+    rotate: 5deg;
+}
+
+.rang-animation {
+    transition-duration: 1s;
+}
+
+.rang-transition {
+    scale: 1.2;
+    opacity: 0;
+}
+
+.rang-transition > .rang-ss,
+.rang-transition > .rang-s,
+.rang-transition > .rang-a,
+.rang-transition > .rang-b,
+.rang-transition > .rang-c,
+.rang-transition > .rang-d {
+    -unity-text-outline-color: rgba(255, 255, 255, 0);
+    text-shadow: -10px 10px 0 rgba(255, 255, 255, 0);
+    color: rgba(255, 255, 255, 0);
+}
+
+.rang-ss, .rang-s {
+    color: #e5c02b;
+    -unity-text-outline-color: rgb(134, 101, 13);
+}
+
+.rang-a {
+    color: #b70520;
+    -unity-text-outline-color: rgb(112, 4, 4);
+}
+
+.rang-b {
+    color: #2745ce;
+    -unity-text-outline-color: rgb(5, 43, 126);
+}
+
+.rang-c {
+    color: #32ce27;
+    -unity-text-outline-color: rgb(5, 126, 15);
+}
+
+.rang-d {
+    color: #ab6417;
+    -unity-text-outline-color: rgb(126, 84, 5);
+}

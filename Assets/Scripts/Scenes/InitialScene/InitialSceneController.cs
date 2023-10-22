@@ -76,7 +76,6 @@ namespace FH.Init {
 
             // Load Main Menu
             await LoadMainMenuScene();
-            YandexGamesManager.ApiReady();
         }
 
         private Awaitable LoadMainMenuScene() {
@@ -148,6 +147,7 @@ namespace FH.Init {
 
         private async Awaitable EnterScene() {
             await StartTransition();
+            YandexGamesManager.ApiReady();
             HideLoadingScreen();
             _gameContext.SceneManagerProxy.SceneController.StartScene();
         }

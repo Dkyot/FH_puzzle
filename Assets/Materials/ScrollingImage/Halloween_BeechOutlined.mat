@@ -87,12 +87,12 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _BGColor: {r: 0.14150941, g: 0.05616611, b: 0.035377353, a: 1}
+    - _BGColor: {r: 0.103773594, g: 0.08879837, b: 0.08370417, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DirectionNSpeed: {r: 0, g: 0.3, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _InsideColor: {r: 0.3490566, g: 0.16081807, b: 0.11031505, a: 1}
-    - _OutlineColor: {r: 0.05660379, g: 0.05660379, b: 0.05660379, a: 1}
+    - _InsideColor: {r: 0.13207549, g: 0.13207549, b: 0.13207549, a: 1}
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _Tiling: {r: 7, g: 7, b: 0, a: 0}
     - _Tilling: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []

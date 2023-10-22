@@ -330,8 +330,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c992dd7a3e11304baa3c02e05bcd50e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mainMenuScene: NewMainMenu
-  _levelScene: GameLevelScene
+  _mainMenuScene: MainMenu
+  _levelScene: LevelScene
   _gameContext: {fileID: 11400000, guid: e6e5a395ae8fa894ca3fe345a83556a5, type: 2}
   _settings: {fileID: 11400000, guid: b4992057bcc22b049b520d071541a6b9, type: 2}
   _uiDocument: {fileID: 123454060}

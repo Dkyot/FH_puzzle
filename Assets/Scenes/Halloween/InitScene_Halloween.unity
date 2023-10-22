@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PanelSettings: {fileID: 11400000, guid: ed69b70b8aa29f04dbd52719a4d621ac, type: 2}
+  m_PanelSettings: {fileID: 11400000, guid: 0cd74098007da9f49823cd8a9fdf9a9f, type: 2}
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: 20552655775454b458c64a3a0fe03a52, type: 3}
   m_SortingOrder: 1
@@ -301,6 +301,74 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transitionTemplate: {fileID: 5276914992623515724, guid: 616d511151a6c554caddf1c754e4f91d, type: 3}
+--- !u!1001 &881181249
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 411228976356754582, guid: 85394b40d7edb2842854e1fc14692e61, type: 3}
+      propertyPath: m_Name
+      value: Halloween_ScrollingBgSetup
+      objectReference: {fileID: 0}
+    - target: {fileID: 7767005616650172724, guid: 85394b40d7edb2842854e1fc14692e61, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7767005616650172724, guid: 85394b40d7edb2842854e1fc14692e61, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7767005616650172724, guid: 85394b40d7edb2842854e1fc14692e61, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7767005616650172724, guid: 85394b40d7edb2842854e1fc14692e61, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7767005616650172724, guid: 85394b40d7edb2842854e1fc14692e61, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7767005616650172724, guid: 85394b40d7edb2842854e1fc14692e61, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7767005616650172724, guid: 85394b40d7edb2842854e1fc14692e61, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7767005616650172724, guid: 85394b40d7edb2842854e1fc14692e61, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7767005616650172724, guid: 85394b40d7edb2842854e1fc14692e61, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7767005616650172724, guid: 85394b40d7edb2842854e1fc14692e61, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 85394b40d7edb2842854e1fc14692e61, type: 3}
+--- !u!114 &881181250 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1560780883296810152, guid: 85394b40d7edb2842854e1fc14692e61, type: 3}
+  m_PrefabInstance: {fileID: 881181249}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9035150e5b5ea5543aedd5a52c1e8a27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1289836684
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,13 +398,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c992dd7a3e11304baa3c02e05bcd50e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mainMenuScene: MainMenu
-  _levelScene: LevelScene
+  _mainMenuScene: MainMenu_Halloween
+  _levelScene: LevelScene_Halloween
   _gameContext: {fileID: 11400000, guid: e6e5a395ae8fa894ca3fe345a83556a5, type: 2}
   _settings: {fileID: 11400000, guid: b4992057bcc22b049b520d071541a6b9, type: 2}
   _uiDocument: {fileID: 123454060}
-  _transitionSettings: {fileID: 11400000, guid: b37bc597928caab4cbf90645c875fd0f, type: 2}
-  _textureController: {fileID: 1700396896}
+  _transitionSettings: {fileID: 11400000, guid: 41fe91d4125e57841833298e8fb9b953, type: 2}
+  _textureController: {fileID: 881181250}
 --- !u!4 &1289836686
 Transform:
   m_ObjectHideFlags: 0
@@ -443,82 +511,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _settings: {fileID: 11400000, guid: b4992057bcc22b049b520d071541a6b9, type: 2}
---- !u!1001 &1661968417
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 411228976356754582, guid: 8f44efa456066e44a84c3b344ce25bbd, type: 3}
-      propertyPath: m_Name
-      value: ScrollingBgSetup
-      objectReference: {fileID: 0}
-    - target: {fileID: 411228976356754582, guid: 8f44efa456066e44a84c3b344ce25bbd, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1706986000818666781, guid: 8f44efa456066e44a84c3b344ce25bbd, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 23742e2341db2b24095945675a6c0a26, type: 2}
-    - target: {fileID: 7767005616650172724, guid: 8f44efa456066e44a84c3b344ce25bbd, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 7767005616650172724, guid: 8f44efa456066e44a84c3b344ce25bbd, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 7767005616650172724, guid: 8f44efa456066e44a84c3b344ce25bbd, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7767005616650172724, guid: 8f44efa456066e44a84c3b344ce25bbd, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7767005616650172724, guid: 8f44efa456066e44a84c3b344ce25bbd, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7767005616650172724, guid: 8f44efa456066e44a84c3b344ce25bbd, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7767005616650172724, guid: 8f44efa456066e44a84c3b344ce25bbd, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7767005616650172724, guid: 8f44efa456066e44a84c3b344ce25bbd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7767005616650172724, guid: 8f44efa456066e44a84c3b344ce25bbd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7767005616650172724, guid: 8f44efa456066e44a84c3b344ce25bbd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 8f44efa456066e44a84c3b344ce25bbd, type: 3}
---- !u!114 &1700396896 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1560780883296810152, guid: 8f44efa456066e44a84c3b344ce25bbd, type: 3}
-  m_PrefabInstance: {fileID: 1661968417}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9035150e5b5ea5543aedd5a52c1e8a27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -527,7 +519,7 @@ SceneRoots:
   - {fileID: 517859020}
   - {fileID: 1614967275}
   - {fileID: 123454061}
-  - {fileID: 1661968417}
+  - {fileID: 881181249}
   - {fileID: 1606111105}
   - {fileID: 499471709}
   - {fileID: 467230831}

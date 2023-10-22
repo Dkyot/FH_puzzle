@@ -13,7 +13,7 @@
                 <FH.UI.LocalizedLabel name="NoPhotoLabel" Label="NO_PHOTO" class="fancy cool-text" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; font-size: 70px; -unity-text-align: middle-center;" />
             </ui:VisualElement>
         </FH.UI.SafeArea>
-        <ui:VisualElement name="ImageView" style="flex-grow: 1; position: absolute; top: 0; bottom: 0; left: 0; right: 0; background-color: rgba(0, 0, 0, 0.39); -unity-background-scale-mode: scale-to-fit;">
+        <ui:VisualElement name="ImageView" style="flex-grow: 1; position: absolute; top: 0; bottom: 0; left: 0; right: 0; background-color: rgba(0, 0, 0, 0.39); -unity-background-scale-mode: scale-to-fit; display: none;">
             <ui:VisualElement name="ImageContainer" style="flex-grow: 1; position: absolute; top: 0; right: 0; left: 0; bottom: 0; background-image: none; -unity-background-scale-mode: scale-to-fit; margin-top: 5%; margin-right: 5%; margin-bottom: 5%; margin-left: 5%;" />
         </ui:VisualElement>
     </FH.UI.Views.Gallery.GalleryView>

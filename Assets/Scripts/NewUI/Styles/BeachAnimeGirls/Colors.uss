@@ -5,6 +5,8 @@
     
     --button-border-color: var(--primary-3);
 
+    --card-background-color: rgba(169, 132, 214, 0.4);
+
     --primary: #925DD3;
     --primary-2: #554e74;
     --primary-3: #39284A;

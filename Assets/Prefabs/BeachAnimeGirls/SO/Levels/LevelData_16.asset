@@ -19,7 +19,7 @@ MonoBehaviour:
     <UseTwoPair>k__BackingField: 0
   <LevelImage>k__BackingField:
     m_AssetGUID: fed5a95f332d1744887cbbec5fc6995d
-    m_SubObjectName: ApZOOLJw4UI_0
+    m_SubObjectName: ApZOOLJw4UI
     m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
     m_EditorAssetChanged: 1

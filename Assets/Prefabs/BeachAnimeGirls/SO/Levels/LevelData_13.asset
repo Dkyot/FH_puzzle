@@ -19,7 +19,7 @@ MonoBehaviour:
     <UseTwoPair>k__BackingField: 0
   <LevelImage>k__BackingField:
     m_AssetGUID: 14f2f48000d7b504d9c56395f4b90ecd
-    m_SubObjectName: 1dls-gMdJas_0
+    m_SubObjectName: 1dls-gMdJas
     m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
     m_EditorAssetChanged: 1

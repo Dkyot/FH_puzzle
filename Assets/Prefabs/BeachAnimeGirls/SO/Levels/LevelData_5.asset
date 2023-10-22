@@ -19,7 +19,7 @@ MonoBehaviour:
     <UseTwoPair>k__BackingField: 0
   <LevelImage>k__BackingField:
     m_AssetGUID: 46195a7d8194a964bb494e5eb7d8fa65
-    m_SubObjectName: lDAHicJ-Sfk_0
+    m_SubObjectName: lDAHicJ-Sfk
     m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
     m_EditorAssetChanged: 1

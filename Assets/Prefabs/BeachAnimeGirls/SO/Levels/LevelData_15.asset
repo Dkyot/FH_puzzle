@@ -19,7 +19,7 @@ MonoBehaviour:
     <UseTwoPair>k__BackingField: 0
   <LevelImage>k__BackingField:
     m_AssetGUID: a13a0ed0ca610c14097d7b7aa5c5e6eb
-    m_SubObjectName: xrNqDJdAva4_0
+    m_SubObjectName: xrNqDJdAva4
     m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
     m_EditorAssetChanged: 1

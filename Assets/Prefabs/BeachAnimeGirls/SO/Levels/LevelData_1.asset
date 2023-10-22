@@ -19,9 +19,9 @@ MonoBehaviour:
     <UseTwoPair>k__BackingField: 0
   <LevelImage>k__BackingField:
     m_AssetGUID: 4b0477cea955dc04d9fd28c8e70a633d
-    m_SubObjectName: RSzpM5gMXWU_0
+    m_SubObjectName: RSzpM5gMXWU
     m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
     m_EditorAssetChanged: 1
-  score: 0
-  isCompleted: 0
+  score: 7992.8384
+  isCompleted: 1

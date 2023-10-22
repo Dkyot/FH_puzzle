@@ -19,7 +19,7 @@ MonoBehaviour:
     <UseTwoPair>k__BackingField: 0
   <LevelImage>k__BackingField:
     m_AssetGUID: 438c60c6e9376cc4e8b75ee6dacd22ce
-    m_SubObjectName: 8S3GH-rlJj8_0
+    m_SubObjectName: 8S3GH-rlJj8
     m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
     m_EditorAssetChanged: 1

@@ -54,5 +54,5 @@ namespace EasyTransition
         public GameObject transitionOut;
     }
 
-    public enum ColorTintMode { Multiply, Add }
+    public enum ColorTintMode { Multiply, Add, None }
 }

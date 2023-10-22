@@ -8,7 +8,7 @@ namespace EasyTransition
     public class Transition : MonoBehaviour
     {
         public TransitionSettings transitionSettings;
-        
+
         public Transform transitionPanelIN;
         public Transform transitionPanelOUT;
 
@@ -44,38 +44,7 @@ namespace EasyTransition
                 Debug.LogWarning("There are no color tint materials set for the transition. Changing the color tint will not affect the transition anymore!");
 
             //Changing the color of the transition
-            if (!transitionSettings.isCutoutTransition)
-            {
-                if (transitionIn.TryGetComponent<Image>(out Image parentImage))
-                {
-                    if (transitionSettings.colorTintMode == ColorTintMode.Multiply)
-                    {
-                        parentImage.material = multiplyColorMaterial;
-                        parentImage.material.SetColor("_Color", transitionSettings.colorTint);
-                    }
-                    else if (transitionSettings.colorTintMode == ColorTintMode.Add)
-                    {
-                        parentImage.material = additiveColorMaterial;
-                        parentImage.material.SetColor("_Color", transitionSettings.colorTint);
-                    }
-                }
-                for (int i = 0; i < transitionIn.transform.childCount; i++)
-                {
-                    if (transitionIn.transform.GetChild(i).TryGetComponent<Image>(out Image childImage))
-                    {
-                        if (transitionSettings.colorTintMode == ColorTintMode.Multiply)
-                        {
-                            childImage.material = multiplyColorMaterial;
-                            childImage.material.SetColor("_Color", transitionSettings.colorTint);
-                        }
-                        else if (transitionSettings.colorTintMode == ColorTintMode.Add)
-                        {
-                            childImage.material = additiveColorMaterial;
-                            childImage.material.SetColor("_Color", transitionSettings.colorTint);
-                        }
-                    }
-                }
-            }
+            SetupMaterial(transitionIn);
 
             //Flipping the scale if needed
             if (transitionSettings.flipX)
@@ -90,13 +59,52 @@ namespace EasyTransition
             {
                 for (int c = 0; c < transitionIn.transform.childCount; c++)
                 {
-                    if(transitionIn.transform.GetChild(c).TryGetComponent<Animator>(out Animator childAnim) && transitionSettings.transitionSpeed != 0)
+                    if (transitionIn.transform.GetChild(c).TryGetComponent<Animator>(out Animator childAnim) && transitionSettings.transitionSpeed != 0)
                         childAnim.speed = transitionSettings.transitionSpeed;
                 }
             }
 
             //Adding the funcion OnSceneLoad() to the sceneLoaded action
             SceneManager.sceneLoaded += OnSceneLoad;
+        }
+
+        private void SetupMaterial(GameObject transitionIn)
+        {
+            if (transitionSettings.isCutoutTransition ||
+                transitionSettings.colorTintMode == ColorTintMode.None) return;
+
+
+            if (transitionIn.TryGetComponent<Image>(out Image parentImage))
+            {
+                if (transitionSettings.colorTintMode == ColorTintMode.Multiply)
+                {
+                    parentImage.material = multiplyColorMaterial;
+                    parentImage.material.SetColor("_Color", transitionSettings.colorTint);
+                }
+                else if (transitionSettings.colorTintMode == ColorTintMode.Add)
+                {
+                    parentImage.material = additiveColorMaterial;
+                    parentImage.material.SetColor("_Color", transitionSettings.colorTint);
+                }
+            }
+            
+            for (int i = 0; i < transitionIn.transform.childCount; i++)
+            {
+                if (transitionIn.transform.GetChild(i).TryGetComponent<Image>(out Image childImage))
+                {
+                    if (transitionSettings.colorTintMode == ColorTintMode.Multiply)
+                    {
+                        childImage.material = multiplyColorMaterial;
+                        childImage.material.SetColor("_Color", transitionSettings.colorTint);
+                    }
+                    else if (transitionSettings.colorTintMode == ColorTintMode.Add)
+                    {
+                        childImage.material = additiveColorMaterial;
+                        childImage.material.SetColor("_Color", transitionSettings.colorTint);
+                    }
+                }
+            }
+
         }
 
         public void OnSceneLoad(Scene scene, LoadSceneMode mode)

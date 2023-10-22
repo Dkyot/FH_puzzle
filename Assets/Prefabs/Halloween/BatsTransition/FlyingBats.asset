@@ -16,7 +16,7 @@ MonoBehaviour:
   addColorMaterial: {fileID: 2100000, guid: 65ccb7b6cbefce14eb6f884cfc33ba91, type: 2}
   refrenceResolution: {x: 1920, y: 1080}
   blockRaycasts: 1
-  colorTintMode: 0
+  colorTintMode: 2
   colorTint: {r: 0, g: 0, b: 0, a: 1}
   isCutoutTransition: 0
   transitionSpeed: 1
@@ -25,5 +25,5 @@ MonoBehaviour:
   flipY: 0
   transitionTime: 1.5
   destroyTime: 1
-  transitionIn: {fileID: 501235885848192162, guid: c5b2e94e6bffb5b439acdde933b11119, type: 3}
-  transitionOut: {fileID: 410111082859399802, guid: d9754df4f4552434ebabf3c3bc272441, type: 3}
+  transitionIn: {fileID: 501235885848192162, guid: 8bf44cbd2b8dec84a9ec303f38c30092, type: 3}
+  transitionOut: {fileID: 410111082859399802, guid: fab36496626ec1944a3aa28b6e189907, type: 3}

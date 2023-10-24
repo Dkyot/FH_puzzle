@@ -1,0 +1,14 @@
+:root {
+    --text-color: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    
+    --button-border-color: var(--primary-3);
+
+    --card-background-color: rgba(129, 30, 3, 0.308);
+
+    --primary: #CD7F4F;
+    --primary-2: #A84327;
+    --primary-3: #7a2c19;
+
+    --secondary: #ffffff;
+}

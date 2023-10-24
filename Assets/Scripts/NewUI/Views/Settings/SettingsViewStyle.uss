@@ -34,7 +34,7 @@ SettingsView {
 .settings-section {
     padding: 2%;
     border-radius: 20px;
-    background-color: rgba(169, 132, 214, 0.4);
+    background-color: var(--card-background-color);
     border-width: 10px;
     border-color: var(--primary-3);
 }

@@ -1,6 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
     <Style src="project://database/Assets/Scripts/NewUI/Views/MainMenu/MainMenuViewStyle.uss?fileID=7433441132597879392&amp;guid=f3683f1169294e818982a315529fcb10&amp;type=3#MainMenuViewStyle" />
-    <FH.UI.Views.MainMenu.MainMenuView picking-mode="Ignore" style="background-image: url(&apos;project://database/Assets/Images/MainMenu/MainBackground.png?fileID=2800000&amp;guid=9744740a23e32394a9014da837f65c0f&amp;type=3#MainBackground&apos;); -unity-background-scale-mode: scale-and-crop;">
+    <FH.UI.Views.MainMenu.MainMenuView picking-mode="Ignore" style="background-image: url(&apos;project://database/Assets/Images/BeachAnimeGirls/MainMenu/MainBackground.png?fileID=2800000&amp;guid=9744740a23e32394a9014da837f65c0f&amp;type=3#MainBackground&apos;); -unity-background-scale-mode: scale-and-crop;">
         <ui:VisualElement name="Menu" picking-mode="Ignore" style="left: auto; top: 0; right: 0; bottom: 0; position: absolute; justify-content: flex-end; align-items: auto;">
             <ui:VisualElement name="ButtonsContainer" picking-mode="Ignore" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); justify-content: flex-start; align-items: auto; align-self: auto; flex-direction: column; height: 50%;">
                 <FH.UI.RoundButton Label="PLAY" name="PlayButton" IsLocalizable="true" style="flex-grow: 0;" />

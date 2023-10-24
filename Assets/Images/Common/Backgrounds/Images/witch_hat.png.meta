@@ -176,7 +176,9 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      witch_hat_0: 6415480790753033552
+      witch_hat_1: 5018979333275843435
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

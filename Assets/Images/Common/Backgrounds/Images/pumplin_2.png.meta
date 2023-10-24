@@ -152,7 +152,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pumplin_2_0: 7316837035589965103
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

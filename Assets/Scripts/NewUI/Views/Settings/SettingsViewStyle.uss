@@ -52,13 +52,13 @@ SettingsView {
 }
 
 .left-button > .background > .icon {
-    background-image: url('project://database/Assets/Images/BeachAnimeGirls/Sprites/Triangle-L.png?fileID=21300000&guid=f9f000d68671c1647b4d51361e63fa72&type=3#Triangle-L');
+    background-image: url('project://database/Assets/Images/Common/UI/Triangle-L.png?fileID=21300000&guid=f9f000d68671c1647b4d51361e63fa72&type=3#Triangle-L');
     width: 30px;
     height: 30px;
 }
 
 .right-button > .background > .icon {
-    background-image: url('project://database/Assets/Images/BeachAnimeGirls/Sprites/Triangle-R.png?fileID=21300000&guid=0ea884704e2b55b4a99d6802b3f9230d&type=3#Triangle-R');
+    background-image: url('project://database/Assets/Images/Common/UI/Triangle-R.png?fileID=21300000&guid=0ea884704e2b55b4a99d6802b3f9230d&type=3#Triangle-R');
     -unity-background-scale-mode: scale-to-fit;
     width: 30px;
     height: 30px;

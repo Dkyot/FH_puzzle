@@ -152,7 +152,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Halloween_Arrow_0: 7395911554431356965
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

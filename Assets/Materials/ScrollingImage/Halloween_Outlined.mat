@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Halloween_BackgroundOutlined
-  m_Shader: {fileID: -6465566751694194690, guid: d8617d303b472874b94638b927573703, type: 3}
+  m_Name: Halloween_Outlined
+  m_Shader: {fileID: -6465566751694194690, guid: 4157977647e1d594584d7c80710114af, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -60,12 +60,12 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture2D:
-        m_Texture: {fileID: 2800000, guid: a10074d3c862ef94f9ef5c53976f3e7f, type: 3}
+        m_Texture: {fileID: 2800000, guid: e39d98258b9ed7349896b03c082a3d42, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Angle: -3.7
+    - _Angle: 3.7
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
     - _BumpScale: 1
@@ -87,14 +87,14 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _BGColor: {r: 0.14117648, g: 0.054901965, b: 0.03529412, a: 1}
+    - _BGColor: {r: 0.11372549, g: 0.08235294, b: 0.07450981, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DirectionNSpeed: {r: 0, g: 0.3, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _InsideColor: {r: 0.34901962, g: 0.16078432, b: 0.10980393, a: 1}
-    - _OutlineColor: {r: 0.05490196, g: 0.05490196, b: 0.05490196, a: 1}
-    - _Tiling: {r: 300, g: 300, b: 0, a: 0}
-    - _Tilling: {r: 1, g: 1, b: 0, a: 0}
+    - _InsideColor: {r: 0.16078432, g: 0.10980392, b: 0.09803922, a: 1}
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Tiling: {r: 7, g: 7, b: 0, a: 0}
+    - _Tilling: {r: 7, g: 7, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &4640405237342245650
 MonoBehaviour:

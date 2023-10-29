@@ -156,7 +156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PanelSettings: {fileID: 11400000, guid: 0cd74098007da9f49823cd8a9fdf9a9f, type: 2}
   m_ParentUI: {fileID: 0}
-  sourceAsset: {fileID: 9197481963319205126, guid: 6afc7ce3f7164164ea3fc25d190ef9da, type: 3}
+  sourceAsset: {fileID: 9197481963319205126, guid: 199a7cabc802bc9438ac145c19e6c40e, type: 3}
   m_SortingOrder: 0
 --- !u!4 &192632329
 Transform:

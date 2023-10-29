@@ -100,3 +100,29 @@ MainMenuView .title-container {
     justify-content: center;
     top: 5%;
 }
+
+.scull__outline {
+    flex-grow: 0;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url('project://database/Assets/Images/Common/UI/FunnyScull.png?fileID=21300000&guid=fed5264af68a25e4b9888c31e0f0d650&type=3#FunnyScull');
+    width: 70px;
+    height: 70px;
+    -unity-background-image-tint-color: var(--primary-3);
+    -unity-background-scale-mode: stretch-to-fill;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.scull {
+    flex-grow: 0;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url('project://database/Assets/Images/Common/UI/FunnyScull.png?fileID=21300000&guid=fed5264af68a25e4b9888c31e0f0d650&type=3#FunnyScull');
+    width: 60px;
+    height: 60px;
+    -unity-background-image-tint-color: var(--primary);
+    -unity-background-scale-mode: scale-to-fit;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,0 +1,21 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
+    <Style src="project://database/Assets/Scripts/NewUI/Views/MainMenu/MainMenuViewStyle.uss?fileID=7433441132597879392&amp;guid=f3683f1169294e818982a315529fcb10&amp;type=3#MainMenuViewStyle" />
+    <FH.UI.Views.MainMenu.MainMenuView picking-mode="Ignore" style="background-image: none; -unity-background-scale-mode: scale-and-crop;">
+        <ui:VisualElement name="Menu" picking-mode="Ignore" style="left: auto; top: 0; right: 0; bottom: 0; position: absolute; justify-content: flex-end; align-items: auto;">
+            <ui:VisualElement name="ButtonsContainer" picking-mode="Ignore" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); justify-content: flex-start; align-items: auto; align-self: auto; flex-direction: column; height: 50%;">
+                <FH.UI.RoundButton Label="PLAY" name="PlayButton" IsLocalizable="true" style="flex-grow: 0;" />
+                <FH.UI.RoundButton Label="GALLERY" name="GalleryButton" class="reversed-rotate" />
+                <FH.UI.RoundButton Label="SETTINGS" name="SettingsButton" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <FH.UI.MovingContainer name="MovingContainer" picking-mode="Ignore" class="title-container">
+            <ui:VisualElement class="scull__outline" style="margin-right: 10px;">
+                <ui:VisualElement class="scull" />
+            </ui:VisualElement>
+            <FH.UI.LocalizedLabel name="Title" Label="HALLOWEEN_GAME_TITLE" class="fancy" style="-unity-text-align: middle-center;" />
+            <ui:VisualElement class="scull__outline" style="margin-left: 10px;">
+                <ui:VisualElement class="scull" />
+            </ui:VisualElement>
+        </FH.UI.MovingContainer>
+    </FH.UI.Views.MainMenu.MainMenuView>
+</ui:UXML>

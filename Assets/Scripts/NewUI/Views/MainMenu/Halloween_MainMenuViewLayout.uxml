@@ -10,10 +10,12 @@
         </ui:VisualElement>
         <FH.UI.MovingContainer name="MovingContainer" picking-mode="Ignore" class="title-container">
             <ui:VisualElement class="scull__outline" style="margin-right: 10px;">
+                <ui:VisualElement class="scull__filler" />
                 <ui:VisualElement class="scull" />
             </ui:VisualElement>
             <FH.UI.LocalizedLabel name="Title" Label="HALLOWEEN_GAME_TITLE" class="fancy" style="-unity-text-align: middle-center;" />
             <ui:VisualElement class="scull__outline" style="margin-left: 10px;">
+                <ui:VisualElement class="scull__filler" />
                 <ui:VisualElement class="scull" />
             </ui:VisualElement>
         </FH.UI.MovingContainer>

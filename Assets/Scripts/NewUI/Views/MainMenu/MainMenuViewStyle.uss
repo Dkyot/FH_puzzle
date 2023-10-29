@@ -126,3 +126,11 @@ MainMenuView .title-container {
     align-items: center;
     justify-content: center;
 }
+
+.scull__filler {
+    flex-grow: 0;
+    background-color: var(--primary-3);
+    width: 45px;
+    height: 40px;
+    position: absolute;
+}

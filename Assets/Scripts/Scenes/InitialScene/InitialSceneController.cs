@@ -11,6 +11,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 using YandexSDK.Scripts;
 using UnityEngine.Localization.Settings;
+using FH.Sound;
 
 namespace FH.Init {
     public sealed class InitialSceneController : MonoBehaviour {
@@ -25,6 +26,9 @@ namespace FH.Init {
         [Header("Level References")]
         [SerializeField] private UIDocument _uiDocument;
         [SerializeField] private TransitionSettings _transitionSettings;
+
+        [Header("Sounds")]
+        [SerializeField] private AudioClip _transitionSound;
 
         private readonly SettingsObserver _settingsObserver = new SettingsObserver();
 
@@ -151,9 +155,16 @@ namespace FH.Init {
             _gameContext.SceneManagerProxy.SceneController.StartScene();
         }
 
-        private Awaitable StartTransition() {
+        private async Awaitable StartTransition() {
             TransitionManager.Instance().Transition(_transitionSettings, 0);
-            return Awaitable.WaitForSecondsAsync(1f);
+
+            if (_transitionSound != null)
+                SoundManager.Instance.PlayOneShot(_transitionSound);
+
+            await Awaitable.WaitForSecondsAsync(_transitionSettings.transitionTime);
+
+            if (_transitionSound != null)
+                SoundManager.Instance.PlayOneShot(_transitionSound);
         }
 
 

@@ -305,6 +305,7 @@ MonoBehaviour:
   _settings: {fileID: 11400000, guid: b4992057bcc22b049b520d071541a6b9, type: 2}
   _uiDocument: {fileID: 123454060}
   _transitionSettings: {fileID: 11400000, guid: 41fe91d4125e57841833298e8fb9b953, type: 2}
+  _transitionSound: {fileID: 8300000, guid: 6bc99472b95c1e84fb770b0ea31c32c1, type: 3}
 --- !u!4 &1289836686
 Transform:
   m_ObjectHideFlags: 0

@@ -25,7 +25,6 @@ namespace FH.Init {
         [Header("Level References")]
         [SerializeField] private UIDocument _uiDocument;
         [SerializeField] private TransitionSettings _transitionSettings;
-        [SerializeField] private ScrollingBgTextureController _textureController;
 
         private readonly SettingsObserver _settingsObserver = new SettingsObserver();
 
@@ -160,12 +159,12 @@ namespace FH.Init {
 
         private void ShowLoadingScreen() {
             _uiDocument.enabled = true;
-            _textureController.EnableRendering();
+            ScrollingBgTextureController.Instance.EnableRendering();
         }
 
         private void HideLoadingScreen() {
             _uiDocument.enabled = false;
-            _textureController.DisableRendering();
+            ScrollingBgTextureController.Instance.DisableRendering();
         }
     }
 }

@@ -15,6 +15,7 @@
 .photo-card-label-container {
     flex-grow: 0;
     height: 70px;
+    justify-content: flex-end;
     flex-direction: row;
 }
 

@@ -395,7 +395,7 @@ MonoBehaviour:
   _gameContext: {fileID: 11400000, guid: e6e5a395ae8fa894ca3fe345a83556a5, type: 2}
   _galleryController: {fileID: 192632334}
   _levelSelectController: {fileID: 192632335}
-  _music: {fileID: 8300000, guid: bcc86d487a21f4f429ed48b903b6393b, type: 3}
+  _music: {fileID: 8300000, guid: c49f103c550c9e9439e6eead440f818d, type: 3}
 --- !u!4 &879675091
 Transform:
   m_ObjectHideFlags: 0

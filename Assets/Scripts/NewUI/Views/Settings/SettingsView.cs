@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using FH.UI;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static FH.UI.Views.Settings.SettingsViewController;
 
 namespace FH.UI.Views.Settings {
     public sealed class SettingsView : ViewBase {
@@ -16,15 +17,7 @@ namespace FH.UI.Views.Settings {
             remove => _doneButton.clicked -= value;
         }
 
-        public event Action LanguageLeftSwitched {
-            add => _leftLanguageSwitchButton.clicked += value;
-            remove => _leftLanguageSwitchButton.clicked -= value;
-        }
-
-        public event Action LanguageRightSwitched {
-            add => _rightLanguageSwitchButton.clicked += value;
-            remove => _rightLanguageSwitchButton.clicked -= value;
-        }
+        public event Action<LocalizationOption> LanguageSelected;
 
         private Button _doneButton;
 
@@ -32,9 +25,7 @@ namespace FH.UI.Views.Settings {
         private SimpleSlider _musicSlider;
         private SimpleSlider _sfxSlider;
 
-        private LocalizedLabel _languageLabel;
-        private Button _leftLanguageSwitchButton;
-        private Button _rightLanguageSwitchButton;
+        private VisualElement _languageContainer;
 
         public override void Show() {
             base.Show();
@@ -61,8 +52,19 @@ namespace FH.UI.Views.Settings {
                 _sfxSlider.value = value;
         }
 
-        public void SetLanguageNameKey(string key) {
-            _languageLabel.Label = key;
+        public void SetLanguages(IEnumerable<LocalizationOption> localizations) {
+            foreach (var language in localizations) {
+                var button = new RoundButton() {
+                    Label = language.localizationNameKey,
+                    IsLocalizable = true
+                };
+
+                button.RegisterCallback<MouseEnterEvent>(OnButtonHovered);
+                button.clicked += () => LanguageSelected?.Invoke(language);
+                button.clicked += InvokeButtonPressed;
+
+                _languageContainer.Add(button);
+            }
         }
 
         protected override void OnInit() {
@@ -72,9 +74,7 @@ namespace FH.UI.Views.Settings {
             _sfxSlider = volumeSection.Q<SimpleSlider>("SFXSlider");
 
             var languageSection = this.Q("LanguageSection");
-            _leftLanguageSwitchButton = languageSection.Q<Button>("LeftLanguageButton");
-            _rightLanguageSwitchButton = languageSection.Q<Button>("RightLanguageButton");
-            _languageLabel = languageSection.Q<LocalizedLabel>("LanguageLabel");
+            _languageContainer = languageSection.Q("LanguageContainer");
 
             _doneButton = this.Q<Button>("DoneButton");
 
@@ -83,12 +83,8 @@ namespace FH.UI.Views.Settings {
             _sfxSlider.RegisterValueChangedCallback(OnSfxValueChanged);
 
             _doneButton.clicked += InvokeButtonPressed;
-            _leftLanguageSwitchButton.clicked += InvokeButtonPressed;
-            _rightLanguageSwitchButton.clicked += InvokeButtonPressed;
 
             _doneButton.RegisterCallback<MouseEnterEvent>(OnButtonHovered);
-            _leftLanguageSwitchButton.RegisterCallback<MouseEnterEvent>(OnButtonHovered);
-            _rightLanguageSwitchButton.RegisterCallback<MouseEnterEvent>(OnButtonHovered);
         }
 
         //private void OnMasterValueChanged(ChangeEvent<float> @event) => MasterValueChanged?.Invoke(@event.newValue);

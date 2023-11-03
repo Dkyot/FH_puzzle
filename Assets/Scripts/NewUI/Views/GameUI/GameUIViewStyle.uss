@@ -18,7 +18,6 @@
 }
 
 .counters-text {
-    -unity-font-style: bold;
     align-self: auto;
     font-size: 40px;
     -unity-text-align: middle-left;

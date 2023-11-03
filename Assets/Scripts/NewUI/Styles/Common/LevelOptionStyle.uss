@@ -16,7 +16,6 @@
     align-items: center;
     flex-grow: 1;
     -unity-text-align: middle-center;
-    -unity-font-style: bold;
     font-size: 70px;
     text-shadow: 2px 2px 0 var(--shadow-color);
 }

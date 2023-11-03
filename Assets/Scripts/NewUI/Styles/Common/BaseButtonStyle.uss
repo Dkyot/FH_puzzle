@@ -38,12 +38,10 @@
 }
 
 .button_text {
-    text-shadow: 0 10px 0 var(--shadow-color);
+    text-shadow: 0 2px 0 var(--shadow-color);
     font-size: 30px;
     width: 100%;
     -unity-text-align: upper-center;
-    -unity-font-style: bold;
     -unity-font: initial;
-    -unity-font-style: bold;
     -unity-font: initial;
 }

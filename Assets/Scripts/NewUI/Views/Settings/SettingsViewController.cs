@@ -37,8 +37,7 @@ namespace FH.UI.Views.Settings {
 
             view.DonePressed += OnDonePressed;
 
-            view.LanguageLeftSwitched += OnLanguageChangedLeft;
-            view.LanguageRightSwitched += OnLanguageChangedRight;
+            view.LanguageSelected += ChangeLanguage;
 
             view.SfxValueChanged += OnSfxVolumeChanged;
             view.MusicValueChanged += OnMusicVolumeChanged;
@@ -58,62 +57,17 @@ namespace FH.UI.Views.Settings {
             LocalYandexData.Instance.SaveData();
         }
 
-        private void OnLanguageChangedLeft() {
-            _currentLanguageIndex--;
-            if (_currentLanguageIndex < 0) {
-                _currentLanguageIndex = _avalibleLanguages.Length - 1;
-            }
-
-            ChangeLanguage();
-        }
-
-        private void OnLanguageChangedRight() {
-            _currentLanguageIndex++;
-            if (_currentLanguageIndex >= _avalibleLanguages.Length) {
-                _currentLanguageIndex = 0;
-            }
-
-            ChangeLanguage();
-        }
         private void Start() {
-            SetCurrentLanguageIndex();
-            view.SetLanguageNameKey(_avalibleLanguages[_currentLanguageIndex].localizationNameKey);
+            view.SetLanguages(_avalibleLanguages);
         }
 
-        private void ChangeLanguage() {
-            var option = _avalibleLanguages[_currentLanguageIndex];
-            view.SetLanguageNameKey(option.localizationNameKey);
-            _settings.LocaleIdentifier = option.localeIdentifier;
+        private void ChangeLanguage(LocalizationOption localizationOption) {
+            _settings.LocaleIdentifier = localizationOption.localeIdentifier;
         }
 
         private void OnDisable() {
             view.DonePressed -= OnDonePressed;
-            view.LanguageLeftSwitched -= OnLanguageChangedLeft;
-            view.LanguageRightSwitched -= OnLanguageChangedRight;
-        }
-
-        private void SetCurrentLanguageIndex() {
-            var locale = _settings.LocaleIdentifier;
-
-            int index = -1;
-            for (int o = 0; o < _avalibleLanguages.Length; o++) {
-                LocalizationOption item = _avalibleLanguages[o];
-                if (locale != item.localeIdentifier)
-                    continue;
-
-                index = o;
-                break;
-            }
-
-            if (index < 0) {
-                Debug.LogError("Current language is not in avaliabe locale list!!!");
-
-                _currentLanguageIndex = 0;
-                _settings.LocaleIdentifier = _avalibleLanguages[_currentLanguageIndex].localeIdentifier;
-            }
-            else {
-                _currentLanguageIndex = index;
-            }
+            view.LanguageSelected -= ChangeLanguage;
         }
 
         [Serializable]

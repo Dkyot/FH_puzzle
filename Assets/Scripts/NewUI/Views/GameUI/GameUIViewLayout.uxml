@@ -24,14 +24,14 @@
                         <ui:VisualElement name="FindPairAdIcon" class="ad-icon">
                             <ui:VisualElement class="ad-icon-front" />
                         </ui:VisualElement>
-                        <ui:Label tabindex="-1" text="3X" display-tooltip-when-elided="true" name="FindPairUseCounterLabel" class="text_shadow" style="-unity-font-style: bold; font-size: 40px;" />
+                        <ui:Label tabindex="-1" text="3X" display-tooltip-when-elided="true" name="FindPairUseCounterLabel" class="text_shadow" style="font-size: 40px;" />
                         <FH.UI.SquareIconButton name="FindPairButton" class="find-button" />
                     </ui:VisualElement>
                     <ui:VisualElement class="helper-container peek-button" style="flex-grow: 1;">
                         <ui:VisualElement name="PeekAdIcon" class="ad-icon">
                             <ui:VisualElement class="ad-icon-front" />
                         </ui:VisualElement>
-                        <ui:Label tabindex="-1" text="3X" display-tooltip-when-elided="true" name="PeekUseCounterLabel" class="text_shadow" style="-unity-font-style: bold; font-size: 40px;" />
+                        <ui:Label tabindex="-1" text="3X" display-tooltip-when-elided="true" name="PeekUseCounterLabel" class="text_shadow" style="font-size: 40px;" />
                         <FH.UI.SquareIconButton name="PeekButton" class="peek-button" />
                     </ui:VisualElement>
                 </ui:VisualElement>

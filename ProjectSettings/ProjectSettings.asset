@@ -415,7 +415,13 @@ PlayerSettings:
   openGLRequireES31: 0
   openGLRequireES31AEP: 0
   openGLRequireES32: 0
-  m_TemplateCustomTags: {}
+  m_TemplateCustomTags:
+    ENABLE_SCOPES: true
+    INIT_LEADERBOARD_INSTANTLY: true
+    INIT_PLAYER_INSTANTLY: true
+    PRODUCT_DESCRIPTION: 
+    START_YANDEX_METRICA_EVENT_NAME: 
+    YANDEX_METRICA_ID: 95310708
   mobileMTRendering:
     Android: 1
     iPhone: 1

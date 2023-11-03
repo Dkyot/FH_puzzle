@@ -147,6 +147,10 @@ MonoBehaviour:
     m_Key: JAPANESE
     m_Metadata:
       m_Items: []
+  - m_Id: 24804569866096640
+    m_Key: RATE_GAME
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

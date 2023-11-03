@@ -5,13 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/BeachAnimeGirls/InitScene_BeachAnimeGirls.unity
     guid: 542af6b4d5378db41b7d8efccdbf43e8
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/BeachAnimeGirls/LevelScene_BeachAnimeGirls.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/BeachAnimeGirls/MainMenu_BeachAnimeGirls.unity
     guid: ca633db210fa1c24ca795c6a0c783ec7
   - enabled: 1

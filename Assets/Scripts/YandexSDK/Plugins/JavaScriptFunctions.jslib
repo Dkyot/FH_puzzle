@@ -82,39 +82,23 @@ mergeInto(LibraryManager.library, {
     var obj = UTF8ToString(objectName);
     var method = UTF8ToString(methodName);
     try {
-      YaGames.init().then(_ysdk => {
-        console.log("Player Yandex Init");
-        _ysdk.getPlayer().then(_player => {
-          console.log("Get Player");
-          _player.getData().then((_date) => {
-            console.log("Get Data");
-            var myJSON = JSON.stringify(_date);
-            console.log(myJSON);
-            myGameInstance.SendMessage(obj, method, myJSON);
-          }).catch(err => {
-            console.error(err);
-            setTimeout(() => _loadPlayerData(objectName, methodName), 1000); // Retry the function
-          });
-        }).catch(err => {
-          console.error(err);
-          setTimeout(() => _loadPlayerData(objectName, methodName), 1000); // Retry the function
-        });
-      }).catch(err => {
-        console.error(err);
-        setTimeout(() => _loadPlayerData(objectName, methodName), 1000); // Retry the function
+      initPlayer();
+      player.getData().then((_date) => {
+        var myJSON = JSON.stringify(_date);
+        console.log(myJSON);
+        unityInstance.SendMessage(obj, method, myJSON);
       });
     } catch (error) {
       console.error(error);
-      setTimeout(() => _loadPlayerData(objectName, methodName), 1000); // Retry the function
+      unityInstance.SendMessage(obj, method, null);
     }
   },
 
   setToLeaderboard: function (lbName, value) {
     try {
       var lbNameString = UTF8ToString(lbName);
-      ysdk.getLeaderboards().then((lb) => {
-        lb.setLeaderboardScore(lbNameString, value);
-      });
+      initLb();
+      lb.setLeaderboardScore(lbNameString, value);
     } catch (err) {
       console.error(err);
     }
@@ -133,10 +117,6 @@ mergeInto(LibraryManager.library, {
     }
   },
 
-  helloString: function (str) {
-    window.alert(UTF8ToString(str));
-  },
-
   showSplashPageAdv: function (objectName, methodName) {
     var obj = UTF8ToString(objectName);
     var method = UTF8ToString(methodName);
@@ -145,13 +125,13 @@ mergeInto(LibraryManager.library, {
     ysdk.adv.showFullscreenAdv({
       callbacks: {
         onOpen: function () {
-          myGameInstance.SendMessage(obj, method, 0);
+          unityInstance.SendMessage(obj, method, 0);
         },
         onClose: function (wasShown) {
-          myGameInstance.SendMessage(obj, method, 1);
+          unityInstance.SendMessage(obj, method, 1);
         },
         onError: function (error) {
-          myGameInstance.SendMessage(obj, method, -1);
+          unityInstance.SendMessage(obj, method, -1);
         },
       },
     });
@@ -166,19 +146,19 @@ mergeInto(LibraryManager.library, {
       callbacks: {
         onOpen: () => {
           console.log("Video ad open.");
-          myGameInstance.SendMessage(obj, method, 0);
+          unityInstance.SendMessage(obj, method, 0);
         },
         onRewarded: () => {
           console.log("Rewarded!");
-          myGameInstance.SendMessage(obj, method, 1);
+          unityInstance.SendMessage(obj, method, 1);
         },
         onClose: () => {
           console.log("Video ad close.");
-          myGameInstance.SendMessage(obj, method, 2);
+          unityInstance.SendMessage(obj, method, 2);
         },
         onError: (e) => {
           console.log("Error while open video ad:", e);
-          myGameInstance.SendMessage(obj, method, -1);
+          unityInstance.SendMessage(obj, method, -1);
         },
       },
     });
@@ -205,12 +185,11 @@ mergeInto(LibraryManager.library, {
     }
   },
 
-  callYandexMetric: function (id, goalName) {
+  callYandexMetric: function (goalName) {
     try {
       var name = UTF8ToString(goalName);
-      ym(id, 'reachGoal', name);
+      ym(ymId, 'reachGoal', name);
     } catch (err) {
-      console.error(err);
     }
   },
 });

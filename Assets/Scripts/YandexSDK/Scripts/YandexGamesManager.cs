@@ -9,8 +9,6 @@ namespace YandexSDK.Scripts
 {
     public static class YandexGamesManager
     {
-        private const int yandexMetricId = 95310708;
-
         [DllImport("__Internal")]
         private static extern string getPlayerName();
 
@@ -36,9 +34,6 @@ namespace YandexSDK.Scripts
         private static extern string getLang();
 
         [DllImport("__Internal")]
-        private static extern void helloString(string str);
-
-        [DllImport("__Internal")]
         private static extern void showSplashPageAdv(string objectName, string methodName);
 
         [DllImport("__Internal")]
@@ -51,7 +46,7 @@ namespace YandexSDK.Scripts
         private static extern string deviceType();
 
         [DllImport("__Internal")]
-        private static extern void callYandexMetric(int id, string goalName);
+        private static extern void callYandexMetric(string goalName);
 
 
         /// <summary>
@@ -67,20 +62,20 @@ namespace YandexSDK.Scripts
         // /// User avatar on the Yandex platform 
         // /// </summary>
         // /// <returns>Avatar texture, null on errors</returns>
-        // public static async Task<Texture2D> GetPlayerPhoto()
-        // {
-        //     var request = UnityWebRequestTexture.GetTexture(getPlayerPhotoURL());
-        //     request.SendWebRequest();
-        //     while (!request.isDone)
-        //     {
-        //         await Task.Yield();
-        //     }
-        //
-        //     if (request.result is not (UnityWebRequest.Result.ConnectionError or UnityWebRequest.Result.ProtocolError))
-        //         return ((DownloadHandlerTexture)request.downloadHandler).texture;
-        //     Debug.Log(request.error);
-        //     return null;
-        // }
+        public static async Task<Texture2D> GetPlayerPhoto()
+        {
+            var request = UnityWebRequestTexture.GetTexture(getPlayerPhotoURL());
+            request.SendWebRequest();
+            while (!request.isDone)
+            {
+                await Task.Yield();
+            }
+        
+            if (request.result is not (UnityWebRequest.Result.ConnectionError or UnityWebRequest.Result.ProtocolError))
+                return ((DownloadHandlerTexture)request.downloadHandler).texture;
+            Debug.Log(request.error);
+            return null;
+        }
 
         /// <summary>
         /// Shows the game rating window when there are no errors
@@ -247,7 +242,7 @@ namespace YandexSDK.Scripts
         {
             try
             {
-                callYandexMetric(yandexMetricId, goalName);
+                callYandexMetric(goalName);
             }
             catch
             {

@@ -1,7 +1,7 @@
 :root {
     --border-width: 10px;
 
-    --default-font: resource('FiraSans/FiraSans SDF');
+    --default-font: resource('FiraSans/FiraSans-Bold SDF');
     --fancy-font: resource('BalsamiqSans SDF');
     --handwritten-font: resource('ComforterBrush SDF');
 }
@@ -24,7 +24,7 @@
 }
 
 .text_shadow {
-    text-shadow: 0 12px 0 var(--shadow-color);
+    text-shadow: 0 10px 0 var(--shadow-color);
 }
 
 .icon {

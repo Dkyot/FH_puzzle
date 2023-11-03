@@ -18,7 +18,7 @@ SettingsView {
 .field-name {
     min-width: 35%;
     margin-right: 20px;
-    -unity-font-style: bold;
+    -unity-font-style: normal;
     font-size: 40px;
     text-shadow: 0 12px 0 var(--shadow-color);
 }
@@ -26,7 +26,6 @@ SettingsView {
 .unity-base-slider .unity-label {
     min-width: 20%;
     margin-right: 20px;
-    -unity-font-style: bold;
     font-size: 40px;
     text-shadow: 0 12px 0 var(--shadow-color);
 }
@@ -42,7 +41,6 @@ SettingsView {
 .settings-section > .title {
     font-size: 50px;
     -unity-text-align: upper-center;
-    -unity-font-style: bold;
     -unity-text-outline-width: 4px;
     -unity-text-outline-color: var(--primary-3);
 }
@@ -66,4 +64,22 @@ SettingsView {
 
 .settings-section#LanguageSection > * {
     margin-bottom: 20px;
+}
+
+#LanguageContainer > .base-button {
+    margin-right: 10px;
+    margin-left: 10px;
+    padding-top: 0;
+    padding-right: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#LanguageContainer > .base-button > .background {
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.unity-scroller--vertical {
+    margin-left: 40px;
 }

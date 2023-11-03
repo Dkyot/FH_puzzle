@@ -10,7 +10,6 @@ LevelCompletedView {
     font-size: 60px;
     -unity-text-align: upper-center;
     margin-bottom: 0;
-    -unity-font-style: bold;
 }
 
 .score-line {
@@ -29,7 +28,6 @@ LevelCompletedView {
     flex-grow: 0;
     align-self: auto;
     align-items: auto;
-    -unity-font-style: bold;
 }
 
 .score-line-value {
@@ -40,7 +38,6 @@ LevelCompletedView {
     align-self: auto;
     text-overflow: ellipsis;
     white-space: nowrap;
-    -unity-font-style: bold;
 }
 
 #Rang > .rang {

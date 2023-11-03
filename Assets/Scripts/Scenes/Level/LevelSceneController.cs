@@ -106,6 +106,11 @@ namespace FH.Level {
             _gameContext.SceneManagerProxy.RequestLevelTransition();
         }
 
+        public void ShowReviewGame()
+        {
+            YandexGamesManager.RequestReviewGame();
+        }
+
         private void Awake() {
             scoreCounter = GetComponent<ScoreCounter>();
             scoreTimer = GetComponent<ScoreTimer>();
@@ -115,8 +120,19 @@ namespace FH.Level {
             FreezeGame();
 
             // Hide next level button if there are no next level
+            // Show game rate button if there are no next level
             bool hasNextLevel = GetNextLevel() != null;
-            if  (!hasNextLevel) _levelCompletedViewController.HideNextLevelButton();
+            if (!hasNextLevel)
+            {
+                _levelCompletedViewController.HideNextLevelButton();
+                _levelCompletedViewController.ShowRateGameButton();
+            }
+            else
+            {
+                _levelCompletedViewController.HideRateGameButton();
+                _levelCompletedViewController.ShowNextLevelButton();
+            }
+
 
             // Set current level number to global variable
             var levelNumberVariable = _gameContext.GlobalGroupVariables["levelNumber"];

@@ -10,7 +10,7 @@ namespace YandexSDK.Scripts
     public static class YandexGamesManager
     {
         private const int yandexMetricId = 95310708;
-        
+
         [DllImport("__Internal")]
         private static extern string getPlayerName();
 
@@ -49,7 +49,7 @@ namespace YandexSDK.Scripts
 
         [DllImport("__Internal")]
         private static extern string deviceType();
-        
+
         [DllImport("__Internal")]
         private static extern void callYandexMetric(int id, string goalName);
 
@@ -87,6 +87,9 @@ namespace YandexSDK.Scripts
         /// </summary>
         public static void RequestReviewGame()
         {
+#if UNITY_EDITOR
+            Debug.Log("Request review");
+#endif
             try
             {
                 requestReviewGame();
@@ -239,7 +242,7 @@ namespace YandexSDK.Scripts
                 return DeviceType.Desktop;
             }
         }
-        
+
         public static void CallYandexMetric(string goalName)
         {
             try

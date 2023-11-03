@@ -148,6 +148,10 @@ MonoBehaviour:
     m_Localized: "Hen\xFCz Foto\u011Fraf Yok"
     m_Metadata:
       m_Items: []
+  - m_Id: 24759044013871104
+    m_Localized: "Oyunu de\u011Ferlendirin"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

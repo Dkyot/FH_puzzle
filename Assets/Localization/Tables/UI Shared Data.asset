@@ -143,6 +143,10 @@ MonoBehaviour:
     m_Key: HALLOWEEN_GAME_TITLE
     m_Metadata:
       m_Items: []
+  - m_Id: 24759044013871104
+    m_Key: RATE_GAME
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

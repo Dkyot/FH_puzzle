@@ -32,12 +32,15 @@
                 </ui:VisualElement>
                 <ui:VisualElement name="ButtonsContainer" style="flex-grow: 0; flex-direction: row; justify-content: space-between; margin-top: 40px;">
                     <FH.UI.SquareButton focusable="true" name="ToMainMenuButton" Label="TO_MAIN_MENU" style="min-width: 300px;" />
-                    <FH.UI.RoundButton Label="CONTINUE" name="ContinueButton" style="min-width: 300px;" />
+                    <ui:VisualElement name="RightButtons" style="flex-grow: 0; flex-direction: row; justify-content: flex-end;">
+                        <FH.UI.SquareButton name="RateGameButton" Label="RATE_GAME" style="position: absolute; right: 0; min-width: 300px; display: none;" />
+                        <FH.UI.RoundButton Label="CONTINUE" name="ContinueButton" style="min-width: 300px;" />
+                    </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
             <FH.UI.LocalizedLabel tabindex="-1" Label="LEVEL_COMPLETED_TITLE" name="Title" IsLocalizable="true" class="cool-text fancy title" style="-unity-text-align: lower-center; font-size: 70px; margin-bottom: 40px;" />
             <FH.UI.LocalizedLabel tabindex="-1" Label="PRESS_TO_CONTINUE" name="PressToContinueLabel" class="text_shadow" style="position: absolute; left: 0; bottom: 0; -unity-text-align: lower-center; right: 0; margin-bottom: 3%; font-size: 40px; -unity-font-style: bold;" />
         </FH.UI.SafeArea>
-        <ui:VisualElement name="FlashScreen" picking-mode="Ignore" class="splash-screen" />
+        <ui:VisualElement name="FlashScreen" picking-mode="Ignore" class="splash-screen" style="visibility: visible;" />
     </FH.UI.Views.LevelCompleted.LevelCompletedView>
 </ui:UXML>

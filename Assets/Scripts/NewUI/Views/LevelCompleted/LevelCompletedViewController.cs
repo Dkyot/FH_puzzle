@@ -13,6 +13,7 @@ namespace FH.UI.Views.LevelCompleted {
     public sealed class LevelCompletedController : ViewController<LevelCompletedView> {
         [SerializeField] private UnityEvent _toMainMenuPressed;
         [SerializeField] private UnityEvent _nextLevelPressed;
+        [SerializeField] private UnityEvent _rateGamePressed;
 
         [SerializeField] private PlayerInputHandler _playerInputHandler;
         [SerializeField] private ScoreCounter _scoreCounter;
@@ -24,6 +25,7 @@ namespace FH.UI.Views.LevelCompleted {
         [SerializeField] private AudioClip _rangApearedSound;
 
         private float _scoreSoundVolume = 0.2f;
+        private static bool _rateGameButtonShowed = false;
 
         public override void ShowView() {
             ScrollingBgTextureController.Instance?.EnableRendering();
@@ -49,6 +51,13 @@ namespace FH.UI.Views.LevelCompleted {
         public void ShowNextLevelButton() => view.ShowNextLevelButton();
         public void HideNextLevelButton() => view.HideNextLevelButton();
 
+        public void ShowRateGameButton() {
+            if(_rateGameButtonShowed) return;
+            view.ShowRateGameButton();
+        }
+        public void HideRateGameButton() => view.HideRateGameButton();
+        
+
         public override void HideView() {
             ScrollingBgTextureController.Instance?.DisableRendering();
             view.Hide();
@@ -62,6 +71,7 @@ namespace FH.UI.Views.LevelCompleted {
             base.OnScreenControllerSet();
             view.ToMainMenuPressed += OnToMainMenUPressed;
             view.NexLevelPressed += OnNexLevelPressed;
+            view.RateGamePressed += OnRateGamePressed;
         }
 
         private void OnToMainMenUPressed() {
@@ -70,6 +80,13 @@ namespace FH.UI.Views.LevelCompleted {
 
         private void OnNexLevelPressed() {
             _nextLevelPressed.Invoke();
+        }
+        
+        private void OnRateGamePressed()
+        {
+            _rateGameButtonShowed = true;
+            _rateGamePressed?.Invoke();
+            view.HideRateGameButton();
         }
 
         private async Awaitable StartTitleAnimation() {
@@ -164,6 +181,7 @@ namespace FH.UI.Views.LevelCompleted {
         private void OnDisable() {
             view.NexLevelPressed -= OnNexLevelPressed;
             view.ToMainMenuPressed -= OnToMainMenUPressed;
+            view.RateGamePressed -= OnRateGamePressed;
         }
     }
 }

@@ -19,6 +19,11 @@ namespace FH.UI.Views.LevelCompleted {
             add => _continueButton.clicked += value;
             remove => _continueButton.clicked -= value;
         }
+        
+        public event Action RateGamePressed {
+            add => _rateGameButton.clicked += value;
+            remove => _rateGameButton.clicked -= value;
+        }
 
         public string TimeLabelText {
             set => _timeSoreLabel.text = value;
@@ -53,6 +58,7 @@ namespace FH.UI.Views.LevelCompleted {
 
         private Button _continueButton;
         private Button _toMainMenuButton;
+        private Button _rateGameButton;
 
         public override void Show() {
             base.Show();
@@ -73,6 +79,8 @@ namespace FH.UI.Views.LevelCompleted {
 
         public void ShowNextLevelButton() => _continueButton.style.display = DisplayStyle.Flex;
         public void HideNextLevelButton() => _continueButton.style.display = DisplayStyle.None;
+        public void ShowRateGameButton() => _rateGameButton.style.display = DisplayStyle.Flex;
+        public void HideRateGameButton() => _rateGameButton.style.display = DisplayStyle.None;
 
         public async Awaitable ShowFlash() {
             StartFlashAnimation();
@@ -123,11 +131,14 @@ namespace FH.UI.Views.LevelCompleted {
 
             _continueButton = this.Q<Button>("ContinueButton");
             _toMainMenuButton = this.Q<Button>("ToMainMenuButton");
+            _rateGameButton = this.Q<Button>("RateGameButton");
 
             _continueButton.clicked += InvokeButtonPressed;
             _toMainMenuButton.clicked += InvokeButtonPressed;
+            _rateGameButton.clicked += InvokeButtonPressed;
             _continueButton.RegisterCallback<MouseEnterEvent>(OnButtonHovered);
             _toMainMenuButton.RegisterCallback<MouseEnterEvent>(OnButtonHovered);
+            _rateGameButton.RegisterCallback<MouseEnterEvent>(OnButtonHovered);
 
             _flashScreen = this.Q("FlashScreen");
 

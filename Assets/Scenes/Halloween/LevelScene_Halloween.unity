@@ -995,6 +995,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _rateGamePressed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 710374885}
+        m_TargetAssemblyTypeName: FH.Level.LevelSceneController, Assembly-CSharp
+        m_MethodName: ShowReviewGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _playerInputHandler: {fileID: 1813562680}
   _scoreCounter: {fileID: 710374887}
   _levelCompletedSound: {fileID: 8300000, guid: 6362dc82c01266f4099527e462c7538b, type: 3}

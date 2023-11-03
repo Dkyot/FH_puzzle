@@ -148,6 +148,10 @@ MonoBehaviour:
     m_Localized: "No hay foto todav\xEDa"
     m_Metadata:
       m_Items: []
+  - m_Id: 24730200126038016
+    m_Localized: "\u65E5\u672C\u8A9E"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

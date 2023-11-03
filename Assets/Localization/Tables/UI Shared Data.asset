@@ -143,6 +143,10 @@ MonoBehaviour:
     m_Key: HALLOWEEN_GAME_TITLE
     m_Metadata:
       m_Items: []
+  - m_Id: 24730200126038016
+    m_Key: JAPANESE
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

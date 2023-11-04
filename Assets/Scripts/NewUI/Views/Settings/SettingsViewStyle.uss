@@ -73,7 +73,7 @@ SettingsView {
     padding-right: 0;
     margin-top: 10px;
     margin-bottom: 10px;
-    min-width: 250px;
+    min-width: 200px;
 }
 
 #LanguageContainer > .base-button > .background {

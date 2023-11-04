@@ -483,6 +483,7 @@ MonoBehaviour:
   _levelImage: {fileID: 115296876}
   _starAnimationViewController: {fileID: 2097693597}
   _levelCompletedViewController: {fileID: 2097693596}
+  _tipsPointerController: {fileID: 0}
   _music1: {fileID: 8300000, guid: e1b6a967a5aa5c642898650d1b3fb7fb, type: 3}
   _music2: {fileID: 8300000, guid: 0ecd6f743d1a15b448132f8b158a41b9, type: 3}
 --- !u!4 &710374886
@@ -539,7 +540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ac5508c0d546244fbc03a52461a08be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _findPairFreeUsage: 2
+  _findPairFreeUsage: 1
   _peekFreeUsage: 1
   _findPairAdUsage: 5
   _peekAdUsage: 3
@@ -995,6 +996,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _rateGamePressed:
+    m_PersistentCalls:
+      m_Calls: []
   _playerInputHandler: {fileID: 1813562680}
   _scoreCounter: {fileID: 710374887}
   _levelCompletedSound: {fileID: 8300000, guid: 6362dc82c01266f4099527e462c7538b, type: 3}

@@ -21,6 +21,16 @@ namespace FH.UI.Views.GameUI {
             view.PeekUsageCount = count;
         }
 
+        public void ShowTipsPointer()
+        {
+            view.ShowTipsPointers();
+        }
+
+        public void HideTipsPointer()
+        {
+            view.HideTipsPointers();
+        }
+
         protected override void OnScreenControllerSet() {
             base.OnScreenControllerSet();
             view.ResetPressed += OnResetPressed;
@@ -32,6 +42,7 @@ namespace FH.UI.Views.GameUI {
         private void Start() {
             _scoreCounter.TimeChanged += OnTimeChanged;
             _scoreCounter.MismatchChanged += OnMismatchChanged;
+            HideTipsPointer();
         }
 
         private void OnDisable() {

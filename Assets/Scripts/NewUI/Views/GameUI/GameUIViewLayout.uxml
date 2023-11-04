@@ -21,6 +21,7 @@
             <ui:VisualElement style="flex-grow: 1; position: absolute; bottom: 0; right: 0; left: 0; top: auto;">
                 <ui:VisualElement class="helpers-container">
                     <ui:VisualElement class="helper-container">
+                        <FH.UI.ElementPointer name="ElementPointerPair" style="width: 100px; height: 100px; background-image: url(&apos;project://database/Assets/Images/Halloween/Halloween_Arrow.png?fileID=7395911554431356965&amp;guid=e8e2e68c835a6a64184b97ec23efaeea&amp;type=3#Halloween_Arrow_0&apos;); -unity-background-scale-mode: scale-to-fit;" />
                         <ui:VisualElement name="FindPairAdIcon" class="ad-icon">
                             <ui:VisualElement class="ad-icon-front" />
                         </ui:VisualElement>
@@ -28,6 +29,7 @@
                         <FH.UI.SquareIconButton name="FindPairButton" class="find-button" />
                     </ui:VisualElement>
                     <ui:VisualElement class="helper-container peek-button" style="flex-grow: 1;">
+                        <FH.UI.ElementPointer name="ElementPointerPeek" style="width: 100px; height: 100px; background-image: url(&apos;project://database/Assets/Images/Halloween/Halloween_Arrow.png?fileID=7395911554431356965&amp;guid=e8e2e68c835a6a64184b97ec23efaeea&amp;type=3#Halloween_Arrow_0&apos;); -unity-background-scale-mode: scale-to-fit;" />
                         <ui:VisualElement name="PeekAdIcon" class="ad-icon">
                             <ui:VisualElement class="ad-icon-front" />
                         </ui:VisualElement>

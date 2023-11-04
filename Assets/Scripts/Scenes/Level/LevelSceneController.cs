@@ -35,6 +35,7 @@ namespace FH.Level {
         [SerializeField] private SpriteRenderer _levelImage;
         [SerializeField] private LevelStartViewController _starAnimationViewController;
         [SerializeField] private LevelCompletedController _levelCompletedViewController;
+        [SerializeField] private TipsPointerController _tipsPointerController;
 
         [Header("Music")]
         [SerializeField] private AudioClip _music1;
@@ -160,8 +161,14 @@ namespace FH.Level {
             scoreCounter.Reset();
             UnFreezeGame();
 
-            if (_gameContext.CurrentLevel.number == 1) {
-                cardManager.FindPair();
+            switch (_gameContext.CurrentLevel.number)
+            {
+                case 1:
+                    cardManager.FindPair();
+                    break;
+                case 2:
+                    _tipsPointerController.ShowTipsPointer();
+                    break;
             }
         }
 

@@ -78,6 +78,20 @@ namespace FH.UI.Views.GameUI {
         private VisualElement _findPairAdIcon;
         private VisualElement _peekAdIcon;
 
+        private ElementPointer _pairPointer;
+        private ElementPointer _peekPointer;
+
+        public void ShowTipsPointers() {
+            _pairPointer.StartAnimation();
+            _peekPointer.StartAnimation();
+        }
+
+        public void HideTipsPointers()
+        {
+            _pairPointer.StopAnimation();
+            _peekPointer.StopAnimation();
+        }
+
         protected override void OnInit() {
             _pauseButton = this.Q<Button>("PauseButton");
             _resetButton = this.Q<Button>("ResetButton");
@@ -92,6 +106,9 @@ namespace FH.UI.Views.GameUI {
 
             _findPairAdIcon = this.Q<VisualElement>("FindPairAdIcon");
             _peekAdIcon = this.Q<VisualElement>("PeekAdIcon");
+
+            _pairPointer = this.Q<ElementPointer>("ElementPointerPair");
+            _peekPointer = this.Q<ElementPointer>("ElementPointerPeek");
 
             _peekButton.clicked += InvokeButtonPressed;
             _resetButton.clicked += InvokeButtonPressed;

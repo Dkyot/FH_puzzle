@@ -56,3 +56,15 @@
 .unity-scroll-view__content-viewport, .unity-scroll-view__content-container, .unity-scroll-view__content-and-vertical-scroll-container {
     flex-grow: 1;
 }
+
+.element-pointer
+{
+    transition-duration: 1.5s;
+    transition-property: translate;
+    transition-timing-function: ease-in-out;
+}
+
+.element-pointer-animation
+{
+    translate: -30px 0px;
+}

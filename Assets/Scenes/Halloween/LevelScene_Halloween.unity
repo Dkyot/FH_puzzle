@@ -287,6 +287,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!1 &472972049
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 472972051}
+  - component: {fileID: 472972050}
+  m_Layer: 0
+  m_Name: TipsPointerController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &472972050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 472972049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3183f9454fc489794b2fba2c2f6b6b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameUIController: {fileID: 2097693593}
+  playerInputHandler: {fileID: 1813562680}
+--- !u!4 &472972051
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 472972049}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,6 +529,7 @@ MonoBehaviour:
   _levelImage: {fileID: 115296876}
   _starAnimationViewController: {fileID: 2097693597}
   _levelCompletedViewController: {fileID: 2097693596}
+  _tipsPointerController: {fileID: 472972050}
   _music1: {fileID: 8300000, guid: e60a84459c3eff547b00a1a450f93909, type: 3}
   _music2: {fileID: 8300000, guid: b7b30685059beb34db4754bf605a336e, type: 3}
 --- !u!4 &710374886
@@ -1041,6 +1088,7 @@ SceneRoots:
   - {fileID: 1813562681}
   - {fileID: 710374886}
   - {fileID: 918102902}
+  - {fileID: 472972051}
   - {fileID: 2097693592}
   - {fileID: 115296877}
   - {fileID: 382777788}

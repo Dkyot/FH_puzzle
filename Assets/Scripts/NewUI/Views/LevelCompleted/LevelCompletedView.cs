@@ -84,6 +84,7 @@ namespace FH.UI.Views.LevelCompleted {
 
         public async Awaitable ShowFlash() {
             StartFlashAnimation();
+            _flashScreen.style.display = DisplayStyle.Flex;
             await Awaitable.WaitForSecondsAsync(0.5f);
             ResetFlashAnimation();
             await Awaitable.WaitForSecondsAsync(0.5f);

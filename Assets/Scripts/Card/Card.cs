@@ -19,7 +19,7 @@ namespace FH.Cards {
 
         [SerializeField] private AudioClip _flipSound;
         private const float _cardFlipSoundScale = 0.4f;
-        private const float _cardTipFlipSoundScale = 0.2f;
+        private const float _cardTipFlipSoundScale = 0.5f;
 
         private TextMeshProUGUI cardTextValue;
         private bool isPicked;

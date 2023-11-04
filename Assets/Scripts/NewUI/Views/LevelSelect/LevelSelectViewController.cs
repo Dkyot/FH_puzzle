@@ -15,7 +15,7 @@ namespace FH.UI.Views.LevelSelect {
 
         [Header("Sounds")]
         [SerializeField] private AudioClip _levelSelectedSound;
-        [SerializeField, Range(0, 2)] private float _levelSelectedVolume = 0.5f;
+        [SerializeField, Range(0, 2)] private float _levelSelectedVolume = 1f;
 
         public void SetLevels(IEnumerable<LevelDataSO> levels) {
             view.SetLevels(levels);

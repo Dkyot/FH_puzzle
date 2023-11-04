@@ -282,7 +282,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   _levelSelectedSound: {fileID: 8300000, guid: f9ef0b5852805c7419caf1de0366a7d4, type: 3}
-  _levelSelectedVolume: 1
+  _levelSelectedVolume: 1.5
 --- !u!1 &568939116
 GameObject:
   m_ObjectHideFlags: 0

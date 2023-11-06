@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: LevelData_19
   m_EditorClassIdentifier: 
   <Params>k__BackingField:
-    <Palete>k__BackingField: {fileID: 11400000, guid: 3772058dbf4f0fd43bfcccd8047b44f2, type: 2}
-    <Rows>k__BackingField: 2
-    <Columns>k__BackingField: 2
+    <Palete>k__BackingField: {fileID: 11400000, guid: 5b102256231020542a19805984345313, type: 2}
+    <Rows>k__BackingField: 8
+    <Columns>k__BackingField: 8
     <UseTwoPair>k__BackingField: 0
   <LevelImage>k__BackingField:
     m_AssetGUID: 9d120dcc48a54c54b9d9ef3c706b4ccc
@@ -23,5 +23,5 @@ MonoBehaviour:
     m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
     m_EditorAssetChanged: 1
-  score: 7995.2505
+  score: 0
   isCompleted: 0

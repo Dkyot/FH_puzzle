@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dd1380e2e60dfb43b4f6425ef0582fd, type: 3}
   m_Name: HalloweenGameContext
   m_EditorClassIdentifier: 
-  <CurrentLevel>k__BackingField: {fileID: 0}
+  <CurrentLevel>k__BackingField: {fileID: 11400000, guid: 4b93a7cb9a517c84eb3dca26e4997fc9, type: 2}
   <LevelDataBase>k__BackingField: {fileID: 11400000, guid: 9862e4567bcd63245a6c4d32cafd52f3, type: 2}
   <SceneManagerProxy>k__BackingField: {fileID: 11400000, guid: 487de81e18cfb7b4cb1151c0d80f840e, type: 2}
   <GlobalGroupVariables>k__BackingField: {fileID: 11400000, guid: e1b4ba119df82cd4cb1b0c1c9eb70693, type: 2}

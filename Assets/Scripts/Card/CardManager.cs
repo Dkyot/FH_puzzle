@@ -392,8 +392,8 @@ namespace FH.Cards {
                 return;
             }
 
-            if (cards.Count > 36)
-                return;
+            //if (cards.Count > 36)
+            //    return;
 
             List<Pair<int, Color>> values = new List<Pair<int, Color>>();
 

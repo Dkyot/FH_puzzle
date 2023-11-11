@@ -46,7 +46,7 @@ namespace FH.Init {
 
         private async Awaitable InitGame() {
             // Init game here
-            await PlayerDataLoader.Instance.TryLoadAwaitable(20);
+            await PlayerDataLoader.Instance.TryLoadAwaitable(5);
             await LocalizationSettings.InitializationOperation.CompleteAsync();
 
             // Set current language definded by unity

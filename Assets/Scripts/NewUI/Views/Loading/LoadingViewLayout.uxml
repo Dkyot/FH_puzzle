@@ -1,5 +1,5 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <FH.UI.Views.Loading.LoadingView style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; background-image: url(&apos;project://database/Assets/Materials/RenderTexture/ScrollingBGTexture.renderTexture?fileID=8400000&amp;guid=239445fec4c99714d96f1206e5e54a23&amp;type=2#ScrollingBGTexture&apos;); -unity-background-scale-mode: scale-and-crop; justify-content: center;">
-        <FH.UI.LocalizedLabel Label="LOADING" class="fancy cool-text" style="position: absolute; bottom: auto; top: auto; left: auto; align-self: center; font-size: 100px;" />
+        <FH.UI.LocalizedLabel Label="LOADING" class="fancy cool-text" style="position: absolute; bottom: auto; top: auto; left: auto; align-self: center; font-size: 100px; visibility: hidden;" />
     </FH.UI.Views.Loading.LoadingView>
 </ui:UXML>

@@ -4,7 +4,7 @@
         <ui:Label tabindex="-1" text="3" display-tooltip-when-elided="true" name="3" class="cool-text animated-count fancy" style="font-size: 100px; position: absolute;" />
         <ui:Label tabindex="-1" text="2" display-tooltip-when-elided="true" name="2" class="cool-text animated-count fancy" style="font-size: 100px; position: absolute;" />
         <ui:Label tabindex="-1" text="1" display-tooltip-when-elided="true" name="1" class="cool-text animated-count fancy" style="font-size: 100px; position: absolute;" />
-        <FH.UI.LocalizedLabel Label="LEVEL_NUMBER" IsLocalizable="true" name="LevelNameLabel" class="fancy cool-text animated-text start-text" />
-        <FH.UI.LocalizedLabel Label="LEVEL_START" name="LevelStartLabel" IsLocalizable="true" class="start-text fancy cool-text animated-text" style="position: absolute;" />
+        <FH.UI.LocalizedLabel Label="LEVEL_NUMBER" IsLocalizable="true" name="LevelNameLabel" class="fancy cool-text animated-text start-text" style="visibility: hidden;" />
+        <FH.UI.LocalizedLabel Label="LEVEL_START" name="LevelStartLabel" IsLocalizable="true" class="start-text fancy cool-text animated-text" style="position: absolute; visibility: hidden;" />
     </FH.UI.Views.LevelStart.LevelStartView>
 </ui:UXML>

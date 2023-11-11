@@ -79,19 +79,19 @@ mergeInto(LibraryManager.library, {
   },
 
   loadPlayerData: function (objectName, methodName) {
-    var obj = UTF8ToString(objectName);
-    var method = UTF8ToString(methodName);
-    try {
-      initPlayer();
-      player.getData().then((_date) => {
-        var myJSON = JSON.stringify(_date);
-        console.log(myJSON);
-        unityInstance.SendMessage(obj, method, myJSON);
-      });
-    } catch (error) {
-      console.error(error);
-      unityInstance.SendMessage(obj, method, null);
-    }
+    // var obj = UTF8ToString(objectName);
+    // var method = UTF8ToString(methodName);
+    // try {
+    //   initPlayer();
+    //   player.getData().then((_date) => {
+    //     var myJSON = JSON.stringify(_date);
+    //     console.log(myJSON);
+    //     unityInstance.SendMessage(obj, method, myJSON);
+    //   });
+    // } catch (error) {
+    //   console.error(error);
+    //   unityInstance.SendMessage(obj, method, null);
+    // }
   },
 
   setToLeaderboard: function (lbName, value) {

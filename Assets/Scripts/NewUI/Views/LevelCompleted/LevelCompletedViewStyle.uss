@@ -41,7 +41,7 @@ LevelCompletedView {
 }
 
 #Rang > .rang {
-    font-size: 300px;
+    font-size: 500px;
     -unity-text-align: middle-center;
 }
 

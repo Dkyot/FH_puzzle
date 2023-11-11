@@ -421,7 +421,7 @@ PlayerSettings:
     INIT_PLAYER_INSTANTLY: true
     PRODUCT_DESCRIPTION: 
     START_YANDEX_METRICA_EVENT_NAME: 
-    YANDEX_METRICA_ID: 95310708
+    YANDEX_METRICA_ID: 
   mobileMTRendering:
     Android: 1
     iPhone: 1

@@ -47,11 +47,12 @@ namespace SkibidiRunner.Managers
             return _dataLoaded;
         }
 
-        public void OnPlayerDataReceived(string json)
+        public async Awaitable OnPlayerDataReceived(string json)
         {
             if (string.IsNullOrEmpty(json))
             {
                 Debug.Log("Failed to load player data");
+                await Awaitable.WaitForSecondsAsync(1f);
                 TryStartLoad();
             }
             else

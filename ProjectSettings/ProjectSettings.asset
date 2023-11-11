@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: QuetzalcoatlGames
-  productName: FH_puzzle
+  productName: HA_puzzle
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.34901962, g: 0.32941177, b: 0.49019608, a: 1}
@@ -421,7 +421,7 @@ PlayerSettings:
     INIT_PLAYER_INSTANTLY: true
     PRODUCT_DESCRIPTION: 
     START_YANDEX_METRICA_EVENT_NAME: 
-    YANDEX_METRICA_ID: 95310708
+    YANDEX_METRICA_ID: 
   mobileMTRendering:
     Android: 1
     iPhone: 1
@@ -438,7 +438,10 @@ PlayerSettings:
     m_TextureStreamingPriority: 0
   m_BuildTargetGroupLoadStoreDebugModeSettings: []
   m_BuildTargetNormalMapEncoding: []
-  m_BuildTargetDefaultTextureCompressionFormat: []
+  m_BuildTargetDefaultTextureCompressionFormat:
+  - serializedVersion: 2
+    m_BuildTarget: WebGL
+    m_Formats: 02000000
   playModeTestRunnerEnabled: 0
   runPlayModeTestAsEditModeTest: 0
   actionOnDotNetUnhandledException: 1

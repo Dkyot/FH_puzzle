@@ -8,6 +8,9 @@ namespace SkibidiRunner.Managers
 {
     public class PlayerDataLoader : MonoBehaviour
     {
+        [SerializeField] private bool tryLoadOnInit;
+        [SerializeField] private float timeoutTryLoadSeconds;
+        
         public static PlayerDataLoader Instance { get; private set; }
 
         private bool _dataLoaded;
@@ -18,7 +21,10 @@ namespace SkibidiRunner.Managers
             {
                 Instance = this;
                 DontDestroyOnLoad(gameObject);
-                TryStartLoad();
+                if (tryLoadOnInit)
+                {
+                    TryStartLoad();
+                }
             }
             else
             {
@@ -47,11 +53,12 @@ namespace SkibidiRunner.Managers
             return _dataLoaded;
         }
 
-        public void OnPlayerDataReceived(string json)
+        public async Awaitable OnPlayerDataReceived(string json)
         {
             if (string.IsNullOrEmpty(json))
             {
                 Debug.Log("Failed to load player data");
+                await Awaitable.WaitForSecondsAsync(timeoutTryLoadSeconds);
                 TryStartLoad();
             }
             else

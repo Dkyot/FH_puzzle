@@ -419,6 +419,10 @@ PlayerSettings:
     ENABLE_SCOPES: true
     INIT_LEADERBOARD_INSTANTLY: true
     INIT_PLAYER_INSTANTLY: true
+    ONPLAYERDATARECEIVED: 
+    ON_PLAYER_DATA_RECEIVED_METHOD: OnPlayerDataReceived
+    PLAYERDATALOADER: 
+    PLAYER_DATA_LOADER_CLASS: PlayerDataLoader
     PRODUCT_DESCRIPTION: 
     START_YANDEX_METRICA_EVENT_NAME: 
     YANDEX_METRICA_ID: 
@@ -699,7 +703,8 @@ PlayerSettings:
   webGLMemoryGeometricGrowthStep: 0.2
   webGLMemoryGeometricGrowthCap: 96
   webGLPowerPreference: 2
-  scriptingDefineSymbols: {}
+  scriptingDefineSymbols:
+    Standalone: 
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend: {}

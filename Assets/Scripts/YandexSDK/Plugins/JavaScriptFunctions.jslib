@@ -89,8 +89,9 @@ mergeInto(LibraryManager.library, {
         unityInstance.SendMessage(obj, method, myJSON);
       });
     } catch (error) {
+      if(unityInstance === undefined) return;
       console.error(error);
-      unityInstance.SendMessage(obj, method, null);
+      unityInstance.SendMessage(obj, method, '');
     }
   },
 

@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: LevelData_11
   m_EditorClassIdentifier: 
   <Params>k__BackingField:
-    <Palete>k__BackingField: {fileID: 11400000, guid: 5b102256231020542a19805984345313, type: 2}
+    <Palete>k__BackingField: {fileID: 11400000, guid: 3e1815eb6a552a041a06429cb4fd5e72, type: 2}
     <Rows>k__BackingField: 6
     <Columns>k__BackingField: 6
-    <UseTwoPair>k__BackingField: 0
+    <UseTwoPair>k__BackingField: 1
   <LevelImage>k__BackingField:
     m_AssetGUID: 4b4b6f78df57c2f40b09ccba7d6a1028
     m_SubObjectName: 11

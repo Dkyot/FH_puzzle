@@ -48,6 +48,8 @@ namespace YandexSDK.Scripts
         [DllImport("__Internal")]
         private static extern void callYandexMetric(string goalName);
 
+        private static bool _apiReadyCalled;
+
 
         /// <summary>
         /// User name on the Yandex Games platform
@@ -208,10 +210,12 @@ namespace YandexSDK.Scripts
 
         public static void ApiReady()
         {
+            if(_apiReadyCalled) return;
             try
             {
                 apiReady();
-                CallYandexMetric("GameLoaded");
+                YandexMetrika.GameLoaded();
+                _apiReadyCalled = true;
             }
             catch
             {

@@ -15,7 +15,7 @@ namespace FH.UI.Views.LevelStart {
 
         public override void ShowView() {
             base.ShowView();
-            YandexGamesManager.CallYandexMetric("LevelLoaded");
+            YandexMetrika.LevelLoaded();
         }
 
         public async Awaitable StartAnimation() {

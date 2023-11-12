@@ -17,7 +17,7 @@ namespace FH.UI.Views.Gallery {
         public override void ShowView() {
             view.Show();
             ScrollingBgTextureController.Instance?.EnableRendering();
-            YandexGamesManager.CallYandexMetric("GalleryOpened");
+            YandexMetrika.GalleryOpened();
         }
 
         public void SetImages(IEnumerable<Sprite> sprites) {

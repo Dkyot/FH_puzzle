@@ -29,7 +29,6 @@ namespace FH.UI.Views.LevelSelect {
         public override void ShowView() {
             base.ShowView();
             ScrollingBgTextureController.Instance?.EnableRendering();
-            YandexGamesManager.CallYandexMetric("LevelShowed");
         }
 
         protected override void OnScreenControllerSet() {
@@ -45,7 +44,7 @@ namespace FH.UI.Views.LevelSelect {
         private void OnLevelSelected(LevelDataSO level) {
             SoundManager.Instance?.PlayOneShot(_levelSelectedSound, _levelSelectedVolume);
             LevelSelected?.Invoke(level);
-            YandexGamesManager.CallYandexMetric("LevelStarted");
+            YandexMetrika.LevelStarted();
         }
 
         private void OnDisable() {

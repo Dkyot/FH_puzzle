@@ -21,7 +21,7 @@ namespace FH.UI.Views.Settings {
         public override void ShowView() {
             ScrollingBgTextureController.Instance?.EnableRendering();
             base.ShowView();
-            YandexGamesManager.CallYandexMetric("SettingsOpened");
+            YandexMetrika.SettingsOpened();
         }
 
         public override void HideView() {

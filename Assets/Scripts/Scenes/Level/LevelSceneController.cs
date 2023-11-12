@@ -181,8 +181,7 @@ namespace FH.Level {
             currentLevel.score = scoreCounter.FinalScore;
 
             LocalYandexData.Instance.TrySaveLevelInfo(currentLevel);
-            YandexGamesManager.CallYandexMetric("LevelComplete");
-            YandexGamesManager.CallYandexMetric("LevelCompleted" + currentLevel.number);
+            YandexMetrika.LevelCompleted(currentLevel.number);
 
             GameFinished.Invoke();
         }

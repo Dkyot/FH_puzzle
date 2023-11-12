@@ -35,7 +35,7 @@ namespace FH.Level {
                 if (await ShowAd()) {
                     shouldUse = true;
                     _currentPairUsage += _findPairAdUsage;
-                    YandexGamesManager.CallYandexMetric("PairReceived");
+                    YandexMetrika.PairReceived();
                 }
             }
             else {
@@ -52,7 +52,7 @@ namespace FH.Level {
 
             if (_currentPairUsage == 0)
             {
-                YandexGamesManager.CallYandexMetric("PairAllUsed");
+                YandexMetrika.PairAllUsed();
             }
         }
 
@@ -67,7 +67,7 @@ namespace FH.Level {
                 if (await ShowAd())
                 {
                     _currentPeekUsage += _peekAdUsage;
-                    YandexGamesManager.CallYandexMetric("EyeReceived");
+                    YandexMetrika.EyeReceived();
                 }
             }
             else {
@@ -87,7 +87,7 @@ namespace FH.Level {
             
             if (_currentPeekUsage == 0)
             {
-                YandexGamesManager.CallYandexMetric("EyeAllUsed");
+                YandexMetrika.EyeAllUsed();
             }
         }
 

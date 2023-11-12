@@ -23,5 +23,5 @@ MonoBehaviour:
     m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
     m_EditorAssetChanged: 1
-  score: 7790.012
-  isCompleted: 1
+  score: 0
+  isCompleted: 0

@@ -68,7 +68,6 @@ mergeInto(LibraryManager.library, {
   savePlayerData: function (data) {
     try {
       var dateString = UTF8ToString(data);
-      //console.log(dateString);
       var myobj = JSON.parse(dateString);
       player.setData(myobj, true).then(() => {
         console.log("data is set");
@@ -82,14 +81,15 @@ mergeInto(LibraryManager.library, {
     var obj = UTF8ToString(objectName);
     var method = UTF8ToString(methodName);
     try {
-      initPlayer();
-      player.getData().then((_date) => {
-        var myJSON = JSON.stringify(_date);
-        console.log(myJSON);
-        unityInstance.SendMessage(obj, method, myJSON);
+      initPlayer().then((_player) => {
+        player.getData().then((_date) => {
+          var myJSON = JSON.stringify(_date);
+          console.log(myJSON);
+          unityInstance.SendMessage(obj, method, myJSON);
+        });
       });
     } catch (error) {
-      if(unityInstance === undefined) return;
+      if (unityInstance === undefined) return;
       console.error(error);
       unityInstance.SendMessage(obj, method, '');
     }
@@ -98,8 +98,9 @@ mergeInto(LibraryManager.library, {
   setToLeaderboard: function (lbName, value) {
     try {
       var lbNameString = UTF8ToString(lbName);
-      initLb();
-      lb.setLeaderboardScore(lbNameString, value);
+      initLb().then((_lb) => {
+        _lb.setLeaderboardScore(lbNameString, value);
+      });
     } catch (err) {
       console.error(err);
     }

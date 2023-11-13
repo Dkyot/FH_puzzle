@@ -23,7 +23,7 @@ AudioImporter:
       conversionMode: 0
       preloadAudioData: 1
   forceToMono: 1
-  normalize: 0
+  normalize: 1
   loadInBackground: 1
   ambisonic: 0
   3D: 1

@@ -10,10 +10,12 @@ namespace SkibidiRunner.Managers
     {
         [SerializeField] private bool tryLoadOnInit;
         [SerializeField] private float timeoutTryLoadSeconds;
+        [SerializeField] private int maxNumberAttempts;
         
         public static PlayerDataLoader Instance { get; private set; }
 
         private bool _dataLoaded;
+        private int _numberAttempts;
 
         private void Awake()
         {
@@ -36,12 +38,14 @@ namespace SkibidiRunner.Managers
         {
             if (LocalYandexData.Instance.YandexDataLoaded) return;
             YandexGamesManager.LoadPlayerData(gameObject, nameof(OnPlayerDataReceived));
+            _numberAttempts++;
         }
 
         public async Awaitable<bool> TryLoadAwaitable(int waitingTimeSeconds)
         {
             if (LocalYandexData.Instance.YandexDataLoaded) return true;
             _dataLoaded = false;
+            _numberAttempts = 1;
             YandexGamesManager.LoadPlayerData(gameObject, nameof(OnPlayerDataReceived));
             var time = DateTime.UtcNow;
             var timeout = TimeSpan.FromSeconds(waitingTimeSeconds);
@@ -58,6 +62,7 @@ namespace SkibidiRunner.Managers
             if (string.IsNullOrEmpty(json))
             {
                 Debug.Log("Failed to load player data");
+                if(_numberAttempts >= maxNumberAttempts) return;
                 await Awaitable.WaitForSecondsAsync(timeoutTryLoadSeconds);
                 TryStartLoad();
             }

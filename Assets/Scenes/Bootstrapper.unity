@@ -195,6 +195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tryLoadOnInit: 0
   timeoutTryLoadSeconds: 5
+  maxNumberAttempts: 10
 --- !u!4 &499471709
 Transform:
   m_ObjectHideFlags: 0

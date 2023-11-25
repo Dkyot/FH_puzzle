@@ -18,7 +18,7 @@ namespace FH.Cards {
         public bool isMatched;
 
         [SerializeField] private AudioClip _flipSound;
-        private const float _cardFlipSoundScale = 0.4f;
+        private const float _cardFlipSoundScale = 0.6f;
         private const float _cardTipFlipSoundScale = 0.5f;
 
         private TextMeshProUGUI cardTextValue;
@@ -73,7 +73,7 @@ namespace FH.Cards {
                 return;
 
             if (OnFlip(this)) {
-                SoundManager.Instance.PlayOneShot(_flipSound);
+                SoundManager.Instance.PlayOneShot(_flipSound, _cardFlipSoundScale);
                 isPicked = true;
             }
         }

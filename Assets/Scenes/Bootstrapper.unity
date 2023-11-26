@@ -193,8 +193,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc697832536e494899c80419f005a244, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tryLoadOnInit: 0
-  timeoutTryLoadSeconds: 5
+  tryLoadOnInit: 1
+  timeoutTryLoadSeconds: 20
   maxNumberAttempts: 10
 --- !u!4 &499471709
 Transform:

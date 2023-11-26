@@ -16,6 +16,7 @@ namespace SkibidiRunner.Managers
 
         private bool _dataLoaded;
         private int _numberAttempts;
+        private bool _loadingStarted;
 
         private void Awake()
         {
@@ -39,14 +40,20 @@ namespace SkibidiRunner.Managers
             if (LocalYandexData.Instance.YandexDataLoaded) return;
             YandexGamesManager.LoadPlayerData(gameObject, nameof(OnPlayerDataReceived));
             _numberAttempts++;
+            _loadingStarted = true;
         }
 
         public async Awaitable<bool> TryLoadAwaitable(int waitingTimeSeconds)
         {
             if (LocalYandexData.Instance.YandexDataLoaded) return true;
-            _dataLoaded = false;
-            _numberAttempts = 1;
-            YandexGamesManager.LoadPlayerData(gameObject, nameof(OnPlayerDataReceived));
+            if (!_loadingStarted)
+            {
+                _dataLoaded = false;
+                _numberAttempts = 1;
+                YandexGamesManager.LoadPlayerData(gameObject, nameof(OnPlayerDataReceived));
+                _loadingStarted = true;
+            }
+            
             var time = DateTime.UtcNow;
             var timeout = TimeSpan.FromSeconds(waitingTimeSeconds);
             while (!_dataLoaded && DateTime.UtcNow - time < timeout)
@@ -59,6 +66,7 @@ namespace SkibidiRunner.Managers
 
         public async Awaitable OnPlayerDataReceived(string json)
         {
+            _loadingStarted = false;
             if (string.IsNullOrEmpty(json))
             {
                 Debug.Log("Failed to load player data");

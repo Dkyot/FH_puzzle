@@ -65,7 +65,7 @@ MainMenuView .reversed-rotate:focus {
 }
 
 MainMenuView #Title {
-    font-size: 60px;
+    font-size: 80px;
     justify-content: flex-start;
     -unity-text-align: upper-center;
     -unity-font-style: bold;
@@ -75,7 +75,7 @@ MainMenuView #Title {
     text-shadow: -10px 10px 0 var(--shadow-color);
     letter-spacing: 0;
     word-spacing: 0;
-    -unity-paragraph-spacing: -15px;
+    -unity-paragraph-spacing: -35px;
 }
 
 MainMenuView .decorative-line {

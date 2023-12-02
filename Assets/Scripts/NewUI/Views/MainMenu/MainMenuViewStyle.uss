@@ -70,7 +70,7 @@ MainMenuView #Title {
     -unity-text-align: upper-center;
     -unity-font-style: bold;
     -unity-text-outline-width: 5px;
-    -unity-text-outline-color: var(--primary-3);
+    -unity-text-outline-color: var(--text-outline);
     color: var(--primary);
     text-shadow: -10px 10px 0 var(--shadow-color);
     letter-spacing: 0;

@@ -1,4 +1,6 @@
 :root {
+    --text-outline: var(--primary-3);
+
     --text-color: #ffffff;
     --shadow-color: rgba(0, 0, 0, 0.3);
     

@@ -11,7 +11,7 @@ SettingsView {
     -unity-text-align: upper-center;
     -unity-font-style: bold;
     -unity-text-outline-width: 6px;
-    -unity-text-outline-color: var(--primary-3);
+    -unity-text-outline-color: var(--text-outline);
     text-shadow: -5px 5px 0 var(--shadow-color);
 }
 

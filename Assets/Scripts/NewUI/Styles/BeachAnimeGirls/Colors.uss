@@ -1,4 +1,6 @@
 :root {
+    --text-outline: var(--primary-3);
+    
     --text-color: rgb(255, 255, 255);
     --shadow-color: rgba(0, 0, 0, 0.3);
     --focused-button-border-color: rgb(21, 197, 197);

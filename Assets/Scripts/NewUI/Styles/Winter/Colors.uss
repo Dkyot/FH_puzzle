@@ -1,14 +1,31 @@
-:root {
+/* :root {
     --text-color: #ffffff;
     --shadow-color: rgba(0, 0, 0, 0.3);
     
     --button-border-color: var(--primary-3);
 
-    --card-background-color: rgba(40, 58, 59, 0.308);
+    --card-background-color: rgba(168, 79, 79, 0.308);
 
-    --primary: #cc0c26;
-    --primary-2: #990e1f;
-    --primary-3: #7e000f;
+    --primary: #B70900;
+    --primary-2: #AB1800;
+    --primary-3: #90000B;
+
+    --secondary: #ffffff;
+} */
+
+:root {
+    --text-outline: #046300;
+
+    --text-color: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+
+    --button-border-color: var(--primary-3);
+
+    --card-background-color: rgba(0, 0, 0, 0.247);
+
+    --primary: rgb(57, 155, 65);
+    --primary-2: rgb(6, 114, 15);
+    --primary-3: #72bd6e;
 
     --secondary: #ffffff;
 }

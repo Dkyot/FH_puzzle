@@ -60,7 +60,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture2D:
-        m_Texture: {fileID: 2800000, guid: 8d9d53fb9a39b4e44972839989f18841, type: 3}
+        m_Texture: {fileID: 2800000, guid: 836ba9f91b329e943a988def722a2740, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
@@ -87,11 +87,11 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _BGColor: {r: 0.29803923, g: 0.7490196, b: 0.8745099, a: 1}
+    - _BGColor: {r: 0.6784314, g: 0.30980393, b: 0.27058825, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DirectionNSpeed: {r: 0, g: 0.3, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _InsideColor: {r: 0.6784314, g: 0.85882354, b: 0.9254902, a: 1}
+    - _InsideColor: {r: 1, g: 0.7176471, b: 0.5803922, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _Tiling: {r: 300, g: 300, b: 0, a: 0}
     - _Tilling: {r: 400, g: 400, b: 0, a: 0}

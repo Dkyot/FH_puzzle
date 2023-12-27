@@ -152,7 +152,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      5ad1af1e2aa1f9968d51e95610f606d3-christmas-bells-icon-christmas-icon_0: -7747224372876226905
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 501235885848192163}
   - component: {fileID: 5616889226759085753}
   m_Layer: 5
-  m_Name: PresentWarpOUT
+  m_Name: TransitionOut
   m_TagString: Untagged
   m_Icon: {fileID: 2800000, guid: 0a9be0e727574c34d9695b80b72cd877, type: 3}
   m_NavMeshLayer: 0
@@ -57,7 +57,7 @@ Animator:
   m_GameObject: {fileID: 501235885848192162}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 84e24e1ece328f842b7802aebe93781d, type: 2}
+  m_Controller: {fileID: 9100000, guid: e7cc14f574a25d8419a48c092c5362a6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -81,22 +81,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 58f9f6112be7d8f4da04482388bb2d9a, type: 2}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
+  m_Material: {fileID: 2100000, guid: 300c5ddc9a18f7941b85abfba0b99b82, type: 2}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -1614962789322286821, guid: b43a60b2682333849a07aa6d9fdbd4ba, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
-  m_FillOrigin: 1
+  m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 2.7
 --- !u!114 &5616889226759085753
@@ -112,4 +112,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frameIndex: 0
-  _material: {fileID: 2100000, guid: 58f9f6112be7d8f4da04482388bb2d9a, type: 2}
+  _material: {fileID: 2100000, guid: 300c5ddc9a18f7941b85abfba0b99b82, type: 2}

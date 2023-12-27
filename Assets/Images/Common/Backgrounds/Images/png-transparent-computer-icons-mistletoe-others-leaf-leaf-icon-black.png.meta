@@ -152,7 +152,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      png-transparent-computer-icons-mistletoe-others-leaf-leaf-icon-black_0: 3007497922995493773
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

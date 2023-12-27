@@ -247,7 +247,7 @@ MonoBehaviour:
   _gameContext: {fileID: 11400000, guid: 65d9d201840dccd48ba4f9c2bc74b232, type: 2}
   _settings: {fileID: 11400000, guid: b4992057bcc22b049b520d071541a6b9, type: 2}
   _uiDocument: {fileID: 123454060}
-  _transitionSettings: {fileID: 11400000, guid: edf02445ac6ed3a4eb8f1d79949c3520, type: 2}
+  _transitionSettings: {fileID: 11400000, guid: fd18bfcb8fe46ff4482497ca4453800b, type: 2}
   _transitionSound: {fileID: 8300000, guid: 6bc99472b95c1e84fb770b0ea31c32c1, type: 3}
 --- !u!4 &1289836686
 Transform:

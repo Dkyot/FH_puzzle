@@ -37,7 +37,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _AnimationSheet:
-        m_Texture: {fileID: 2800000, guid: 72e1e2584982ed047aea57c42a053ef8, type: 3}
+        m_Texture: {fileID: 2800000, guid: 7d7ea4ed45d087d40bb1f60490e4cbee, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:

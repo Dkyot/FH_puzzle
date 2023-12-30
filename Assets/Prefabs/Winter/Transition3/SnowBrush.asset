@@ -17,7 +17,7 @@ MonoBehaviour:
   refrenceResolution: {x: 1920, y: 1080}
   blockRaycasts: 1
   colorTintMode: 2
-  colorTint: {r: 1, g: 1, b: 1, a: 0}
+  colorTint: {r: 1, g: 1, b: 1, a: 1}
   isCutoutTransition: 0
   transitionSpeed: 1
   autoAdjustTransitionTime: 1

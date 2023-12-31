@@ -651,7 +651,7 @@
     "m_Hidden": false,
     "m_ShaderOutputName": "Height",
     "m_StageCapability": 3,
-    "m_Value": 6.0,
+    "m_Value": 7.0,
     "m_DefaultValue": 1.0,
     "m_Labels": []
 }
@@ -1005,7 +1005,7 @@
     "m_Hidden": false,
     "m_ShaderOutputName": "Width",
     "m_StageCapability": 3,
-    "m_Value": 7.0,
+    "m_Value": 6.0,
     "m_DefaultValue": 1.0,
     "m_Labels": []
 }

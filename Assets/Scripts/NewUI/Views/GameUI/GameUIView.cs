@@ -34,6 +34,14 @@ namespace FH.UI.Views.GameUI {
             set => _timeLabel.text = value;
         }
 
+        public int AdFindPairBonus {
+            set => _adFindPairBonus.text = $"+{value}";
+        }
+
+        public int AdPeekBonus {
+            set => _adPeekBonus.text = $"+{value}";
+        }
+
         public int PeekUsageCount {
             set {
                 if (value <= 0) {
@@ -72,6 +80,9 @@ namespace FH.UI.Views.GameUI {
         private Label _findPairUsageCounter;
         private Label _peekUsageCounter;
 
+        private Label _adPeekBonus;
+        private Label _adFindPairBonus;
+
         private Label _mistakesLabel;
         private Label _timeLabel;
 
@@ -109,6 +120,9 @@ namespace FH.UI.Views.GameUI {
 
             _pairPointer = this.Q<ElementPointer>("ElementPointerPair");
             _peekPointer = this.Q<ElementPointer>("ElementPointerPeek");
+
+            _adFindPairBonus = this.Q<Label>("AdFindPairBonusLabel");
+            _adPeekBonus = this.Q<Label>("AdPeekBonusLabel");
 
             _peekButton.clicked += InvokeButtonPressed;
             _resetButton.clicked += InvokeButtonPressed;

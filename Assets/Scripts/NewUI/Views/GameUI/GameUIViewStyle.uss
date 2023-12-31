@@ -85,3 +85,7 @@
     -unity-background-scale-mode: scale-to-fit;
     translate: 5px -5px;
 }
+
+.ad-icon-container {
+    margin-bottom: 5px;
+}

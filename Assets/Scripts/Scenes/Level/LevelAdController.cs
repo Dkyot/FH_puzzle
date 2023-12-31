@@ -109,7 +109,10 @@ namespace FH.Level {
             _currentPeekUsage = _peekFreeUsage;
             
             _gameUIController.SetFindPairUsageCount(_currentPairUsage);
+            _gameUIController.SetAdFinPairdBonus(_findPairAdUsage);
+
             _gameUIController.SetPeekUsegeCount(_currentPeekUsage);
+            _gameUIController.SetAdPeekBonus(_peekAdUsage);
         }
     }
 }

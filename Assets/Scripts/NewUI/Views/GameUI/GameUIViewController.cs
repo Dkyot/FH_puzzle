@@ -21,6 +21,10 @@ namespace FH.UI.Views.GameUI {
             view.PeekUsageCount = count;
         }
 
+        public void SetAdPeekBonus(int value) => view.AdPeekBonus = value;
+        public void SetAdFinPairdBonus(int value) => view.AdFindPairBonus = value;
+        
+
         public void ShowTipsPointer()
         {
             view.ShowTipsPointers();

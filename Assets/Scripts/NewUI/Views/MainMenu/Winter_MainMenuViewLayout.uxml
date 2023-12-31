@@ -1,6 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
     <Style src="project://database/Assets/Scripts/NewUI/Views/MainMenu/Winter_MainMenuViewStyle.uss?fileID=7433441132597879392&amp;guid=998d5f7d3900ca74dbf01ca7431e770c&amp;type=3#Winter_MainMenuViewStyle" />
-    <FH.UI.Views.MainMenu.MainMenuView picking-mode="Ignore" name="MainMenuView" style="background-image: url(&apos;project://database/Assets/Images/Halloween/MainMenu/HalloweenMainBackground.png?fileID=-2338310899207834383&amp;guid=c49caed5667113d49bd0dc8ba458c051&amp;type=3#HalloweenMainBackground_0&apos;); -unity-background-scale-mode: scale-and-crop;">
+    <FH.UI.Views.MainMenu.MainMenuView picking-mode="Ignore" name="MainMenuView" style="-unity-background-scale-mode: scale-and-crop;">
         <ui:VisualElement name="Menu" picking-mode="Ignore" style="left: auto; top: 0; right: 0; bottom: 0; position: absolute; justify-content: flex-end; align-items: auto;">
             <ui:VisualElement name="ButtonsContainer" picking-mode="Ignore" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); justify-content: flex-start; align-items: auto; align-self: auto; flex-direction: column; height: 50%;">
                 <FH.UI.RoundButton Label="PLAY" name="PlayButton" IsLocalizable="true" style="flex-grow: 0;" />
@@ -9,13 +9,7 @@
             </ui:VisualElement>
         </ui:VisualElement>
         <FH.UI.MovingContainer name="MovingContainer" picking-mode="Ignore" class="title-container">
-            <ui:VisualElement class="title-decoration__outline" style="margin-right: 10px;">
-                <ui:VisualElement class="title-decoration" />
-            </ui:VisualElement>
             <FH.UI.LocalizedLabel name="Title" Label="HALLOWEEN_GAME_TITLE" class="fancy" style="-unity-text-align: middle-center;" />
-            <ui:VisualElement class="title-decoration__outline" style="margin-right: 10px;">
-                <ui:VisualElement class="title-decoration" />
-            </ui:VisualElement>
         </FH.UI.MovingContainer>
     </FH.UI.Views.MainMenu.MainMenuView>
 </ui:UXML>

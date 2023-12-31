@@ -1,0 +1,134 @@
+MainMenuView {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+MainMenuView #ButtonsContainer {
+    width: 320px;
+    margin-right: 60px;
+}
+
+MainMenuView #ButtonsContainer > * {
+    margin-bottom: 5%;
+}
+
+MainMenuView .base-button {
+    margin-left: 20px;
+    margin-right: 20px;
+    transition-duration: 100ms;
+    transition-property: margin, rotate, scale;
+}
+
+MainMenuView .base-button:focus {
+    border-width: var(--border-width);
+    margin-left: 0;
+    margin-right: 0;
+    transition-duration: 100ms;
+    transition-property: margin;
+}
+
+MainMenuView .base-button:hover {
+    border-width: var(--border-width);
+    margin-left: 0;
+    margin-right: 0;
+    transition-duration: 100ms;
+    transition-property: margin;
+}
+
+MainMenuView .base-button:focus {
+    transition-duration: 100ms;
+    transition-property: rotate, scale;
+    rotate: 5deg;
+    scale: 1.1;
+}
+
+MainMenuView .base-button:hover {
+    transition-duration: 100ms;
+    transition-property: rotate, scale;
+    rotate: 5deg;
+    scale: 1.1;
+}
+
+MainMenuView .reversed-rotate:hover {
+    transition-property: rotate;
+    transition-duration: 100ms;
+    rotate: -5deg;
+}
+
+MainMenuView .reversed-rotate:focus {
+    transition-property: rotate;
+    transition-duration: 100ms;
+    rotate: -5deg;
+}
+
+MainMenuView #Title {
+    font-size: 80px;
+    justify-content: flex-start;
+    -unity-text-align: upper-center;
+    -unity-font-style: bold;
+    -unity-text-outline-width: 5px;
+    -unity-text-outline-color: var(--text-outline);
+    color: var(--primary);
+    text-shadow: -10px 10px 0 var(--shadow-color);
+    letter-spacing: 0;
+    word-spacing: 0;
+    -unity-paragraph-spacing: -35px;
+}
+
+MainMenuView .decorative-line {
+    flex-grow: 0;
+    background-color: rgb(255, 255, 255);
+    width: 70px;
+    height: 25px;
+    border-color: var(--primary-3);
+    border-width: 10px;
+    border-radius: 15px;
+}
+
+MainMenuView .title-container {
+    flex-grow: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    align-items: center;
+    margin-top: 0;
+    align-self: auto;
+    flex-direction: row;
+    justify-content: center;
+    top: 5%;
+}
+
+.title-decoration__outline {
+    flex-grow: 0;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url('project://database/Assets/Images/Common/UI/XmassTree.png?fileID=21300000&guid=b0e62e22f679f004ca78f56bace98075&type=3#XmassTree');
+    width: 55px;
+    height: 80px;
+    -unity-background-image-tint-color: var(--text-outline);
+    -unity-background-scale-mode: stretch-to-fill;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.title-decoration {
+    flex-grow: 0;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url('project://database/Assets/Images/Common/UI/XmassTree.png?fileID=21300000&guid=b0e62e22f679f004ca78f56bace98075&type=3#XmassTree');
+    width: 35px;
+    height: 80px;
+    -unity-background-image-tint-color: var(--primary);
+    -unity-background-scale-mode: stretch-to-fill;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0;
+    margin-right: 0;
+    margin-left: 0;
+    margin-bottom: 0;
+}

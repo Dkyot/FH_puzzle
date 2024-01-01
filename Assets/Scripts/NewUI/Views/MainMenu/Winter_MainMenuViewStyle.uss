@@ -64,7 +64,7 @@ MainMenuView .reversed-rotate:focus {
     rotate: -5deg;
 }
 
-MainMenuView #Title {
+MainMenuView .title {
     font-size: 80px;
     justify-content: flex-start;
     -unity-text-align: upper-center;
@@ -76,6 +76,16 @@ MainMenuView #Title {
     letter-spacing: 0;
     word-spacing: 0;
     -unity-paragraph-spacing: -35px;
+    align-items: stretch;
+    align-self: center;
+    background-color: rgb(255, 255, 255);
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: -2px;
 }
 
 MainMenuView .decorative-line {
@@ -101,34 +111,17 @@ MainMenuView .title-container {
     top: 5%;
 }
 
-.title-decoration__outline {
-    flex-grow: 0;
-    background-color: rgba(0, 0, 0, 0);
-    background-image: url('project://database/Assets/Images/Common/UI/XmassTree.png?fileID=21300000&guid=b0e62e22f679f004ca78f56bace98075&type=3#XmassTree');
-    width: 80px;
-    height: 79px;
-    -unity-background-image-tint-color: var(--text-outline);
-    -unity-background-scale-mode: scale-to-fit;
-    align-self: center;
-    align-items: center;
-    justify-content: center;
-    padding-top: 0;
-    padding-bottom: 0;
-}
-
 .title-decoration {
     flex-grow: 0;
     background-color: rgba(0, 0, 0, 0);
-    background-image: url('project://database/Assets/Images/Common/UI/XmassTree.png?fileID=21300000&guid=b0e62e22f679f004ca78f56bace98075&type=3#XmassTree');
-    width: 70px;
-    height: 70px;
+    background-image: url('project://database/Assets/Images/Winter/ChristmasWreath.png?fileID=21300000&guid=658d252925291ef49978a99f1f3fd4fb&type=3#ChristmasWreath');
+    width: 350px;
+    height: 350px;
     -unity-background-image-tint-color: var(--primary);
     -unity-background-scale-mode: scale-to-fit;
     align-self: center;
     align-items: center;
     justify-content: center;
-    margin-top: -8px;
-    margin-right: 0;
-    margin-left: 0;
-    margin-bottom: 0;
+    position: absolute;
+    top: -20%;
 }

@@ -158,6 +158,14 @@ MonoBehaviour:
     m_Localized: Valora el juego
     m_Metadata:
       m_Items: []
+  - m_Id: 46001373275607040
+    m_Localized: 
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46001447258935296
+    m_Localized: 
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

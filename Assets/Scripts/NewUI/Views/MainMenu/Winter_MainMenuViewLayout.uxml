@@ -8,8 +8,15 @@
                 <FH.UI.RoundButton Label="SETTINGS" name="SettingsButton" />
             </ui:VisualElement>
         </ui:VisualElement>
-        <FH.UI.MovingContainer name="MovingContainer" picking-mode="Ignore" class="title-container">
-            <FH.UI.LocalizedLabel name="Title" Label="HALLOWEEN_GAME_TITLE" class="fancy" style="-unity-text-align: middle-center;" />
+        <FH.UI.MovingContainer name="MovingContainer" picking-mode="Ignore" class="title-container" style="align-items: flex-start; justify-content: center; align-self: flex-start; right: 0; left: 0;">
+            <ui:VisualElement style="flex-grow: 0;">
+                <ui:VisualElement class="title-decoration" style="align-items: auto; align-self: center; -unity-background-scale-mode: scale-and-crop; background-image: url(&apos;project://database/Assets/Images/Winter/ChristmasWreath.png?fileID=2800000&amp;guid=658d252925291ef49978a99f1f3fd4fb&amp;type=3#ChristmasWreath&apos;); left: -20%;" />
+                <ui:VisualElement class="title-decoration" style="align-items: auto; align-self: center; -unity-background-scale-mode: scale-and-crop; background-image: url(&apos;project://database/Assets/Images/Winter/ChristmasWreath.png?fileID=2800000&amp;guid=658d252925291ef49978a99f1f3fd4fb&amp;type=3#ChristmasWreath&apos;); margin-top: 0; margin-right: 0; right: -20%;" />
+                <ui:VisualElement style="flex-grow: 1; align-items: flex-start; align-self: center; justify-content: flex-start;">
+                    <FH.UI.LocalizedLabel Label="WINTER_TITLE_1" picking-mode="Ignore" class="fancy title" style="-unity-text-align: middle-center;" />
+                    <FH.UI.LocalizedLabel Label="WINTER_TITLE_2" picking-mode="Ignore" class="fancy title" style="-unity-text-align: middle-center;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
         </FH.UI.MovingContainer>
     </FH.UI.Views.MainMenu.MainMenuView>
 </ui:UXML>

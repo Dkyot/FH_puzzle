@@ -433,7 +433,7 @@ PlayerSettings:
     PLAYER_DATA_LOADER_CLASS: PlayerDataLoader
     PRODUCT_DESCRIPTION: 
     START_YANDEX_METRICA_EVENT_NAME: GameStarted
-    YANDEX_METRICA_ID: 95542612
+    YANDEX_METRICA_ID: null
   mobileMTRendering:
     Android: 1
     iPhone: 1
@@ -697,7 +697,7 @@ PlayerSettings:
   webGLDebugSymbols: 0
   webGLEmscriptenArgs: 
   webGLModulesDirectory: 
-  webGLTemplate: APPLICATION:Default
+  webGLTemplate: APPLICATION:YandexWebGLTemplate
   webGLAnalyzeBuildSize: 0
   webGLUseEmbeddedResources: 0
   webGLCompressionFormat: 0

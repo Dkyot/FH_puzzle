@@ -14,7 +14,7 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: QuetzalcoatlGames
   productName: HA_puzzle
-  defaultCursor: {fileID: 0}
+  defaultCursor: {fileID: 2800000, guid: 4096c3297b6e57642a32fbb59caa23eb, type: 3}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.11372549, g: 0.08235294, b: 0.07450981, a: 1}
   m_ShowUnitySplashScreen: 1

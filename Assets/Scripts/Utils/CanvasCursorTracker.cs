@@ -1,9 +1,5 @@
 using FH.Inputs;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Localization.Plugins.XLIFF.V20;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace FH.Utils {
     [RequireComponent(typeof(RectTransform))]

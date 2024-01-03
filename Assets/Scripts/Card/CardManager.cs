@@ -45,11 +45,17 @@ namespace FH.Cards {
         [Header("Cards Sound")]
         [SerializeField] private AudioClip _cardFlipSound;
 
+        [Header("Particles")]
+        [SerializeField] ParticleSystem _destroyParticles;
+
         private List<Card> cards;
         private int pairCount;
 
         private Card card1 = null;
         private Card card2 = null;
+
+        private ParticleSystem _firstCardParticleSystem;
+        private ParticleSystem _secondCardParticleSystem;
 
         private GameObject _firstMarker;
         private GameObject _secondMarker;
@@ -147,6 +153,11 @@ namespace FH.Cards {
         }
 
         private void Awake() {
+            if (_destroyParticles != null) {
+                _firstCardParticleSystem = Instantiate<ParticleSystem>(_destroyParticles);
+                _secondCardParticleSystem = Instantiate<ParticleSystem>(_destroyParticles);
+            }
+
             _firstMarker = Instantiate(_markerPrefab);
             _firstMarker.gameObject.SetActive(false);
 
@@ -378,6 +389,15 @@ namespace FH.Cards {
 
         private IEnumerator SetInactive(Card card1, Card card2) {
             yield return new WaitForSeconds(0.25f);
+
+            if (_destroyParticles != null) {
+                _firstCardParticleSystem.transform.position = card1.transform.position;
+                _secondCardParticleSystem.transform.position = card2.transform.position;
+
+                _firstCardParticleSystem.Play();
+                _secondCardParticleSystem.Play();
+            }
+
             card1.gameObject.SetActive(false);
             card2.gameObject.SetActive(false);
         }

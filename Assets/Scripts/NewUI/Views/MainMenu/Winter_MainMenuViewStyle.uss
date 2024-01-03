@@ -15,14 +15,14 @@ MainMenuView #ButtonsContainer > * {
     margin-bottom: 5%;
 }
 
-MainMenuView .base-button {
+MainMenuView #ButtonsContainer > * {
     margin-left: 20px;
     margin-right: 20px;
     transition-duration: 100ms;
     transition-property: margin, rotate, scale;
 }
 
-MainMenuView .base-button:focus {
+MainMenuView #ButtonsContainer > *:focus {
     border-width: var(--border-width);
     margin-left: 0;
     margin-right: 0;
@@ -30,7 +30,7 @@ MainMenuView .base-button:focus {
     transition-property: margin;
 }
 
-MainMenuView .base-button:hover {
+MainMenuView #ButtonsContainer > *:hover {
     border-width: var(--border-width);
     margin-left: 0;
     margin-right: 0;
@@ -38,14 +38,14 @@ MainMenuView .base-button:hover {
     transition-property: margin;
 }
 
-MainMenuView .base-button:focus {
+MainMenuView #ButtonsContainer > *:focus {
     transition-duration: 100ms;
     transition-property: rotate, scale;
     rotate: 5deg;
     scale: 1.1;
 }
 
-MainMenuView .base-button:hover {
+MainMenuView #ButtonsContainer > *:hover {
     transition-duration: 100ms;
     transition-property: rotate, scale;
     rotate: 5deg;
@@ -86,16 +86,6 @@ MainMenuView .title {
     padding-left: 10px;
     padding-right: 10px;
     margin-bottom: -2px;
-}
-
-MainMenuView .decorative-line {
-    flex-grow: 0;
-    background-color: rgb(255, 255, 255);
-    width: 70px;
-    height: 25px;
-    border-color: var(--primary-3);
-    border-width: 10px;
-    border-radius: 15px;
 }
 
 MainMenuView .title-container {

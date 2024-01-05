@@ -24,9 +24,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Halloween/MainMenu_Halloween.unity
     guid: 4dc24f46d6e22e54d98b3cc16bc893e3
   - enabled: 1
-    path: Assets/Scenes/Bootstrapper.unity
-    guid: b29ff82d7ede9d146b3f0a846e3593e7
-  - enabled: 1
     path: Assets/Scenes/Winter/InitScene_Winter.unity
     guid: ff09c601fa957254ca7fcd8cfa3b679f
   - enabled: 1
@@ -35,6 +32,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Winter/LevelScene_Winter.unity
     guid: 33dbf3f63e5bd5243b1ae2fbe7e2fa6e
+  - enabled: 1
+    path: Assets/Scenes/Bootstrapper.unity
+    guid: b29ff82d7ede9d146b3f0a846e3593e7
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: c14fde5ee3d8eb54bbafc5fa6f67eb8a, type: 2}
     com.unity.localization.settings: {fileID: 11400000, guid: 06865e99e7065dd41a2f1e74361324bb, type: 2}

@@ -51,7 +51,7 @@ namespace FH.UI.Views.LevelCompleted {
         private LocalizedLabel _title;
         private LocalizedLabel _pressToContinueLabel;
 
-        private VisualElement _viewContainer;
+        private VisualElement _viewBackground;
         private VisualElement _contentContainer;
 
         private VisualElement _flashScreen;
@@ -120,7 +120,7 @@ namespace FH.UI.Views.LevelCompleted {
             _rang = this.Q<Rang>("Rang");
             _photo = this.Q<PhotoCard>("Photo");
 
-            _viewContainer = this.Q<VisualElement>("ViewContainer");
+            _viewBackground = this.Q<VisualElement>("ViewBackground");
             _contentContainer = this.Q<VisualElement>("ContentContainer");
 
             _title = this.Q<LocalizedLabel>("Title");
@@ -167,13 +167,13 @@ namespace FH.UI.Views.LevelCompleted {
         private void StartContentAnimation() {
             _contentContainer.style.display = DisplayStyle.Flex;
             _contentContainer.RemoveFromClassList(_transitionClass);
-            _viewContainer.RemoveFromClassList(_transitionClass);
+            _viewBackground.RemoveFromClassList(_transitionClass);
         }
 
         private void ResetContentAnimation() {
             _contentContainer.style.display = DisplayStyle.None;
             _contentContainer.AddToClassList(_transitionClass);
-            _viewContainer.AddToClassList(_transitionClass);
+            _viewBackground.AddToClassList(_transitionClass);
         }
 
         public new sealed class UxmlFactory : UxmlFactory<LevelCompletedView, UxmlTraits> { }

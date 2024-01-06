@@ -2,10 +2,10 @@
     <Style src="project://database/Assets/Scripts/NewUI/Views/GameUI/GameUIViewStyle.uss?fileID=7433441132597879392&amp;guid=ee0be934023f99f4c9f8eb4514e51963&amp;type=3#GameUIViewStyle" />
     <FH.UI.Views.GameUI.GameUIView picking-mode="Ignore" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0;">
         <FH.UI.SafeArea Margin_Top="20" Margin_Left="20" Margin_Bottom="20" Margin_Right="20" picking-mode="Ignore" style="position: absolute; top: 0; bottom: 0; right: 0; left: 0;">
-            <ui:VisualElement picking-mode="Ignore" style="flex-grow: 1; align-items: flex-start; flex-direction: row; position: absolute; right: 0; top: 0; left: 0; bottom: auto;">
+            <ui:VisualElement picking-mode="Ignore" usage-hints="DynamicTransform" style="flex-grow: 1; align-items: flex-start; flex-direction: row; position: absolute; right: 0; top: 0; left: 0; bottom: auto;">
                 <ui:VisualElement picking-mode="Ignore" class="buttons-container" style="flex-grow: 0; flex-direction: row; position: absolute;">
-                    <FH.UI.SquareIconButton name="PauseButton" class="pause-button" style="align-self: auto;" />
-                    <FH.UI.SquareIconButton name="ResetButton" class="reset-button" style="align-self: auto;" />
+                    <FH.UI.SquareIconButton name="PauseButton" usage-hints="MaskContainer, DynamicColor" class="pause-button" style="align-self: auto;" />
+                    <FH.UI.SquareIconButton name="ResetButton" usage-hints="MaskContainer, DynamicColor" class="reset-button" style="align-self: auto;" />
                 </ui:VisualElement>
                 <ui:VisualElement picking-mode="Ignore" class="counters-container" style="flex-grow: 1; position: relative; right: 0;">
                     <ui:VisualElement picking-mode="Ignore" style="flex-grow: 0; flex-direction: row; justify-content: flex-end;">
@@ -21,7 +21,7 @@
             <ui:VisualElement style="flex-grow: 1; position: absolute; bottom: 0; right: 0; left: 0; top: auto;">
                 <ui:VisualElement class="helpers-container">
                     <ui:VisualElement class="helper-container">
-                        <FH.UI.ElementPointer name="ElementPointerPair" style="width: 100px; height: 100px; background-image: url(&apos;project://database/Assets/Images/Halloween/Halloween_Arrow.png?fileID=7395911554431356965&amp;guid=e8e2e68c835a6a64184b97ec23efaeea&amp;type=3#Halloween_Arrow_0&apos;); -unity-background-scale-mode: scale-to-fit;" />
+                        <FH.UI.ElementPointer name="ElementPointerPair" usage-hints="DynamicTransform" picking-mode="Ignore" style="width: 100px; height: 100px; background-image: url(&apos;project://database/Assets/Images/Halloween/Halloween_Arrow.png?fileID=7395911554431356965&amp;guid=e8e2e68c835a6a64184b97ec23efaeea&amp;type=3#Halloween_Arrow_0&apos;); -unity-background-scale-mode: scale-to-fit;" />
                         <ui:VisualElement name="FindPairAdIcon" class="ad-icon-container" style="flex-grow: 0; flex-direction: row; align-items: center; align-self: center; justify-content: center;">
                             <ui:Label tabindex="-1" text="+3" display-tooltip-when-elided="false" select-word-by-double-click="false" select-line-by-triple-click="false" parse-escape-sequences="false" emoji-fallback-support="false" enable-rich-text="false" name="AdFindPairBonusLabel" class="text_shadow" style="font-size: 40px; align-self: center; justify-content: center; align-items: auto;" />
                             <ui:VisualElement class="ad-icon">
@@ -29,10 +29,10 @@
                             </ui:VisualElement>
                         </ui:VisualElement>
                         <ui:Label tabindex="-1" text="3X" display-tooltip-when-elided="false" name="FindPairUseCounterLabel" enable-rich-text="false" emoji-fallback-support="false" select-word-by-double-click="false" select-line-by-triple-click="false" class="text_shadow" style="font-size: 40px;" />
-                        <FH.UI.SquareIconButton name="FindPairButton" class="find-button" />
+                        <FH.UI.SquareIconButton name="FindPairButton" usage-hints="MaskContainer, DynamicColor" class="find-button" />
                     </ui:VisualElement>
                     <ui:VisualElement class="helper-container peek-button" style="flex-grow: 1;">
-                        <FH.UI.ElementPointer name="ElementPointerPeek" style="width: 100px; height: 100px; background-image: url(&apos;project://database/Assets/Images/Halloween/Halloween_Arrow.png?fileID=7395911554431356965&amp;guid=e8e2e68c835a6a64184b97ec23efaeea&amp;type=3#Halloween_Arrow_0&apos;); -unity-background-scale-mode: scale-to-fit;" />
+                        <FH.UI.ElementPointer name="ElementPointerPeek" picking-mode="Ignore" usage-hints="DynamicTransform" style="width: 100px; height: 100px; background-image: url(&apos;project://database/Assets/Images/Halloween/Halloween_Arrow.png?fileID=7395911554431356965&amp;guid=e8e2e68c835a6a64184b97ec23efaeea&amp;type=3#Halloween_Arrow_0&apos;); -unity-background-scale-mode: scale-to-fit;" />
                         <ui:VisualElement name="PeekAdIcon" class="ad-icon-container" style="flex-grow: 0; flex-direction: row; align-items: center; align-self: center; justify-content: center;">
                             <ui:Label tabindex="-1" text="+3" display-tooltip-when-elided="false" name="AdPeekBonusLabel" emoji-fallback-support="false" enable-rich-text="false" select-word-by-double-click="false" select-line-by-triple-click="false" class="text_shadow" style="font-size: 40px; align-self: center; justify-content: center; align-items: auto;" />
                             <ui:VisualElement class="ad-icon">
@@ -40,7 +40,7 @@
                             </ui:VisualElement>
                         </ui:VisualElement>
                         <ui:Label tabindex="-1" text="3X" display-tooltip-when-elided="false" name="PeekUseCounterLabel" enable-rich-text="false" emoji-fallback-support="false" select-word-by-double-click="false" select-line-by-triple-click="false" class="text_shadow" style="font-size: 40px;" />
-                        <FH.UI.SquareIconButton name="PeekButton" class="peek-button" />
+                        <FH.UI.SquareIconButton name="PeekButton" usage-hints="MaskContainer, DynamicColor" class="peek-button" />
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>

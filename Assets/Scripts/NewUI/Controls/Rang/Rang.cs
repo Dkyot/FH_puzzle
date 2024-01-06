@@ -33,6 +33,7 @@ namespace FH.UI {
         private readonly Label _label;
         
         public Rang() {
+            usageHints = UsageHints.DynamicTransform | UsageHints.DynamicColor;
             _label = new Label();
             _label.ClearClassList();
             _label.AddToClassList(rangClass);

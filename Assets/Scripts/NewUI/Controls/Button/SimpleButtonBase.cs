@@ -20,11 +20,13 @@ namespace FH.UI {
         protected VisualElement background;
 
         public SimpleButtonBase() : base() {
+            usageHints = UsageHints.MaskContainer | UsageHints.DynamicColor;
             AddToClassList(buttonClassName);
             AddToClassList(BaseStyleName);
 
             background = new VisualElement() {
-                name = buttonBackgroundName
+                usageHints = UsageHints.DynamicColor | UsageHints.DynamicTransform,
+                name = buttonBackgroundName,
             };
 
             background.AddToClassList(buttonBackgroundClassName);

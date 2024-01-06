@@ -26,7 +26,7 @@ namespace FH.UI.Views.Gallery {
         public void SetImages(IEnumerable<Sprite> sprites) {
             _photoContainer.Clear();
             foreach (var sprite in sprites) {
-                var photoCard = new PhotoCard();
+                var photoCard = new PhotoCard() { usageHints = UsageHints.DynamicTransform };
                 photoCard.SetImage(sprite);
                 photoCard.RegisterCallback<ClickEvent>((_) => OnImageClicled(sprite));
                 photoCard.RegisterCallback<MouseEnterEvent>(OnButtonHovered);
@@ -61,7 +61,7 @@ namespace FH.UI.Views.Gallery {
         }
 
         //private void OnPhotoHovered(MouseEnterEvent _) {
-            //PhotoCardHovered?.Invoke();
+        //PhotoCardHovered?.Invoke();
         //}
 
         private void OnImageClicled(Sprite sprite) {

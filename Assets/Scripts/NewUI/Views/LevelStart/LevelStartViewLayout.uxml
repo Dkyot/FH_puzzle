@@ -1,10 +1,10 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/Scripts/NewUI/Views/LevelStart/LevelStartViewStyle.uss?fileID=7433441132597879392&amp;guid=31bf4075342bde345962bc3aa735cb88&amp;type=3#LevelStartViewStyle" />
     <FH.UI.Views.LevelStart.LevelStartView style="position: absolute; top: 0; right: 0; bottom: 0; left: 0; background-color: rgba(0, 0, 0, 0.2); align-items: center; justify-content: center;">
-        <ui:Label tabindex="-1" text="3" display-tooltip-when-elided="true" name="3" class="cool-text animated-count fancy" style="font-size: 100px; position: absolute;" />
-        <ui:Label tabindex="-1" text="2" display-tooltip-when-elided="true" name="2" class="cool-text animated-count fancy" style="font-size: 100px; position: absolute;" />
-        <ui:Label tabindex="-1" text="1" display-tooltip-when-elided="true" name="1" class="cool-text animated-count fancy" style="font-size: 100px; position: absolute;" />
-        <FH.UI.LocalizedLabel Label="LEVEL_NUMBER" IsLocalizable="true" name="LevelNameLabel" class="fancy cool-text animated-text start-text" />
-        <FH.UI.LocalizedLabel Label="LEVEL_START" name="LevelStartLabel" IsLocalizable="true" class="start-text fancy cool-text animated-text" style="position: absolute;" />
+        <ui:Label tabindex="-1" text="3" display-tooltip-when-elided="false" name="3" picking-mode="Ignore" usage-hints="DynamicTransform, DynamicColor" select-line-by-triple-click="false" select-word-by-double-click="false" emoji-fallback-support="false" enable-rich-text="false" class="cool-text animated-count fancy" style="font-size: 100px; position: absolute;" />
+        <ui:Label tabindex="-1" text="2" display-tooltip-when-elided="false" name="2" emoji-fallback-support="false" enable-rich-text="false" select-word-by-double-click="false" select-line-by-triple-click="false" usage-hints="DynamicTransform, DynamicColor" class="cool-text animated-count fancy" style="font-size: 100px; position: absolute;" />
+        <ui:Label tabindex="-1" text="1" display-tooltip-when-elided="false" name="1" usage-hints="DynamicTransform, DynamicColor" select-word-by-double-click="false" select-line-by-triple-click="false" emoji-fallback-support="false" enable-rich-text="false" class="cool-text animated-count fancy" style="font-size: 100px; position: absolute;" />
+        <FH.UI.LocalizedLabel Label="LEVEL_NUMBER" IsLocalizable="true" name="LevelNameLabel" picking-mode="Ignore" usage-hints="DynamicTransform, DynamicColor" class="fancy cool-text animated-text start-text" />
+        <FH.UI.LocalizedLabel Label="LEVEL_START" name="LevelStartLabel" IsLocalizable="true" usage-hints="DynamicTransform, DynamicColor" picking-mode="Ignore" class="start-text fancy cool-text animated-text" style="position: absolute;" />
     </FH.UI.Views.LevelStart.LevelStartView>
 </ui:UXML>

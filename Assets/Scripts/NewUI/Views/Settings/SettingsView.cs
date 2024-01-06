@@ -56,7 +56,7 @@ namespace FH.UI.Views.Settings {
             foreach (var language in localizations) {
                 var button = new RoundButton() {
                     Label = language.localizationNameKey,
-                    IsLocalizable = true
+                    IsLocalizable = true,
                 };
 
                 button.RegisterCallback<MouseEnterEvent>(OnButtonHovered);

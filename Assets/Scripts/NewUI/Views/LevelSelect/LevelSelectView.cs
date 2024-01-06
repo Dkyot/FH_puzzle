@@ -25,7 +25,8 @@ namespace FH.UI.Views.LevelSelect {
             // Avalible levels
             foreach (var level in levels) {
                 var levelOption = new LevelOption {
-                    LevelNumber = level.number.ToString()
+                    LevelNumber = level.number.ToString(),
+                    usageHints = UsageHints.DynamicTransform | UsageHints.DynamicColor
                 };
 
                 if (isAvalible) {

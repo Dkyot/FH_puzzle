@@ -692,7 +692,7 @@ PlayerSettings:
   webGLMemorySize: 32
   webGLExceptionSupport: 1
   webGLNameFilesAsHashes: 1
-  webGLShowDiagnostics: 0
+  webGLShowDiagnostics: 1
   webGLDataCaching: 1
   webGLDebugSymbols: 0
   webGLEmscriptenArgs: 
@@ -707,14 +707,14 @@ PlayerSettings:
   webGLDecompressionFallback: 1
   webGLInitialMemorySize: 64
   webGLMaximumMemorySize: 1024
-  webGLMemoryGrowthMode: 1
+  webGLMemoryGrowthMode: 2
   webGLMemoryLinearGrowthStep: 64
   webGLMemoryGeometricGrowthStep: 0.2
   webGLMemoryGeometricGrowthCap: 96
   webGLEnableWebGPU: 0
   webGLPowerPreference: 2
-  webGLWebAssemblyTable: 0
-  webGLWebAssemblyBigInt: 0
+  webGLWebAssemblyTable: 1
+  webGLWebAssemblyBigInt: 1
   webGLCloseOnQuit: 0
   scriptingDefineSymbols:
     Standalone: 

@@ -37,8 +37,6 @@ namespace FH.UI {
 
         private async Awaitable Animate(CancellationToken cancellationToken) {
             while (!cancellationToken.IsCancellationRequested) {
-                Debug.Log("Tick");
-
                 await Awaitable.WaitForSecondsAsync(0.5f, cancellationToken);
 
                 _currentStep++;

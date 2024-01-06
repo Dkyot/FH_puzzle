@@ -55,13 +55,13 @@ LevelCompletedView {
     opacity: 0;
 }
 
-.view-container {
+.view-background {
     -unity-background-scale-mode: scale-and-crop;
     transition-duration: 500ms;
     transition-property: -unity-background-image-tint-color;
 }
 
-.view-container.transition {
+.transition.view-background {
     -unity-background-image-tint-color: rgba(255, 255, 255, 0);
 }
 

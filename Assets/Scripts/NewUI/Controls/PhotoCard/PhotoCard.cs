@@ -40,6 +40,7 @@ namespace FH.UI {
         private VisualElement _photoImage;
 
         public PhotoCard() {
+            usageHints = UsageHints.DynamicTransform | UsageHints.DynamicColor;
             AddToClassList(photoCardClass);
 
             _photoImage = new VisualElement();

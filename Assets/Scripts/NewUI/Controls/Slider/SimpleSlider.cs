@@ -9,7 +9,6 @@ namespace FH.UI {
         private readonly VisualElement _draggerBackground;
         private readonly VisualElement _leftFiller;
         private readonly VisualElement _dragContainer;
-        private readonly LocalizedLabel _label;
 
         public SimpleSlider() : base() {
             var dragger = this.Q<VisualElement>("unity-dragger");
@@ -22,15 +21,16 @@ namespace FH.UI {
             dragger.Add(_draggerBackground);
 
             _leftFiller = new VisualElement() {
-                name = leftFillerName
+                name = leftFillerName,
+                usageHints = UsageHints.DynamicTransform
             };
             _leftFiller.AddToClassList(leftFillerName);
 
             // Remove(labelElement);
             labelElement.RemoveFromHierarchy();
-            _label = new LocalizedLabel();
 
             _dragContainer = this.Q<VisualElement>("unity-drag-container");
+            _dragContainer.usageHints |= UsageHints.DynamicColor;
             _dragContainer.Insert(0, _leftFiller);
             UpdateFillers(value);
             this.RegisterValueChangedCallback(OnValueChanged);

@@ -61,7 +61,7 @@ LevelCompletedView {
     transition-property: -unity-background-image-tint-color;
 }
 
-.transition.view-background {
+.view-background.transition {
     -unity-background-image-tint-color: rgba(255, 255, 255, 0);
 }
 

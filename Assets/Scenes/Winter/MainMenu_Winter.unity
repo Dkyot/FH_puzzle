@@ -805,6 +805,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 552b4371e83e4f0eb330682967c2e11d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _toggleScrollingBgTexture: 0
   _viewAfter: {fileID: 192632330}
   _settings: {fileID: 11400000, guid: b4992057bcc22b049b520d071541a6b9, type: 2}
   _avalibleLanguages:
@@ -836,6 +837,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a26883940d324045a6660835e920eb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _toggleScrollingBgTexture: 0
   _viewOnBack: {fileID: 192632330}
 --- !u!114 &192632335
 MonoBehaviour:
@@ -849,6 +851,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a74e905e25db084eb9cfdde8ff47b41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _toggleScrollingBgTexture: 0
   _viewOnBack: {fileID: 192632330}
   LevelSelected:
     m_PersistentCalls:

@@ -7,7 +7,7 @@ using UnityEngine.UIElements;
 using static FH.UI.Rang;
 
 namespace FH.UI.Views.LevelCompleted {
-    public sealed class LevelCompletedView : ViewBase {
+    public class LevelCompletedView : ViewBase {
         private const string _transitionClass = "transition";
 
         public event Action ToMainMenuPressed {
@@ -19,7 +19,7 @@ namespace FH.UI.Views.LevelCompleted {
             add => _continueButton.clicked += value;
             remove => _continueButton.clicked -= value;
         }
-        
+
         public event Action RateGamePressed {
             add => _rateGameButton.clicked += value;
             remove => _rateGameButton.clicked -= value;
@@ -86,6 +86,9 @@ namespace FH.UI.Views.LevelCompleted {
             StartFlashAnimation();
             _flashScreen.style.display = DisplayStyle.Flex;
             await Awaitable.WaitForSecondsAsync(0.5f);
+        }
+
+        public async Awaitable HideFlash() {
             ResetFlashAnimation();
             await Awaitable.WaitForSecondsAsync(0.5f);
         }

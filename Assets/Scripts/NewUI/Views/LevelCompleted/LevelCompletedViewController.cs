@@ -11,9 +11,13 @@ using static FH.UI.Rang;
 
 namespace FH.UI.Views.LevelCompleted {
     public sealed class LevelCompletedController : ViewController<LevelCompletedView> {
+        [SerializeField] private bool _toggleScrollingBgTexture = true;
+
         [SerializeField] private UnityEvent _toMainMenuPressed;
         [SerializeField] private UnityEvent _nextLevelPressed;
         [SerializeField] private UnityEvent _rateGamePressed;
+
+        [SerializeField] private UnityEvent _movedToScoreTable;
 
         [SerializeField] private PlayerInputHandler _playerInputHandler;
         [SerializeField] private ScoreCounter _scoreCounter;
@@ -28,7 +32,9 @@ namespace FH.UI.Views.LevelCompleted {
         private static bool _rateGameButtonShowed = false;
 
         public override void ShowView() {
-            ScrollingBgTextureController.Instance?.EnableRendering();
+            if (_toggleScrollingBgTexture)
+                ScrollingBgTextureController.Instance?.EnableRendering();
+
             view.Show();
             _ = StartLevelCompleteAnimation();
         }
@@ -44,6 +50,8 @@ namespace FH.UI.Views.LevelCompleted {
             view.HidePressToContinueLabel();
             SoundManager.Instance.PlayOneShot(_cameraShotSound);
             await view.ShowFlash();
+            _movedToScoreTable?.Invoke();
+            await view.HideFlash();
             await view.ShowContent();
             _ = StartScoreAnimation();
         }
@@ -52,14 +60,17 @@ namespace FH.UI.Views.LevelCompleted {
         public void HideNextLevelButton() => view.HideNextLevelButton();
 
         public void ShowRateGameButton() {
-            if(_rateGameButtonShowed) return;
+            if (_rateGameButtonShowed)
+                return;
             view.ShowRateGameButton();
         }
         public void HideRateGameButton() => view.HideRateGameButton();
-        
+
 
         public override void HideView() {
-            ScrollingBgTextureController.Instance?.DisableRendering();
+            if (_toggleScrollingBgTexture)
+                ScrollingBgTextureController.Instance?.DisableRendering();
+
             view.Hide();
         }
 
@@ -81,9 +92,8 @@ namespace FH.UI.Views.LevelCompleted {
         private void OnNexLevelPressed() {
             _nextLevelPressed.Invoke();
         }
-        
-        private void OnRateGamePressed()
-        {
+
+        private void OnRateGamePressed() {
             _rateGameButtonShowed = true;
             _rateGamePressed?.Invoke();
             view.HideRateGameButton();

@@ -8,6 +8,7 @@ using YandexSDK.Scripts;
 
 namespace FH.UI.Views.Settings {
     public sealed class SettingsViewController : ViewController<SettingsView> {
+        [SerializeField] private bool _toggleScrollingBgTexture = true;
         [SerializeField] private ViewController _viewAfter;
 
         [SerializeField] private SettingsSO _settings;
@@ -19,13 +20,17 @@ namespace FH.UI.Views.Settings {
         private int _currentLanguageIndex;
 
         public override void ShowView() {
-            ScrollingBgTextureController.Instance?.EnableRendering();
+            if (_toggleScrollingBgTexture)
+                ScrollingBgTextureController.Instance?.EnableRendering();
+
             base.ShowView();
             YandexMetrika.SettingsOpened();
         }
 
         public override void HideView() {
-            ScrollingBgTextureController.Instance?.DisableRendering();
+            if (_toggleScrollingBgTexture)
+                ScrollingBgTextureController.Instance?.DisableRendering();
+
             base.HideView();
         }
 

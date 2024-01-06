@@ -1,7 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/Scripts/NewUI/Views/LevelSelect/LevelSelectViewStyle.uss?fileID=7433441132597879392&amp;guid=387c8b654e763b64fba5177919a659cb&amp;type=3#LevelSelectViewStyle" />
     <FH.UI.Views.LevelSelect.LevelSelectView picking-mode="Ignore" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; background-image: none; -unity-background-scale-mode: scale-and-crop;">
-        <ui:VisualElement picking-mode="Ignore" usage-hints="DynamicColor" style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; -unity-background-scale-mode: scale-and-crop; background-image: url(&apos;project://database/Assets/Materials/RenderTexture/ScrollingBGTexture.renderTexture?fileID=8400000&amp;guid=239445fec4c99714d96f1206e5e54a23&amp;type=2#ScrollingBGTexture&apos;);" />
         <FH.UI.SafeArea Margin_Top="20" Margin_Left="20" Margin_Bottom="20" Margin_Right="20" picking-mode="Ignore" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0;">
             <ui:VisualElement picking-mode="Ignore" style="flex-grow: 0; -unity-text-align: upper-left; align-items: auto;">
                 <FH.UI.SquareButton Label="BACK" name="BackButton" usage-hints="MaskContainer, DynamicColor" style="position: absolute; width: 300px;" />

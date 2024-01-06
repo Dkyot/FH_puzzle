@@ -1,23 +1,26 @@
-using FH.SO;
 using FH.Utils;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using YandexSDK.Scripts;
 
 namespace FH.UI.Views.Gallery {
-    public sealed class GalleryViewController : ViewController<GalleryView> {
+    public class GalleryViewController : ViewController<GalleryView> {
+        [SerializeField] private bool _toggleScrollingBgTexture = true;
         [SerializeField] private ViewController _viewOnBack;
 
         public override void HideView() {
+            if (_toggleScrollingBgTexture)
+                ScrollingBgTextureController.Instance?.DisableRendering();
+
             view.Hide();
-            ScrollingBgTextureController.Instance?.DisableRendering();
         }
 
         public override void ShowView() {
-            view.Show();
-            ScrollingBgTextureController.Instance?.EnableRendering();
+            if (_toggleScrollingBgTexture)
+                ScrollingBgTextureController.Instance?.EnableRendering();
+
             YandexMetrika.GalleryOpened();
+            view.Show();
         }
 
         public void SetImages(IEnumerable<Sprite> sprites) {

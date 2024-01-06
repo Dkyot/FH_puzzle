@@ -1,8 +1,6 @@
 using FH.SO;
 using FH.Sound;
-using FH.UI;
 using FH.Utils;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -10,6 +8,7 @@ using YandexSDK.Scripts;
 
 namespace FH.UI.Views.LevelSelect {
     public class LevelSelectController : ViewController<LevelSelectView> {
+        [SerializeField] private bool _toggleScrollingBgTexture = true;
         [SerializeField] private ViewController _viewOnBack;
         [SerializeField] private UnityEvent<LevelDataSO> LevelSelected;
 
@@ -23,12 +22,16 @@ namespace FH.UI.Views.LevelSelect {
 
         public override void HideView() {
             base.HideView();
-            ScrollingBgTextureController.Instance?.DisableRendering();
+
+            if (_toggleScrollingBgTexture)
+                ScrollingBgTextureController.Instance?.DisableRendering();
         }
 
         public override void ShowView() {
             base.ShowView();
-            ScrollingBgTextureController.Instance?.EnableRendering();
+
+            if (_toggleScrollingBgTexture)
+                ScrollingBgTextureController.Instance?.EnableRendering();
         }
 
         protected override void OnScreenControllerSet() {

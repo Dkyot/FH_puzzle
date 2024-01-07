@@ -159,6 +159,10 @@ MonoBehaviour:
     m_Key: WINTER_TITLE_2
     m_Metadata:
       m_Items: []
+  - m_Id: 48163162528534528
+    m_Key: CHINESE
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

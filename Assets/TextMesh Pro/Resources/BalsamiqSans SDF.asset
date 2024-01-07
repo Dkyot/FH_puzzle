@@ -3333,7 +3333,7 @@ MonoBehaviour:
     m_MarkToMarkAdjustmentRecords: []
   m_ShouldReimportFontFeatures: 0
   m_FallbackFontAssetTable:
-  - {fileID: 11400000, guid: 5784b60609797b942befb913cad51df2, type: 2}
+  - {fileID: 11400000, guid: d051b5a86950194438beef771d8158d7, type: 2}
   m_FontWeightTable:
   - regularTypeface: {fileID: 0}
     italicTypeface: {fileID: 0}

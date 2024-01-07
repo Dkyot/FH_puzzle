@@ -170,13 +170,13 @@ namespace FH.UI.Views.LevelCompleted {
         private void StartContentAnimation() {
             _contentContainer.style.display = DisplayStyle.Flex;
             _contentContainer.RemoveFromClassList(_transitionClass);
-            _viewBackground.RemoveFromClassList(_transitionClass);
+            _viewBackground?.RemoveFromClassList(_transitionClass);
         }
 
         private void ResetContentAnimation() {
             _contentContainer.style.display = DisplayStyle.None;
             _contentContainer.AddToClassList(_transitionClass);
-            _viewBackground.AddToClassList(_transitionClass);
+            _viewBackground?.AddToClassList(_transitionClass);
         }
 
         public new sealed class UxmlFactory : UxmlFactory<LevelCompletedView, UxmlTraits> { }

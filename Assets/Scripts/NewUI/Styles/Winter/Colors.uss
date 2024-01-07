@@ -29,3 +29,10 @@
 
     --secondary: #ffffff;
 }
+
+.cool-text {
+    -unity-font-style: bold;
+    -unity-text-outline-width: 3px;
+    -unity-text-outline-color: var(--text-outline);
+    text-shadow: -5px 5px 0 var(--shadow-color);
+}

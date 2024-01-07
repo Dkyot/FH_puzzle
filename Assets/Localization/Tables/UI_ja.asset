@@ -157,11 +157,15 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 46001373275607040
-    m_Localized: 
+    m_Localized: "\u697D\u3057\u3044\u51AC\u3092\u304A\u904E\u3054\u3057\u304F\u3060\u3055\u3044"
     m_Metadata:
       m_Items: []
   - m_Id: 46001447258935296
-    m_Localized: 
+    m_Localized: "\u30CF\u30FC\u30EC\u30E0"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 48163162528534528
+    m_Localized: "\u7B80\u4F53\u4E2D\u6587"
     m_Metadata:
       m_Items: []
   references:

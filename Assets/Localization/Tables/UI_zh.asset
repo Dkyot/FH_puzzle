@@ -137,7 +137,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 22800453720645632
-    m_Localized: "\u706B\u7206\u4E07\u5723\u8282\n\u540E\u5BAB"
+    m_Localized: 
     m_Metadata:
       m_Items: []
   - m_Id: 24730200126038016
@@ -158,6 +158,14 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 48163162528534528
     m_Localized: "\u7B80\u4F53\u4E2D\u6587"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 48193600865292288
+    m_Localized: "\u4E2D\u6587"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 48190851863924736
+    m_Localized: Indonesia
     m_Metadata:
       m_Items: []
   references:

@@ -173,6 +173,14 @@ MonoBehaviour:
     m_Localized: "\u7B80\u4F53\u4E2D\u6587"
     m_Metadata:
       m_Items: []
+  - m_Id: 48193600865292288
+    m_Localized: "\u4E2D\u6587"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 48190851863924736
+    m_Localized: Indonesia
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

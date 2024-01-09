@@ -1,10 +1,10 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <ui:Template name="GameUIViewLayout" src="project://database/Assets/Scripts/NewUI/Views/GameUI/GameUIViewLayout.uxml?fileID=9197481963319205126&amp;guid=a97e9f7689cb2824db989d4a257ab3a7&amp;type=3#GameUIViewLayout" />
-    <ui:Template name="PauseMenuViewLayout" src="project://database/Assets/Scripts/NewUI/Views/PauseMenu/PauseMenuViewLayout.uxml?fileID=9197481963319205126&amp;guid=a15b7e39ec06f0648852ca9aa9b50ef4&amp;type=3#PauseMenuViewLayout" />
     <ui:Template name="LevelStartViewLayout" src="project://database/Assets/Scripts/NewUI/Views/LevelStart/LevelStartViewLayout.uxml?fileID=9197481963319205126&amp;guid=960447e03cd012a448e96a1d99d88550&amp;type=3#LevelStartViewLayout" />
     <ui:Template name="LevelCompletedViewLayout_Winter" src="project://database/Assets/Scripts/NewUI/Views/LevelCompleted/LevelCompletedViewLayout_Winter.uxml?fileID=9197481963319205126&amp;guid=36631b370490a0b44bb4a38449ab0a4d&amp;type=3#LevelCompletedViewLayout_Winter" />
+    <ui:Template name="PauseMenuViewLayout_Winter" src="project://database/Assets/Scripts/NewUI/Views/PauseMenu/PauseMenuViewLayout_Winter.uxml?fileID=9197481963319205126&amp;guid=aa11a2c563e271249bd3fbf1b04be287&amp;type=3#PauseMenuViewLayout_Winter" />
     <ui:Instance template="GameUIViewLayout" name="GameUIViewLayout" picking-mode="Ignore" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0;" />
-    <ui:Instance template="PauseMenuViewLayout" name="PauseMenuViewLayout" picking-mode="Ignore" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0;" />
     <ui:Instance template="LevelStartViewLayout" picking-mode="Ignore" name="LevelStartViewLayout" style="position: absolute; top: 0; right: 0; bottom: 0; left: 0;" />
     <ui:Instance template="LevelCompletedViewLayout_Winter" name="Winter_LevelCompleted" picking-mode="Ignore" style="position: absolute; top: 0; left: 0; bottom: 0; right: 0;" />
+    <ui:Instance template="PauseMenuViewLayout_Winter" name="PauseMenuViewLayout" picking-mode="Ignore" style="position: absolute; top: 0; left: 0; bottom: 0; right: 0;" />
 </ui:UXML>

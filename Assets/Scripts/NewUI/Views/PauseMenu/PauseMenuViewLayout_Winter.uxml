@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Scripts/NewUI/Views/PauseMenu/PauseMenuViewStyle.uss?fileID=7433441132597879392&amp;guid=d92a6ae4eb0f8e04c886eb3b2ed462ad&amp;type=3#PauseMenuViewStyle" />
+    <FH.UI.Views.PauseMenu.PauseMenuView style="position: absolute; left: 2px; top: 0; right: -1px; bottom: 0; align-items: center; justify-content: center;">
+        <ui:VisualElement name="ContentContainer" picking-mode="Ignore" usage-hints="GroupTransform" class="content-container" style="flex-grow: 0;">
+            <FH.UI.LocalizedLabel tabindex="-1" Label="PAUSE" picking-mode="Ignore" class="cool-text fancy" style="font-size: 70px; margin-bottom: 40px; align-items: center; -unity-text-align: middle-center;" />
+            <FH.UI.RoundButton focusable="true" Label="CONTINUE" name="ContinueButton" usage-hints="DynamicTransform, MaskContainer, DynamicColor" />
+            <FH.UI.RoundButton focusable="true" Label="TO_MAIN_MENU" name="ToMainMenuButton" usage-hints="DynamicTransform, MaskContainer, DynamicColor" />
+        </ui:VisualElement>
+    </FH.UI.Views.PauseMenu.PauseMenuView>
+</ui:UXML>

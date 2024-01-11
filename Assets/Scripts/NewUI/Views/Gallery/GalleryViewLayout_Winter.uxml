@@ -6,7 +6,7 @@
                 <FH.UI.LocalizedLabel tabindex="-1" Label="GALLERY_TITLE" class="fancy cool-text" style="-unity-text-align: middle-center; font-size: 70px;" />
                 <FH.UI.SquareButton name="BackButton" Label="BACK" usage-hints="DynamicColor" style="width: 300px; position: absolute;" />
             </ui:VisualElement>
-            <ui:VisualElement style="flex-grow: 1; min-width: auto; min-height: auto;">
+            <ui:VisualElement style="flex-grow: 1; margin-right: 5%; margin-left: 5%;">
                 <ui:ScrollView scroll-deceleration-rate="0,135" elasticity="0,1" horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="Auto" name="PhotoScrollView" mouse-wheel-scroll-size="300" style="margin-top: 50px; overflow: hidden; width: auto; flex-grow: 1; margin-right: 0; position: absolute; left: 0; top: 0; right: 0; bottom: 0; display: flex;">
                     <ui:VisualElement name="PhotoContainer" style="flex-grow: 1; flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: flex-start;" />
                 </ui:ScrollView>

@@ -83,12 +83,18 @@ namespace FH.UI.Views.LevelCompleted {
         public void HideRateGameButton() => _rateGameButton.style.display = DisplayStyle.None;
 
         public async Awaitable ShowFlash() {
+            if (_flashScreen == null)
+                return;
+
             StartFlashAnimation();
             _flashScreen.style.display = DisplayStyle.Flex;
             await Awaitable.WaitForSecondsAsync(0.5f);
         }
 
         public async Awaitable HideFlash() {
+            if (_flashScreen == null)
+                return;
+
             ResetFlashAnimation();
             await Awaitable.WaitForSecondsAsync(0.5f);
         }
@@ -152,11 +158,11 @@ namespace FH.UI.Views.LevelCompleted {
         }
 
         private void StartFlashAnimation() {
-            _flashScreen.RemoveFromClassList(_transitionClass);
+            _flashScreen?.RemoveFromClassList(_transitionClass);
         }
 
         private void ResetFlashAnimation() {
-            _flashScreen.AddToClassList(_transitionClass);
+            _flashScreen?.AddToClassList(_transitionClass);
         }
 
         private void StartTitleAnimation() {

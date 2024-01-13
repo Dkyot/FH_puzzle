@@ -13,7 +13,7 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 9
+  serializedVersion: 10
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -44,7 +44,6 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 12
-  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -222,7 +221,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1289836686}
-  - component: {fileID: 1289836685}
+  - component: {fileID: 1289836687}
+  - component: {fileID: 1289836688}
   m_Layer: 0
   m_Name: '[InitSceneController]'
   m_TagString: Untagged
@@ -230,24 +230,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
---- !u!114 &1289836685
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1289836684}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c992dd7a3e11304baa3c02e05bcd50e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _mainMenuScene: MainMenu_BeachAnimeGirls
-  _levelScene: LevelScene_BeachAnimeGirls
-  _gameContext: {fileID: 11400000, guid: e6e5a395ae8fa894ca3fe345a83556a5, type: 2}
-  _settings: {fileID: 11400000, guid: b4992057bcc22b049b520d071541a6b9, type: 2}
-  _uiDocument: {fileID: 123454060}
-  _transitionSettings: {fileID: 11400000, guid: b37bc597928caab4cbf90645c875fd0f, type: 2}
 --- !u!4 &1289836686
 Transform:
   m_ObjectHideFlags: 0
@@ -263,6 +245,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1289836687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1289836684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 251fab8648e451e48a34ab760f010707, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainMenuScene: InitScene_Winter
+  levelScene: InitScene_Winter
+  gameContext: {fileID: 11400000, guid: e6e5a395ae8fa894ca3fe345a83556a5, type: 2}
+  settings: {fileID: 11400000, guid: b4992057bcc22b049b520d071541a6b9, type: 2}
+  sceneTransitionManager: {fileID: 1289836688}
+  uiDocument: {fileID: 123454060}
+--- !u!114 &1289836688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1289836684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac5288569150e2142a4ed16f501e4228, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transitionSettings: {fileID: 11400000, guid: 57d2dee28715fc6499379ee5905b3caf, type: 2}
 --- !u!1001 &1478396328
 PrefabInstance:
   m_ObjectHideFlags: 0

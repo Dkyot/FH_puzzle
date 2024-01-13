@@ -11,35 +11,33 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 using YandexSDK.Scripts;
 using UnityEngine.Localization.Settings;
-using FH.Sound;
 
 namespace FH.Init {
-    public sealed class InitialSceneController : MonoBehaviour {
+    public class InitialSceneController : MonoBehaviour {
         [Header("Registred Scenes")]
-        [SerializeField, Scene] private string _mainMenuScene;
-        [SerializeField, Scene] private string _levelScene;
+        [Scene] public string mainMenuScene;
+        [Scene] public string levelScene;
 
         [Header("System Referenses")]
-        [SerializeField] private GameContext _gameContext;
-        [SerializeField] private SettingsSO _settings;
+        public GameContext gameContext;
+        public SettingsSO settings;
 
         [Header("Level References")]
-        [SerializeField] private UIDocument _uiDocument;
-        [SerializeField] private TransitionSettings _transitionSettings;
+        public SceneTransitionManager sceneTransitionManager;
+        public UIDocument uiDocument;
 
-        [Header("Sounds")]
-        [SerializeField] private AudioClip _transitionSound;
-
-        private readonly SettingsObserver _settingsObserver = new SettingsObserver();
-
+        protected readonly SettingsObserver _settingsObserver = new();
         private bool _isLoading = false;
+
+        protected virtual void OnTransitionIn() { }
+        protected virtual void OnTransitionOut() { }
 
         private void Start() {
             ShowLoadingScreen();
 
-            _gameContext.SceneManagerProxy.IsManaged = true;
-            _gameContext.SceneManagerProxy.MainMenuTransitionRequested += () => { if (!_isLoading) LoadMainMenuScene(); };
-            _gameContext.SceneManagerProxy.LevelTransitionRequested += () => { if (!_isLoading) LoadLevelScene(); };
+            gameContext.SceneManagerProxy.IsManaged = true;
+            gameContext.SceneManagerProxy.MainMenuTransitionRequested += () => { if (!_isLoading) LoadMainMenuScene(); };
+            gameContext.SceneManagerProxy.LevelTransitionRequested += () => { if (!_isLoading) LoadLevelScene(); };
 
             _ = InitGame();
         }
@@ -51,28 +49,28 @@ namespace FH.Init {
 
             // Set current language definded by unity
             if (LocalYandexData.Instance.SaveInfo.LastSaveTimeTicks > 0) {
-                _settings.SfxVolume = LocalYandexData.Instance.SaveInfo.SfxVolume;
-                _settings.MusicVolume = LocalYandexData.Instance.SaveInfo.MusicVolume;
-                _settings.LocaleIdentifier = new LocaleIdentifier(LocalYandexData.Instance.SaveInfo.Language);
+                settings.SfxVolume = LocalYandexData.Instance.SaveInfo.SfxVolume;
+                settings.MusicVolume = LocalYandexData.Instance.SaveInfo.MusicVolume;
+                settings.LocaleIdentifier = new LocaleIdentifier(LocalYandexData.Instance.SaveInfo.Language);
             }
             else {
                 string yandexLan = YandexGamesManager.GetLanguageString();
-                _settings.LocaleIdentifier = yandexLan != null ? new LocaleIdentifier(yandexLan) 
+                settings.LocaleIdentifier = yandexLan != null ? new LocaleIdentifier(yandexLan)
                     : LocalizationSettings.SelectedLocale.Identifier;
             }
-            
-            await _settingsObserver.Init(_settings);
-            
+
+            await _settingsObserver.Init(settings);
+
             int index = 1;
-            foreach (var level in _gameContext.LevelDataBase.Levels) { 
+            foreach (var level in gameContext.LevelDataBase.Levels) {
                 level.number = index++;
             }
-            
+
             var data = LocalYandexData.Instance.SaveInfo.LevelsScore;
-            foreach (var pair in data)
-            {
-                var element = _gameContext.LevelDataBase.Levels.First(x => x.number == pair.Key);
-                if (element == null) continue;
+            foreach (var pair in data) {
+                var element = gameContext.LevelDataBase.Levels.First(x => x.number == pair.Key);
+                if (element == null)
+                    continue;
                 element.score = pair.Value;
                 element.isCompleted = true;
             }
@@ -82,11 +80,11 @@ namespace FH.Init {
         }
 
         private Awaitable LoadMainMenuScene() {
-            return LoadScene(_mainMenuScene, false);
+            return LoadScene(mainMenuScene, false);
         }
 
         private Awaitable LoadLevelScene() {
-            return LoadScene(_levelScene, true);
+            return LoadScene(levelScene, true);
         }
 
         private async Awaitable LoadScene(string sceneName, bool showAd) {
@@ -95,7 +93,7 @@ namespace FH.Init {
 
             _isLoading = true;
 
-            if (_gameContext.SceneManagerProxy.SceneController != null) {
+            if (gameContext.SceneManagerProxy.SceneController != null) {
                 await ExitCurrentScene();
                 await Awaitable.WaitForSecondsAsync(2f);
             }
@@ -108,7 +106,7 @@ namespace FH.Init {
         }
 
         private async Awaitable LoadNewScene(string sceneName) {
-            _gameContext.SceneManagerProxy.SceneControllerSet += OnControllerSet;
+            gameContext.SceneManagerProxy.SceneControllerSet += OnControllerSet;
 
             try {
                 await SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
@@ -121,11 +119,11 @@ namespace FH.Init {
         }
 
         private async Awaitable ExitCurrentScene() {
-            await StartTransition();
+            await sceneTransitionManager.StartTransition();
             ShowLoadingScreen();
 
             try {
-                await _gameContext.SceneManagerProxy.SceneController.UnloadScene();
+                await gameContext.SceneManagerProxy.SceneController.UnloadScene();
             }
             catch (Exception ex) {
                 Debug.LogError(ex);
@@ -133,7 +131,7 @@ namespace FH.Init {
         }
 
         private void OnControllerSet() {
-            _gameContext.SceneManagerProxy.SceneControllerSet -= OnControllerSet;
+            gameContext.SceneManagerProxy.SceneControllerSet -= OnControllerSet;
             _ = OnControllerSetAsync();
         }
 
@@ -145,37 +143,25 @@ namespace FH.Init {
         }
 
         private Awaitable PrepareScene() {
-            return _gameContext.SceneManagerProxy.SceneController.StartPreloading();
+            return gameContext.SceneManagerProxy.SceneController.StartPreloading();
         }
 
         private async Awaitable EnterScene() {
-            await StartTransition();
+            await sceneTransitionManager.StartTransition();
             YandexGamesManager.ApiReady();
             HideLoadingScreen();
-            _gameContext.SceneManagerProxy.SceneController.StartScene();
+            gameContext.SceneManagerProxy.SceneController.StartScene();
         }
-
-        private async Awaitable StartTransition() {
-            TransitionManager.Instance().Transition(_transitionSettings, 0);
-
-            if (_transitionSound != null)
-                SoundManager.Instance.PlayOneShot(_transitionSound);
-
-            await Awaitable.WaitForSecondsAsync(_transitionSettings.transitionTime);
-
-            if (_transitionSound != null)
-                SoundManager.Instance.PlayOneShot(_transitionSound);
-        }
-
 
         private void ShowLoadingScreen() {
-            _uiDocument.enabled = true;
+            uiDocument.enabled = true;
             ScrollingBgTextureController.Instance.EnableRendering();
         }
 
         private void HideLoadingScreen() {
-            _uiDocument.enabled = false;
+            uiDocument.enabled = false;
             ScrollingBgTextureController.Instance.DisableRendering();
+
         }
     }
 }

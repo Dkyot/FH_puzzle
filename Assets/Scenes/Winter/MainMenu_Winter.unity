@@ -877,8 +877,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _levelSelectedSound: {fileID: 8300000, guid: f9ef0b5852805c7419caf1de0366a7d4, type: 3}
-  _levelSelectedVolume: 1.5
+  _levelSelectedSound: {fileID: 8300000, guid: fbb0356fa4d4d5c4e8e5d11fd0cda45a, type: 3}
+  _levelSelectedVolume: 0.5
 --- !u!1 &568939116
 GameObject:
   m_ObjectHideFlags: 0
@@ -994,7 +994,7 @@ MonoBehaviour:
   _gameContext: {fileID: 11400000, guid: 65d9d201840dccd48ba4f9c2bc74b232, type: 2}
   _galleryController: {fileID: 192632334}
   _levelSelectController: {fileID: 192632335}
-  _music: {fileID: 8300000, guid: c49f103c550c9e9439e6eead440f818d, type: 3}
+  _music: {fileID: 8300000, guid: 10656047ef8955e4c96b4958f50fe2a3, type: 3}
 --- !u!4 &879675091
 Transform:
   m_ObjectHideFlags: 0

@@ -305,7 +305,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!114 &472972050
 MonoBehaviour:
@@ -533,8 +533,8 @@ MonoBehaviour:
   _starAnimationViewController: {fileID: 2097693597}
   _levelCompletedViewController: {fileID: 2097693596}
   _tipsPointerController: {fileID: 472972050}
-  _music1: {fileID: 8300000, guid: e60a84459c3eff547b00a1a450f93909, type: 3}
-  _music2: {fileID: 8300000, guid: b7b30685059beb34db4754bf605a336e, type: 3}
+  _music1: {fileID: 8300000, guid: 24ca4815ece5e2146b52cc3f66f51fa2, type: 3}
+  _music2: {fileID: 8300000, guid: 5fc2e38c52d523e4f9ab58c0869cdddf, type: 3}
 --- !u!4 &710374886
 Transform:
   m_ObjectHideFlags: 0
@@ -744,7 +744,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1691604972
 Transform:

@@ -626,7 +626,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c477930c608e63498a375e6e890ce03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _markerPrefab: {fileID: 7940301056945276821, guid: ebe093445adb9a847b5af6dcfef5993d, type: 3}
+  _markerPrefab: {fileID: 7940301056945276821, guid: 1d6ec89badc962a4f9c80da43fe68cc6, type: 3}
   cardPrefab: {fileID: -1641438583517545994, guid: ba708ee3ffb259e418da78bbcbfae3ec, type: 3}
   spawnPosition: {fileID: 539184203}
   _width: 9

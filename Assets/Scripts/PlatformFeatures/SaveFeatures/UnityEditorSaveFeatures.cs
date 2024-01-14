@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace PlatformFeatures.SaveFeatures
 {
-    public class UnityEditorSaveFeatures : SaveFeaturesBase
+    public class UnityEditorSaveFeatures : SaveFeatures
     {
         [SerializeField] private bool useDebugData;
         [SerializeField] private SaveInfo debugData;
@@ -22,13 +22,20 @@ namespace PlatformFeatures.SaveFeatures
             {
                 SaveInfo = debugData;
             }
-            
+
             DataLoadedEvent?.Invoke();
         }
 
         public override void SaveData()
         {
-            
         }
+
+#if UNITY_2023
+        public override async Awaitable<bool> LoadDataAwaitable(uint waitingTimeSeconds)
+        {
+            await Awaitable.NextFrameAsync();
+            return true;
+        }
+#endif
     }
 }

@@ -1,8 +1,8 @@
 using FH.SO;
+using PlatformFeatures.SaveFeatures;
 using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
-using YandexSDK.Scripts;
 
 namespace FH.Init {
     public sealed class SettingsObserver {
@@ -18,20 +18,20 @@ namespace FH.Init {
 
         private void OnMusicVolumeChanged()
         {
-            LocalYandexData.Instance.SaveInfo.MusicVolume = _settings.MusicVolume;
+            SaveFeatures.Instance.SaveInfo.MusicVolume = _settings.MusicVolume;
         }
 
         private void OnSfxVolumeChanged()
         {
-            LocalYandexData.Instance.SaveInfo.SfxVolume = _settings.SfxVolume;
+            SaveFeatures.Instance.SaveInfo.SfxVolume = _settings.SfxVolume;
         }
 
         private void OnLocaleChanged() {
             var newLocale = LocalizationSettings.AvailableLocales.GetLocale(_settings.LocaleIdentifier);
             LocalizationSettings.SelectedLocale = newLocale;
 
-            LocalYandexData.Instance.SaveInfo.Language = newLocale.Identifier.Code;
-            LocalYandexData.Instance.SaveData();
+            SaveFeatures.Instance.SaveInfo.Language = newLocale.Identifier.Code;
+            SaveFeatures.Instance.SaveData();
         }
     }
 }

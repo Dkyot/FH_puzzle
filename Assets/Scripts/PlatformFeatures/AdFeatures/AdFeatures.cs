@@ -1,16 +1,17 @@
 ﻿using System;
 using UnityEngine;
 
-namespace PlatformFeatures
+namespace PlatformFeatures.AdFeatures
 {
-    public abstract class AdFeaturesBase : MonoBehaviour
+    public abstract class AdFeatures : MonoBehaviour
     {
-        public static AdFeaturesBase Instance { get; private set;}
+        public static AdFeatures Instance { get; private set;}
 
         protected virtual void Awake()
         {
             Init();
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
 
         protected abstract void Init();

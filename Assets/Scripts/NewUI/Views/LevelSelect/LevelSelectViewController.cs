@@ -4,7 +4,6 @@ using FH.Utils;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using YandexSDK.Scripts;
 
 namespace FH.UI.Views.LevelSelect {
     public class LevelSelectController : ViewController<LevelSelectView> {
@@ -47,7 +46,7 @@ namespace FH.UI.Views.LevelSelect {
         private void OnLevelSelected(LevelDataSO level) {
             SoundManager.Instance?.PlayOneShot(_levelSelectedSound, _levelSelectedVolume);
             LevelSelected?.Invoke(level);
-            YandexMetrika.LevelStarted();
+            //todo: YandexMetrika.LevelStarted();
         }
 
         private void OnDisable() {

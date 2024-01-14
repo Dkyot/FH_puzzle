@@ -7,7 +7,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using UnityEngine;
-using YandexSDK.Scripts;
 
 namespace FH.Cards {
     [RequireComponent(typeof(CardFlipper))]

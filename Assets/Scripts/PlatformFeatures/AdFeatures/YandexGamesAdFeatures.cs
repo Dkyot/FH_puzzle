@@ -2,12 +2,10 @@
 using UnityEngine;
 using YG;
 
-namespace PlatformFeatures
+namespace PlatformFeatures.AdFeatures
 {
-    public class YandexGamesAdFeatures : AdFeaturesBase
+    public class YandexGamesAdFeatures : AdFeatures
     {
-        [SerializeField] private YandexGame yandexGamePrefab;
-
         public override event Action FullscreenOpenEvent;
         public override event Action FullscreenCloseEvent;
         public override event Action RewardedOpenEvent;
@@ -37,10 +35,7 @@ namespace PlatformFeatures
         
         protected override void Init()
         {
-            if (yandexGamePrefab == null)
-            {
-                Debug.LogError("No Yandex plugin prefab");
-            }
+            
         }
 
         public override void ShowFullscreen()

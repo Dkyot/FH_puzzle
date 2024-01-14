@@ -6,7 +6,6 @@ using FH.Utils;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Events;
-using YandexSDK.Scripts;
 using static FH.UI.Rang;
 
 namespace FH.UI.Views.LevelCompleted {

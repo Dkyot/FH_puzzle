@@ -3,10 +3,10 @@ using UnityEngine;
 
 namespace PlatformFeatures.SaveFeatures
 {
-    public abstract class SaveFeaturesBase : MonoBehaviour
+    public abstract class SaveFeatures : MonoBehaviour
     {
-        public static SaveFeaturesBase Instance { get; private set; }
-        public SaveInfo SaveInfo { get; protected set; } = new SaveInfo();
+        public static SaveFeatures Instance { get; private set; }
+        public SaveInfo SaveInfo { get; set; } = new SaveInfo();
         
         public abstract event Action DataLoadedEvent;
 
@@ -14,11 +14,16 @@ namespace PlatformFeatures.SaveFeatures
         {
             Init();
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
 
         protected abstract void Init();
 
         public abstract void LoadData();
         public abstract void SaveData();
+        
+#if UNITY_2023
+        public abstract Awaitable<bool> LoadDataAwaitable(uint waitingTimeSeconds);
+#endif
     }
 }

@@ -12,9 +12,9 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.AddressableAssets;
 using FH.UI.Views.LevelCompleted;
 using TMPro;
-using YandexSDK.Scripts;
 using UnityEngine.Localization.SmartFormat.PersistentVariables;
 using FH.Sound;
+using PlatformFeatures.SaveFeatures;
 
 namespace FH.Level {
     [RequireComponent(typeof(ScoreCounter))]
@@ -109,7 +109,7 @@ namespace FH.Level {
 
         public void ShowReviewGame()
         {
-            YandexGamesManager.RequestReviewGame();
+            //todo: YandexGamesManager.RequestReviewGame();
         }
 
         private void Awake() {
@@ -179,9 +179,23 @@ namespace FH.Level {
             var currentLevel = _gameContext.CurrentLevel;
             currentLevel.isCompleted = true;
             currentLevel.score = scoreCounter.FinalScore;
-
-            LocalYandexData.Instance.TrySaveLevelInfo(currentLevel);
-            YandexMetrika.LevelCompleted(currentLevel.number);
+            
+            if (!SaveFeatures.Instance.SaveInfo.LevelsScore.TryGetValue(currentLevel.number, out float score))
+            {
+                Debug.Log("New level complete");
+                SaveFeatures.Instance.SaveInfo.LevelsScore.Add(currentLevel.number, currentLevel.score);
+            }
+            else
+            {
+                if (currentLevel.score > score)
+                {
+                    Debug.Log($"New record level. Old {score}, new {currentLevel.score}");
+                    SaveFeatures.Instance.SaveInfo.LevelsScore[currentLevel.number] = currentLevel.score;
+                }
+            }
+            
+            SaveFeatures.Instance.SaveData();
+            //todo: YandexMetrika.LevelCompleted(currentLevel.number);
 
             GameFinished.Invoke();
         }

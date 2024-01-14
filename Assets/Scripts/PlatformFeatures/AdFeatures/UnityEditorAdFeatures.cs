@@ -1,9 +1,9 @@
 ﻿using System;
 using UnityEngine;
 
-namespace PlatformFeatures
+namespace PlatformFeatures.AdFeatures
 {
-    public class UnityEditorAdFeatures : AdFeaturesBase
+    public class UnityEditorAdFeatures : AdFeatures
     {
         public override event Action FullscreenOpenEvent;
         public override event Action FullscreenCloseEvent;

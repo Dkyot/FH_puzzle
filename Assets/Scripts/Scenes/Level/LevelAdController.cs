@@ -1,9 +1,9 @@
 using FH.Cards;
 using FH.UI.Views.GameUI;
-using SkibidiRunner.Managers;
 using UnityEngine;
 using FH.Inputs;
-using YandexSDK.Scripts;
+using PlatformFeatures;
+using PlatformFeatures.AdFeatures;
 
 namespace FH.Level {
     public sealed class LevelAdController : MonoBehaviour {
@@ -35,7 +35,7 @@ namespace FH.Level {
                 if (await ShowAd()) {
                     shouldUse = true;
                     _currentPairUsage += _findPairAdUsage;
-                    YandexMetrika.PairReceived();
+                    //todo: YandexMetrika.PairReceived();
                 }
             }
             else {
@@ -52,7 +52,7 @@ namespace FH.Level {
 
             if (_currentPairUsage == 0)
             {
-                YandexMetrika.PairAllUsed();
+                //todo: YandexMetrika.PairAllUsed();
             }
         }
 
@@ -67,7 +67,7 @@ namespace FH.Level {
                 if (await ShowAd())
                 {
                     _currentPeekUsage += _peekAdUsage;
-                    YandexMetrika.EyeReceived();
+                    //todo: YandexMetrika.EyeReceived();
                 }
             }
             else {
@@ -87,18 +87,13 @@ namespace FH.Level {
             
             if (_currentPeekUsage == 0)
             {
-                YandexMetrika.EyeAllUsed();
+                //todo: YandexMetrika.EyeAllUsed();
             }
         }
 
         private async Awaitable<bool> ShowAd() {
-            var adManager = RewardedAdManager.Instance;
-            if (adManager == null)
-                return true;
-
             _levelController.FreezeGame();
-            var adResult = await adManager.ShowAdAwaitable();
-            await adManager.WaitingAdClose();
+            bool adResult = await AdFeatures.Instance.ShowRewardedAwaitable(1);;
             _levelController.UnFreezeGame();
             return adResult;
         }

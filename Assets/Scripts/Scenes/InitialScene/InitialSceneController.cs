@@ -4,14 +4,15 @@ using FH.Utils;
 using NaughtyAttributes;
 using System;
 using System.Linq;
-using SkibidiRunner.Managers;
 using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
-using YandexSDK.Scripts;
 using UnityEngine.Localization.Settings;
 using FH.Sound;
+using PlatformFeatures;
+using PlatformFeatures.AdFeatures;
+using PlatformFeatures.SaveFeatures;
 
 namespace FH.Init {
     public sealed class InitialSceneController : MonoBehaviour {
@@ -46,17 +47,19 @@ namespace FH.Init {
 
         private async Awaitable InitGame() {
             // Init game here
-            await PlayerDataLoader.Instance.TryLoadAwaitable(5);
+
+            await SaveFeatures.Instance.LoadDataAwaitable(5);
             await LocalizationSettings.InitializationOperation.CompleteAsync();
 
             // Set current language definded by unity
-            if (LocalYandexData.Instance.SaveInfo.LastSaveTimeTicks > 0) {
-                _settings.SfxVolume = LocalYandexData.Instance.SaveInfo.SfxVolume;
-                _settings.MusicVolume = LocalYandexData.Instance.SaveInfo.MusicVolume;
-                _settings.LocaleIdentifier = new LocaleIdentifier(LocalYandexData.Instance.SaveInfo.Language);
+            if (SaveFeatures.Instance.SaveInfo.LastSaveTimeTicks > 0) {
+                _settings.SfxVolume = SaveFeatures.Instance.SaveInfo.SfxVolume;
+                _settings.MusicVolume = SaveFeatures.Instance.SaveInfo.MusicVolume;
+                _settings.LocaleIdentifier = new LocaleIdentifier(SaveFeatures.Instance.SaveInfo.Language);
             }
-            else {
-                string yandexLan = YandexGamesManager.GetLanguageString();
+            else
+            {
+                string yandexLan = null; // todo: YandexGamesManager.GetLanguageString();
                 _settings.LocaleIdentifier = yandexLan != null ? new LocaleIdentifier(yandexLan) 
                     : LocalizationSettings.SelectedLocale.Identifier;
             }
@@ -68,7 +71,7 @@ namespace FH.Init {
                 level.number = index++;
             }
             
-            var data = LocalYandexData.Instance.SaveInfo.LevelsScore;
+            var data = SaveFeatures.Instance.SaveInfo.LevelsScore;
             foreach (var pair in data)
             {
                 var element = _gameContext.LevelDataBase.Levels.First(x => x.number == pair.Key);
@@ -100,8 +103,9 @@ namespace FH.Init {
                 await Awaitable.WaitForSecondsAsync(2f);
             }
 
-            if (showAd) {
-                await FullscreenAdManager.Instance.ShowAdAwaitable();
+            if (showAd)
+            {
+                await AdFeatures.Instance.ShowFullscreenAwaitable();
             }
 
             await LoadNewScene(sceneName);
@@ -150,7 +154,7 @@ namespace FH.Init {
 
         private async Awaitable EnterScene() {
             await StartTransition();
-            YandexGamesManager.ApiReady();
+            //todo: YandexGamesManager.ApiReady();
             HideLoadingScreen();
             _gameContext.SceneManagerProxy.SceneController.StartScene();
         }

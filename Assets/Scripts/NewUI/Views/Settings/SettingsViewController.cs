@@ -2,9 +2,9 @@
 using FH.SO;
 using FH.Sound;
 using FH.Utils;
+using PlatformFeatures.SaveFeatures;
 using UnityEngine;
 using UnityEngine.Localization;
-using YandexSDK.Scripts;
 
 namespace FH.UI.Views.Settings {
     public sealed class SettingsViewController : ViewController<SettingsView> {
@@ -24,7 +24,7 @@ namespace FH.UI.Views.Settings {
                 ScrollingBgTextureController.Instance?.EnableRendering();
 
             base.ShowView();
-            YandexMetrika.SettingsOpened();
+            //todo: YandexMetrika.SettingsOpened();
         }
 
         public override void HideView() {
@@ -59,7 +59,7 @@ namespace FH.UI.Views.Settings {
 
         private void OnDonePressed() {
             ScreenController.ShowView(_viewAfter);
-            LocalYandexData.Instance.SaveData();
+            SaveFeatures.Instance.SaveData();
         }
 
         private void Start() {

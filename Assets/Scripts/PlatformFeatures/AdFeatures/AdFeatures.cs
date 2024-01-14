@@ -1,11 +1,12 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace PlatformFeatures.AdFeatures
 {
     public abstract class AdFeatures : MonoBehaviour
     {
-        public static AdFeatures Instance { get; private set;}
+        public static AdFeatures Instance { get; private set; }
 
         protected virtual void Awake()
         {
@@ -18,12 +19,12 @@ namespace PlatformFeatures.AdFeatures
 
         public abstract event Action FullscreenOpenEvent;
         public abstract event Action FullscreenCloseEvent;
-        
+
         public abstract event Action RewardedOpenEvent;
         public abstract event Action RewardedCloseEvent;
         public abstract event Action<int> RewardedSuccessEvent;
         public abstract event Action RewardedCloseError;
-        
+
         public abstract void ShowFullscreen();
         public abstract void ShowRewarded(int id);
 

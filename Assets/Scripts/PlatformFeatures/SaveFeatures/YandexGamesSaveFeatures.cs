@@ -22,16 +22,15 @@ namespace PlatformFeatures.SaveFeatures
 
         protected override void Init()
         {
-            LoadData();
+            YandexGame.LoadProgress();
         }
 
         public override void LoadData()
         {
-            if (!YandexGame.SDKEnabled) return;
             SaveInfo = YandexGame.savesData.saveInfo;
             if (YandexGame.savesData.isFirstSession)
             {
-                SaveInfo.Language = YandexGame.savesData.language;
+                SaveInfo.Language = YandexGame.EnvironmentData.language;
             }
 
             DataLoadedEvent?.Invoke();
@@ -47,7 +46,7 @@ namespace PlatformFeatures.SaveFeatures
         private bool _dataLoaded;
         public override async Awaitable<bool> LoadDataAwaitable(uint waitingTimeSeconds)
         {
-            if (YandexGame.SDKEnabled && YandexGame.savesData != null) return true;
+            if (YandexGame.SDKEnabled) return true;
             YandexGame.LoadProgress();
 
             var time = DateTime.UtcNow;
@@ -58,7 +57,6 @@ namespace PlatformFeatures.SaveFeatures
             }
 
             return _dataLoaded;
-
         }
 #endif
     }

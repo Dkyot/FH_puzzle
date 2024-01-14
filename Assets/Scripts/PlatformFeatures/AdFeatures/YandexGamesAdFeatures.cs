@@ -6,6 +6,8 @@ namespace PlatformFeatures.AdFeatures
 {
     public class YandexGamesAdFeatures : AdFeatures
     {
+        [SerializeField] private InfoYG infoYg;
+
         public override event Action FullscreenOpenEvent;
         public override event Action FullscreenCloseEvent;
         public override event Action RewardedOpenEvent;
@@ -22,7 +24,7 @@ namespace PlatformFeatures.AdFeatures
             YandexGame.RewardVideoEvent += RewardedSuccessEvent;
             YandexGame.ErrorVideoEvent += RewardedCloseError;
         }
-        
+
         private void OnDisable()
         {
             YandexGame.OpenFullAdEvent -= FullscreenOpenEvent;
@@ -32,10 +34,9 @@ namespace PlatformFeatures.AdFeatures
             YandexGame.RewardVideoEvent -= RewardedSuccessEvent;
             YandexGame.ErrorVideoEvent -= RewardedCloseError;
         }
-        
+
         protected override void Init()
         {
-            
         }
 
         public override void ShowFullscreen()
@@ -49,24 +50,29 @@ namespace PlatformFeatures.AdFeatures
         }
 
 #if UNITY_2023
-        private bool _rewardedSuccess;
         private int _currentRewardedId;
+        private bool _adRewarded;
         private bool _adOpened;
+        private bool _adClosed;
+        private bool _adError;
 
         public override async Awaitable ShowFullscreenAwaitable()
         {
-            if (YandexGame.nowAdsShow) return;
-            _adOpened = false;
-
-            YandexGame.OpenFullAdEvent += OnOpenAdEvent;
+            if (YandexGame.nowAdsShow || YandexGame.timerShowAd < infoYg.fullscreenAdInterval) return;
+            
+            _adOpened = _adClosed = _adError = _adRewarded =  false;
+            
+            YandexGame.ErrorFullAdEvent += OnErrorAdEvent;
+            YandexGame.CloseFullAdEvent += OnCloseAdEvent;
             YandexGame.FullscreenShow();
 
-            while (!_adOpened || YandexGame.nowFullAd)
+            while (!_adError || !_adClosed)
             {
                 await Awaitable.NextFrameAsync();
             }
             
-            YandexGame.OpenFullAdEvent -= OnOpenAdEvent;
+            YandexGame.ErrorFullAdEvent -= OnErrorAdEvent;
+            YandexGame.CloseFullAdEvent -= OnCloseAdEvent;
         }
 
         public override async Awaitable<bool> ShowRewardedAwaitable(int id)
@@ -76,25 +82,32 @@ namespace PlatformFeatures.AdFeatures
                 return false;
             }
 
-            _rewardedSuccess = false;
+            _adOpened = _adClosed = _adError = _adRewarded =  false;
             _currentRewardedId = id;
-            _adOpened = false;
 
             YandexGame.RewardVideoEvent += OnRewardVideoEvent;
             YandexGame.ErrorVideoEvent += OnErrorAdEvent;
             YandexGame.OpenVideoEvent += OnOpenAdEvent;
             YandexGame.RewVideoShow(_currentRewardedId);
 
-            while (!_rewardedSuccess || !_adOpened || YandexGame.nowVideoAd)
+            while (!_adRewarded || !_adError)
             {
                 await Awaitable.NextFrameAsync();
+            }
+
+            if (infoYg.rewardedAfterClosing)
+            {
+                while (!_adClosed)
+                {
+                    await Awaitable.NextFrameAsync();
+                }
             }
 
             YandexGame.RewardVideoEvent -= OnRewardVideoEvent;
             YandexGame.ErrorVideoEvent -= OnErrorAdEvent;
             YandexGame.OpenVideoEvent -= OnOpenAdEvent;
 
-            return _rewardedSuccess;
+            return _adRewarded;
         }
 
         private void OnOpenAdEvent()
@@ -102,18 +115,22 @@ namespace PlatformFeatures.AdFeatures
             _adOpened = true;
         }
 
+        private void OnCloseAdEvent()
+        {
+            _adClosed = true;
+        }
+
         private void OnRewardVideoEvent(int id)
         {
             if (_currentRewardedId == id)
             {
-                _rewardedSuccess = true;
+                _adRewarded = true;
             }
         }
 
         private void OnErrorAdEvent()
         {
-            Debug.LogError("Error ad show");
-            _rewardedSuccess = false;
+            _adError = true;
         }
 #endif
     }

@@ -24,6 +24,13 @@
 }
 
 .round_button>.background {
-    overflow: visible;
     border-radius: 40px;
+}
+
+.square_button>.background {
+    border-radius: 10px; 
+}
+
+.square_icon_button>.background {
+    border-radius: 5px; 
 }

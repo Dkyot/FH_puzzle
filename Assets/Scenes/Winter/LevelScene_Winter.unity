@@ -632,7 +632,7 @@ MonoBehaviour:
   _width: 9
   _height: 9
   _cardFlipSound: {fileID: 8300000, guid: 5cba93e90c136e7459fb15b2a43c1943, type: 3}
-  _destroyParticles: {fileID: 9091653092732416952, guid: b4ced167c1efabc46bfda380a69e89ca, type: 3}
+  _destroyParticles: {fileID: 9091653092732416952, guid: d5c46bfad24afc64a841d88f1e9d235c, type: 3}
 --- !u!4 &918102902
 Transform:
   m_ObjectHideFlags: 0

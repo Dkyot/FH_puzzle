@@ -19,6 +19,7 @@ namespace PlatformFeatures.AdFeatures
 
         public abstract event Action FullscreenOpenEvent;
         public abstract event Action FullscreenCloseEvent;
+        public abstract event Action FullscreenErrorEvent;
 
         public abstract event Action RewardedOpenEvent;
         public abstract event Action RewardedCloseEvent;

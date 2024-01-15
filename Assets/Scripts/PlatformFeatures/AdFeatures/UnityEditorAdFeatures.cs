@@ -7,6 +7,7 @@ namespace PlatformFeatures.AdFeatures
     {
         public override event Action FullscreenOpenEvent;
         public override event Action FullscreenCloseEvent;
+        public override event Action FullscreenErrorEvent;
         public override event Action RewardedOpenEvent;
         public override event Action RewardedCloseEvent;
         public override event Action<int> RewardedSuccessEvent;
@@ -18,6 +19,8 @@ namespace PlatformFeatures.AdFeatures
 
         public override void ShowFullscreen()
         {
+            FullscreenOpenEvent?.Invoke();
+            FullscreenCloseEvent?.Invoke();
         }
 
         public override void ShowRewarded(int id)

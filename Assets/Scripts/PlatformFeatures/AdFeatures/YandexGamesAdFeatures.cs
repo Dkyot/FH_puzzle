@@ -10,6 +10,7 @@ namespace PlatformFeatures.AdFeatures
 
         public override event Action FullscreenOpenEvent;
         public override event Action FullscreenCloseEvent;
+        public override event Action FullscreenErrorEvent;
         public override event Action RewardedOpenEvent;
         public override event Action RewardedCloseEvent;
         public override event Action<int> RewardedSuccessEvent;
@@ -18,7 +19,8 @@ namespace PlatformFeatures.AdFeatures
         private void OnEnable()
         {
             YandexGame.OpenFullAdEvent += FullscreenOpenEvent;
-            YandexGame.OpenFullAdEvent += FullscreenCloseEvent;
+            YandexGame.CloseFullAdEvent += FullscreenCloseEvent;
+            YandexGame.ErrorFullAdEvent += FullscreenErrorEvent;
             YandexGame.OpenVideoEvent += RewardedOpenEvent;
             YandexGame.CloseVideoEvent += RewardedCloseEvent;
             YandexGame.RewardVideoEvent += RewardedSuccessEvent;
@@ -52,25 +54,24 @@ namespace PlatformFeatures.AdFeatures
 #if UNITY_2023
         private int _currentRewardedId;
         private bool _adRewarded;
-        private bool _adOpened;
         private bool _adClosed;
         private bool _adError;
 
         public override async Awaitable ShowFullscreenAwaitable()
         {
             if (YandexGame.nowAdsShow || YandexGame.timerShowAd < infoYg.fullscreenAdInterval) return;
-            
-            _adOpened = _adClosed = _adError = _adRewarded =  false;
-            
+
+            _adClosed = _adError = _adRewarded = false;
+
             YandexGame.ErrorFullAdEvent += OnErrorAdEvent;
             YandexGame.CloseFullAdEvent += OnCloseAdEvent;
             YandexGame.FullscreenShow();
 
-            while (!_adError || !_adClosed)
+            while (!_adError && !_adClosed)
             {
                 await Awaitable.NextFrameAsync();
             }
-            
+
             YandexGame.ErrorFullAdEvent -= OnErrorAdEvent;
             YandexGame.CloseFullAdEvent -= OnCloseAdEvent;
         }
@@ -82,15 +83,14 @@ namespace PlatformFeatures.AdFeatures
                 return false;
             }
 
-            _adOpened = _adClosed = _adError = _adRewarded =  false;
+            _adClosed = _adError = _adRewarded = false;
             _currentRewardedId = id;
 
             YandexGame.RewardVideoEvent += OnRewardVideoEvent;
             YandexGame.ErrorVideoEvent += OnErrorAdEvent;
-            YandexGame.OpenVideoEvent += OnOpenAdEvent;
             YandexGame.RewVideoShow(_currentRewardedId);
 
-            while (!_adRewarded || !_adError)
+            while (!_adRewarded && !_adError && !_adClosed)
             {
                 await Awaitable.NextFrameAsync();
             }
@@ -105,14 +105,8 @@ namespace PlatformFeatures.AdFeatures
 
             YandexGame.RewardVideoEvent -= OnRewardVideoEvent;
             YandexGame.ErrorVideoEvent -= OnErrorAdEvent;
-            YandexGame.OpenVideoEvent -= OnOpenAdEvent;
 
             return _adRewarded;
-        }
-
-        private void OnOpenAdEvent()
-        {
-            _adOpened = true;
         }
 
         private void OnCloseAdEvent()

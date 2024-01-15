@@ -1,3 +1,4 @@
+using System;
 using FH.Cards;
 using FH.UI.Views.GameUI;
 using UnityEngine;
@@ -34,7 +35,7 @@ namespace FH.Level {
             if (_currentPairUsage <= 0) {
                 if (await ShowAd()) {
                     shouldUse = true;
-                    _currentPairUsage += _findPairAdUsage;
+                    _currentPairUsage = _findPairAdUsage > 0 ? _findPairAdUsage - 1 : 1;
                     //todo: YandexMetrika.PairReceived();
                 }
             }
@@ -91,6 +92,15 @@ namespace FH.Level {
             }
         }
 
+        public void ResetTips()
+        {
+            _currentPairUsage = _findPairFreeUsage;
+            _currentPeekUsage = _peekFreeUsage;
+            
+            _gameUIController.SetFindPairUsageCount(_currentPairUsage);
+            _gameUIController.SetPeekUsegeCount(_currentPeekUsage);
+        }
+
         private async Awaitable<bool> ShowAd() {
             _levelController.FreezeGame();
             bool adResult = await AdFeatures.Instance.ShowRewardedAwaitable(1);;
@@ -100,13 +110,9 @@ namespace FH.Level {
         
         private void Start()
         {
-            _currentPairUsage = _findPairFreeUsage;
-            _currentPeekUsage = _peekFreeUsage;
+            ResetTips();
             
-            _gameUIController.SetFindPairUsageCount(_currentPairUsage);
             _gameUIController.SetAdFinPairdBonus(_findPairAdUsage);
-
-            _gameUIController.SetPeekUsegeCount(_currentPeekUsage);
             _gameUIController.SetAdPeekBonus(_peekAdUsage);
         }
     }

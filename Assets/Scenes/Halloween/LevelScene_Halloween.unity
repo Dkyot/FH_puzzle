@@ -13,7 +13,7 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 9
+  serializedVersion: 10
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -44,7 +44,6 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 12
-  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -154,6 +153,8 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -239,6 +240,8 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -629,6 +632,7 @@ MonoBehaviour:
   _width: 9
   _height: 9
   _cardFlipSound: {fileID: 8300000, guid: 5cba93e90c136e7459fb15b2a43c1943, type: 3}
+  _destroyParticles: {fileID: 0}
 --- !u!4 &918102902
 Transform:
   m_ObjectHideFlags: 0
@@ -893,6 +897,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 710374889}
+        m_TargetAssemblyTypeName: FH.Level.LevelAdController, Assembly-CSharp
+        m_MethodName: ResetTips
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _pausePressed:
     m_PersistentCalls:
       m_Calls:
@@ -1012,6 +1028,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b38e5014b7bd8c04e8a1187d73984126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _toggleScrollingBgTexture: 1
   _toMainMenuPressed:
     m_PersistentCalls:
       m_Calls:
@@ -1057,6 +1074,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _movedToScoreTable:
+    m_PersistentCalls:
+      m_Calls: []
   _playerInputHandler: {fileID: 1813562680}
   _scoreCounter: {fileID: 710374887}
   _levelCompletedSound: {fileID: 8300000, guid: 6362dc82c01266f4099527e462c7538b, type: 3}

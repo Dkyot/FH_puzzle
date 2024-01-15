@@ -147,7 +147,10 @@ namespace FH.Cards {
             pairCount = cards.Count / 2;
 
             _waveCardList = TipMegaWaveFlip(cards, Rows, Colums);
-
+            
+            _firstMarker.SetActive(false);
+            _secondMarker.SetActive(false);
+            
             OnReset?.Invoke();
         }
 

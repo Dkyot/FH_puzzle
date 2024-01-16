@@ -12,6 +12,7 @@ using UnityEngine.Localization.Settings;
 using FH.Sound;
 using PlatformFeatures;
 using PlatformFeatures.AdFeatures;
+using PlatformFeatures.MetricaFeatures;
 using PlatformFeatures.SaveFeatures;
 
 namespace FH.Init {
@@ -154,7 +155,7 @@ namespace FH.Init {
 
         private async Awaitable EnterScene() {
             await StartTransition();
-            //todo: YandexGamesManager.ApiReady();
+            MetrikaFeatures.Instance.SendGameReady();
             HideLoadingScreen();
             _gameContext.SceneManagerProxy.SceneController.StartScene();
         }

@@ -2,6 +2,7 @@
 using FH.SO;
 using FH.Sound;
 using FH.Utils;
+using PlatformFeatures.MetricaFeatures;
 using PlatformFeatures.SaveFeatures;
 using UnityEngine;
 using UnityEngine.Localization;
@@ -24,7 +25,7 @@ namespace FH.UI.Views.Settings {
                 ScrollingBgTextureController.Instance?.EnableRendering();
 
             base.ShowView();
-            //todo: YandexMetrika.SettingsOpened();
+            MetrikaFeatures.Instance.SendEvent(MetrikaEventEnum.SettingsOpened);
         }
 
         public override void HideView() {

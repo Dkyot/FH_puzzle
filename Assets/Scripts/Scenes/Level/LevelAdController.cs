@@ -5,6 +5,7 @@ using UnityEngine;
 using FH.Inputs;
 using PlatformFeatures;
 using PlatformFeatures.AdFeatures;
+using PlatformFeatures.MetricaFeatures;
 
 namespace FH.Level {
     public sealed class LevelAdController : MonoBehaviour {
@@ -36,7 +37,7 @@ namespace FH.Level {
                 if (await ShowAd()) {
                     shouldUse = true;
                     _currentPairUsage = _findPairAdUsage > 0 ? _findPairAdUsage - 1 : 1;
-                    //todo: YandexMetrika.PairReceived();
+                    MetrikaFeatures.Instance.SendEvent(MetrikaEventEnum.PairReceived);
                 }
             }
             else {
@@ -53,7 +54,7 @@ namespace FH.Level {
 
             if (_currentPairUsage == 0)
             {
-                //todo: YandexMetrika.PairAllUsed();
+                MetrikaFeatures.Instance.SendEvent(MetrikaEventEnum.PairAllUsed);
             }
         }
 
@@ -68,7 +69,7 @@ namespace FH.Level {
                 if (await ShowAd())
                 {
                     _currentPeekUsage += _peekAdUsage;
-                    //todo: YandexMetrika.EyeReceived();
+                    MetrikaFeatures.Instance.SendEvent(MetrikaEventEnum.EyeReceived);
                 }
             }
             else {
@@ -88,7 +89,7 @@ namespace FH.Level {
             
             if (_currentPeekUsage == 0)
             {
-                //todo: YandexMetrika.EyeAllUsed();
+                MetrikaFeatures.Instance.SendEvent(MetrikaEventEnum.EyeAllUsed);
             }
         }
 

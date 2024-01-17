@@ -2,6 +2,7 @@ using FH.Cards;
 using FH.Scenes;
 using FH.SO;
 using System;
+using System.Linq;
 using FH.UI.Views.LevelStart;
 using UnityEngine;
 using UnityEngine.Events;
@@ -16,6 +17,7 @@ using UnityEngine.Localization.SmartFormat.PersistentVariables;
 using FH.Sound;
 using PlatformFeatures.MetrikaFeatures;
 using PlatformFeatures.SaveFeatures;
+using PlatformFeatures.UserFeatures;
 
 namespace FH.Level
 {
@@ -123,7 +125,7 @@ namespace FH.Level
 
         public void ShowReviewGame()
         {
-            //todo: YandexGamesManager.RequestReviewGame();
+            UserFeatures.Instance.OpenReviewGame();
         }
 
         private void Awake()
@@ -214,6 +216,8 @@ namespace FH.Level
             }
 
             SaveFeatures.Instance.SaveData();
+            UserFeatures.Instance.SetMainLeaderboardScore(
+                (int)SaveFeatures.Instance.SaveInfo.LevelsScore.Sum(x => x.Value));
             MetrikaFeatures.Instance.SendEvent(MetrikaEventEnum.LevelCompleted.ToString() + currentLevel.number);
 
             GameFinished.Invoke();

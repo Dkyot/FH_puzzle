@@ -204,11 +204,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   editorFeatures:
   - {fileID: 1578815640549750605, guid: 7b7ecdf66e52b8a46afbd8beaa11c5ae, type: 3}
+  - {fileID: 1093478771822899378, guid: 51268ac5d3da4874b929f07cdcc25615, type: 3}
   - {fileID: 651173134033222888, guid: db8bd861269c062488b247384ada9a90, type: 3}
+  - {fileID: 6388741281884560906, guid: 3a5de0975ab31234c8807b3b11e0caf7, type: 3}
   buildFeatures:
   - {fileID: 2211564899198745197, guid: caf9732433f4dc044845763962493607, type: 3}
   - {fileID: 6470481472969296168, guid: 26860d64d7369514c84721bbc5651fad, type: 3}
+  - {fileID: 8570723008484063030, guid: d34244f9e3daaaf47a0be878c08d032e, type: 3}
   - {fileID: 7923959552560812322, guid: ee62368afb81fc64c8f929166c7b4e85, type: 3}
+  - {fileID: 1320498167353578860, guid: dc36e54c67ae60647a67b17584e9df90, type: 3}
 --- !u!4 &1468445107
 Transform:
   m_ObjectHideFlags: 0

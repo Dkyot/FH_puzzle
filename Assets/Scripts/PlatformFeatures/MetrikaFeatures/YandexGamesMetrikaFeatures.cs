@@ -19,12 +19,18 @@ namespace PlatformFeatures.MetrikaFeatures
 
         public override void SendEvent(string eventName)
         {
-            YandexMetrica.Send(eventName);
+            if (infoYg.metricaEnable)
+            {
+                YandexMetrica.Send(eventName);
+            }
         }
 
         public override void SendEvent(MetrikaEventEnum eventName)
         {
-            YandexMetrica.Send(eventName.ToString());
+            if (infoYg.metricaEnable)
+            {
+                YandexMetrica.Send(eventName.ToString());
+            }
         }
     }
 }

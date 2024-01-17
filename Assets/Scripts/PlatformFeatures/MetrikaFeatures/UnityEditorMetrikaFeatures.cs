@@ -1,4 +1,4 @@
-﻿namespace PlatformFeatures.MetricaFeatures
+﻿namespace PlatformFeatures.MetrikaFeatures
 {
     public class UnityEditorMetrikaFeatures : MetrikaFeatures
     {

@@ -2,7 +2,7 @@ using FH.SO;
 using FH.Sound;
 using FH.Utils;
 using System.Collections.Generic;
-using PlatformFeatures.MetricaFeatures;
+using PlatformFeatures.MetrikaFeatures;
 using UnityEngine;
 using UnityEngine.Events;
 

@@ -12,7 +12,7 @@ using UnityEngine.Localization.Settings;
 using FH.Sound;
 using PlatformFeatures;
 using PlatformFeatures.AdFeatures;
-using PlatformFeatures.MetricaFeatures;
+using PlatformFeatures.MetrikaFeatures;
 using PlatformFeatures.SaveFeatures;
 
 namespace FH.Init {
@@ -156,6 +156,7 @@ namespace FH.Init {
         private async Awaitable EnterScene() {
             await StartTransition();
             MetrikaFeatures.Instance.SendGameReady();
+            MetrikaFeatures.Instance.SendEvent(MetrikaEventEnum.GameLoaded);
             HideLoadingScreen();
             _gameContext.SceneManagerProxy.SceneController.StartScene();
         }

@@ -5,7 +5,7 @@ using UnityEngine;
 using FH.Inputs;
 using PlatformFeatures;
 using PlatformFeatures.AdFeatures;
-using PlatformFeatures.MetricaFeatures;
+using PlatformFeatures.MetrikaFeatures;
 
 namespace FH.Level {
     public sealed class LevelAdController : MonoBehaviour {

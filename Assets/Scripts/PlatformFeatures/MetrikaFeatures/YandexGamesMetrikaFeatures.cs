@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using YG;
 
-namespace PlatformFeatures.MetricaFeatures
+namespace PlatformFeatures.MetrikaFeatures
 {
     public class YandexGamesMetrikaFeatures : MetrikaFeatures
     {

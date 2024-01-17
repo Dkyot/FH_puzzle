@@ -1,4 +1,4 @@
-﻿namespace PlatformFeatures.MetricaFeatures
+﻿namespace PlatformFeatures.MetrikaFeatures
 {
     /// <summary>
     /// Use this enum to set specific event names

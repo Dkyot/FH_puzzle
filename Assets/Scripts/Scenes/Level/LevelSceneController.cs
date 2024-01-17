@@ -14,7 +14,7 @@ using FH.UI.Views.LevelCompleted;
 using TMPro;
 using UnityEngine.Localization.SmartFormat.PersistentVariables;
 using FH.Sound;
-using PlatformFeatures.MetricaFeatures;
+using PlatformFeatures.MetrikaFeatures;
 using PlatformFeatures.SaveFeatures;
 
 namespace FH.Level

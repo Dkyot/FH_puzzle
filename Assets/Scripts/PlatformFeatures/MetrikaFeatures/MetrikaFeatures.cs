@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace PlatformFeatures.MetricaFeatures
+namespace PlatformFeatures.MetrikaFeatures
 {
     public abstract class MetrikaFeatures : FeaturesSingletonBase<MetrikaFeatures>
     {

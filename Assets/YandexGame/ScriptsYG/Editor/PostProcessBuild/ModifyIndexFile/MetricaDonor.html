@@ -12,9 +12,12 @@
         (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
     ym(window.yandexMetricaCounterId, "init", {
-        clickmap: false,
+        clickmap: true,
         trackLinks: true,
-        accurateTrackBounce: true
+        accurateTrackBounce: true,
+        webvisor: true
     });
+    
+    ym(METRICA_COUNTER_ID, 'reachGoal', 'METRICA_INIT_EVENT_NAME'); //Send init event
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/METRICA_COUNTER_ID" style="position:absolute; left:-9999px;" alt="" /></div></noscript>

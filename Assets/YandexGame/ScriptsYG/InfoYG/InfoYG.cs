@@ -411,6 +411,10 @@ namespace YG
         [ConditionallyVisible(nameof(metricaEnable))]
         [Min(0)]
         public int metricaCounterID;
+        [ConditionallyVisible(nameof(metricaEnable))]
+        public bool metricaSendWhenInit;
+        [ConditionallyVisible(nameof(metricaSendWhenInit))]
+        public string metricaInitEventName;
 
         [Header("———————  Other settings  ———————")]
 

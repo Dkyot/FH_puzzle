@@ -293,8 +293,10 @@ MonoBehaviour:
     consumed: 1
   metricaEnable: 1
   metricaCounterID: 0
+  metricaSendInit: 1
+  metricaInitEventName: GameStarted
   debug: 1
-  archivingBuild: 1
+  archivingBuild: 0
   logoImageFormat: 1
   backgroundImageFormat: 3
   pixelRatioEnable: 0

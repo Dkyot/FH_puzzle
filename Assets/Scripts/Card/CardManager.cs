@@ -7,7 +7,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using UnityEngine;
-using YandexSDK.Scripts;
 
 namespace FH.Cards {
     [RequireComponent(typeof(CardFlipper))]
@@ -148,7 +147,10 @@ namespace FH.Cards {
             pairCount = cards.Count / 2;
 
             _waveCardList = TipMegaWaveFlip(cards, Rows, Colums);
-
+            
+            _firstMarker.SetActive(false);
+            _secondMarker.SetActive(false);
+            
             OnReset?.Invoke();
         }
 

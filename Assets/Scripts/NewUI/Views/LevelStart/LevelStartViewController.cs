@@ -1,6 +1,6 @@
 using FH.Sound;
+using PlatformFeatures.MetricaFeatures;
 using UnityEngine;
-using YandexSDK.Scripts;
 
 namespace FH.UI.Views.LevelStart {
     public class LevelStartViewController : ViewController<LevelStartView> {
@@ -15,7 +15,7 @@ namespace FH.UI.Views.LevelStart {
 
         public override void ShowView() {
             base.ShowView();
-            YandexMetrika.LevelLoaded();
+            MetrikaFeatures.Instance.SendEvent(MetrikaEventEnum.LevelLoaded);
         }
 
         public async Awaitable StartAnimation() {

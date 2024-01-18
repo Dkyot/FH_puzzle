@@ -1,7 +1,7 @@
 using FH.Utils;
 using System.Collections.Generic;
+using PlatformFeatures.MetricaFeatures;
 using UnityEngine;
-using YandexSDK.Scripts;
 
 namespace FH.UI.Views.Gallery {
     public class GalleryViewController : ViewController<GalleryView> {
@@ -18,8 +18,8 @@ namespace FH.UI.Views.Gallery {
         public override void ShowView() {
             if (_toggleScrollingBgTexture)
                 ScrollingBgTextureController.Instance?.EnableRendering();
-
-            YandexMetrika.GalleryOpened();
+            
+            MetrikaFeatures.Instance.SendEvent(MetrikaEventEnum.GalleryOpened);
             view.Show();
         }
 

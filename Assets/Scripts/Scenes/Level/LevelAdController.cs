@@ -1,9 +1,11 @@
+using System;
 using FH.Cards;
 using FH.UI.Views.GameUI;
-using SkibidiRunner.Managers;
 using UnityEngine;
 using FH.Inputs;
-using YandexSDK.Scripts;
+using PlatformFeatures;
+using PlatformFeatures.AdFeatures;
+using PlatformFeatures.MetricaFeatures;
 
 namespace FH.Level {
     public sealed class LevelAdController : MonoBehaviour {
@@ -34,8 +36,8 @@ namespace FH.Level {
             if (_currentPairUsage <= 0) {
                 if (await ShowAd()) {
                     shouldUse = true;
-                    _currentPairUsage += _findPairAdUsage;
-                    YandexMetrika.PairReceived();
+                    _currentPairUsage = _findPairAdUsage > 0 ? _findPairAdUsage - 1 : 1;
+                    MetrikaFeatures.Instance.SendEvent(MetrikaEventEnum.PairReceived);
                 }
             }
             else {
@@ -52,7 +54,7 @@ namespace FH.Level {
 
             if (_currentPairUsage == 0)
             {
-                YandexMetrika.PairAllUsed();
+                MetrikaFeatures.Instance.SendEvent(MetrikaEventEnum.PairAllUsed);
             }
         }
 
@@ -67,7 +69,7 @@ namespace FH.Level {
                 if (await ShowAd())
                 {
                     _currentPeekUsage += _peekAdUsage;
-                    YandexMetrika.EyeReceived();
+                    MetrikaFeatures.Instance.SendEvent(MetrikaEventEnum.EyeReceived);
                 }
             }
             else {
@@ -87,31 +89,31 @@ namespace FH.Level {
             
             if (_currentPeekUsage == 0)
             {
-                YandexMetrika.EyeAllUsed();
+                MetrikaFeatures.Instance.SendEvent(MetrikaEventEnum.EyeAllUsed);
             }
         }
 
-        private async Awaitable<bool> ShowAd() {
-            var adManager = RewardedAdManager.Instance;
-            if (adManager == null)
-                return true;
+        public void ResetTips()
+        {
+            _currentPairUsage = _findPairFreeUsage;
+            _currentPeekUsage = _peekFreeUsage;
+            
+            _gameUIController.SetFindPairUsageCount(_currentPairUsage);
+            _gameUIController.SetPeekUsegeCount(_currentPeekUsage);
+        }
 
+        private async Awaitable<bool> ShowAd() {
             _levelController.FreezeGame();
-            var adResult = await adManager.ShowAdAwaitable();
-            await adManager.WaitingAdClose();
+            bool adResult = await AdFeatures.Instance.ShowRewardedAwaitable(1);;
             _levelController.UnFreezeGame();
             return adResult;
         }
         
         private void Start()
         {
-            _currentPairUsage = _findPairFreeUsage;
-            _currentPeekUsage = _peekFreeUsage;
+            ResetTips();
             
-            _gameUIController.SetFindPairUsageCount(_currentPairUsage);
             _gameUIController.SetAdFinPairdBonus(_findPairAdUsage);
-
-            _gameUIController.SetPeekUsegeCount(_currentPeekUsage);
             _gameUIController.SetAdPeekBonus(_peekAdUsage);
         }
     }

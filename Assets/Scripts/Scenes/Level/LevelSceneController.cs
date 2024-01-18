@@ -12,33 +12,37 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.AddressableAssets;
 using FH.UI.Views.LevelCompleted;
 using TMPro;
-using YandexSDK.Scripts;
 using UnityEngine.Localization.SmartFormat.PersistentVariables;
 using FH.Sound;
+using PlatformFeatures.MetricaFeatures;
+using PlatformFeatures.SaveFeatures;
 
-namespace FH.Level {
+namespace FH.Level
+{
     [RequireComponent(typeof(ScoreCounter))]
     [RequireComponent(typeof(ScoreTimer))]
-    public class LevelSceneController : MonoBehaviour, ISceneController {
+    public class LevelSceneController : MonoBehaviour, ISceneController
+    {
         private static int _trackCounter;
 
-        [Header("Level Events")]
-        [SerializeField] private UnityEvent GamePaused;
+        [Header("Level Events")] [SerializeField]
+        private UnityEvent GamePaused;
+
         [SerializeField] private UnityEvent GameResumed;
         [SerializeField] private UnityEvent GameFinished;
 
-        [Header("System Object References")]
-        [SerializeField] private GameContext _gameContext;
+        [Header("System Object References")] [SerializeField]
+        private GameContext _gameContext;
 
-        [Header("Level References")]
-        [SerializeField] private CardManager cardManager;
+        [Header("Level References")] [SerializeField]
+        private CardManager cardManager;
+
         [SerializeField] private SpriteRenderer _levelImage;
         [SerializeField] private LevelStartViewController _starAnimationViewController;
         [SerializeField] private LevelCompletedController _levelCompletedViewController;
         [SerializeField] private TipsPointerController _tipsPointerController;
 
-        [Header("Music")]
-        [SerializeField] private AudioClip _music1;
+        [Header("Music")] [SerializeField] private AudioClip _music1;
         [SerializeField] private AudioClip _music2;
 
         private ScoreTimer scoreTimer;
@@ -47,18 +51,21 @@ namespace FH.Level {
         private AssetReferenceSprite _spriteRef;
         private Sprite _image;
 
-        public async Awaitable StartPreloading() {
+        public async Awaitable StartPreloading()
+        {
             MusicManager.Instance?.FadeIn(0.5f, GetCurrentTrack(), true);
             await LoadImage();
             _levelCompletedViewController.SetImage(_image);
             _levelImage.sprite = _image;
         }
 
-        public void StartScene() {
+        public void StartScene()
+        {
             _ = StartSceneAsync();
         }
 
-        public async Awaitable UnloadScene() {
+        public async Awaitable UnloadScene()
+        {
             _image = null;
             _spriteRef.ReleaseAsset();
 
@@ -66,38 +73,45 @@ namespace FH.Level {
             await SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
         }
 
-        public void Restart() {
+        public void Restart()
+        {
             cardManager.CreateCards();
             scoreCounter.Reset();
             scoreTimer.Unlock();
         }
 
         /// <summary> Stops time and card flipper, but doesn't trigger pause event</summary>
-        public void FreezeGame() {
+        public void FreezeGame()
+        {
             cardManager.CardFlipper.Lock();
             scoreTimer.Lock();
         }
 
-        public void UnFreezeGame() {
+        public void UnFreezeGame()
+        {
             cardManager.CardFlipper?.Unlock();
             scoreTimer.Unlock();
         }
 
-        public void PauseGame() {
+        public void PauseGame()
+        {
             FreezeGame();
             GamePaused.Invoke();
         }
 
-        public void ResumeGame() {
+        public void ResumeGame()
+        {
             UnFreezeGame();
             GameResumed.Invoke();
         }
 
-        public void GoToMainMenu() {
+        public void GoToMainMenu()
+        {
             _gameContext.SceneManagerProxy.RequestMainMenuTrastion();
         }
 
-        public void NextLevel() {
+        public void NextLevel()
+        {
             var nextLevel = GetNextLevel();
 
             if (nextLevel == null)
@@ -109,15 +123,17 @@ namespace FH.Level {
 
         public void ShowReviewGame()
         {
-            YandexGamesManager.RequestReviewGame();
+            //todo: YandexGamesManager.RequestReviewGame();
         }
 
-        private void Awake() {
+        private void Awake()
+        {
             scoreCounter = GetComponent<ScoreCounter>();
             scoreTimer = GetComponent<ScoreTimer>();
         }
 
-        private void Start() {
+        private void Start()
+        {
             FreezeGame();
 
             // Hide next level button if there are no next level
@@ -137,7 +153,8 @@ namespace FH.Level {
 
             // Set current level number to global variable
             var levelNumberVariable = _gameContext.GlobalGroupVariables["levelNumber"];
-            if (levelNumberVariable is StringVariable stringVariable) {
+            if (levelNumberVariable is StringVariable stringVariable)
+            {
                 stringVariable.Value = _gameContext.CurrentLevel.number.ToString();
             }
 
@@ -155,7 +172,8 @@ namespace FH.Level {
             _gameContext.SceneManagerProxy.SceneController = this;
         }
 
-        private async Awaitable StartSceneAsync() {
+        private async Awaitable StartSceneAsync()
+        {
             await _starAnimationViewController.StartAnimation();
 
             scoreCounter.Reset();
@@ -172,7 +190,8 @@ namespace FH.Level {
             }
         }
 
-        private void OnWin(object sender, EventArgs e) {
+        private void OnWin(object sender, EventArgs e)
+        {
             FreezeGame();
             scoreCounter.CalculateScore();
 
@@ -180,23 +199,40 @@ namespace FH.Level {
             currentLevel.isCompleted = true;
             currentLevel.score = scoreCounter.FinalScore;
 
-            LocalYandexData.Instance.TrySaveLevelInfo(currentLevel);
-            YandexMetrika.LevelCompleted(currentLevel.number);
+            if (!SaveFeatures.Instance.SaveInfo.LevelsScore.TryGetValue(currentLevel.number, out float score))
+            {
+                Debug.Log("New level complete");
+                SaveFeatures.Instance.SaveInfo.LevelsScore.Add(currentLevel.number, currentLevel.score);
+            }
+            else
+            {
+                if (currentLevel.score > score)
+                {
+                    Debug.Log($"New record level. Old {score}, new {currentLevel.score}");
+                    SaveFeatures.Instance.SaveInfo.LevelsScore[currentLevel.number] = currentLevel.score;
+                }
+            }
+
+            SaveFeatures.Instance.SaveData();
+            MetrikaFeatures.Instance.SendEvent(MetrikaEventEnum.LevelCompleted.ToString() + currentLevel.number);
 
             GameFinished.Invoke();
         }
 
-        private async Awaitable LoadImage() {
+        private async Awaitable LoadImage()
+        {
             _spriteRef = _gameContext.CurrentLevel.LevelImage;
             var operation = await _spriteRef.LoadAssetAsync().CompleteAsync();
 
-            if (operation.Status == AsyncOperationStatus.Failed) {
+            if (operation.Status == AsyncOperationStatus.Failed)
+            {
                 Debug.LogException(operation.OperationException);
                 return;
             }
 
             var result = operation.Result;
-            if (result == null) {
+            if (result == null)
+            {
                 Debug.LogError("Failed load image");
                 return;
             }
@@ -204,13 +240,16 @@ namespace FH.Level {
             _image = result;
         }
 
-        private LevelDataSO GetNextLevel() {
+        private LevelDataSO GetNextLevel()
+        {
             var currentLevel = _gameContext.CurrentLevel;
             LevelDataSO nextLevel = null;
             bool findCurrent = false;
 
-            foreach (var level in _gameContext.LevelDataBase.Levels) {
-                if (!findCurrent) {
+            foreach (var level in _gameContext.LevelDataBase.Levels)
+            {
+                if (!findCurrent)
+                {
                     if (level == currentLevel)
                         findCurrent = true;
                     continue;
@@ -223,12 +262,15 @@ namespace FH.Level {
             return nextLevel;
         }
 
-        private AudioClip GetCurrentTrack() {
+        private AudioClip GetCurrentTrack()
+        {
             AudioClip track = null;
-            if (_trackCounter % 2 == 0) {
+            if (_trackCounter % 2 == 0)
+            {
                 track = _music1;
             }
-            else {
+            else
+            {
                 track = _music2;
             }
 

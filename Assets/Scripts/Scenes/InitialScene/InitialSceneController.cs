@@ -53,13 +53,13 @@ namespace FH.Init {
 
             // Set current language definded by unity
             if (SaveFeatures.Instance.SaveInfo.LastSaveTimeTicks > 0) {
-                _settings.SfxVolume = SaveFeatures.Instance.SaveInfo.SfxVolume;
-                _settings.MusicVolume = SaveFeatures.Instance.SaveInfo.MusicVolume;
-                _settings.LocaleIdentifier = new LocaleIdentifier(SaveFeatures.Instance.SaveInfo.Language);
+                settings.SfxVolume = SaveFeatures.Instance.SaveInfo.SfxVolume;
+                settings.MusicVolume = SaveFeatures.Instance.SaveInfo.MusicVolume;
+                settings.LocaleIdentifier = new LocaleIdentifier(SaveFeatures.Instance.SaveInfo.Language);
             }
             else {
                 string yandexLan = null; // todo: YandexGamesManager.GetLanguageString();
-                _settings.LocaleIdentifier = yandexLan != null ? new LocaleIdentifier(yandexLan) 
+                settings.LocaleIdentifier = yandexLan != null ? new LocaleIdentifier(yandexLan) 
                     : LocalizationSettings.SelectedLocale.Identifier;
             }
 
@@ -72,7 +72,7 @@ namespace FH.Init {
             
             var data = SaveFeatures.Instance.SaveInfo.LevelsScore;
             foreach (var pair in data) {
-                var element = _gameContext.LevelDataBase.Levels.First(x => x.number == pair.Key);
+                var element = gameContext.LevelDataBase.Levels.First(x => x.number == pair.Key);
                 if (element == null) continue;
                 element.score = pair.Value;
                 element.isCompleted = true;
@@ -151,11 +151,11 @@ namespace FH.Init {
 
         private async Awaitable EnterScene() {
             await sceneTransitionManager.StartTransition();
+            HideLoadingScreen();
 
             MetrikaFeatures.Instance.SendGameReady();
             gameContext.SceneManagerProxy.SceneController.StartScene();
 
-            HideLoadingScreen();
         }
 
         private void ShowLoadingScreen() {

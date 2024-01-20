@@ -151,7 +151,6 @@ namespace FH.Init {
 
         private async Awaitable EnterScene() {
             await sceneTransitionManager.StartTransition();
-            await StartTransition();
 
             MetrikaFeatures.Instance.SendGameReady();
             MetrikaFeatures.Instance.SendEvent(MetrikaEventEnum.GameLoaded);

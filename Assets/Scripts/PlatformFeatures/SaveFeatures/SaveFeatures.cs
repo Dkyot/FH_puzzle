@@ -6,7 +6,7 @@ namespace PlatformFeatures.SaveFeatures
     public abstract class SaveFeatures : MonoBehaviour
     {
         public static SaveFeatures Instance { get; private set; }
-        public SaveInfo SaveInfo { get; protected set; } = new SaveInfo();
+        public SaveInfo SaveInfo { get; protected set; } = new();
         
         public abstract event Action DataLoadedEvent;
 

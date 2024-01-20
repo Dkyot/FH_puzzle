@@ -52,17 +52,12 @@ namespace FH.Init {
             await LocalizationSettings.InitializationOperation.CompleteAsync();
 
             // Set current language definded by unity
-            if (SaveFeatures.Instance.SaveInfo.LastSaveTimeTicks > 0) {
-                settings.SfxVolume = SaveFeatures.Instance.SaveInfo.SfxVolume;
-                settings.MusicVolume = SaveFeatures.Instance.SaveInfo.MusicVolume;
-                settings.LocaleIdentifier = new LocaleIdentifier(SaveFeatures.Instance.SaveInfo.Language);
-            }
-            else {
-                string yandexLan = null; // todo: YandexGamesManager.GetLanguageString();
-                settings.LocaleIdentifier = yandexLan != null ? new LocaleIdentifier(yandexLan) 
-                    : LocalizationSettings.SelectedLocale.Identifier;
-            }
-
+            settings.SfxVolume = SaveFeatures.Instance.SaveInfo.SfxVolume;
+            settings.MusicVolume = SaveFeatures.Instance.SaveInfo.MusicVolume;
+            settings.LocaleIdentifier = SaveFeatures.Instance.SaveInfo.Language == null ? 
+                LocalizationSettings.SelectedLocale.Identifier 
+                : new LocaleIdentifier(SaveFeatures.Instance.SaveInfo.Language);
+            
             await _settingsObserver.Init(settings);
 
             int index = 1;
@@ -70,13 +65,14 @@ namespace FH.Init {
                 level.number = index++;
             }
             
+#if !UNITY_EDITOR
             var data = SaveFeatures.Instance.SaveInfo.LevelsScore;
-            foreach (var pair in data) {
-                var element = gameContext.LevelDataBase.Levels.First(x => x.number == pair.Key);
-                if (element == null) continue;
-                element.score = pair.Value;
-                element.isCompleted = true;
+            foreach (var level in gameContext.LevelDataBase.Levels) {
+                if (!data.TryGetValue(level.number, out float levelScore)) continue;
+                level.score = levelScore;
+                level.isCompleted = true;
             }
+#endif
 
             // Load Main Menu
             await LoadMainMenuScene();

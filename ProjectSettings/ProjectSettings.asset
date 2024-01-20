@@ -727,9 +727,9 @@ PlayerSettings:
   platformArchitecture: {}
   scriptingBackend: {}
   il2cppCompilerConfiguration:
-    WebGL: 1
+    WebGL: 2
   il2cppCodeGeneration:
-    WebGL: 0
+    WebGL: 1
   il2cppStacktraceInformation: {}
   managedStrippingLevel:
     Bratwurst: 1

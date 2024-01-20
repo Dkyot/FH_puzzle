@@ -1,5 +1,5 @@
 using FH.Sound;
-using PlatformFeatures.MetricaFeatures;
+using PlatformFeatures.MetrikaFeatures;
 using UnityEngine;
 
 namespace FH.UI.Views.LevelStart {

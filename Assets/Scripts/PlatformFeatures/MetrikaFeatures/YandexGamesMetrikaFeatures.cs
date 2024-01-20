@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using YG;
 
-namespace PlatformFeatures.MetricaFeatures
+namespace PlatformFeatures.MetrikaFeatures
 {
     public class YandexGamesMetrikaFeatures : MetrikaFeatures
     {
@@ -19,12 +19,18 @@ namespace PlatformFeatures.MetricaFeatures
 
         public override void SendEvent(string eventName)
         {
-            YandexMetrica.Send(eventName);
+            if (infoYg.metricaEnable)
+            {
+                YandexMetrica.Send(eventName);
+            }
         }
 
         public override void SendEvent(MetrikaEventEnum eventName)
         {
-            YandexMetrica.Send(eventName.ToString());
+            if (infoYg.metricaEnable)
+            {
+                YandexMetrica.Send(eventName.ToString());
+            }
         }
     }
 }

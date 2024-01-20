@@ -13,7 +13,7 @@ AudioImporter:
   defaultSettings:
     serializedVersion: 2
     loadType: 0
-    sampleRateSetting: 0
+    sampleRateSetting: 1
     sampleRateOverride: 0
     compressionFormat: 1
     quality: 0.01

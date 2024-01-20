@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scopes: 1
   playerPhotoSize: 0
-  autoGameReadyAPI: 1
+  autoGameReadyAPI: 0
   playerInfoSimulation:
     authorized: 1
     isMobile: 0
@@ -297,7 +297,7 @@ MonoBehaviour:
   archivingBuild: 0
   logoImageFormat: 2
   backgroundImageFormat: 3
-  pixelRatioEnable: 1
+  pixelRatioEnable: 0
   pixelRatioValue: 0.8
   loadGameRun: 0
   staticRBTInGame: 0

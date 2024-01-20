@@ -6,6 +6,7 @@ namespace PlatformFeatures
 {
     public class FeaturesSetter : MonoBehaviour
     {
+        [SerializeField] private bool debug;
         [SerializeField] private List<GameObject> editorFeatures;
         [SerializeField] private List<GameObject> buildFeatures;
 
@@ -16,6 +17,10 @@ namespace PlatformFeatures
 #else
             var currentFeatures = buildFeatures;
 #endif
+            if (debug)
+            {
+                currentFeatures = editorFeatures;
+            }
             foreach (var featureObject in currentFeatures)
             {
                 Instantiate(featureObject);

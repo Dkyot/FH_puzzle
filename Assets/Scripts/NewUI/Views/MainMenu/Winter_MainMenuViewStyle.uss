@@ -100,18 +100,3 @@ MainMenuView .title-container {
     justify-content: center;
     top: 5%;
 }
-
-.title-decoration {
-    flex-grow: 0;
-    background-color: rgba(0, 0, 0, 0);
-    background-image: url('project://database/Assets/Images/Winter/ChristmasWreath.png?fileID=21300000&guid=658d252925291ef49978a99f1f3fd4fb&type=3#ChristmasWreath');
-    width: 250px;
-    height: 250px;
-    -unity-background-image-tint-color: var(--primary);
-    -unity-background-scale-mode: scale-to-fit;
-    align-self: center;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: -20%;
-}

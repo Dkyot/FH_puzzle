@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: LevelData_4
   m_EditorClassIdentifier: 
   <Params>k__BackingField:
-    <Palete>k__BackingField: {fileID: 11400000, guid: 5b102256231020542a19805984345313, type: 2}
+    <Palete>k__BackingField: {fileID: 11400000, guid: 7aee9f9ab6b70014d9014ad6ee74238a, type: 2}
     <Rows>k__BackingField: 4
     <Columns>k__BackingField: 4
     <UseTwoPair>k__BackingField: 0
   <LevelImage>k__BackingField:
-    m_AssetGUID: 6c96baf81a58a9442af3ad070dbd537d
-    m_SubObjectName: 4
+    m_AssetGUID: 4fd0aa9570684e0459bad10a760f1af5
+    m_SubObjectName: Winter Level 4
     m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
     m_EditorAssetChanged: 1
   score: 0
-  isCompleted: 0
+  isCompleted: 1

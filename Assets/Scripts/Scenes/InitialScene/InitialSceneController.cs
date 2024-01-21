@@ -68,9 +68,14 @@ namespace FH.Init {
 #if !UNITY_EDITOR
             var data = SaveFeatures.Instance.SaveInfo.LevelsScore;
             foreach (var level in gameContext.LevelDataBase.Levels) {
-                if (!data.TryGetValue(level.number, out float levelScore)) continue;
-                level.score = levelScore;
-                level.isCompleted = true;
+                if (data.TryGetValue(level.number, out float levelScore)) {
+                    level.score = levelScore;
+                    level.isCompleted = true;
+                }
+                else {
+                    level.score = 0;
+                    level.isCompleted = false;
+                }
             }
 #endif
 

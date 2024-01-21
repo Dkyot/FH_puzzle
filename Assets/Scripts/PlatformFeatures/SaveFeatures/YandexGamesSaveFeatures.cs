@@ -39,9 +39,10 @@ namespace PlatformFeatures.SaveFeatures
             if(_dataLoaded) return;
             SaveInfo = YandexGame.savesData.saveInfo;
             Debug.Log(JsonConvert.SerializeObject(SaveInfo));
-            if (YandexGame.savesData.isFirstSession || SaveInfo.Language == null)
+            if (string.IsNullOrEmpty(SaveInfo.Language))
             {
                 SaveInfo.Language = YandexGame.EnvironmentData.language;
+                SaveData();
             }
 
             _dataLoaded = true;

@@ -108,7 +108,7 @@ MonoBehaviour:
     audioPause: 0
     cursorVisible: 0
     cursorLockMode: 0
-  awakeSetValues: 0
+  awakeSetValues: 1
   awakeValues:
     timeScale: 1
     audioPause: 0

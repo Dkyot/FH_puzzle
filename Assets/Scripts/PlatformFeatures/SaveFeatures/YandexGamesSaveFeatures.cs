@@ -41,8 +41,8 @@ namespace PlatformFeatures.SaveFeatures
             Debug.Log(JsonConvert.SerializeObject(SaveInfo));
             if (string.IsNullOrEmpty(SaveInfo.Language))
             {
-                SaveInfo.Language = YandexGame.EnvironmentData.language;
-                SaveData();
+                YandexGame.LanguageRequest();
+                SaveInfo.Language = YandexGame.savesData.language;
             }
 
             _dataLoaded = true;

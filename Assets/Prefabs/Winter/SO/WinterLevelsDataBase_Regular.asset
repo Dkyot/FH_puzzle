@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0578f4ec3b68b1a4e90ef392f9a8210c, type: 3}
+  m_Name: WinterLevelsDataBase_Regular
+  m_EditorClassIdentifier: 
+  _levels:
+  - {fileID: 11400000, guid: 67a67655425a0414da8c931252857daf, type: 2}
+  - {fileID: 11400000, guid: 91159c6036485a743b0406166cc0aa09, type: 2}
+  - {fileID: 11400000, guid: e2942e7861ee59743b438998dc5fdd03, type: 2}
+  - {fileID: 11400000, guid: bc2cc2ee19dd70349b3b9017dc1482fa, type: 2}
+  - {fileID: 11400000, guid: 40d513bdfb270e14591190bbcd8d99ed, type: 2}
+  - {fileID: 11400000, guid: ae38527d805bf1a43b746deed2ae3d78, type: 2}
+  - {fileID: 11400000, guid: 31ee67c2e016b9c43b33409cfe78c762, type: 2}
+  - {fileID: 11400000, guid: f98a4f955116a5744b496f24675b7565, type: 2}
+  - {fileID: 11400000, guid: fe9ae59383205e346b51c5ae08450111, type: 2}
+  - {fileID: 11400000, guid: 00b4a176ca56d3445a28a5523569e326, type: 2}
+  - {fileID: 11400000, guid: 00b4a176ca56d3445a28a5523569e326, type: 2}
+  - {fileID: 11400000, guid: 495e097f653ed4b418b57f4e7c9460a5, type: 2}
+  - {fileID: 11400000, guid: f058b50b626388d4ba18d5d4dc7c5791, type: 2}
+  - {fileID: 11400000, guid: 37f0a89d60242d24c9bf88af716dfe1d, type: 2}
+  - {fileID: 11400000, guid: 38e07d8059f5c694c9844e254d44956a, type: 2}
+  - {fileID: 11400000, guid: 3021859ebe399364a8708e00c1003e58, type: 2}

@@ -50,8 +50,8 @@ namespace FH.Level
         private ScoreTimer scoreTimer;
         private ScoreCounter scoreCounter;
 
-        private AssetReferenceSprite _spriteRef;
         private Sprite _image;
+        private LevelDataSO _curentLevelData;
 
         public async Awaitable StartPreloading()
         {
@@ -69,7 +69,7 @@ namespace FH.Level
         public async Awaitable UnloadScene()
         {
             _image = null;
-            _spriteRef.ReleaseAsset();
+            _curentLevelData.ReleaseImage();
 
             await MusicManager.Instance?.FadeOut(0.3f);
             await SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
@@ -137,6 +137,8 @@ namespace FH.Level
         private void Start()
         {
             FreezeGame();
+
+            _curentLevelData = _gameContext.CurrentLevel;
 
             // Hide next level button if there are no next level
             // Show game rate button if there are no next level

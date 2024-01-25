@@ -2,7 +2,7 @@
 
 namespace FH.SO
 {
-    [CreateAssetMenu(fileName = "CommonLevelData_", menuName = "SOData/LevelData")]
+    [CreateAssetMenu(fileName = "CommonLevelData_", menuName = "SOData/Regular Level Data")]
     public sealed class CommonLevelDataSO : LevelDataSO
     {
         [SerializeField] private Sprite _levelImage;

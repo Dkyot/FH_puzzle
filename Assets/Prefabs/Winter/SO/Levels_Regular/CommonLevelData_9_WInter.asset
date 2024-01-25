@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0a97f55c3993ff4a989b11530417667, type: 3}
+  m_Name: CommonLevelData_9_WInter
+  m_EditorClassIdentifier: 
+  <Params>k__BackingField:
+    <Palete>k__BackingField: {fileID: 11400000, guid: 7aee9f9ab6b70014d9014ad6ee74238a, type: 2}
+    <Rows>k__BackingField: 6
+    <Columns>k__BackingField: 6
+    <UseTwoPair>k__BackingField: 0
+  score: 0
+  isCompleted: 1
+  _levelImage: {fileID: 21300000, guid: 249d9f5abbc66f241b41c346f087b072, type: 3}

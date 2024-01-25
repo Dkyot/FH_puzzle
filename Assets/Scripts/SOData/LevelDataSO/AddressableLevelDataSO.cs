@@ -7,7 +7,7 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 
 namespace FH.SO
 {
-    [CreateAssetMenu(fileName = "AddressableLevelData_", menuName = "SOData/LevelData")]
+    [CreateAssetMenu(fileName = "AddressableLevelData_", menuName = "SOData/Adressable Level Data")]
     public sealed class AddressableLevelDataSO : LevelDataSO
     {
         [field: SerializeField] public AssetReferenceSprite LevelImage { get; private set; }

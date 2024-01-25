@@ -244,10 +244,10 @@ namespace FH.Level
             _image = result;
         }
 
-        private LevelDataSO GetNextLevel()
+        private AddressableLevelDataSO GetNextLevel()
         {
             var currentLevel = _gameContext.CurrentLevel;
-            LevelDataSO nextLevel = null;
+            AddressableLevelDataSO nextLevel = null;
             bool findCurrent = false;
 
             foreach (var level in _gameContext.LevelDataBase.Levels)

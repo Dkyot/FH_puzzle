@@ -25,7 +25,7 @@ namespace FH.MainMenu {
 
         private List<Sprite> _galleryImages = new();
 
-        public void GoToLevel(LevelDataSO levelData) {
+        public void GoToLevel(AddressableLevelDataSO levelData) {
             _gameContext.CurrentLevel = levelData;
             _gameContext.SceneManagerProxy.RequestLevelTransition();
         }

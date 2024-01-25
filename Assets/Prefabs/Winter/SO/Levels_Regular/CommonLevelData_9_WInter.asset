@@ -18,5 +18,5 @@ MonoBehaviour:
     <Columns>k__BackingField: 6
     <UseTwoPair>k__BackingField: 0
   score: 0
-  isCompleted: 1
+  isCompleted: 0
   _levelImage: {fileID: 21300000, guid: 249d9f5abbc66f241b41c346f087b072, type: 3}

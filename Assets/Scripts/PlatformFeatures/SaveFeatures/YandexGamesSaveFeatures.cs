@@ -38,12 +38,26 @@ namespace PlatformFeatures.SaveFeatures
         {
             if(_dataLoaded) return;
             SaveInfo = YandexGame.savesData.saveInfo;
-            Debug.Log(JsonConvert.SerializeObject(SaveInfo));
             if (string.IsNullOrEmpty(SaveInfo.Language))
             {
                 YandexGame.LanguageRequest();
-                SaveInfo.Language = YandexGame.savesData.language;
+                Debug.Log(YandexGame.savesData.language);
+                Debug.Log(YandexGame.EnvironmentData.language);
+                if (string.IsNullOrEmpty(YandexGame.savesData.language))
+                {
+                    SaveInfo.Language = YandexGame.savesData.language;
+                }
+                if (string.IsNullOrEmpty(YandexGame.EnvironmentData.language))
+                {
+                    SaveInfo.Language = YandexGame.EnvironmentData.language;
+                }
+                else
+                {
+                    SaveInfo.Language = Application.systemLanguage.ToString();
+                }
+                
             }
+            Debug.Log(JsonConvert.SerializeObject(SaveInfo));
 
             _dataLoaded = true;
             DataLoadedEvent?.Invoke();

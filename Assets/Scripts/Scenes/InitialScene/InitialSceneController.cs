@@ -48,15 +48,13 @@ namespace FH.Init {
         private async Awaitable InitGame() {
             // Init game here
 
-            await SaveFeatures.Instance.LoadDataAwaitable(5);
+            await SaveFeatures.Instance.LoadDataAwaitable(15);
             await LocalizationSettings.InitializationOperation.CompleteAsync();
 
             // Set current language definded by unity
             settings.SfxVolume = SaveFeatures.Instance.SaveInfo.SfxVolume;
             settings.MusicVolume = SaveFeatures.Instance.SaveInfo.MusicVolume;
-            settings.LocaleIdentifier = SaveFeatures.Instance.SaveInfo.Language == null ? 
-                LocalizationSettings.SelectedLocale.Identifier 
-                : new LocaleIdentifier(SaveFeatures.Instance.SaveInfo.Language);
+            settings.LocaleIdentifier = new LocaleIdentifier(SaveFeatures.Instance.SaveInfo.Language);
             
             await _settingsObserver.Init(settings);
 

@@ -26,8 +26,8 @@ namespace FH.MainMenu {
 
         private readonly LevelDataImageLoader _levelDataLoader = new LevelDataImageLoader();
 
-        private LevelDataSO[] _completedLevels;
-        private Sprite[] _galleryImages;
+        private List<LevelDataSO> _completedLevels;
+        private List<Sprite> _galleryImages;
 
         public void GoToLevel(LevelDataSO levelData) {
             _gameContext.CurrentLevel = levelData;
@@ -35,9 +35,12 @@ namespace FH.MainMenu {
         }
 
         public async Awaitable StartPreloading() {
+            _completedLevels = _gameContext.LevelDataBase.Levels.Where(l => l.isCompleted).ToList();
+
             try {
                 await LoadGalleryImages();
-                _galleryController.SetImages(_galleryImages);
+                if (_galleryImages != null)
+                    _galleryController.SetImages(_galleryImages);
             }
             catch (Exception ex) {
                 Debug.LogException(ex);
@@ -61,9 +64,9 @@ namespace FH.MainMenu {
         }
 
         private async Awaitable LoadGalleryImages() {
-            _completedLevels = _gameContext.LevelDataBase.Levels.Where(l => l.isCompleted).ToArray();
+            if (_completedLevels.Count == 0)return;
             _galleryImages = await _levelDataLoader.LoadLevelsImages(_completedLevels);
-            Debug.Log($"Loaded {_galleryImages.Length} images");
+            Debug.Log($"Loaded {_galleryImages.Count} images");
         }
 
         private void RealeseImages() {

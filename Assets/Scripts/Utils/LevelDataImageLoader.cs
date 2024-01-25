@@ -8,15 +8,15 @@ namespace Assets.Scripts.Utils
 {
     public sealed class LevelDataImageLoader
     {
-        public Awaitable<Sprite[]> LoadLevelsImages(LevelDataSO[] levelData) => WhenAll(levelData.Select(l => l.GetLevelImageAsync()).ToArray());
+        public Awaitable<List<Sprite>> LoadLevelsImages(List<LevelDataSO> levelData) => WhenAll(levelData.Select(l => l.GetLevelImageAsync()).ToArray());
 
-        private static Awaitable<T[]> WhenAll<T>(params Awaitable<T>[] awaitables) {
-            var completionSource = new AwaitableCompletionSource<T[]>();
-            var count = awaitables.Length;
+        private static Awaitable<List<T>> WhenAll<T>(params Awaitable<T>[] awaitables) {
+            var completionSource = new AwaitableCompletionSource<List<T>>();
+            var result = new List<T>(awaitables.Length);
+            var lenght = awaitables.Length;
+            var count = lenght;
 
-            var result = new T[awaitables.Length];
-
-            for (var i = 0; i < awaitables.Length; i++)
+            for (var i = 0; i < lenght; i++)
             {
                 StartAwaitableAndInvokeCallback(awaitables[i], i, OnAwaitableCompleted);
             }

@@ -1,3 +1,5 @@
+using System;
+using System.Globalization;
 using FH.SO;
 using PlatformFeatures.SaveFeatures;
 using UnityEngine;
@@ -27,11 +29,17 @@ namespace FH.Init {
         }
 
         private void OnLocaleChanged() {
-            var newLocale = LocalizationSettings.AvailableLocales.GetLocale(_settings.LocaleIdentifier);
-            LocalizationSettings.SelectedLocale = newLocale;
+            try {
+                var newLocale = LocalizationSettings.AvailableLocales.GetLocale(_settings.LocaleIdentifier);
+                LocalizationSettings.SelectedLocale = newLocale;
 
-            SaveFeatures.Instance.SaveInfo.Language = newLocale.Identifier.Code;
-            SaveFeatures.Instance.SaveData();
+                SaveFeatures.Instance.SaveInfo.Language = newLocale.Identifier.Code;
+                SaveFeatures.Instance.SaveData();
+            }
+            catch (Exception e) {
+                Debug.Log(e);
+            }
+            
         }
     }
 }

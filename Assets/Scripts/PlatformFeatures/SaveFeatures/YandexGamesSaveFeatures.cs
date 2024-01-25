@@ -36,27 +36,18 @@ namespace PlatformFeatures.SaveFeatures
 
         public override void LoadData()
         {
-            if(_dataLoaded) return;
+            if (_dataLoaded) return;
             SaveInfo = YandexGame.savesData.saveInfo;
             if (string.IsNullOrEmpty(SaveInfo.Language))
             {
                 YandexGame.LanguageRequest();
                 Debug.Log(YandexGame.savesData.language);
                 Debug.Log(YandexGame.EnvironmentData.language);
-                if (string.IsNullOrEmpty(YandexGame.savesData.language))
-                {
-                    SaveInfo.Language = YandexGame.savesData.language;
-                }
-                if (string.IsNullOrEmpty(YandexGame.EnvironmentData.language))
-                {
-                    SaveInfo.Language = YandexGame.EnvironmentData.language;
-                }
-                else
-                {
-                    SaveInfo.Language = Application.systemLanguage.ToString();
-                }
-                
+                SaveInfo.Language = string.IsNullOrEmpty(YandexGame.savesData.language)
+                    ? YandexGame.EnvironmentData.language
+                    : YandexGame.savesData.language;
             }
+
             Debug.Log(JsonConvert.SerializeObject(SaveInfo));
 
             _dataLoaded = true;

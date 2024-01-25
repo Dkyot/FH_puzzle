@@ -24,7 +24,7 @@ namespace Assets.Scripts.Utils
             void OnAwaitableCompleted(int awaitableIndex, T awaitableResult)
             {
                 count--;
-                result[awaitableIndex] = awaitableResult;
+                result.Add(awaitableResult);
                 if (count <= 0) completionSource.TrySetResult(result);
             }
 

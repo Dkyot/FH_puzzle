@@ -225,29 +225,13 @@ namespace FH.Level
 
         private async Awaitable LoadImage()
         {
-            _spriteRef = _gameContext.CurrentLevel.LevelImage;
-            var operation = await _spriteRef.LoadAssetAsync().CompleteAsync();
-
-            if (operation.Status == AsyncOperationStatus.Failed)
-            {
-                Debug.LogException(operation.OperationException);
-                return;
-            }
-
-            var result = operation.Result;
-            if (result == null)
-            {
-                Debug.LogError("Failed load image");
-                return;
-            }
-
-            _image = result;
+            _image = await _gameContext.CurrentLevel.GetLevelImageAsync();
         }
 
-        private AddressableLevelDataSO GetNextLevel()
+        private LevelDataSO GetNextLevel()
         {
             var currentLevel = _gameContext.CurrentLevel;
-            AddressableLevelDataSO nextLevel = null;
+            LevelDataSO nextLevel = null;
             bool findCurrent = false;
 
             foreach (var level in _gameContext.LevelDataBase.Levels)

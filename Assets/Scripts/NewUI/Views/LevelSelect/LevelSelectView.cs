@@ -12,12 +12,12 @@ namespace FH.UI.Views.LevelSelect {
         }
 
         //public event Action LevelContainerHovered;
-        public event Action<AddressableLevelDataSO> LevelSelected;
+        public event Action<LevelDataSO> LevelSelected;
 
         private Button _backButton;
         private VisualElement _levelsContainer;
 
-        public void SetLevels(IEnumerable<AddressableLevelDataSO> levels) {
+        public void SetLevels(IEnumerable<LevelDataSO> levels) {
             _levelsContainer.Clear();
 
             bool isAvalible = true;

@@ -1,4 +1,5 @@
-﻿using FH.Scenes;
+﻿using Assets.Scripts.Utils;
+using FH.Scenes;
 using FH.SO;
 using FH.Sound;
 using FH.UI.Views.Gallery;
@@ -23,9 +24,12 @@ namespace FH.MainMenu {
         [Header("Music")]
         [SerializeField] private AudioClip _music;
 
-        private List<Sprite> _galleryImages = new();
+        private readonly LevelDataImageLoader _levelDataLoader = new LevelDataImageLoader();
 
-        public void GoToLevel(AddressableLevelDataSO levelData) {
+        private LevelDataSO[] _completedLevels;
+        private Sprite[] _galleryImages;
+
+        public void GoToLevel(LevelDataSO levelData) {
             _gameContext.CurrentLevel = levelData;
             _gameContext.SceneManagerProxy.RequestLevelTransition();
         }
@@ -57,46 +61,16 @@ namespace FH.MainMenu {
         }
 
         private async Awaitable LoadGalleryImages() {
-            var comopletedLevels = _gameContext.LevelDataBase.Levels.Where(l => l.isCompleted);
-
-            foreach (var level in comopletedLevels) {
-                var levelImageRef = level.LevelImage;
-                AsyncOperationHandle<Sprite> loadOperation;
-
-                try {
-                    loadOperation = await levelImageRef.LoadAssetAsync().CompleteAsync();
-                }
-                catch (Exception ex) {
-                    Debug.LogException(ex);
-                    continue;
-                }
-
-                if (loadOperation.Status == AsyncOperationStatus.Failed) {
-                    Debug.Log(loadOperation.OperationException);
-                    continue;
-                }
-
-                var result = loadOperation.Result;
-                if (result == null) {
-                    Debug.Log($"Loaded image is null: {levelImageRef.AssetGUID}");
-                    continue;
-                }
-
-                _galleryImages.Add(result);
-            }
-
-            Debug.Log($"Loaded {_galleryImages.Count} images");
+            _completedLevels = _gameContext.LevelDataBase.Levels.Where(l => l.isCompleted).ToArray();
+            _galleryImages = await _levelDataLoader.LoadLevelsImages(_completedLevels);
+            Debug.Log($"Loaded {_galleryImages.Length} images");
         }
 
         private void RealeseImages() {
-            _galleryImages.Clear();
             _galleryImages = null;
 
-            var comopletedLevels = _gameContext.LevelDataBase.Levels.Where(l => l.isCompleted);
-
-            foreach (var level in comopletedLevels) {
-                var levelImageRef = level.LevelImage;
-                levelImageRef.ReleaseAsset();
+            foreach (var level in _completedLevels) {
+                level.ReleaseImage();
             }
         }
     }

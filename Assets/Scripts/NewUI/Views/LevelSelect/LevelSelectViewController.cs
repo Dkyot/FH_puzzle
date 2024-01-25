@@ -10,13 +10,13 @@ namespace FH.UI.Views.LevelSelect {
     public class LevelSelectController : ViewController<LevelSelectView> {
         [SerializeField] private bool _toggleScrollingBgTexture = true;
         [SerializeField] private ViewController _viewOnBack;
-        [SerializeField] private UnityEvent<AddressableLevelDataSO> LevelSelected;
+        [SerializeField] private UnityEvent<LevelDataSO> LevelSelected;
 
         [Header("Sounds")]
         [SerializeField] private AudioClip _levelSelectedSound;
         [SerializeField, Range(0, 2)] private float _levelSelectedVolume = 1f;
 
-        public void SetLevels(IEnumerable<AddressableLevelDataSO> levels) {
+        public void SetLevels(IEnumerable<LevelDataSO> levels) {
             view.SetLevels(levels);
         }
 
@@ -44,7 +44,7 @@ namespace FH.UI.Views.LevelSelect {
             ScreenController.ShowView(_viewOnBack);
         }
 
-        private void OnLevelSelected(AddressableLevelDataSO level) {
+        private void OnLevelSelected(LevelDataSO level) {
             SoundManager.Instance?.PlayOneShot(_levelSelectedSound, _levelSelectedVolume);
             LevelSelected?.Invoke(level);
             MetrikaFeatures.Instance.SendEvent(MetrikaEventEnum.LevelStarted);

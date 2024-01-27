@@ -32,9 +32,6 @@ namespace FH.Init {
             try {
                 var newLocale = LocalizationSettings.AvailableLocales.GetLocale(_settings.LocaleIdentifier);
                 LocalizationSettings.SelectedLocale = newLocale;
-
-                SaveFeatures.Instance.SaveInfo.Language = newLocale.Identifier.Code;
-                SaveFeatures.Instance.SaveData();
             }
             catch (Exception e) {
                 Debug.Log(e);

@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace FH.UI.Views.MainMenu {
-    public sealed class MainMenuView : ViewBase  {
+    public sealed class MainMenuView : ViewBase {
         public event Action PlayPressed {
             add => _playButton.clicked += value;
             remove => _playButton.clicked -= value;
@@ -36,11 +36,28 @@ namespace FH.UI.Views.MainMenu {
             _settingsButton = _buttonsContainer.Q<Button>("SettingsButton");
 
             _playButton.clicked += InvokeButtonPressed;
-            _galleryButton.clicked+= InvokeButtonPressed;
-            _settingsButton.clicked+= InvokeButtonPressed;
+            _galleryButton.clicked += InvokeButtonPressed;
+            _settingsButton.clicked += InvokeButtonPressed;
             _playButton.RegisterCallback<MouseEnterEvent>(OnButtonHovered);
             _galleryButton.RegisterCallback<MouseEnterEvent>(OnButtonHovered);
             _settingsButton.RegisterCallback<MouseEnterEvent>(OnButtonHovered);
+
+            AddSettingsIcon();
+        }
+
+        private void AddSettingsIcon() {
+            var settingsIconContainer = new VisualElement();
+            settingsIconContainer.AddToClassList("settings-icon-container");
+
+            var settingsIconShadow = new VisualElement();
+            settingsIconShadow.AddToClassList("settings-icon-shadow");
+
+            var settingsIcon = new VisualElement();
+            settingsIcon.AddToClassList("settings-icon");
+
+            _settingsButton.Q("Background").Add(settingsIconContainer);
+            settingsIconContainer.Add(settingsIconShadow);
+            settingsIconShadow.Add(settingsIcon);
         }
 
         public new sealed class UxmlFactory : UxmlFactory<MainMenuView, UxmlTraits> { }

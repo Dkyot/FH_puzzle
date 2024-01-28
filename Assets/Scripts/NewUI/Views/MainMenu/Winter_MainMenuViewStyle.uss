@@ -100,3 +100,27 @@ MainMenuView .title-container {
     justify-content: center;
     top: 5%;
 }
+
+.settings-icon-container {
+    position: absolute;
+    right: 10px;
+    bottom: 0;
+    top: 0;
+    justify-content: center;
+}
+
+.settings-icon-shadow {
+    background-image: url('project://database/Assets/Images/Common/UI/settings%20iocn.png?fileID=21300000&guid=9776dfa43ec81684e8048cc2c0ae9a24&type=3#settings iocn');
+    -unity-background-image-tint-color: rgba(0, 0, 0, 0.31);
+    width: 30px;
+    height: 30px;
+    align-self: center;
+    align-items: center;
+}
+
+.settings-icon {
+    background-image: url('project://database/Assets/Images/Common/UI/settings%20iocn.png?fileID=21300000&guid=9776dfa43ec81684e8048cc2c0ae9a24&type=3#settings iocn');
+    margin-bottom: 2px;
+    width: 30px;
+    height: 30px;
+}

@@ -68,15 +68,18 @@ SpriteAtlas:
     packedSpriteRenderDataKeys:
     - f44cecd3441c51f45bc865f4a9837698: 21300000
     - 925326144ff09b749a6db6b00d2a19e2: 21300000
+    - e8e2e68c835a6a64184b97ec23efaeea: 21300000
     - 1eb92dff04026664da454359c273634b: 21300000
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: f44cecd3441c51f45bc865f4a9837698, type: 3}
   - {fileID: 21300000, guid: 925326144ff09b749a6db6b00d2a19e2, type: 3}
+  - {fileID: 21300000, guid: e8e2e68c835a6a64184b97ec23efaeea, type: 3}
   - {fileID: 21300000, guid: 1eb92dff04026664da454359c273634b, type: 3}
   m_PackedSpriteNamesToIndex:
   - Halloween_CardImage
   - Halloween_CardFront
+  - Halloween_Arrow
   - Halloween_CardBack
   m_RenderDataMap: {}
   m_Tag: Halloween_Atlas

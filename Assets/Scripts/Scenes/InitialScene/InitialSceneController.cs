@@ -54,9 +54,16 @@ namespace FH.Init {
             // Set current language definded by unity
             settings.SfxVolume = SaveFeatures.Instance.SaveInfo.SfxVolume;
             settings.MusicVolume = SaveFeatures.Instance.SaveInfo.MusicVolume;
-            var locale = LocalizationSettings.AvailableLocales.Locales.Find(x =>
-                x.Identifier.Code.IndexOf(SaveFeatures.Instance.SaveInfo.Language, StringComparison.Ordinal) != -1);
-            settings.LocaleIdentifier = locale == null ? new LocaleIdentifier(Application.systemLanguage) : locale.Identifier;
+            LocaleIdentifier localeIdentifier;
+            if (string.IsNullOrEmpty(SaveFeatures.Instance.SaveInfo.Language)) {
+                localeIdentifier = new LocaleIdentifier(Application.systemLanguage);
+            }
+            else {
+                var locale = LocalizationSettings.AvailableLocales.Locales.Find(x =>
+                    x.Identifier.Code.IndexOf(SaveFeatures.Instance.SaveInfo.Language, StringComparison.Ordinal) != -1);
+                localeIdentifier = locale == null ? new LocaleIdentifier(Application.systemLanguage): locale.Identifier;
+            }
+            settings.LocaleIdentifier =  localeIdentifier;
             
             await _settingsObserver.Init(settings);
 

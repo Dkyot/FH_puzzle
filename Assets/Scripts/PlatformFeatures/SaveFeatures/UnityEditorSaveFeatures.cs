@@ -33,6 +33,7 @@ namespace PlatformFeatures.SaveFeatures
 #if UNITY_2023
         public override async Awaitable<bool> LoadDataAwaitable(uint waitingTimeSeconds)
         {
+            LoadData();
             await Awaitable.NextFrameAsync();
             return true;
         }

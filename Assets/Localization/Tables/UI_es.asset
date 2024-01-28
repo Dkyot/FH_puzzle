@@ -28,7 +28,9 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 22800453720645632
-    m_Localized: "Anime Waifu \nDe Halloween"
+    m_Localized: 'Anime Waifu
+
+      De Halloween'
     m_Metadata:
       m_Items: []
   - m_Id: 662671137820672

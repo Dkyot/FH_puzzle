@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 2668e5bb82887ea439d6601107dbcf3a
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 235877
+  packageName: PluginYG - Yandex Game integration
+  packageVersion: 1.6
+  assetPath: Assets/WebGLTemplates/PluginYG/style.css
+  uploadId: 627339

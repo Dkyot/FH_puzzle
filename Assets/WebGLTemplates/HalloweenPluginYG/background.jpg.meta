@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 87aaca13e2ca4dc439140b0ec56e2255
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 235877
+  packageName: PluginYG - Yandex Game integration
+  packageVersion: 1.6
+  assetPath: Assets/WebGLTemplates/PluginYG/background.jpg
+  uploadId: 627339

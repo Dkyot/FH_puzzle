@@ -116,6 +116,7 @@ MainMenuView .title-container {
     height: 30px;
     align-self: center;
     align-items: center;
+    translate: 0 3px;
 }
 
 .settings-icon {

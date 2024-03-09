@@ -1,26 +1,39 @@
 ﻿using System;
+using Newtonsoft.Json;
 using UnityEngine;
 
 namespace PlatformsSdk.SaveFeatures
 {
-    public class UnitySaveFeature : ISaveFeature
+    public class PlayerPrefSaveFeature : ISaveFeature
     {
         public SaveInfo SaveInfo { get; private set; } = new();
+
         public event Action DataLoadedEvent;
 
-        public void SetDebugInfo(SaveInfo saveInfo)
+        private readonly string _saveKey;
+
+        public PlayerPrefSaveFeature(string saveKey)
         {
-            SaveInfo = saveInfo;
+            _saveKey = saveKey;
             LoadData();
         }
 
         public void LoadData()
         {
+            string json = PlayerPrefs.GetString(_saveKey);
+            var loadedData = JsonConvert.DeserializeObject<SaveInfo>(json);
+            if (loadedData != null)
+            {
+                SaveInfo = loadedData;
+            }
             DataLoadedEvent?.Invoke();
         }
 
         public void SaveData()
         {
+            string json = JsonConvert.SerializeObject(SaveInfo);
+            PlayerPrefs.SetString(_saveKey, json);
+            PlayerPrefs.Save();
         }
 
 #if UNITY_2023

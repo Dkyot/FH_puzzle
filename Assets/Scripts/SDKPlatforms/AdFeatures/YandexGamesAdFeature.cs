@@ -4,7 +4,7 @@ using YG;
 
 namespace PlatformsSdk.AdFeatures
 {
-    public class YandexAdFeature : IAdFeature
+    public class YandexGamesAdFeature : IAdFeature
     {
         public event Action FullscreenOpenEvent;
         public event Action FullscreenCloseEvent;
@@ -17,7 +17,7 @@ namespace PlatformsSdk.AdFeatures
         private readonly InfoYG _infoYg;
         private bool _callbackInit;
         
-        public YandexAdFeature(InfoYG infoYg)
+        public YandexGamesAdFeature(InfoYG infoYg)
         {
             _infoYg = infoYg;
         }
@@ -37,7 +37,7 @@ namespace PlatformsSdk.AdFeatures
             _callbackInit = true;
         }
 
-        ~YandexAdFeature()
+        ~YandexGamesAdFeature()
         {
             YandexGame.OpenFullAdEvent -= FullscreenOpenEvent;
             YandexGame.OpenFullAdEvent -= FullscreenCloseEvent;

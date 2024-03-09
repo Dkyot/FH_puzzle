@@ -8,7 +8,7 @@ using YG;
 
 namespace PlatformsSdk.FeaturesConfigures
 {
-    public class YandexGameFeaturesConfigure : FeaturesConfigureBase
+    public class YandexGamesFeaturesConfigure : FeaturesConfigureBase
     {
         [SerializeField] private GameObject yandexPrefab;
         [SerializeField] private string mainLeaderboardName;
@@ -16,10 +16,10 @@ namespace PlatformsSdk.FeaturesConfigures
         protected override void RegisterFeatures()
         {
             var yandex = Instantiate(yandexPrefab).GetComponent<YandexGame>();
-            var adFeature = new YandexAdFeature(yandex.infoYG);
-            var saveFeature = new YandexSaveFeature();
+            var adFeature = new YandexGamesAdFeature(yandex.infoYG);
+            var saveFeature = new YandexGamesSaveFeature();
             var userFeature = new YandexUserFeature(yandex.infoYG, mainLeaderboardName);
-            var metrikaFeature = new YandexMetrikaFeature(yandex.infoYG);
+            var metrikaFeature = new YandexGamesMetrikaFeature(yandex.infoYG);
             adFeature.InitCallbacks();
             saveFeature.InitCallbacks();
             PlatformFeatures.Configure(adFeature, saveFeature, userFeature, metrikaFeature);

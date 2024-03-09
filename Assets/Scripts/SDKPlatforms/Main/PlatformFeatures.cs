@@ -17,8 +17,8 @@ namespace PlatformsSdk.Main
         public static IUserFeature User => _userFeature ??= new UnityUserFeature();
         public static IMetrikaFeature Metrika => _metrikaFeature ??= new UnityMetrikaFeature();
 
-        public static void Configure(IAdFeature adFeature, ISaveFeature saveFeature, IUserFeature userFeature,
-            IMetrikaFeature metrikaFeature)
+        public static void Configure(IAdFeature adFeature, ISaveFeature saveFeature, IUserFeature userFeature = null,
+            IMetrikaFeature metrikaFeature = null)
         {
             _adFeature = adFeature;
             _saveFeature = saveFeature;

@@ -2,11 +2,11 @@
 
 namespace PlatformsSdk.MetrikaFeatures
 {
-    public class YandexMetrikaFeature : IMetrikaFeature
+    public class YandexGamesMetrikaFeature : IMetrikaFeature
     {
         private readonly InfoYG _infoYg;
         
-        public YandexMetrikaFeature(InfoYG infoYg)
+        public YandexGamesMetrikaFeature(InfoYG infoYg)
         {
             _infoYg = infoYg;
         }

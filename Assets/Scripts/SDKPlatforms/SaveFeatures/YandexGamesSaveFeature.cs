@@ -5,16 +5,16 @@ using YG;
 
 namespace PlatformsSdk.SaveFeatures
 {
-    public class YandexSaveFeature : ISaveFeature
+    public class YandexGamesSaveFeature : ISaveFeature
     {
-        public SaveInfo SaveInfo { get; private set; }
+        public SaveInfo SaveInfo { get; private set; } = new ();
         
         public event Action DataLoadedEvent;
 
         private bool _dataLoaded;
         private bool _callbackInit;
 
-        public YandexSaveFeature()
+        public YandexGamesSaveFeature()
         {
             if (YandexGame.SDKEnabled)
             {
@@ -31,7 +31,7 @@ namespace PlatformsSdk.SaveFeatures
             _callbackInit = true;
         }
         
-        ~YandexSaveFeature()
+        ~YandexGamesSaveFeature()
         {
             YandexGame.GetDataEvent -= DataLoadedEvent;
             DataLoadedEvent -= LoadData;

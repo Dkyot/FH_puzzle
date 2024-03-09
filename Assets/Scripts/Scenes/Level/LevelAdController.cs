@@ -3,9 +3,7 @@ using FH.Cards;
 using FH.UI.Views.GameUI;
 using UnityEngine;
 using FH.Inputs;
-using PlatformsSdk;
-using PlatformsSdk.AdFeatures;
-using PlatformsSdk.Common;
+using PlatformsSdk.Main;
 using PlatformsSdk.MetrikaFeatures;
 
 namespace FH.Level {

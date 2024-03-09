@@ -2,8 +2,8 @@
 using FH.SO;
 using FH.Sound;
 using FH.Utils;
+using PlatformsSdk.Main;
 using PlatformsSdk.MetrikaFeatures;
-using PlatformsSdk.SaveFeatures;
 using UnityEngine;
 using UnityEngine.Localization;
 
@@ -60,7 +60,7 @@ namespace FH.UI.Views.Settings {
 
         private void OnDonePressed() {
             ScreenController.ShowView(_viewAfter);
-            SaveFeatures.Instance.SaveData();
+            PlatformFeatures.Save.SaveData();
         }
 
         private void Start() {

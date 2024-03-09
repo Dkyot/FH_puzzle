@@ -1,4 +1,5 @@
 ﻿using PlatformsSdk.AdFeatures;
+using PlatformsSdk.SaveFeatures;
 using UnityEngine;
 using YG;
 
@@ -12,8 +13,10 @@ namespace PlatformsSdk.FeaturesConfigures
         {
             var yandex = Instantiate(yandexPrefab).GetComponent<YandexGame>();
             var adFeature = new YandexAdFeature(yandex.infoYG);
+            var saveFeature = new YandexSaveFeature();
             adFeature.InitCallbacks();
-            Common.PlatformFeatures.Configure(adFeature);
+            saveFeature.InitCallbacks();
+            Main.PlatformFeatures.Configure(adFeature, saveFeature);
         }
     }
 }

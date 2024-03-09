@@ -1,6 +1,7 @@
 using System;
 using System.Globalization;
 using FH.SO;
+using PlatformsSdk.Main;
 using PlatformsSdk.SaveFeatures;
 using UnityEngine;
 using UnityEngine.Localization;
@@ -20,19 +21,19 @@ namespace FH.Init {
 
         private void OnMusicVolumeChanged()
         {
-            SaveFeatures.Instance.SaveInfo.MusicVolume = _settings.MusicVolume;
+            PlatformFeatures.Save.SaveInfo.MusicVolume = _settings.MusicVolume;
         }
 
         private void OnSfxVolumeChanged()
         {
-            SaveFeatures.Instance.SaveInfo.SfxVolume = _settings.SfxVolume;
+            PlatformFeatures.Save.SaveInfo.SfxVolume = _settings.SfxVolume;
         }
 
         private void OnLocaleChanged() {
             try {
                 var newLocale = LocalizationSettings.AvailableLocales.GetLocale(_settings.LocaleIdentifier);
                 LocalizationSettings.SelectedLocale = newLocale;
-                SaveFeatures.Instance.SaveInfo.Language = newLocale.Identifier.Code;
+                PlatformFeatures.Save.SaveInfo.Language = newLocale.Identifier.Code;
             }
             catch (Exception e) {
                 Debug.Log(e);

@@ -5,36 +5,39 @@ using YG;
 
 namespace PlatformsSdk.SaveFeatures
 {
-    public class YandexGamesSaveFeatures : SaveFeatures
+    public class YandexSaveFeature : ISaveFeature
     {
-        public override event Action DataLoadedEvent;
+        public SaveInfo SaveInfo { get; private set; }
+        
+        public event Action DataLoadedEvent;
 
         private bool _dataLoaded;
+        private bool _callbackInit;
 
-        private void OnEnable()
+        public YandexSaveFeature()
         {
+            if (YandexGame.SDKEnabled)
+            {
+                LoadData();
+            }
+        }
+        
+        public void InitCallbacks()
+        {
+            if(_callbackInit) return;
+            
             YandexGame.GetDataEvent += DataLoadedEvent;
             DataLoadedEvent += LoadData;
+            _callbackInit = true;
         }
-
-        private void OnDisable()
+        
+        ~YandexSaveFeature()
         {
             YandexGame.GetDataEvent -= DataLoadedEvent;
             DataLoadedEvent -= LoadData;
         }
 
-        private void Start()
-        {
-            Init();
-        }
-
-        protected override void Init()
-        {
-            if (!YandexGame.SDKEnabled) return;
-            LoadData();
-        }
-
-        public override void LoadData()
+        public void LoadData()
         {
             if (_dataLoaded) return;
             SaveInfo = YandexGame.savesData.saveInfo;
@@ -50,7 +53,7 @@ namespace PlatformsSdk.SaveFeatures
             DataLoadedEvent?.Invoke();
         }
 
-        public override void SaveData()
+        public void SaveData()
         {
             SaveInfo.LastSaveTimeTicks = DateTime.UtcNow.Ticks;
             YandexGame.savesData.saveInfo = SaveInfo;
@@ -58,7 +61,7 @@ namespace PlatformsSdk.SaveFeatures
         }
 
 #if UNITY_2023
-        public override async Awaitable<bool> LoadDataAwaitable(uint waitingTimeSeconds)
+        public async Awaitable<bool> LoadDataAwaitable(uint waitingTimeSeconds)
         {
             if (YandexGame.SDKEnabled)
             {

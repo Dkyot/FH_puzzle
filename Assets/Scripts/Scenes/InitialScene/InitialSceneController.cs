@@ -11,10 +11,8 @@ using UnityEngine.UIElements;
 using UnityEngine.Localization.Settings;
 using FH.Sound;
 using PlatformsSdk;
-using PlatformsSdk.AdFeatures;
-using PlatformsSdk.Common;
+using PlatformsSdk.Main;
 using PlatformsSdk.MetrikaFeatures;
-using PlatformsSdk.SaveFeatures;
 
 namespace FH.Init {
     public class InitialSceneController : MonoBehaviour {
@@ -49,19 +47,19 @@ namespace FH.Init {
         private async Awaitable InitGame() {
             // Init game here
 
-            await SaveFeatures.Instance.LoadDataAwaitable(5);
+            await PlatformFeatures.Save.LoadDataAwaitable(5);
             await LocalizationSettings.InitializationOperation.CompleteAsync();
 
             // Set current language definded by unity
-            settings.SfxVolume = SaveFeatures.Instance.SaveInfo.SfxVolume;
-            settings.MusicVolume = SaveFeatures.Instance.SaveInfo.MusicVolume;
+            settings.SfxVolume = PlatformFeatures.Save.SaveInfo.SfxVolume;
+            settings.MusicVolume = PlatformFeatures.Save.SaveInfo.MusicVolume;
             LocaleIdentifier localeIdentifier;
-            if (string.IsNullOrEmpty(SaveFeatures.Instance.SaveInfo.Language)) {
+            if (string.IsNullOrEmpty(PlatformFeatures.Save.SaveInfo.Language)) {
                 localeIdentifier = new LocaleIdentifier(Application.systemLanguage);
             }
             else {
                 var locale = LocalizationSettings.AvailableLocales.Locales.Find(x =>
-                    x.Identifier.Code.IndexOf(SaveFeatures.Instance.SaveInfo.Language, StringComparison.Ordinal) != -1);
+                    x.Identifier.Code.IndexOf(PlatformFeatures.Save.SaveInfo.Language, StringComparison.Ordinal) != -1);
                 localeIdentifier = locale == null ? new LocaleIdentifier(Application.systemLanguage): locale.Identifier;
             }
             settings.LocaleIdentifier =  localeIdentifier;

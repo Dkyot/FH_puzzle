@@ -15,8 +15,8 @@ using FH.UI.Views.LevelCompleted;
 using TMPro;
 using UnityEngine.Localization.SmartFormat.PersistentVariables;
 using FH.Sound;
+using PlatformsSdk.Main;
 using PlatformsSdk.MetrikaFeatures;
-using PlatformsSdk.SaveFeatures;
 using PlatformsSdk.UserFeatures;
 
 namespace FH.Level
@@ -203,23 +203,23 @@ namespace FH.Level
             currentLevel.isCompleted = true;
             currentLevel.score = scoreCounter.FinalScore;
 
-            if (!SaveFeatures.Instance.SaveInfo.LevelsScore.TryGetValue(currentLevel.number, out float score))
+            if (!PlatformFeatures.Save.SaveInfo.LevelsScore.TryGetValue(currentLevel.number, out float score))
             {
                 Debug.Log("New level complete");
-                SaveFeatures.Instance.SaveInfo.LevelsScore.Add(currentLevel.number, currentLevel.score);
+                PlatformFeatures.Save.SaveInfo.LevelsScore.Add(currentLevel.number, currentLevel.score);
             }
             else
             {
                 if (currentLevel.score > score)
                 {
                     Debug.Log($"New record level. Old {score}, new {currentLevel.score}");
-                    SaveFeatures.Instance.SaveInfo.LevelsScore[currentLevel.number] = currentLevel.score;
+                    PlatformFeatures.Save.SaveInfo.LevelsScore[currentLevel.number] = currentLevel.score;
                 }
             }
 
-            SaveFeatures.Instance.SaveData();
+            PlatformFeatures.Save.SaveData();
             UserFeatures.Instance.SetMainLeaderboardScore(
-                (int)SaveFeatures.Instance.SaveInfo.LevelsScore.Sum(x => x.Value));
+                (int)PlatformFeatures.Save.SaveInfo.LevelsScore.Sum(x => x.Value));
             MetrikaFeatures.Instance.SendEvent(MetrikaEventEnum.LevelCompleted.ToString() + currentLevel.number);
 
             GameFinished.Invoke();

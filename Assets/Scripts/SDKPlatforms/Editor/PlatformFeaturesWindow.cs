@@ -14,7 +14,7 @@ using Utils;
 using Utils.Editor;
 using Object = UnityEngine.Object;
 
-namespace PlatformsSdk.Common.Editor
+namespace PlatformsSdk.Editor
 {
     public class PlatformFeaturesWindow : EditorWindow, IPreprocessBuildWithReport
     {

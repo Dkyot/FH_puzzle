@@ -25,7 +25,7 @@ namespace FH.UI.Views.Settings {
                 ScrollingBgTextureController.Instance?.EnableRendering();
 
             base.ShowView();
-            MetrikaFeatures.Instance.SendEvent(MetrikaEventEnum.SettingsOpened);
+            PlatformFeatures.Metrika.SendEvent(MetrikaEventEnum.SettingsOpened);
         }
 
         public override void HideView() {

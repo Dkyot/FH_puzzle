@@ -1,4 +1,6 @@
 ﻿using PlatformsSdk.AdFeatures;
+using PlatformsSdk.Main;
+using PlatformsSdk.MetrikaFeatures;
 using PlatformsSdk.SaveFeatures;
 using PlatformsSdk.UserFeatures;
 using UnityEngine;
@@ -17,9 +19,10 @@ namespace PlatformsSdk.FeaturesConfigures
             var adFeature = new YandexAdFeature(yandex.infoYG);
             var saveFeature = new YandexSaveFeature();
             var userFeature = new YandexUserFeature(yandex.infoYG, mainLeaderboardName);
+            var metrikaFeature = new YandexMetrikaFeature(yandex.infoYG);
             adFeature.InitCallbacks();
             saveFeature.InitCallbacks();
-            Main.PlatformFeatures.Configure(adFeature, saveFeature, userFeature);
+            PlatformFeatures.Configure(adFeature, saveFeature, userFeature, metrikaFeature);
         }
     }
 }

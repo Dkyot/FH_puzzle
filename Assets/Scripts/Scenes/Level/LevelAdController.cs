@@ -36,7 +36,7 @@ namespace FH.Level {
                 if (await ShowAd()) {
                     shouldUse = true;
                     _currentPairUsage = _findPairAdUsage > 0 ? _findPairAdUsage - 1 : 1;
-                    MetrikaFeatures.Instance.SendEvent(MetrikaEventEnum.PairReceived);
+                    PlatformFeatures.Metrika.SendEvent(MetrikaEventEnum.PairReceived);
                 }
             }
             else {
@@ -53,7 +53,7 @@ namespace FH.Level {
 
             if (_currentPairUsage == 0)
             {
-                MetrikaFeatures.Instance.SendEvent(MetrikaEventEnum.PairAllUsed);
+                PlatformFeatures.Metrika.SendEvent(MetrikaEventEnum.PairAllUsed);
             }
         }
 
@@ -68,7 +68,7 @@ namespace FH.Level {
                 if (await ShowAd())
                 {
                     _currentPeekUsage += _peekAdUsage;
-                    MetrikaFeatures.Instance.SendEvent(MetrikaEventEnum.EyeReceived);
+                    PlatformFeatures.Metrika.SendEvent(MetrikaEventEnum.EyeReceived);
                 }
             }
             else {
@@ -88,7 +88,7 @@ namespace FH.Level {
             
             if (_currentPeekUsage == 0)
             {
-                MetrikaFeatures.Instance.SendEvent(MetrikaEventEnum.EyeAllUsed);
+                PlatformFeatures.Metrika.SendEvent(MetrikaEventEnum.EyeAllUsed);
             }
         }
 

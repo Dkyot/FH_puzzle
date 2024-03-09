@@ -16,6 +16,6 @@ namespace PlatformsSdk.SaveFeatures
                 unity.SetDebugInfo(debugData);
             }
         }
-    }
 #endif
+    }
 }

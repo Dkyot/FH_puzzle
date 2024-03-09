@@ -220,7 +220,7 @@ namespace FH.Level
             PlatformFeatures.Save.SaveData();
             PlatformFeatures.User.SetMainLeaderboardScore(
                 (int)PlatformFeatures.Save.SaveInfo.LevelsScore.Sum(x => x.Value));
-            MetrikaFeatures.Instance.SendEvent(MetrikaEventEnum.LevelCompleted.ToString() + currentLevel.number);
+            PlatformFeatures.Metrika.SendEvent(MetrikaEventEnum.LevelCompleted.ToString() + currentLevel.number);
 
             GameFinished.Invoke();
         }

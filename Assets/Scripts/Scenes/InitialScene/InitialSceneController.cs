@@ -72,7 +72,7 @@ namespace FH.Init {
             }
             
 #if !UNITY_EDITOR
-            var data = SaveFeatures.Instance.SaveInfo.LevelsScore;
+            var data = PlatformFeatures.Save.SaveInfo.LevelsScore;
             foreach (var level in gameContext.LevelDataBase.Levels) {
                 if (data.TryGetValue(level.number, out float levelScore)) {
                     level.score = levelScore;
@@ -159,12 +159,12 @@ namespace FH.Init {
         private async Awaitable EnterScene() {
             await sceneTransitionManager.StartTransition();
 
-            MetrikaFeatures.Instance.SendGameReady();
-            MetrikaFeatures.Instance.SendEvent(MetrikaEventEnum.GameLoaded);
+            PlatformFeatures.Metrika.SendGameReady();
+            PlatformFeatures.Metrika.SendEvent(MetrikaEventEnum.GameLoaded);
             
             HideLoadingScreen();
 
-            MetrikaFeatures.Instance.SendGameReady();
+            PlatformFeatures.Metrika.SendGameReady();
             gameContext.SceneManagerProxy.SceneController.StartScene();
 
         }

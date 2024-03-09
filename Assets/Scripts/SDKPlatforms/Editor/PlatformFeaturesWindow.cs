@@ -37,8 +37,8 @@ namespace PlatformsSdk.Editor
             {
                 Awake();
             }
-            
-            if(!_enabled) return;
+
+            if (!_enabled) return;
 
             if (_bootstrapScene == null)
             {
@@ -56,7 +56,7 @@ namespace PlatformsSdk.Editor
             {
                 throw new BuildFailedException("BootstrapScene is not set in build scene");
             }
-            
+
             var prefab = AssetDatabase.LoadAssetAtPath<Object>(_configuresPath[_currentConfigureIndex]);
             if (prefab == null)
             {
@@ -71,7 +71,7 @@ namespace PlatformsSdk.Editor
             {
                 DestroyImmediate(configure.gameObject);
             }
-            
+
             var obj = Instantiate(prefab);
             obj.name = "PlatformConfigure";
             EditorSceneManager.SaveScene(scene);
@@ -98,12 +98,12 @@ namespace PlatformsSdk.Editor
 
                 if (GUILayout.Button("Search configures in project"))
                 {
-                    string currentConfigure = _configuresPath[_currentConfigureIndex];
+                    string currentConfigure = CheckCurrentConfigure() ? _configuresPath[_currentConfigureIndex] : "";
                     _configuresPath = AssetHelper.FindPrefabsPathWithType<FeaturesConfigureBase>().ToArray();
                     _currentConfigureIndex = Array.IndexOf(_configuresPath, currentConfigure);
                 }
             }
-            
+
             if (EditorGUI.EndChangeCheck())
             {
                 SaveSettings();
@@ -124,12 +124,17 @@ namespace PlatformsSdk.Editor
         {
             EditorPrefs.SetString(bootstrapSceneKeyConst, AssetDatabase.GetAssetPath(_bootstrapScene));
             EditorPrefs.SetString(foundConfiguresKeyConst, JsonConvert.SerializeObject(_configuresPath));
-            if (_currentConfigureIndex >= 0 && _currentConfigureIndex < _configuresPath.Length)
+            if (CheckCurrentConfigure())
             {
                 EditorPrefs.SetString(currentConfigureKeyConst, _configuresPath[_currentConfigureIndex]);
             }
 
             EditorPrefs.SetBool(enabledKeyConst, _enabled);
+        }
+
+        private static bool CheckCurrentConfigure()
+        {
+            return _currentConfigureIndex >= 0 && _currentConfigureIndex < _configuresPath.Length;
         }
 
         [MenuItem("Tools/ Platform Features Settings")]

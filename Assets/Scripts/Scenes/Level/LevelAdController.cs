@@ -3,9 +3,10 @@ using FH.Cards;
 using FH.UI.Views.GameUI;
 using UnityEngine;
 using FH.Inputs;
-using PlatformFeatures;
-using PlatformFeatures.AdFeatures;
-using PlatformFeatures.MetrikaFeatures;
+using PlatformsSdk;
+using PlatformsSdk.AdFeatures;
+using PlatformsSdk.Common;
+using PlatformsSdk.MetrikaFeatures;
 
 namespace FH.Level {
     public sealed class LevelAdController : MonoBehaviour {
@@ -104,7 +105,7 @@ namespace FH.Level {
 
         private async Awaitable<bool> ShowAd() {
             _levelController.FreezeGame();
-            bool adResult = await AdFeatures.Instance.ShowRewardedAwaitable(1);;
+            bool adResult = await PlatformFeatures.Ad.ShowRewardedAwaitable(1);;
             _levelController.UnFreezeGame();
             return adResult;
         }

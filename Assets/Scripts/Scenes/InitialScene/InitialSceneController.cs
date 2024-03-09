@@ -10,10 +10,11 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 using UnityEngine.Localization.Settings;
 using FH.Sound;
-using PlatformFeatures;
-using PlatformFeatures.AdFeatures;
-using PlatformFeatures.MetrikaFeatures;
-using PlatformFeatures.SaveFeatures;
+using PlatformsSdk;
+using PlatformsSdk.AdFeatures;
+using PlatformsSdk.Common;
+using PlatformsSdk.MetrikaFeatures;
+using PlatformsSdk.SaveFeatures;
 
 namespace FH.Init {
     public class InitialSceneController : MonoBehaviour {
@@ -110,7 +111,7 @@ namespace FH.Init {
             }
 
             if (showAd) {
-                await AdFeatures.Instance.ShowFullscreenAwaitable();
+                await PlatformFeatures.Ad.ShowFullscreenAwaitable();
             }
 
             await LoadNewScene(sceneName);

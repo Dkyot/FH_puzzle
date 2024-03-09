@@ -2,8 +2,8 @@
 using FH.SO;
 using FH.Sound;
 using FH.Utils;
-using PlatformFeatures.MetrikaFeatures;
-using PlatformFeatures.SaveFeatures;
+using PlatformsSdk.MetrikaFeatures;
+using PlatformsSdk.SaveFeatures;
 using UnityEngine;
 using UnityEngine.Localization;
 

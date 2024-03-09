@@ -125,7 +125,7 @@ namespace FH.Level
 
         public void ShowReviewGame()
         {
-            UserFeatures.Instance.OpenReviewGame();
+            PlatformFeatures.User.OpenReviewGame();
         }
 
         private void Awake()
@@ -218,7 +218,7 @@ namespace FH.Level
             }
 
             PlatformFeatures.Save.SaveData();
-            UserFeatures.Instance.SetMainLeaderboardScore(
+            PlatformFeatures.User.SetMainLeaderboardScore(
                 (int)PlatformFeatures.Save.SaveInfo.LevelsScore.Sum(x => x.Value));
             MetrikaFeatures.Instance.SendEvent(MetrikaEventEnum.LevelCompleted.ToString() + currentLevel.number);
 

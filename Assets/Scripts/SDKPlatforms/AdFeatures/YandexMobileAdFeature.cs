@@ -14,48 +14,97 @@ namespace PlatformsSdk.AdFeatures
         public event Action RewardedCloseEvent;
         public event Action<int> RewardedSuccessEvent;
         public event Action RewardedCloseError;
-        
-        private RewardedAdLoader _rewardedAdLoader;
-        private RewardedAd _rewardedAd;
+
+        private RewardedAdLoader _rewardedLoader;
+        private RewardedAd _rewardedBlock;
+
+        private InterstitialAdLoader _fullscreenLoader;
+        private Interstitial _fullscreenBlock;
+
         private int _currentRewardId;
-        private string _adUnitId = "demo-rewarded-yandex";
+
         private bool _adRewarded;
         private bool _adClosed;
         private bool _adError;
 
-        public YandexMobileAdFeature(string adUnitId)
-        {
-            if (!string.IsNullOrEmpty(adUnitId))
-            {
-                _adUnitId = adUnitId;
-            }
-            SetupLoader();
-            RequestRewardedAd();
-        }
+        private DateTime _lastFullscreenTime;
         
+        private readonly string _rewardedId = "demo-rewarded-yandex";
+        private readonly string _fullscreenId = "demo-interstitial-yandex";
+        private readonly TimeSpan _fullscreenTimeout;
+
+        public YandexMobileAdFeature(string rewardedId, string fullscreenId, TimeSpan fullscreenTimeout)
+        {
+            if (!string.IsNullOrEmpty(rewardedId))
+            {
+                _rewardedId = rewardedId;
+            }
+
+            if (!string.IsNullOrEmpty(fullscreenId))
+            {
+                _fullscreenId = fullscreenId;
+            }
+
+            _fullscreenTimeout = fullscreenTimeout;
+
+            SetupAdLoader();
+            RequestReward();
+            RequestFullscreen();
+        }
+
         public void ShowFullscreen()
         {
-            
+            if(DateTime.UtcNow - _lastFullscreenTime < _fullscreenTimeout) return;
+            if (_fullscreenBlock == null)
+            {
+                RequestFullscreen();
+            }
+            else
+            {
+                _fullscreenBlock.Show();
+                _lastFullscreenTime = DateTime.UtcNow;
+            }
         }
 
         public void ShowRewarded(int id)
         {
-            _currentRewardId = id;
-            _rewardedAd?.Show();
+            if (_rewardedBlock == null)
+            {
+                RequestReward();
+            }
+            else
+            {
+                _currentRewardId = id;
+                _rewardedBlock?.Show();
+            }
         }
 
 #if UNITY_2023
         public async Awaitable ShowFullscreenAwaitable()
         {
-            await Awaitable.NextFrameAsync();
+            if(DateTime.UtcNow - _lastFullscreenTime < _fullscreenTimeout) return;
+            if (_fullscreenBlock == null)
+            {
+                RequestFullscreen();
+                return;
+            }
+            _adClosed = _adError = _adRewarded = false;
+            ShowFullscreen();
+            while (!_adRewarded && !_adError && !_adClosed)
+            {
+                await Awaitable.NextFrameAsync();
+            }
         }
 
         public async Awaitable<bool> ShowRewardedAwaitable(int id)
         {
+            if (_rewardedBlock == null)
+            {
+                RequestReward();
+                return false;
+            }
             _adClosed = _adError = _adRewarded = false;
-
             ShowRewarded(id);
-
             while (!_adRewarded && !_adError && !_adClosed)
             {
                 await Awaitable.NextFrameAsync();
@@ -64,66 +113,137 @@ namespace PlatformsSdk.AdFeatures
             return _adRewarded;
         }
 #endif
-        
-        private void SetupLoader()
+
+        private void SetupAdLoader()
         {
-            _rewardedAdLoader = new RewardedAdLoader();
-            _rewardedAdLoader.OnAdLoaded += HandleAdLoaded;
-            _rewardedAdLoader.OnAdFailedToLoad += OnAdFailedToLoad;
-        }
-        
-        private void RequestRewardedAd()
-        {
-            var adRequestConfiguration = new AdRequestConfiguration.Builder(_adUnitId).Build();
-            _rewardedAdLoader.LoadAd(adRequestConfiguration);
+            _rewardedLoader = new RewardedAdLoader();
+            _rewardedLoader.OnAdLoaded += OnRewardLoaded;
+            _rewardedLoader.OnAdFailedToLoad += OnRewardFailedToLoad;
+
+            _fullscreenLoader = new InterstitialAdLoader();
+            _fullscreenLoader.OnAdLoaded += OnFullscreenLoaded;
+            _fullscreenLoader.OnAdFailedToLoad += OnFullscreenFailedToLoad;
         }
 
-        private void HandleAdLoaded(object sender, RewardedAdLoadedEventArgs args)
+        #region RewardedAd
+
+        private void RequestReward()
         {
-            _rewardedAd = args.RewardedAd;
-            _rewardedAd.OnAdShown += OnAdShown;
-            _rewardedAd.OnAdFailedToShow += OnAdFailedToShow;
-            _rewardedAd.OnAdDismissed += OnAdDismissed;
-            _rewardedAd.OnRewarded += OnRewarded;
+            var adRequestConfiguration = new AdRequestConfiguration.Builder(_rewardedId).Build();
+            _rewardedLoader.LoadAd(adRequestConfiguration);
         }
 
-        private void OnAdFailedToLoad(object sender, AdFailedToLoadEventArgs args)
+        private void OnRewardLoaded(object sender, RewardedAdLoadedEventArgs args)
         {
-            Debug.Log($"Ad {args.AdUnitId} failed for to load with {args.Message}");
+            _rewardedBlock = args.RewardedAd;
+            _rewardedBlock.OnAdShown += OnRewardOpened;
+            _rewardedBlock.OnAdFailedToShow += OnRewardFailedToShow;
+            _rewardedBlock.OnAdDismissed += OnRewardClosed;
+            _rewardedBlock.OnRewarded += OnRewardRewarded;
         }
 
-        private void OnAdDismissed(object sender, EventArgs args)
-        {
-            _adClosed = true;
-            DestroyRewardedAd();
-            RequestRewardedAd();
-        }
-
-        private void OnAdFailedToShow(object sender, AdFailureEventArgs args)
+        private void OnRewardFailedToLoad(object sender, AdFailedToLoadEventArgs args)
         {
             _adError = true;
-            DestroyRewardedAd();
-            RequestRewardedAd();
             RewardedCloseError?.Invoke();
         }
 
-        private void OnAdShown(object sender, EventArgs args)
+        private void OnRewardClosed(object sender, EventArgs args)
+        {
+            _adClosed = true;
+            DestroyRewardAd();
+            RequestReward();
+        }
+
+        private void OnRewardFailedToShow(object sender, AdFailureEventArgs args)
+        {
+            _adError = true;
+            DestroyRewardAd();
+            RequestReward();
+            RewardedCloseError?.Invoke();
+        }
+
+        private void OnRewardOpened(object sender, EventArgs args)
         {
             RewardedOpenEvent?.Invoke();
         }
 
-        private void OnRewarded(object sender, Reward args)
+        private void OnRewardRewarded(object sender, Reward args)
         {
             _adRewarded = true;
             RewardedSuccessEvent?.Invoke(_currentRewardId);
             RewardedCloseEvent?.Invoke();
         }
 
-        private void DestroyRewardedAd()
+        private void DestroyRewardAd()
         {
-            if (_rewardedAd == null) return;
-            _rewardedAd.Destroy();
-            _rewardedAd = null;
+            _rewardedBlock?.Destroy();
+            _rewardedBlock = null;
+        }
+
+        #endregion
+
+
+        #region FullscreenAd
+
+        private void RequestFullscreen()
+        {
+            var adRequestConfiguration = new AdRequestConfiguration.Builder(_fullscreenId).Build();
+            _fullscreenLoader.LoadAd(adRequestConfiguration);
+        }
+
+        private void OnFullscreenLoaded(object sender, InterstitialAdLoadedEventArgs args)
+        {
+            _fullscreenBlock = args.Interstitial;
+            _fullscreenBlock.OnAdShown += OnFullscreenOpened;
+            _fullscreenBlock.OnAdFailedToShow += OnFullscreenFailedToShow;
+            _fullscreenBlock.OnAdDismissed += OnFullscreenClosed;
+        }
+
+        private void OnFullscreenFailedToLoad(object sender, AdFailedToLoadEventArgs args)
+        {
+            _adError = true;
+            FullscreenErrorEvent?.Invoke();
+        }
+
+        private void OnFullscreenClosed(object sender, EventArgs args)
+        {
+            _adClosed = true;
+            FullscreenCloseEvent?.Invoke();
+            DestroyFullscreen();
+            RequestFullscreen();
+        }
+
+        private void OnFullscreenFailedToShow(object sender, EventArgs args)
+        {
+            _adError = true;
+            FullscreenErrorEvent?.Invoke();
+            DestroyFullscreen();
+            RequestFullscreen();
+        }
+
+        private void OnFullscreenOpened(object sender, EventArgs args)
+        {
+            FullscreenOpenEvent?.Invoke();
+        }
+
+        private void DestroyFullscreen()
+        {
+            _fullscreenBlock?.Destroy();
+            _fullscreenBlock = null;
+        }
+
+        #endregion
+
+        ~YandexMobileAdFeature()
+        {
+            _rewardedLoader.OnAdLoaded -= OnRewardLoaded;
+            _rewardedLoader.OnAdFailedToLoad -= OnRewardFailedToLoad;
+            _rewardedBlock?.Destroy();
+            
+            _fullscreenLoader.OnAdLoaded -= OnFullscreenLoaded;
+            _fullscreenLoader.OnAdFailedToLoad -= OnFullscreenFailedToLoad;
+            _fullscreenBlock?.Destroy();
         }
     }
 }

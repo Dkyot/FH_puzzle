@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2971925499812506036}
   - component: {fileID: 4581796400862487075}
   m_Layer: 0
-  m_Name: RustoreConfigure
+  m_Name: RustoreWinterConfigure
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db22faf3015a49a0959ca6daeec49661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveKey: AndroidSave
+  saveKey: WinterPuzzleSave
   adUnitId: 

@@ -1,2 +1,2 @@
-Build path: E:/snowGirlsBuild
-Build number: 166
+Build path: D:/Unity/Release/PluginYG/PluginYG
+Build number: 4

@@ -145,11 +145,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 296670108}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a621a8966954390a8b161d9e6aeea1b, type: 3}
+  m_Script: {fileID: 11500000, guid: db22faf3015a49a0959ca6daeec49661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  yandexPrefab: {fileID: 2211564899198745197, guid: caf9732433f4dc044845763962493607, type: 3}
-  mainLeaderboardName: MainLeaderboard
+  saveKey: AndroidSave
+  adUnitId: 
 --- !u!4 &296670110
 Transform:
   m_ObjectHideFlags: 0

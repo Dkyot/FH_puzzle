@@ -102,13 +102,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseType: 3
-  pauseMethod: 0
+  pauseMethod: 1
   closingADValues:
     timeScale: 1
     audioPause: 0
     cursorVisible: 0
     cursorLockMode: 0
-  awakeSetValues: 1
+  awakeSetValues: 0
   awakeValues:
     timeScale: 1
     audioPause: 0
@@ -121,4 +121,4 @@ MonoBehaviour:
     CloseAd:
       m_PersistentCalls:
         m_Calls: []
-  logPause: 1
+  logPause: 0

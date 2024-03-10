@@ -15,12 +15,18 @@ namespace YG
             get => _playerName;
             set => _playerName = value;
         }
-        public static string playerId { get => _playerId; }
+
+        public static string playerId
+        {
+            get => _playerId;
+        }
+
         public static string playerPhoto
         {
             get => _playerPhoto;
             set => _playerPhoto = value;
         }
+
         public static string photoSize
         {
             get => _photoSize;
@@ -30,7 +36,9 @@ namespace YG
         JsonAuth jsonAuth = new JsonAuth();
 
 
-        [DllImport("__Internal")]
+#if YG_PLUGIN_YANDEX_GAME
+[DllImport("__Internal")]
+#endif
         private static extern string InitPlayer_js();
 
         [InitYG]
@@ -76,8 +84,11 @@ namespace YG
         }
 #endif
 
-        [DllImport("__Internal")]
+#if YG_PLUGIN_YANDEX_GAME
+[DllImport("__Internal")]
+#endif
         public static extern void RequestAuth_js(bool sendback);
+
         public static void RequestAuth(bool sendback = true)
         {
 #if !UNITY_EDITOR
@@ -124,8 +135,10 @@ namespace YG
             GetDataInvoke();
         }
 
-        
-        [DllImport("__Internal")]
+
+#if YG_PLUGIN_YANDEX_GAME
+[DllImport("__Internal")]
+#endif
         private static extern void OpenAuthDialog();
 
         public static void AuthDialog()
@@ -135,6 +148,7 @@ namespace YG
             OpenAuthDialog();
 #endif
         }
+
         public void _OpenAuthDialog() => AuthDialog();
 
 

@@ -1,0 +1,22 @@
+<dependencies>
+   <iosPods>
+      <iosPod version="6.1.0" name="YandexMobileAds">
+         <sources>
+            <source>https://github.com/CocoaPods/Specs</source>
+         </sources>
+      </iosPod>
+      <iosPod version="28.4.0" name="DivKit" />
+   </iosPods>
+   <androidPackages>
+      <androidPackage spec="com.yandex.android:mobileads:6.1.0">
+         <repositories>
+            <repository>https://maven.google.com/</repository>
+         </repositories>
+      </androidPackage>
+      <androidPackage spec="androidx.lifecycle:lifecycle-process:2.4.1">
+         <repositories>
+            <repository>https://maven.google.com/</repository>
+         </repositories>
+      </androidPackage>
+   </androidPackages>
+</dependencies>

@@ -149,8 +149,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   saveKey: WinterPuzzleSave
-  rewardId: R-M-6618997-3
-  fullscreenId: R-M-6618997-1
+  rewardId: R-M-6618997-1
+  fullscreenId: R-M-6618997-3
   fullscreenTimeoutSeconds: 60
 --- !u!4 &296670110
 Transform:

@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: CommonLevelData_16_WInter
   m_EditorClassIdentifier: 
   <Params>k__BackingField:
-    <Palete>k__BackingField: {fileID: 11400000, guid: 7aee9f9ab6b70014d9014ad6ee74238a, type: 2}
+    <Palete>k__BackingField: {fileID: 11400000, guid: 6b5619fa66bc04145ac896877aa758a6, type: 2}
     <Rows>k__BackingField: 8
     <Columns>k__BackingField: 8
     <UseTwoPair>k__BackingField: 0
   score: 0
-  isCompleted: 0
+  isCompleted: 1
   _levelImage: {fileID: 21300000, guid: d58de9d867c801746b2480c830b58f9a, type: 3}

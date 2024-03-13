@@ -142,10 +142,12 @@ namespace SDKPlatforms.Editor
                 {
                     string currentConfigure = CheckCurrentConfigure() ? _featuresGuids[_currentFeatureIndex] : "";
                     _featuresGuids = AssetDatabase.FindAssets("t:" + nameof(FeaturesSoBase)).ToArray();
+                    _featuresNames = new string[_featuresGuids.Length];
                     _currentFeatureIndex = Array.IndexOf(_featuresGuids, currentConfigure);
                     for (int i = 0; i < _featuresGuids.Length; i++)
                     {
-                        _featuresNames[i] = AssetDatabase.LoadAssetAtPath<FeaturesSoBase>(_featuresGuids[i]).name;
+                        _featuresNames[i] = AssetDatabase
+                            .LoadAssetAtPath<FeaturesSoBase>(AssetDatabase.GUIDToAssetPath(_featuresGuids[i])).name;
                     }
                 }
             }
@@ -209,7 +211,7 @@ namespace SDKPlatforms.Editor
             return _currentFeatureIndex >= 0 && _currentFeatureIndex < _featuresGuids.Length;
         }
 
-        [MenuItem("Tools/Platform Platform Setter")]
+        [MenuItem("Tools/Platform Setter")]
         private static void GetWindow()
         {
             var window = GetWindow<PlatformSetterWindow>();

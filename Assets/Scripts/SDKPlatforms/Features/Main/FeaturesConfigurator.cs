@@ -5,7 +5,7 @@ namespace SDKPlatforms.Main
 {
     public class FeaturesConfigurator : MonoBehaviour
     {
-        [SerializeField] private FeaturesSoBase featuresSo;
+        public FeaturesSoBase featuresSo;
         
         private void Awake()
         {

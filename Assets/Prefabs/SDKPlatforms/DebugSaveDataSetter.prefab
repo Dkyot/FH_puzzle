@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3643905702027864276
+--- !u!1 &4980969819325167049
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2971925499812506036}
-  - component: {fileID: 4581796400862487075}
+  - component: {fileID: 46847490557859976}
+  - component: {fileID: 7090453930637059492}
   m_Layer: 0
-  m_Name: RustoreWinterConfigure
+  m_Name: DebugSaveDataSetter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2971925499812506036
+--- !u!4 &46847490557859976
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3643905702027864276}
+  m_GameObject: {fileID: 4980969819325167049}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -32,19 +32,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4581796400862487075
+--- !u!114 &7090453930637059492
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3643905702027864276}
+  m_GameObject: {fileID: 4980969819325167049}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db22faf3015a49a0959ca6daeec49661, type: 3}
+  m_Script: {fileID: 11500000, guid: f6fd22d62e61f154cb7c55f58e6cb869, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveKey: WinterPuzzleSave
-  rewardId: R-M-6618997-1
-  fullscreenId: R-M-6618997-3
-  fullscreenTimeoutSeconds: 60
+  debugData:
+    <MusicVolume>k__BackingField: 0.5
+    <SfxVolume>k__BackingField: 0.5
+    <Language>k__BackingField: 
+    <LastSaveTimeTicks>k__BackingField: 0

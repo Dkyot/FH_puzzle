@@ -8,6 +8,7 @@ using YG;
 
 namespace SDKPlatforms.Features
 {
+    [CreateAssetMenu(fileName = "_YandexGamesFeatures", menuName = "Platform Features/Yandex Games")]
     public class YandexGamesFeaturesSo : FeaturesSoBase
     {
         [SerializeField] private GameObject yandexPrefab;
@@ -22,7 +23,7 @@ namespace SDKPlatforms.Features
             var metrikaFeature = new YandexGamesMetrikaFeature(yandex.infoYG);
             adFeature.InitCallbacks();
             saveFeature.InitCallbacks();
-            Main.PlatformFeatures.Configure(adFeature, saveFeature, userFeature, metrikaFeature);
+            PlatformFeatures.Configure(adFeature, saveFeature, userFeature, metrikaFeature);
         }
     }
 }

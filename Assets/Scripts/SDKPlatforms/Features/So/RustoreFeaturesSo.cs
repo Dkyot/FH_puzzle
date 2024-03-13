@@ -6,13 +6,14 @@ using UnityEngine;
 
 namespace SDKPlatforms.Features
 {
+    [CreateAssetMenu(fileName = "_RustoreFeatures", menuName = "Platform Features/Rustore")]
     public class RustoreFeaturesSo : FeaturesSoBase
     {
         [SerializeField] private string saveKey;
 
         [SerializeField, Space, Header("Ad")] private string rewardId;
         [SerializeField] private string fullscreenId;
-        [SerializeField] private int fullscreenTimeoutSeconds;
+        [SerializeField] private int fullscreenTimeoutSeconds = 60;
 
         public override void RegisterFeatures()
         {

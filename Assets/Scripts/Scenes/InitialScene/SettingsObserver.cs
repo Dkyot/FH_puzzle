@@ -1,8 +1,8 @@
 using System;
 using System.Globalization;
 using FH.SO;
-using PlatformsSdk.Main;
-using PlatformsSdk.SaveFeatures;
+using SDKPlatforms.Main;
+using SDKPlatforms.Save;
 using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;

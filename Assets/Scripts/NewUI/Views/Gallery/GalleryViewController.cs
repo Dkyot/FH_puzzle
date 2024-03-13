@@ -1,7 +1,7 @@
 using FH.Utils;
 using System.Collections.Generic;
-using PlatformsSdk.Main;
-using PlatformsSdk.MetrikaFeatures;
+using SDKPlatforms.Main;
+using SDKPlatforms.Metrika;
 using UnityEngine;
 
 namespace FH.UI.Views.Gallery {

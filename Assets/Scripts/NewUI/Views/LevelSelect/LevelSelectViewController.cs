@@ -2,8 +2,8 @@ using FH.SO;
 using FH.Sound;
 using FH.Utils;
 using System.Collections.Generic;
-using PlatformsSdk.Main;
-using PlatformsSdk.MetrikaFeatures;
+using SDKPlatforms.Main;
+using SDKPlatforms.Metrika;
 using UnityEngine;
 using UnityEngine.Events;
 

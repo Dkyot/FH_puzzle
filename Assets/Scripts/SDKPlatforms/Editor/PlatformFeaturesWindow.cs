@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Emit;
 using Newtonsoft.Json;
-using PlatformsSdk.FeaturesConfigures;
+using SDKPlatforms.Features;
 using UnityEditor;
 using UnityEditor.Build;
 using UnityEditor.Build.Reporting;
@@ -14,7 +14,7 @@ using Utils;
 using Utils.Editor;
 using Object = UnityEngine.Object;
 
-namespace PlatformsSdk.Editor
+namespace SDKPlatforms.Editor
 {
     public class PlatformFeaturesWindow : EditorWindow, IPreprocessBuildWithReport
     {
@@ -66,7 +66,7 @@ namespace PlatformsSdk.Editor
             EditorSceneManager.MarkSceneDirty(scene);
             //Delete previously installed configurations
             var prevConfigure = scene.GetRootGameObjects()
-                .Where(x => x.GetComponentInChildren<FeaturesConfigureBase>() != null);
+                .Where(x => x.GetComponentInChildren<FeaturesSoBase>() != null);
             foreach (var configure in prevConfigure)
             {
                 DestroyImmediate(configure.gameObject);
@@ -99,7 +99,7 @@ namespace PlatformsSdk.Editor
                 if (GUILayout.Button("Search configures in project"))
                 {
                     string currentConfigure = CheckCurrentConfigure() ? _configuresPath[_currentConfigureIndex] : "";
-                    _configuresPath = AssetHelper.FindPrefabsPathWithType<FeaturesConfigureBase>().ToArray();
+                    _configuresPath = AssetDatabase.FindAssets("t:"+ nameof(FeaturesSoBase));
                     _currentConfigureIndex = Array.IndexOf(_configuresPath, currentConfigure);
                 }
             }

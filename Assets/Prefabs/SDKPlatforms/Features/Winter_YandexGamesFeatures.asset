@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a621a8966954390a8b161d9e6aeea1b, type: 3}
   m_Name: Winter_YandexGamesFeatures
   m_EditorClassIdentifier: 
+  <PlatformTargets>k__BackingField: 14000000
   <PlatformSettings>k__BackingField: {fileID: 0}
   yandexPrefab: {fileID: 2211564899198745197, guid: caf9732433f4dc044845763962493607, type: 3}
   mainLeaderboardName: MainLeaderboard

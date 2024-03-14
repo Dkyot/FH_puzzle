@@ -7,7 +7,7 @@ using UnityEngine;
 namespace SDKPlatforms.Features
 {
     [CreateAssetMenu(fileName = "_RustoreFeatures", menuName = "Platform Features/Rustore")]
-    public class RustoreFeaturesSo : FeaturesSoBase
+    public class RustoreFeaturesSo : PlatformFeaturesSoBase
     {
         [SerializeField] private string saveKey;
 

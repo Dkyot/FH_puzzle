@@ -4,6 +4,7 @@ using System.Linq;
 using Newtonsoft.Json;
 using SDKPlatforms.Features;
 using SDKPlatforms.Main;
+using SDKPlatforms.Settings;
 using UnityEditor;
 using UnityEditor.Build;
 using UnityEditor.Build.Reporting;
@@ -18,15 +19,14 @@ namespace SDKPlatforms.Editor
         public int callbackOrder { get; }
 
         private static SceneAsset _bootstrapScene;
-        private static int _currentFeatureIndex;
-        private static string[] _featuresGuids;
-        private static string[] _featuresNames;
+        private static PlatformFeaturesSoBase _featuresSo;
+        private static PlatformSettingsSoBase _settingsSo;
         private static bool _saveDataLoaded;
         private static bool _enabled;
 
         private const string bootstrapSceneKeyConst = "PlatformFeatures_BootstrapScene";
-        private const string currentFeatureKeyConst = "PlatformFeatures_CurrentFeature";
-        private const string foundFeaturesKeyConst = "PlatformFeatures_FoundFeatures";
+        private const string featuresSoKeyConst = "PlatformFeatures_CurrentFeatures";
+        private const string settingsSoKeyConst = "PlatformFeatures_CurrentPlatformSettings";
         private const string enabledKeyConst = "PlatformFeatures_Enabled";
 
         public void OnPreprocessBuild(BuildReport report)
@@ -54,23 +54,20 @@ namespace SDKPlatforms.Editor
             }
 
             //Features check
-            var featureSo =
-                AssetDatabase.LoadAssetAtPath<FeaturesSoBase>(
-                    AssetDatabase.GUIDToAssetPath(_featuresGuids[_currentFeatureIndex]));
-            if (featureSo == null)
+            if (_featuresSo == null)
             {
-                throw new BuildFailedException("Platform feature not found");
+                throw new BuildFailedException("Platform features not set");
             }
 
-            if (featureSo.PlatformTargets.IndexOf(EditorUserBuildSettings.activeBuildTarget) == -1)
+            if (_featuresSo.PlatformTargets.IndexOf(EditorUserBuildSettings.activeBuildTarget) == -1)
             {
                 throw new BuildFailedException("Incorrect BuildTarget");
             }
 
             //Settings check
-            if (featureSo.PlatformSettings != null)
+            if (_settingsSo != null)
             {
-                featureSo.PlatformSettings.SetSettings();
+                _settingsSo.SetSettings();
             }
 
             //Prepare bootstrap scene
@@ -117,7 +114,7 @@ namespace SDKPlatforms.Editor
                 throw new BuildFailedException("FeaturesConfigurator setup error");
             }
 
-            configurator.featuresSo = featureSo;
+            configurator.featuresSo = _featuresSo;
 
             EditorSceneManager.SaveScene(scene);
             EditorSceneManager.OpenScene(currentOpenScenePath);
@@ -134,22 +131,15 @@ namespace SDKPlatforms.Editor
                 EditorGUILayout.LabelField("Bootstrap scene");
                 _bootstrapScene = (SceneAsset)EditorGUILayout.ObjectField(_bootstrapScene, typeof(SceneAsset), false);
                 EditorGUILayout.Space(5);
-                EditorGUILayout.LabelField("Platform configure");
-                _currentFeatureIndex = EditorGUILayout.Popup(_currentFeatureIndex, _featuresNames);
+                EditorGUILayout.LabelField("Platform features");
+                _featuresSo =
+                    (PlatformFeaturesSoBase)EditorGUILayout.ObjectField(_featuresSo, typeof(PlatformFeaturesSoBase),
+                        false);
                 EditorGUILayout.Space(5);
-
-                if (GUILayout.Button("Search configures in project"))
-                {
-                    string currentConfigure = CheckCurrentConfigure() ? _featuresGuids[_currentFeatureIndex] : "";
-                    _featuresGuids = AssetDatabase.FindAssets("t:" + nameof(FeaturesSoBase)).ToArray();
-                    _featuresNames = new string[_featuresGuids.Length];
-                    _currentFeatureIndex = Array.IndexOf(_featuresGuids, currentConfigure);
-                    for (int i = 0; i < _featuresGuids.Length; i++)
-                    {
-                        _featuresNames[i] = AssetDatabase
-                            .LoadAssetAtPath<FeaturesSoBase>(AssetDatabase.GUIDToAssetPath(_featuresGuids[i])).name;
-                    }
-                }
+                EditorGUILayout.LabelField("Platform settings");
+                _settingsSo =
+                    (PlatformSettingsSoBase)EditorGUILayout.ObjectField(_settingsSo, typeof(PlatformSettingsSoBase),
+                        false);
             }
 
             if (EditorGUI.EndChangeCheck())
@@ -166,49 +156,27 @@ namespace SDKPlatforms.Editor
         private static void LoadSettings()
         {
             if (_saveDataLoaded) return;
-
-            _bootstrapScene = AssetDatabase.LoadAssetAtPath<SceneAsset>(EditorPrefs.GetString(bootstrapSceneKeyConst));
-
-            var dictionary =
-                JsonConvert.DeserializeObject<Dictionary<string, string>>(
-                    EditorPrefs.GetString(foundFeaturesKeyConst)) ?? new Dictionary<string, string>();
-            int featureCount = dictionary.Count;
-            _featuresGuids = new string[featureCount];
-            _featuresNames = new string[featureCount];
-            int i = 0;
-            foreach (var pair in dictionary)
-            {
-                _featuresGuids[i] = pair.Key;
-                _featuresNames[i] = pair.Value;
-                i++;
-            }
-
-            _currentFeatureIndex = Array.IndexOf(_featuresGuids, EditorPrefs.GetString(currentFeatureKeyConst));
+            _bootstrapScene =
+                AssetDatabase.LoadAssetAtPath<SceneAsset>(
+                    AssetDatabase.GUIDToAssetPath(EditorPrefs.GetString(bootstrapSceneKeyConst)));
+            _featuresSo =
+                AssetDatabase.LoadAssetAtPath<PlatformFeaturesSoBase>(
+                    AssetDatabase.GUIDToAssetPath(EditorPrefs.GetString(featuresSoKeyConst)));
+            _settingsSo = AssetDatabase.LoadAssetAtPath<PlatformSettingsSoBase>(
+                AssetDatabase.GUIDToAssetPath(EditorPrefs.GetString(settingsSoKeyConst)));
             _enabled = EditorPrefs.GetBool(enabledKeyConst);
             _saveDataLoaded = true;
         }
 
         private static void SaveSettings()
         {
-            EditorPrefs.SetString(bootstrapSceneKeyConst, AssetDatabase.GetAssetPath(_bootstrapScene));
-            var dictionary = new Dictionary<string, string>();
-            for (int index = 0; index < _featuresGuids.Length; index++)
-            {
-                dictionary.Add(_featuresGuids[index], _featuresNames[index]);
-            }
-
-            EditorPrefs.SetString(foundFeaturesKeyConst, JsonConvert.SerializeObject(dictionary));
-            if (CheckCurrentConfigure())
-            {
-                EditorPrefs.SetString(currentFeatureKeyConst, _featuresGuids[_currentFeatureIndex]);
-            }
-
+            EditorPrefs.SetString(bootstrapSceneKeyConst,
+                AssetDatabase.AssetPathToGUID(AssetDatabase.GetAssetPath(_bootstrapScene)));
+            EditorPrefs.SetString(featuresSoKeyConst,
+                AssetDatabase.AssetPathToGUID(AssetDatabase.GetAssetPath(_featuresSo)));
+            EditorPrefs.SetString(settingsSoKeyConst,
+                AssetDatabase.AssetPathToGUID(AssetDatabase.GetAssetPath(_settingsSo)));
             EditorPrefs.SetBool(enabledKeyConst, _enabled);
-        }
-
-        private static bool CheckCurrentConfigure()
-        {
-            return _currentFeatureIndex >= 0 && _currentFeatureIndex < _featuresGuids.Length;
         }
 
         [MenuItem("Tools/Platform Setter")]

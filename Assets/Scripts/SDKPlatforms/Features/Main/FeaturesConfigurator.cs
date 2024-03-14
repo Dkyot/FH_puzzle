@@ -1,11 +1,12 @@
 ﻿using SDKPlatforms.Features;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace SDKPlatforms.Main
 {
     public class FeaturesConfigurator : MonoBehaviour
     {
-        public FeaturesSoBase featuresSo;
+        public PlatformFeaturesSoBase featuresSo;
         
         private void Awake()
         {

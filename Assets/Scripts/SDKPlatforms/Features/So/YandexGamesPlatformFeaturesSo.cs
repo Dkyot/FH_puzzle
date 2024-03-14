@@ -9,7 +9,7 @@ using YG;
 namespace SDKPlatforms.Features
 {
     [CreateAssetMenu(fileName = "_YandexGamesFeatures", menuName = "Platform Features/Yandex Games")]
-    public class YandexGamesFeaturesSo : FeaturesSoBase
+    public class YandexGamesFeaturesSo : PlatformFeaturesSoBase
     {
         [SerializeField] private GameObject yandexPrefab;
         [SerializeField] private string mainLeaderboardName;

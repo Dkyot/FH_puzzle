@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
+﻿#if UNITY_EDITOR
 using UnityEditor;
 using UnityEngine;
 
-namespace SDKPlatforms.Settings
+namespace SDKPlatforms.Settings.Editor
 {
     public abstract class PlatformSettingsSoBase : ScriptableObject
     {
@@ -26,3 +26,4 @@ namespace SDKPlatforms.Settings
         protected abstract string GenerateVersion();
     }
 }
+#endif

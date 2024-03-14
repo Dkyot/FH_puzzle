@@ -5,6 +5,7 @@ using Newtonsoft.Json;
 using SDKPlatforms.Features;
 using SDKPlatforms.Main;
 using SDKPlatforms.Settings;
+using SDKPlatforms.Settings.Editor;
 using UnityEditor;
 using UnityEditor.Build;
 using UnityEditor.Build.Reporting;

@@ -19,6 +19,10 @@ MonoBehaviour:
     m_Key: WINTER_GAME_NAME
     m_Metadata:
       m_Items: []
+  - m_Id: 1464381354070016
+    m_Key: HALLOWEEN_GAME_NAME
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

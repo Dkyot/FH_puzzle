@@ -19,3 +19,15 @@ MonoBehaviour:
   bundleCodeVersion: 4
   gameIcon: {fileID: 2800000, guid: 6f5d6ea855422e14a9d4adb85ef1464d, type: 3}
   splashIcon: {fileID: 2800000, guid: 6f5d6ea855422e14a9d4adb85ef1464d, type: 3}
+  gameLocalizedName:
+    m_TableReference:
+      m_TableCollectionName: GUID:699f49e3c82243242b5f5e64729e3209
+    m_TableEntryReference:
+      m_KeyId: 4365012992
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []

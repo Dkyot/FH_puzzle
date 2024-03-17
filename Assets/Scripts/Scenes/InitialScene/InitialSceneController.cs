@@ -10,9 +10,9 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 using UnityEngine.Localization.Settings;
 using FH.Sound;
-using SDKPlatforms;
-using SDKPlatforms.Main;
-using SDKPlatforms.Metrika;
+using Platforms;
+using Platforms.Main;
+using Platforms.Metrika;
 
 namespace FH.Init {
     public class InitialSceneController : MonoBehaviour {

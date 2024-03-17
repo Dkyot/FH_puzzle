@@ -2,8 +2,8 @@
 using FH.SO;
 using FH.Sound;
 using FH.Utils;
-using SDKPlatforms.Main;
-using SDKPlatforms.Metrika;
+using Platforms.Main;
+using Platforms.Metrika;
 using UnityEngine;
 using UnityEngine.Localization;
 

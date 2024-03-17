@@ -1,6 +1,6 @@
 ﻿
 using System.Collections.Generic;
-using SDKPlatforms.Save;
+using Platforms.Save;
 using UnityEngine.Serialization;
 
 namespace YG

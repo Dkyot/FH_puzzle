@@ -3,8 +3,8 @@ using FH.Cards;
 using FH.UI.Views.GameUI;
 using UnityEngine;
 using FH.Inputs;
-using SDKPlatforms.Main;
-using SDKPlatforms.Metrika;
+using Platforms.Main;
+using Platforms.Metrika;
 
 namespace FH.Level {
     public sealed class LevelAdController : MonoBehaviour {

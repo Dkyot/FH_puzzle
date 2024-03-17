@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Platforms.Editor
 {
-    public class PlatformSetterWindow : EditorWindow, IPreprocessBuildWithReport
+    public sealed class PlatformSetterWindow : EditorWindow, IPreprocessBuildWithReport
     {
         public int callbackOrder { get; }
 
@@ -15,17 +15,10 @@ namespace Platforms.Editor
         private static readonly List<PlatformWindowBase> WindowParts = new()
         {
             new PlatformFeaturesWindow(),
-            new PlatformSettingsWindow()
+            new PlatformSettingsWindow(),
+            new PlatformScenesWindow()
         };
-
-        public void OnPreprocessBuild(BuildReport report)
-        {
-            foreach (var part in WindowParts)
-            {
-                part.OnPreprocessBuild(report);
-            }
-        }
-
+        
         public void OnGUI()
         {
             foreach (var part in WindowParts)
@@ -34,6 +27,14 @@ namespace Platforms.Editor
             }
         }
 
+        public void OnPreprocessBuild(BuildReport report)
+        {
+            foreach (var part in WindowParts)
+            {
+                part.OnPreprocessBuild(report);
+            }
+        }
+        
         [MenuItem("Tools/Platform Setter")]
         private static void GetWindow()
         {

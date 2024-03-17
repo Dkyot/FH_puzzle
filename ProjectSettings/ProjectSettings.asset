@@ -162,6 +162,7 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.QuetzalcoatlGames.HalloweenPuzzle
     Standalone: com.DefaultCompany.2DProject
+    iPhone: com.QuetzalcoatlGames.HalloweenPuzzle
   buildNumber:
     Bratwurst: 0
     Standalone: 0

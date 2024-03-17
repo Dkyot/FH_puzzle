@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7216d31fe444dc5a28a99e23e967ccf, type: 3}
+  m_Name: Halloween_Scenes
+  m_EditorClassIdentifier: 
+  <Scenes>k__BackingField:
+  - {fileID: 102900000, guid: 5ed3e3ad44c4369488db68cc0ca65970, type: 3}
+  - {fileID: 102900000, guid: 4dc24f46d6e22e54d98b3cc16bc893e3, type: 3}
+  - {fileID: 102900000, guid: 4dc24f46d6e22e54d98b3cc16bc893e3, type: 3}
+  - {fileID: 102900000, guid: b29ff82d7ede9d146b3f0a846e3593e7, type: 3}

@@ -10,7 +10,7 @@ using UnityEngine.SceneManagement;
 
 namespace Platforms.Editor
 {
-    public class PlatformFeaturesWindow : PlatformWindowBase
+    public sealed class PlatformFeaturesWindow : PlatformWindowBase
     {
         private static SceneAsset _bootstrapScene;
         private static PlatformFeaturesSoBase _featuresSo;
@@ -20,24 +20,6 @@ namespace Platforms.Editor
 
         public PlatformFeaturesWindow() : base("FeaturesEnabled", "Enable features")
         {
-        }
-
-        protected override void LoadRequiredData()
-        {
-            _bootstrapScene =
-                AssetDatabase.LoadAssetAtPath<SceneAsset>(
-                    AssetDatabase.GUIDToAssetPath(EditorPrefs.GetString(bootstrapSceneKeyConst)));
-            _featuresSo =
-                AssetDatabase.LoadAssetAtPath<PlatformFeaturesSoBase>(
-                    AssetDatabase.GUIDToAssetPath(EditorPrefs.GetString(featuresSoKeyConst)));
-        }
-
-        protected override void SaveRequiredData()
-        {
-            EditorPrefs.SetString(bootstrapSceneKeyConst,
-                AssetDatabase.AssetPathToGUID(AssetDatabase.GetAssetPath(_bootstrapScene)));
-            EditorPrefs.SetString(featuresSoKeyConst,
-                AssetDatabase.AssetPathToGUID(AssetDatabase.GetAssetPath(_featuresSo)));
         }
 
         protected override void DrawGUI()
@@ -52,25 +34,11 @@ namespace Platforms.Editor
 
         protected override void PreprocessBuild(BuildReport report)
         {
-            //Scene check
             if (_bootstrapScene == null)
             {
                 throw new BuildFailedException("BootstrapScene not set");
             }
-
-            string currentOpenScenePath = SceneManager.GetActiveScene().path;
-            var scene = EditorSceneManager.OpenScene(AssetDatabase.GetAssetPath(_bootstrapScene));
-            if (!scene.IsValid())
-            {
-                throw new BuildFailedException("BootstrapScene is not valid");
-            }
-
-            if (scene.buildIndex <= 0)
-            {
-                throw new BuildFailedException("BootstrapScene is not set in build scene");
-            }
-
-            //Features check
+            
             if (_featuresSo == null)
             {
                 throw new BuildFailedException("Platform features not set");
@@ -79,6 +47,13 @@ namespace Platforms.Editor
             if (_featuresSo.PlatformTargets.IndexOf(EditorUserBuildSettings.activeBuildTarget) == -1)
             {
                 throw new BuildFailedException("Incorrect BuildTarget");
+            }
+
+            string currentOpenScenePath = SceneManager.GetActiveScene().path;
+            var scene = EditorSceneManager.OpenScene(AssetDatabase.GetAssetPath(_bootstrapScene));
+            if (!scene.IsValid())
+            {
+                throw new BuildFailedException("BootstrapScene is not valid");
             }
             
             //Prepare bootstrap scene
@@ -129,6 +104,24 @@ namespace Platforms.Editor
 
             EditorSceneManager.SaveScene(scene);
             EditorSceneManager.OpenScene(currentOpenScenePath);
+        }
+        
+        protected override void LoadRequiredData()
+        {
+            _bootstrapScene =
+                AssetDatabase.LoadAssetAtPath<SceneAsset>(
+                    AssetDatabase.GUIDToAssetPath(EditorPrefs.GetString(bootstrapSceneKeyConst)));
+            _featuresSo =
+                AssetDatabase.LoadAssetAtPath<PlatformFeaturesSoBase>(
+                    AssetDatabase.GUIDToAssetPath(EditorPrefs.GetString(featuresSoKeyConst)));
+        }
+
+        protected override void SaveRequiredData()
+        {
+            EditorPrefs.SetString(bootstrapSceneKeyConst,
+                AssetDatabase.AssetPathToGUID(AssetDatabase.GetAssetPath(_bootstrapScene)));
+            EditorPrefs.SetString(featuresSoKeyConst,
+                AssetDatabase.AssetPathToGUID(AssetDatabase.GetAssetPath(_featuresSo)));
         }
     }
 }

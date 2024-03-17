@@ -38,6 +38,10 @@ namespace Platforms.Editor
             if (!_enabled) return;
             LoadSettings();
             PreprocessBuild(report);
+            AssetDatabase.SaveAssets();
+            EditorApplication.ExecuteMenuItem("File/Save Project");
+            AssetDatabase.Refresh();
+            AssetDatabase.RefreshSettings();
         }
 
         private void LoadSettings()
@@ -53,9 +57,9 @@ namespace Platforms.Editor
             SaveRequiredData();
         }
 
-        protected abstract void LoadRequiredData();
-        protected abstract void SaveRequiredData();
         protected abstract void DrawGUI();
         protected abstract void PreprocessBuild(BuildReport report);
+        protected abstract void LoadRequiredData();
+        protected abstract void SaveRequiredData();
     }
 }

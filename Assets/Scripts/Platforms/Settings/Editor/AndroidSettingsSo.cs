@@ -7,7 +7,7 @@ using UnityEngine.Localization.Settings;
 
 namespace Platforms.Settings.Editor
 {
-    [CreateAssetMenu(fileName = "_AndroidSettings", menuName = "Platform Settings/Android")]
+    [CreateAssetMenu(fileName = "_AndroidSettings", menuName = "Platform/Settings/Android")]
     public class AndroidSettingsSo : PlatformSettingsSoBase
     {
         [SerializeField] private int bundleCodeVersion;

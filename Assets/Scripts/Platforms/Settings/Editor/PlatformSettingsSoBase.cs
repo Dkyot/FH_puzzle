@@ -21,10 +21,6 @@ namespace Platforms.Settings.Editor
             PlayerSettings.SplashScreen.background = splashBackground;
             //you can add general settings here
             SetSpecificSettings();
-            AssetDatabase.SaveAssets();
-            EditorApplication.ExecuteMenuItem("File/Save Project");
-            AssetDatabase.Refresh();
-            AssetDatabase.RefreshSettings();
         }
         
         protected abstract void SetSpecificSettings();

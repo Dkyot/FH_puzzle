@@ -5,7 +5,7 @@ using UnityEditor.Build.Reporting;
 
 namespace Platforms.Editor
 {
-    public class PlatformSettingsWindow : PlatformWindowBase
+    public sealed class PlatformSettingsWindow : PlatformWindowBase
     {
         private static PlatformSettingsSoBase _projectSettingsSo;
         
@@ -13,6 +13,23 @@ namespace Platforms.Editor
         
         public PlatformSettingsWindow() : base("SettingsEnabled", "Enabled settings")
         {
+        }
+        
+        protected override void PreprocessBuild(BuildReport report)
+        {
+            if (_projectSettingsSo == null)
+            {
+                throw new BuildFailedException("Platform settings not set");
+            }
+            _projectSettingsSo.SetSettings();
+        }
+        
+        protected override void DrawGUI()
+        {
+            EditorGUILayout.LabelField("Platform settings");
+            _projectSettingsSo =
+                (PlatformSettingsSoBase)EditorGUILayout.ObjectField(_projectSettingsSo, typeof(PlatformSettingsSoBase),
+                    false);
         }
 
         protected override void LoadRequiredData()
@@ -25,24 +42,6 @@ namespace Platforms.Editor
         {
             EditorPrefs.SetString(settingsSoKeyConst,
                 AssetDatabase.AssetPathToGUID(AssetDatabase.GetAssetPath(_projectSettingsSo)));
-        }
-
-        protected override void DrawGUI()
-        {
-            EditorGUILayout.LabelField("Platform settings");
-            _projectSettingsSo =
-                (PlatformSettingsSoBase)EditorGUILayout.ObjectField(_projectSettingsSo, typeof(PlatformSettingsSoBase),
-                    false);
-        }
-
-        protected override void PreprocessBuild(BuildReport report)
-        {
-            //Settings check
-            if (_projectSettingsSo == null)
-            {
-                throw new BuildFailedException("Platform settings not set");
-            }
-            _projectSettingsSo.SetSettings();
         }
     }
 }

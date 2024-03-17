@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Platforms.Features
 {
-    [CreateAssetMenu(fileName = "_RustoreFeatures", menuName = "Platform Features/Rustore")]
+    [CreateAssetMenu(fileName = "_RustoreFeatures", menuName = "Platform/Features/Rustore")]
     public class RustoreFeaturesSo : PlatformFeaturesSoBase
     {
         [SerializeField] private string saveKey;
@@ -21,7 +21,7 @@ namespace Platforms.Features
                 TimeSpan.FromSeconds(fullscreenTimeoutSeconds));
             var saveFeature = new PlayerPrefSaveFeature(saveKey);
 
-            Main.PlatformFeatures.Configure(adFeature, saveFeature);
+            PlatformFeatures.Configure(adFeature, saveFeature);
         }
     }
 }

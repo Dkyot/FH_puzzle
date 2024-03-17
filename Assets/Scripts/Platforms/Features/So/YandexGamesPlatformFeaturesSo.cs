@@ -8,7 +8,7 @@ using YG;
 
 namespace Platforms.Features
 {
-    [CreateAssetMenu(fileName = "_YandexGamesFeatures", menuName = "Platform Features/Yandex Games")]
+    [CreateAssetMenu(fileName = "_YandexGamesFeatures", menuName = "Platform/Features/Yandex Games")]
     public class YandexGamesFeaturesSo : PlatformFeaturesSoBase
     {
         [SerializeField] private GameObject yandexPrefab;

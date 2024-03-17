@@ -10,7 +10,6 @@ namespace SDKPlatforms.Settings.Editor
     [CreateAssetMenu(fileName = "_AndroidSettings", menuName = "Platform Settings/Android")]
     public class AndroidSettingsSo : PlatformSettingsSoBase
     {
-        [SerializeField] private string version = "1.0";
         [SerializeField] private int bundleCodeVersion;
         [SerializeField] private Texture2D gameIcon;
         [SerializeField] private Texture2D splashIcon;
@@ -24,22 +23,10 @@ namespace SDKPlatforms.Settings.Editor
             UpdateAndroidStaticSplashImage();
             if (gameLocalizedName != null)
             {
-                var currentAppInfo = new AppInfo
-                {
-                    DisplayName = gameLocalizedName
-                };
+                var currentAppInfo = LocalizationSettings.Metadata.GetMetadata<AppInfo>() ?? new AppInfo();
+                currentAppInfo.DisplayName = gameLocalizedName;
                 LocalizationSettings.Metadata.AddMetadata(currentAppInfo);
             }
-        }
-
-        protected override string GenerateVersion()
-        {
-            if (PlayerSettings.bundleVersion != version)
-            {
-                bundleCodeVersion = 1;
-            }
-
-            return version;
         }
 
         private void UpdateAndroidStaticSplashImage()

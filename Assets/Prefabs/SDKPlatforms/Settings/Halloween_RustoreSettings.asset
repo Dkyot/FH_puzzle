@@ -16,7 +16,7 @@ MonoBehaviour:
   splashColor: {r: 1, g: 0.45882353, b: 0.09411765, a: 1}
   splashBackground: {fileID: 0}
   version: 1.0.0
-  bundleCodeVersion: 3
+  bundleCodeVersion: 7
   gameIcon: {fileID: 2800000, guid: c6b55ab68c09329428b20963181aebeb, type: 3}
   splashIcon: {fileID: 2800000, guid: c6b55ab68c09329428b20963181aebeb, type: 3}
   gameLocalizedName:

@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: 8a3a690b455f6c14ebaea2306ea40cf4
   m_currentHash:
     serializedVersion: 2
-    Hash: 8228aa0696218c6024ff1914318d9b70
+    Hash: 00000000000000000000000000000000
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_BundleLocalCatalog: 0
@@ -81,6 +81,8 @@ MonoBehaviour:
         m_Value: 'ServerData/[BuildTarget]'
       - m_Id: c18dad8c75728644caf73d9441067211
         m_Value: 'http://[PrivateIpAddress]:[HostingServicePort]'
+      - m_Id: c0fc612bdc8f2384390b7ae810c90141
+        m_Value: E:/Project Unity New/FH_puzzle/Assets
     m_ProfileEntryNames:
     - m_Id: abd167651da91414891a8eaccda93dbd
       m_Name: BuildTarget
@@ -96,6 +98,9 @@ MonoBehaviour:
       m_InlineUsage: 0
     - m_Id: c18dad8c75728644caf73d9441067211
       m_Name: Remote.LoadPath
+      m_InlineUsage: 0
+    - m_Id: c0fc612bdc8f2384390b7ae810c90141
+      m_Name: New Entry
       m_InlineUsage: 0
     m_ProfileVersion: 1
   m_LabelTable:

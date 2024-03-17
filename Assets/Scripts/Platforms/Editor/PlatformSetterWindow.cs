@@ -16,7 +16,8 @@ namespace Platforms.Editor
         {
             new PlatformFeaturesWindow(),
             new PlatformSettingsWindow(),
-            new PlatformScenesWindow()
+            new PlatformScenesWindow(),
+            new PlatformAddressablesWindow()
         };
         
         public void OnGUI()
@@ -24,6 +25,7 @@ namespace Platforms.Editor
             foreach (var part in WindowParts)
             {
                 part.OnGUI();
+                EditorGUILayout.Space(10);
             }
         }
 

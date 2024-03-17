@@ -5,33 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/BeachAnimeGirls/InitScene_BeachAnimeGirls.unity
-    guid: 542af6b4d5378db41b7d8efccdbf43e8
-  - enabled: 0
-    path: Assets/Scenes/BeachAnimeGirls/LevelScene_BeachAnimeGirls.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 0
-    path: Assets/Scenes/BeachAnimeGirls/MainMenu_BeachAnimeGirls.unity
-    guid: ca633db210fa1c24ca795c6a0c783ec7
   - enabled: 1
     path: Assets/Scenes/Halloween/InitScene_Halloween.unity
     guid: 5ed3e3ad44c4369488db68cc0ca65970
   - enabled: 1
-    path: Assets/Scenes/Halloween/LevelScene_Halloween.unity
-    guid: f4c1133764616eb42ab15965e434a9bc
+    path: Assets/Scenes/Halloween/MainMenu_Halloween.unity
+    guid: 4dc24f46d6e22e54d98b3cc16bc893e3
   - enabled: 1
     path: Assets/Scenes/Halloween/MainMenu_Halloween.unity
     guid: 4dc24f46d6e22e54d98b3cc16bc893e3
-  - enabled: 0
-    path: Assets/Scenes/Winter/InitScene_Winter.unity
-    guid: ff09c601fa957254ca7fcd8cfa3b679f
-  - enabled: 0
-    path: Assets/Scenes/Winter/MainMenu_Winter.unity
-    guid: f2d9b869e306e8e4da3ad51c5b609f84
-  - enabled: 0
-    path: Assets/Scenes/Winter/LevelScene_Winter.unity
-    guid: 33dbf3f63e5bd5243b1ae2fbe7e2fa6e
   - enabled: 1
     path: Assets/Scenes/Bootstrapper.unity
     guid: b29ff82d7ede9d146b3f0a846e3593e7

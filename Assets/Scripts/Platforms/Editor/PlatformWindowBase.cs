@@ -47,6 +47,7 @@ namespace Platforms.Editor
         private void LoadSettings()
         {
             if (_saveDataLoaded) return;
+            _enabled = EditorPrefs.GetBool(_enabledSaveKey);
             LoadRequiredData();
             _saveDataLoaded = true;
         }

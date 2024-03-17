@@ -34,8 +34,7 @@ namespace FH.Level {
 
             if (_currentPairUsage <= 0) {
                 if (await ShowAd()) {
-                    shouldUse = true;
-                    _currentPairUsage = _findPairAdUsage > 0 ? _findPairAdUsage - 1 : 1;
+                    _currentPairUsage += _findPairAdUsage;
                     PlatformFeatures.Metrika.SendEvent(MetrikaEventEnum.PairReceived);
                 }
             }

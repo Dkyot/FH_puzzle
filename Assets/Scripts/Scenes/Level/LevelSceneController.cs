@@ -146,7 +146,10 @@ namespace FH.Level
             if (!hasNextLevel)
             {
                 _levelCompletedViewController.HideNextLevelButton();
-                _levelCompletedViewController.ShowRateGameButton();
+                if (PlatformFeatures.User.CanReviewGame())
+                {
+                    _levelCompletedViewController.ShowRateGameButton();
+                }
             }
             else
             {

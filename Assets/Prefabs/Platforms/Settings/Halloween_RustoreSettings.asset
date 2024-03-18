@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Halloween_RustoreSettings
   m_EditorClassIdentifier: 
   productName: HalloweenPuzzle
-  version: 1.0.0
-  splashColor: {r: 1, g: 0.45882353, b: 0.09411765, a: 1}
+  version: 1.0.1
+  splashColor: {r: 0.6603774, g: 0.32727596, b: 0.1027946, a: 1}
   splashBackground: {fileID: 0}
-  bundleCodeVersion: 11
-  gameIcon: {fileID: 2800000, guid: c6b55ab68c09329428b20963181aebeb, type: 3}
+  bundleCodeVersion: 15
+  gameIcon: {fileID: 2800000, guid: 7cbc8824849ed6848b20338b88d6e256, type: 3}
   splashIcon: {fileID: 2800000, guid: c6b55ab68c09329428b20963181aebeb, type: 3}
   gameLocalizedName:
     m_TableReference:

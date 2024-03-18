@@ -12,8 +12,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Halloween/MainMenu_Halloween.unity
     guid: 4dc24f46d6e22e54d98b3cc16bc893e3
   - enabled: 1
-    path: Assets/Scenes/Halloween/MainMenu_Halloween.unity
-    guid: 4dc24f46d6e22e54d98b3cc16bc893e3
+    path: Assets/Scenes/Halloween/LevelScene_Halloween.unity
+    guid: f4c1133764616eb42ab15965e434a9bc
   - enabled: 1
     path: Assets/Scenes/Bootstrapper.unity
     guid: b29ff82d7ede9d146b3f0a846e3593e7

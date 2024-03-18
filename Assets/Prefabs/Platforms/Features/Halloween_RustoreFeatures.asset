@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: Halloween_RustoreFeatures
   m_EditorClassIdentifier: 
   <PlatformTargets>k__BackingField: 0d000000
-  <PlatformSettings>k__BackingField: {fileID: 11400000, guid: 7115e2c80c05aee47a8206679bbb659c, type: 2}
   saveKey: HalloweenPuzzleSave
   rewardId: R-M-6708590-2
   fullscreenId: R-M-6708590-1
-  fullscreenTimeoutSeconds: 60
+  fullscreenTimeoutSeconds: 120

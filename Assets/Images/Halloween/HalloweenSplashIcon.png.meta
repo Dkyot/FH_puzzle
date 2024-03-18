@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 7cbc8824849ed6848b20338b88d6e256
+guid: c6b55ab68c09329428b20963181aebeb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2445443183521733771
-    second: gdfgdf_0
+      213: 8014327094672267901
+    second: HalloweenIcon_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -139,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: gdfgdf_0
+      name: HalloweenIcon_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 35
         width: 512
-        height: 512
+        height: 477
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,8 +153,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 57369cf816a001ed0800000000000000
-      internalID: -2445443183521733771
+      spriteID: d7a9ab7e70c983f60800000000000000
+      internalID: 8014327094672267901
       vertices: []
       indices: 
       edges: []
@@ -170,7 +170,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      gdfgdf_0: -2445443183521733771
+      HalloweenIcon_0: 8014327094672267901
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

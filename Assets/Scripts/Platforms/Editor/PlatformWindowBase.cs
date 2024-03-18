@@ -35,11 +35,11 @@ namespace Platforms.Editor
 
         public void OnPreprocessBuild(BuildReport report)
         {
-            if (!_enabled) return;
             LoadSettings();
+            if (!_enabled) return;
             PreprocessBuild(report);
-            AssetDatabase.SaveAssets();
             EditorApplication.ExecuteMenuItem("File/Save Project");
+            AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
             AssetDatabase.RefreshSettings();
         }

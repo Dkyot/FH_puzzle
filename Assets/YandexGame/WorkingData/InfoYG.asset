@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scopes: 1
   playerPhotoSize: 0
-  autoGameReadyAPI: 0
+  autoGameReadyAPI: 1
   playerInfoSimulation:
     authorized: 1
     isMobile: 0
@@ -22,19 +22,19 @@ MonoBehaviour:
     name: Player this
     uniqueID: 000
     photo: https://justplaygames.ru/public/icon_player.png
-  AdWhenLoadingScene: 0
+  AdWhenLoadingScene: 1
   showFirstAd: 1
-  rewardedAfterClosing: 0
+  rewardedAfterClosing: 1
   adDisplayCalls: 0
   fullscreenAdInterval: 60
   durationOfAdSimulation: 0.5
   loadAdWithDelaySimulation: 0
   testErrorOfRewardedAdsInEditor: 0
   saveCloud: 1
-  flush: 1
-  localSaveSync: 0
-  saveCloudInterval: 0
-  saveOnQuitGame: 1
+  flush: 0
+  localSaveSync: 1
+  saveCloudInterval: 5
+  saveOnQuitGame: 0
   quitGameParameters:
     objectName: YandexGame
     methodName: _SaveProgress
@@ -180,8 +180,8 @@ MonoBehaviour:
     thisPlayer:
       rank: 2
       score: 10
-  LocalizationEnable: 0
-  callingLanguageCheck: 0
+  LocalizationEnable: 1
+  callingLanguageCheck: 1
   translateMethod: 0
   domainAutoLocalization: com
   CSVFileTranslate:
@@ -291,13 +291,13 @@ MonoBehaviour:
     imageURI: https://justplaygames.ru/public/Paymant3.png
     priceValue: 30
     consumed: 1
-  metricaEnable: 1
-  metricaCounterID: 95542612
+  metricaEnable: 0
+  metricaCounterID: 0
   debug: 1
-  archivingBuild: 0
-  logoImageFormat: 2
+  archivingBuild: 1
+  logoImageFormat: 1
   backgroundImageFormat: 3
   pixelRatioEnable: 0
-  pixelRatioValue: 0.8
+  pixelRatioValue: 1
   loadGameRun: 0
   staticRBTInGame: 0

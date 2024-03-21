@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d47adbabf2554426b8d784a3469c4bdb, type: 3}
+  m_Name: Halloween_RustoreSettings
+  m_EditorClassIdentifier: 
+  productName: HalloweenPuzzle
+  version: 1.0.1
+  splashColor: {r: 0.6603774, g: 0.32727596, b: 0.1027946, a: 1}
+  splashBackground: {fileID: 0}
+  bundleCodeVersion: 15
+  gameIcon: {fileID: 2800000, guid: 7cbc8824849ed6848b20338b88d6e256, type: 3}
+  splashIcon: {fileID: 2800000, guid: c6b55ab68c09329428b20963181aebeb, type: 3}
+  gameLocalizedName:
+    m_TableReference:
+      m_TableCollectionName: GUID:699f49e3c82243242b5f5e64729e3209
+    m_TableEntryReference:
+      m_KeyId: 1464381354070016
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []

@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Metadata_zh-Hant
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: zh-Hant
+  m_SharedData: {fileID: 11400000, guid: 699f49e3c82243242b5f5e64729e3209, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 4365012992
+    m_Localized: "\u51AC\u5B63 \u52A8\u6F2B \u59BB\u5B50"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1464381354070016
+    m_Localized: "\u706B\u7206\u842C\u8056\u7BC0\u5F8C\u5BAE"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3637959914737664
+    m_Localized: "\u6D77\u7058\u52D5\u6F2B\u5973\u5B69\uFF1A\u590F\u5B63\u651D\u5F71\u6703"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

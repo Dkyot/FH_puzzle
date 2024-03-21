@@ -45,7 +45,9 @@ namespace YG
         }
 
 
-        [DllImport("__Internal")]
+#if YG_PLUGIN_YANDEX_GAME
+[DllImport("__Internal")]
+#endif
         private static extern string LangRequest_js();
 
         public void _LanguageRequest()
@@ -58,9 +60,11 @@ namespace YG
             {
                 lang = langSimulate;
             }
+
             SetLanguage(lang);
 #endif
         }
+
         public static void LanguageRequest() => Instance._LanguageRequest();
 
 

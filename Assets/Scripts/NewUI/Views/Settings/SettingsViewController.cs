@@ -2,8 +2,8 @@
 using FH.SO;
 using FH.Sound;
 using FH.Utils;
-using PlatformFeatures.MetrikaFeatures;
-using PlatformFeatures.SaveFeatures;
+using Platforms.Main;
+using Platforms.Metrika;
 using UnityEngine;
 using UnityEngine.Localization;
 
@@ -25,7 +25,7 @@ namespace FH.UI.Views.Settings {
                 ScrollingBgTextureController.Instance?.EnableRendering();
 
             base.ShowView();
-            MetrikaFeatures.Instance.SendEvent(MetrikaEventEnum.SettingsOpened);
+            PlatformFeatures.Metrika.SendEvent(MetrikaEventEnum.SettingsOpened);
         }
 
         public override void HideView() {
@@ -60,7 +60,7 @@ namespace FH.UI.Views.Settings {
 
         private void OnDonePressed() {
             ScreenController.ShowView(_viewAfter);
-            SaveFeatures.Instance.SaveData();
+            PlatformFeatures.Save.SaveData();
         }
 
         private void Start() {

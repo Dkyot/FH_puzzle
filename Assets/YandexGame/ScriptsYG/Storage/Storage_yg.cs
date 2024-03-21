@@ -11,10 +11,18 @@ namespace YG
     public partial class YandexGame
     {
         public static SavesYG savesData = new SavesYG();
-        enum DataState { Exist, NotExist, Broken };
+
+        enum DataState
+        {
+            Exist,
+            NotExist,
+            Broken
+        };
 
 
-        [DllImport("__Internal")]
+#if YG_PLUGIN_YANDEX_GAME
+[DllImport("__Internal")]
+#endif
         private static extern string InitCloudStorage_js();
 
         [InitYG]
@@ -30,6 +38,7 @@ namespace YG
 
 #if UNITY_EDITOR
         static string PATH_SAVES_EDITOR = "/YandexGame/WorkingData/Editor/SavesEditorYG.json";
+
         public static void SaveEditor()
         {
             Message("Save Editor");
@@ -116,13 +125,16 @@ namespace YG
         }
 
         public static Action onResetProgress;
+
         public void _ResetSaveProgress()
         {
             Message("Reset Save Progress");
-            savesData = new SavesYG { isFirstSession = false };
+            int idSave = savesData.idSave;
+            savesData = new SavesYG { idSave = idSave, isFirstSession = false };
             onResetProgress?.Invoke();
             GetDataInvoke();
         }
+
         public static void ResetSaveProgress() => Instance._ResetSaveProgress();
 
         public void _SaveProgress()
@@ -143,6 +155,7 @@ namespace YG
             SaveEditor();
 #endif
         }
+
         public static void SaveProgress() => Instance._SaveProgress();
 
         public void _LoadProgress()
@@ -155,6 +168,7 @@ namespace YG
             LoadEditor();
 #endif
         }
+
         public static void LoadProgress() => Instance._LoadProgress();
 
 
@@ -198,12 +212,14 @@ namespace YG
                 else
                 {
                     if (cloudDataState == DataState.Broken)
-                        Message("Load Cloud Broken! But we tried to restore and load cloud saves. Local saves are disabled.");
+                        Message(
+                            "Load Cloud Broken! But we tried to restore and load cloud saves. Local saves are disabled.");
                     else Message("Load Cloud Complete! Local saves are disabled.");
 
                     savesData = cloudData;
                     AfterLoading();
                 }
+
                 return;
             }
 
@@ -229,14 +245,17 @@ namespace YG
             {
                 if (cloudData.idSave >= localData.idSave)
                 {
-                    Message($"Load Cloud Complete! ID Cloud Save: {cloudData.idSave}, ID Local Save: {localData.idSave}");
+                    Message(
+                        $"Load Cloud Complete! ID Cloud Save: {cloudData.idSave}, ID Local Save: {localData.idSave}");
                     savesData = cloudData;
                 }
                 else
                 {
-                    Message($"Load Local Complete! ID Cloud Save: {cloudData.idSave}, ID Local Save: {localData.idSave}");
+                    Message(
+                        $"Load Local Complete! ID Cloud Save: {cloudData.idSave}, ID Local Save: {localData.idSave}");
                     savesData = localData;
                 }
+
                 AfterLoading();
             }
             else if (cloudDataState == DataState.Exist)
@@ -252,7 +271,7 @@ namespace YG
                 AfterLoading();
             }
             else if (cloudDataState == DataState.Broken ||
-                (cloudDataState == DataState.Broken && localDataState == DataState.Broken))
+                     (cloudDataState == DataState.Broken && localDataState == DataState.Broken))
             {
                 Message("Local Saves - " + localDataState);
                 Message("Cloud Saves - Broken! Data Recovering...");
@@ -285,7 +304,9 @@ namespace YG
             }
         }
 
-        [DllImport("__Internal")]
+#if YG_PLUGIN_YANDEX_GAME
+[DllImport("__Internal")]
+#endif
         private static extern void SaveYG(string jsonData, bool flush);
 
         public static void SaveCloud()
@@ -298,7 +319,9 @@ namespace YG
 #endif
         }
 
-        [DllImport("__Internal")]
+#if YG_PLUGIN_YANDEX_GAME
+[DllImport("__Internal")]
+#endif
         private static extern string LoadYG(bool sendback);
 
         public static void LoadCloud()

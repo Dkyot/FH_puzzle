@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4eb989a8f9f54bb43b267187c060ef9e
+guid: 79045717b87ee50488e5a42031b40b34
 TextScriptImporter:
   externalObjects: {}
   userData: 
@@ -9,6 +9,6 @@ AssetOrigin:
   serializedVersion: 1
   productId: 235877
   packageName: PluginYG - Yandex Game integration
-  packageVersion: 1.6
+  packageVersion: 1.6.1
   assetPath: Assets/YandexGame/ScriptsYG/Editor/PostProcessBuild/ModifyIndexFile/BuildLogYG.txt
-  uploadId: 627339
+  uploadId: 645778

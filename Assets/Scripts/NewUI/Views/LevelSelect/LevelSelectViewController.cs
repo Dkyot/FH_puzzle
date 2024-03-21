@@ -2,7 +2,8 @@ using FH.SO;
 using FH.Sound;
 using FH.Utils;
 using System.Collections.Generic;
-using PlatformFeatures.MetrikaFeatures;
+using Platforms.Main;
+using Platforms.Metrika;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -47,7 +48,7 @@ namespace FH.UI.Views.LevelSelect {
         private void OnLevelSelected(LevelDataSO level) {
             SoundManager.Instance?.PlayOneShot(_levelSelectedSound, _levelSelectedVolume);
             LevelSelected?.Invoke(level);
-            MetrikaFeatures.Instance.SendEvent(MetrikaEventEnum.LevelStarted);
+            PlatformFeatures.Metrika.SendEvent(MetrikaEventEnum.LevelStarted);
         }
 
         private void OnDisable() {

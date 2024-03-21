@@ -1,6 +1,7 @@
 using FH.Utils;
 using System.Collections.Generic;
-using PlatformFeatures.MetrikaFeatures;
+using Platforms.Main;
+using Platforms.Metrika;
 using UnityEngine;
 
 namespace FH.UI.Views.Gallery {
@@ -19,7 +20,7 @@ namespace FH.UI.Views.Gallery {
             if (_toggleScrollingBgTexture)
                 ScrollingBgTextureController.Instance?.EnableRendering();
             
-            MetrikaFeatures.Instance.SendEvent(MetrikaEventEnum.GalleryOpened);
+            PlatformFeatures.Metrika.SendEvent(MetrikaEventEnum.GalleryOpened);
             view.Show();
         }
 

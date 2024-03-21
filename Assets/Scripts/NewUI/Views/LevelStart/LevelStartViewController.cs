@@ -1,5 +1,6 @@
 using FH.Sound;
-using PlatformFeatures.MetrikaFeatures;
+using Platforms.Main;
+using Platforms.Metrika;
 using UnityEngine;
 
 namespace FH.UI.Views.LevelStart {
@@ -15,7 +16,7 @@ namespace FH.UI.Views.LevelStart {
 
         public override void ShowView() {
             base.ShowView();
-            MetrikaFeatures.Instance.SendEvent(MetrikaEventEnum.LevelLoaded);
+            PlatformFeatures.Metrika.SendEvent(MetrikaEventEnum.LevelLoaded);
         }
 
         public async Awaitable StartAnimation() {

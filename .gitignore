@@ -62,3 +62,4 @@ crashlytics-build.properties
 
 [Uu]serSettings/
 Assets/YandexGame/ScriptsYG/Editor/PostProcessBuild/ModifyIndexFile/BuildLogYG.txt
+.utmp/

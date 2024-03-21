@@ -17,11 +17,11 @@ MonoBehaviour:
     <Rows>k__BackingField: 2
     <Columns>k__BackingField: 2
     <UseTwoPair>k__BackingField: 0
+  score: 0
+  isCompleted: 1
   <LevelImage>k__BackingField:
     m_AssetGUID: ab8cabc65555f3946a66da762aa16d3e
     m_SubObjectName: 1
     m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
     m_EditorAssetChanged: 1
-  score: 0
-  isCompleted: 0

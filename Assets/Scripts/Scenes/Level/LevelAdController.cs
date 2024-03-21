@@ -3,9 +3,8 @@ using FH.Cards;
 using FH.UI.Views.GameUI;
 using UnityEngine;
 using FH.Inputs;
-using PlatformFeatures;
-using PlatformFeatures.AdFeatures;
-using PlatformFeatures.MetrikaFeatures;
+using Platforms.Main;
+using Platforms.Metrika;
 
 namespace FH.Level {
     public sealed class LevelAdController : MonoBehaviour {
@@ -35,9 +34,8 @@ namespace FH.Level {
 
             if (_currentPairUsage <= 0) {
                 if (await ShowAd()) {
-                    shouldUse = true;
-                    _currentPairUsage = _findPairAdUsage > 0 ? _findPairAdUsage - 1 : 1;
-                    MetrikaFeatures.Instance.SendEvent(MetrikaEventEnum.PairReceived);
+                    _currentPairUsage += _findPairAdUsage;
+                    PlatformFeatures.Metrika.SendEvent(MetrikaEventEnum.PairReceived);
                 }
             }
             else {
@@ -54,7 +52,7 @@ namespace FH.Level {
 
             if (_currentPairUsage == 0)
             {
-                MetrikaFeatures.Instance.SendEvent(MetrikaEventEnum.PairAllUsed);
+                PlatformFeatures.Metrika.SendEvent(MetrikaEventEnum.PairAllUsed);
             }
         }
 
@@ -69,7 +67,7 @@ namespace FH.Level {
                 if (await ShowAd())
                 {
                     _currentPeekUsage += _peekAdUsage;
-                    MetrikaFeatures.Instance.SendEvent(MetrikaEventEnum.EyeReceived);
+                    PlatformFeatures.Metrika.SendEvent(MetrikaEventEnum.EyeReceived);
                 }
             }
             else {
@@ -89,7 +87,7 @@ namespace FH.Level {
             
             if (_currentPeekUsage == 0)
             {
-                MetrikaFeatures.Instance.SendEvent(MetrikaEventEnum.EyeAllUsed);
+                PlatformFeatures.Metrika.SendEvent(MetrikaEventEnum.EyeAllUsed);
             }
         }
 
@@ -104,7 +102,7 @@ namespace FH.Level {
 
         private async Awaitable<bool> ShowAd() {
             _levelController.FreezeGame();
-            bool adResult = await AdFeatures.Instance.ShowRewardedAwaitable(1);;
+            bool adResult = await PlatformFeatures.Ad.ShowRewardedAwaitable(1);;
             _levelController.UnFreezeGame();
             return adResult;
         }

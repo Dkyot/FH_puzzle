@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d47adbabf2554426b8d784a3469c4bdb, type: 3}
+  m_Name: Winter_RustoreSettings
+  m_EditorClassIdentifier: 
+  productName: WinterPuzzle
+  splashColor: {r: 0.8784314, g: 0.9490196, b: 1, a: 1}
+  splashBackground: {fileID: 0}
+  version: 1.0.1
+  bundleCodeVersion: 4
+  gameIcon: {fileID: 2800000, guid: 6f5d6ea855422e14a9d4adb85ef1464d, type: 3}
+  splashIcon: {fileID: 2800000, guid: 6f5d6ea855422e14a9d4adb85ef1464d, type: 3}
+  gameLocalizedName:
+    m_TableReference:
+      m_TableCollectionName: GUID:699f49e3c82243242b5f5e64729e3209
+    m_TableEntryReference:
+      m_KeyId: 4365012992
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []

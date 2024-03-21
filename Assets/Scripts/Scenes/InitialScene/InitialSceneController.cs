@@ -10,10 +10,9 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 using UnityEngine.Localization.Settings;
 using FH.Sound;
-using PlatformFeatures;
-using PlatformFeatures.AdFeatures;
-using PlatformFeatures.MetrikaFeatures;
-using PlatformFeatures.SaveFeatures;
+using Platforms;
+using Platforms.Main;
+using Platforms.Metrika;
 
 namespace FH.Init {
     public class InitialSceneController : MonoBehaviour {
@@ -48,19 +47,19 @@ namespace FH.Init {
         private async Awaitable InitGame() {
             // Init game here
 
-            await SaveFeatures.Instance.LoadDataAwaitable(5);
+            await PlatformFeatures.Save.LoadDataAwaitable(5);
             await LocalizationSettings.InitializationOperation.CompleteAsync();
 
             // Set current language definded by unity
-            settings.SfxVolume = SaveFeatures.Instance.SaveInfo.SfxVolume;
-            settings.MusicVolume = SaveFeatures.Instance.SaveInfo.MusicVolume;
+            settings.SfxVolume = PlatformFeatures.Save.SaveInfo.SfxVolume;
+            settings.MusicVolume = PlatformFeatures.Save.SaveInfo.MusicVolume;
             LocaleIdentifier localeIdentifier;
-            if (string.IsNullOrEmpty(SaveFeatures.Instance.SaveInfo.Language)) {
+            if (string.IsNullOrEmpty(PlatformFeatures.Save.SaveInfo.Language)) {
                 localeIdentifier = new LocaleIdentifier(Application.systemLanguage);
             }
             else {
                 var locale = LocalizationSettings.AvailableLocales.Locales.Find(x =>
-                    x.Identifier.Code.IndexOf(SaveFeatures.Instance.SaveInfo.Language, StringComparison.Ordinal) != -1);
+                    x.Identifier.Code.IndexOf(PlatformFeatures.Save.SaveInfo.Language, StringComparison.Ordinal) != -1);
                 localeIdentifier = locale == null ? new LocaleIdentifier(Application.systemLanguage): locale.Identifier;
             }
             settings.LocaleIdentifier =  localeIdentifier;
@@ -73,7 +72,7 @@ namespace FH.Init {
             }
             
 #if !UNITY_EDITOR
-            var data = SaveFeatures.Instance.SaveInfo.LevelsScore;
+            var data = PlatformFeatures.Save.SaveInfo.LevelsScore;
             foreach (var level in gameContext.LevelDataBase.Levels) {
                 if (data.TryGetValue(level.number, out float levelScore)) {
                     level.score = levelScore;
@@ -110,7 +109,7 @@ namespace FH.Init {
             }
 
             if (showAd) {
-                await AdFeatures.Instance.ShowFullscreenAwaitable();
+                await PlatformFeatures.Ad.ShowFullscreenAwaitable();
             }
 
             await LoadNewScene(sceneName);
@@ -160,12 +159,12 @@ namespace FH.Init {
         private async Awaitable EnterScene() {
             await sceneTransitionManager.StartTransition();
 
-            MetrikaFeatures.Instance.SendGameReady();
-            MetrikaFeatures.Instance.SendEvent(MetrikaEventEnum.GameLoaded);
+            PlatformFeatures.Metrika.SendGameReady();
+            PlatformFeatures.Metrika.SendEvent(MetrikaEventEnum.GameLoaded);
             
             HideLoadingScreen();
 
-            MetrikaFeatures.Instance.SendGameReady();
+            PlatformFeatures.Metrika.SendGameReady();
             gameContext.SceneManagerProxy.SceneController.StartScene();
 
         }

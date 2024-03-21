@@ -13,6 +13,6 @@ AssetOrigin:
   serializedVersion: 1
   productId: 235877
   packageName: PluginYG - Yandex Game integration
-  packageVersion: 1.6
+  packageVersion: 1.6.1
   assetPath: Assets/YandexGame/ScriptsYG/InfoYG/Editor/InfoYGEditor.cs
-  uploadId: 627339
+  uploadId: 645778

@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: BeachAnimeGirls_CameraOutlined
-  m_Shader: {fileID: -6465566751694194690, guid: d8617d303b472874b94638b927573703, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 4157977647e1d594584d7c80710114af, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -91,11 +91,12 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DirectionNSpeed: {r: 0, g: 0.3, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _InsideColor: {r: 0.2705882, g: 0.254902, b: 0.4, a: 1}
+    - _InsideColor: {r: 0.2901961, g: 0.27058825, b: 0.42745098, a: 1}
     - _OutlineColor: {r: 0.01886791, g: 0.011836943, b: 0.017461717, a: 1}
     - _Tiling: {r: 300, g: 300, b: 0, a: 0}
-    - _Tilling: {r: 1, g: 1, b: 0, a: 0}
+    - _Tilling: {r: 300, g: 300, b: 0, a: 0}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!114 &4640405237342245650
 MonoBehaviour:
   m_ObjectHideFlags: 11

@@ -257,8 +257,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 251fab8648e451e48a34ab760f010707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMenuScene: InitScene_Winter
-  levelScene: InitScene_Winter
+  mainMenuScene: MainMenu_BeachAnimeGirls
+  levelScene: LevelScene_BeachAnimeGirls
   gameContext: {fileID: 11400000, guid: e6e5a395ae8fa894ca3fe345a83556a5, type: 2}
   settings: {fileID: 11400000, guid: b4992057bcc22b049b520d071541a6b9, type: 2}
   sceneTransitionManager: {fileID: 1289836688}

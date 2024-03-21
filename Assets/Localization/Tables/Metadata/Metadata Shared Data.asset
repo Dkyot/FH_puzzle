@@ -23,6 +23,10 @@ MonoBehaviour:
     m_Key: HALLOWEEN_GAME_NAME
     m_Metadata:
       m_Items: []
+  - m_Id: 3637959914737664
+    m_Key: SUMMER_GAME_NAME
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

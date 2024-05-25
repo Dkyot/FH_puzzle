@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d47adbabf2554426b8d784a3469c4bdb, type: 3}
-  m_Name: Summer_RustoreSettings
+  m_Name: Summer_AppGallerySettings
   m_EditorClassIdentifier: 
   productName: SummerPuzzle
   version: 1.0.0
   splashColor: {r: 0.13069598, g: 0.7971462, b: 0.8396226, a: 1}
   splashBackground: {fileID: 0}
-  bundleCodeVersion: 11
-  gameIcon: {fileID: 2800000, guid: 5974ffb4f385bb842b8509935064a3e6, type: 3}
-  splashIcon: {fileID: 2800000, guid: 5974ffb4f385bb842b8509935064a3e6, type: 3}
+  bundleCodeVersion: 14
+  gameIcon: {fileID: 2800000, guid: be3ac9a62f48df64ca52199a4d8f5421, type: 3}
+  splashIcon: {fileID: 2800000, guid: be3ac9a62f48df64ca52199a4d8f5421, type: 3}
   gameLocalizedName:
     m_TableReference:
       m_TableCollectionName: GUID:699f49e3c82243242b5f5e64729e3209

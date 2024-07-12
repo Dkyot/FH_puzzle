@@ -12,42 +12,32 @@ namespace YG
     public partial class YandexGame : MonoBehaviour
     {
         public InfoYG infoYG;
-
-        [Tooltip(
-            "Объект YandexGame не будет удаляться при смене сцены. При выборе опции singleton, объект YandexGame необходимо поместить только на одну сцену, которая первая загружается при запуске игры.")]
+        [Tooltip("Объект YandexGame не будет удаляться при смене сцены. При выборе опции singleton, объект YandexGame необходимо поместить только на одну сцену, которая первая загружается при запуске игры.")]
         public bool singleton;
-
-        [Space(10)] public UnityEvent ResolvedAuthorization;
+        [Space(10)]
+        public UnityEvent ResolvedAuthorization;
         public UnityEvent RejectedAuthorization;
-        [Space(30)] public UnityEvent OpenFullscreenAd;
+        [Space(30)]
+        public UnityEvent OpenFullscreenAd;
         public UnityEvent CloseFullscreenAd;
         public UnityEvent ErrorFullscreenAd;
-        [Space(30)] public UnityEvent OpenVideoAd;
+        [Space(30)]
+        public UnityEvent OpenVideoAd;
         public UnityEvent CloseVideoAd;
         public UnityEvent RewardVideoAd;
         public UnityEvent ErrorVideoAd;
-        [Space(30)] public UnityEvent PurchaseSuccess;
+        [Space(30)]
+        public UnityEvent PurchaseSuccess;
         public UnityEvent PurchaseFailed;
-        [Space(30)] public UnityEvent PromptDo;
+        [Space(30)]
+        public UnityEvent PromptDo;
         public UnityEvent PromptFail;
         public UnityEvent ReviewDo;
 
         #region Data Fields
-
-        public static bool auth
-        {
-            get => _auth;
-        }
-
-        public static bool SDKEnabled
-        {
-            get => _SDKEnabled;
-        }
-
-        public static bool initializedLB
-        {
-            get => _initializedLB;
-        }
+        public static bool auth { get => _auth; }
+        public static bool SDKEnabled { get => _SDKEnabled; }
+        public static bool initializedLB { get => _initializedLB; }
 
         public static bool nowAdsShow
         {
@@ -69,17 +59,14 @@ namespace YG
         public static YandexGame Instance;
         public static Action onAdNotification;
         public static Action GetDataEvent;
-
         #endregion Data Fields
 
         #region Methods
-
         private void OnEnable()
         {
             if (singleton)
                 SceneManager.sceneLoaded += OnSceneLoaded;
         }
-
         private void OnDisable()
         {
             if (singleton)
@@ -112,12 +99,11 @@ namespace YG
             {
                 CallInitBaisYG();
                 CallInitYG();
+                GetPayments();
             }
         }
 
-#if YG_PLUGIN_YANDEX_GAME
         [DllImport("__Internal")]
-#endif
         private static extern void InitGame_js();
 
         private void Start()
@@ -136,8 +122,6 @@ namespace YG
                     InitializedLB();
 #endif
                 }
-
-                GetPayments();
 
                 CallStartYG();
                 _SDKEnabled = true;
@@ -161,7 +145,6 @@ namespace YG
         }
 
         private static bool firstSceneLoad = true;
-
         private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
             if (firstSceneLoad)
@@ -171,7 +154,6 @@ namespace YG
         }
 
         #region For ECS
-
 #if UNITY_EDITOR
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         private static void ResetStatic()
@@ -205,19 +187,16 @@ namespace YG
             onAdNotification = null;
         }
 #endif
-
         #endregion For ECS
 
         #endregion Methods
 
 
+
         // Sending messages
 
         #region Init Leaderboard
-
-#if YG_PLUGIN_YANDEX_GAME
         [DllImport("__Internal")]
-#endif
         private static extern void InitLeaderboard();
 
         public void _InitLeaderboard()
@@ -227,16 +206,13 @@ namespace YG
 #endif
 #if UNITY_EDITOR
             Message("Initialization Leaderboards");
+            InitializedLB();
 #endif
         }
-
         #endregion Init Leaderboard
 
         #region Fullscren Ad Show
-
-#if YG_PLUGIN_YANDEX_GAME
         [DllImport("__Internal")]
-#endif
         private static extern void FullAdShow();
 
         public void _FullscreenShow()
@@ -254,8 +230,7 @@ namespace YG
             }
             else
             {
-                Message(
-                    $"До запроса к показу рекламы в середине игры {(infoYG.fullscreenAdInterval - timerShowAd).ToString("00.0")} сек.");
+                Message($"До запроса к показу рекламы в середине игры {(infoYG.fullscreenAdInterval - timerShowAd).ToString("00.0")} сек.");
             }
         }
 
@@ -270,14 +245,10 @@ namespace YG
             call.StartCoroutine(call.CallingAd(infoYG.durationOfAdSimulation));
         }
 #endif
-
         #endregion Fullscren Ad Show
 
         #region Rewarded Video Show
-
-#if YG_PLUGIN_YANDEX_GAME
         [DllImport("__Internal")]
-#endif
         private static extern void RewardedShow(int id);
 
         public void _RewardedShow(int id)
@@ -306,14 +277,10 @@ namespace YG
             call.StartCoroutine(call.CallingAd(infoYG.durationOfAdSimulation, id));
         }
 #endif
-
         #endregion Rewarded Video Show
 
         #region URL
-
-#if YG_PLUGIN_YANDEX_GAME
         [DllImport("__Internal")]
-#endif
         private static extern void OpenURL(string url);
 
         public static void OnURL(string url)
@@ -324,8 +291,7 @@ namespace YG
             }
             catch (Exception error)
             {
-                Debug.LogError("The first method of following the link failed! Error:\n" + error +
-                               "\nInstead of the first method, let's try to call the second method 'Application.OpenURL'");
+                Debug.LogError("The first method of following the link failed! Error:\n" + error + "\nInstead of the first method, let's try to call the second method 'Application.OpenURL'");
                 Application.OpenURL(url);
             }
         }
@@ -354,14 +320,10 @@ namespace YG
             Application.OpenURL(url);
 #endif
         }
-
         #endregion URL
 
         #region Leaderboard
-
-#if YG_PLUGIN_YANDEX_GAME
         [DllImport("__Internal")]
-#endif
         private static extern void SetLeaderboardScores(string nameLB, int score);
 
         public static void NewLeaderboardScores(string nameLB, int score)
@@ -417,14 +379,10 @@ namespace YG
             }
         }
 
-#if YG_PLUGIN_YANDEX_GAME
         [DllImport("__Internal")]
-#endif
-        private static extern void GetLeaderboardScores(string nameLB, int maxQuantityPlayers, int quantityTop,
-            int quantityAround, string photoSizeLB, bool auth);
+        private static extern void GetLeaderboardScores(string nameLB, int maxQuantityPlayers, int quantityTop, int quantityAround, string photoSizeLB, bool auth);
 
-        public static void GetLeaderboard(string nameLB, int maxQuantityPlayers, int quantityTop, int quantityAround,
-            string photoSizeLB)
+        public static void GetLeaderboard(string nameLB, int maxQuantityPlayers, int quantityTop, int quantityAround, string photoSizeLB)
         {
             void NoData()
             {
@@ -481,14 +439,10 @@ namespace YG
             }
 #endif
         }
-
         #endregion Leaderboard
 
         #region Review Show
-
-#if YG_PLUGIN_YANDEX_GAME
         [DllImport("__Internal")]
-#endif
         private static extern void ReviewInternal();
 
         public void _ReviewShow(bool authDialog)
@@ -510,14 +464,10 @@ namespace YG
         {
             Instance._ReviewShow(authDialog);
         }
-
         #endregion Review Show
 
         #region Prompt
-
-#if YG_PLUGIN_YANDEX_GAME
         [DllImport("__Internal")]
-#endif
         private static extern void PromptShowInternal();
 
         public static void PromptShow()
@@ -533,16 +483,11 @@ namespace YG
             PromptSuccessEvent?.Invoke();
 #endif
         }
-
         public void _PromptShow() => PromptShow();
-
         #endregion Prompt
 
         #region Sticky Ad
-
-#if YG_PLUGIN_YANDEX_GAME
         [DllImport("__Internal")]
-#endif
         private static extern void StickyAdActivityInternal(bool activity);
 
         public static void StickyAdActivity(bool activity)
@@ -555,16 +500,13 @@ namespace YG
         }
 
         public void _StickyAdActivity(bool activity) => StickyAdActivity(activity);
-
         #endregion Sticky Ad
 
 
         // Receiving messages
 
         #region Fullscren Ad
-
         public static Action OpenFullAdEvent;
-
         public void OpenFullAd()
         {
             OpenFullscreenAd.Invoke();
@@ -573,7 +515,6 @@ namespace YG
         }
 
         public static Action CloseFullAdEvent;
-
         public void CloseFullAd(string wasShown)
         {
             nowFullAd = false;
@@ -596,7 +537,6 @@ namespace YG
             }
 #endif
         }
-
         public void CloseFullAd() => CloseFullAd("true");
 
         public void ResetTimerFullAd()
@@ -605,21 +545,17 @@ namespace YG
         }
 
         public static Action ErrorFullAdEvent;
-
         public void ErrorFullAd()
         {
             ErrorFullscreenAd.Invoke();
             ErrorFullAdEvent?.Invoke();
         }
-
         #endregion Fullscren Ad
 
         #region Rewarded Video
-
         private float timeOnOpenRewardedAds;
 
         public static Action OpenVideoEvent;
-
         public void OpenVideo()
         {
             OpenVideoEvent?.Invoke();
@@ -629,7 +565,6 @@ namespace YG
         }
 
         public static Action CloseVideoEvent;
-
         public void CloseVideo()
         {
             nowVideoAd = false;
@@ -651,14 +586,7 @@ namespace YG
         }
 
         public static Action<int> RewardVideoEvent;
-
-        private enum RewardAdResult
-        {
-            None,
-            Success,
-            Error
-        };
-
+        private enum RewardAdResult { None, Success, Error };
         private static RewardAdResult rewardAdResult = RewardAdResult.None;
         private static int lastRewardAdID;
 
@@ -666,8 +594,10 @@ namespace YG
         {
             lastRewardAdID = id;
 #if UNITY_EDITOR
-            if (!Instance.infoYG.testErrorOfRewardedAdsInEditor)
-                timeOnOpenRewardedAds -= 3;
+            if (Instance.infoYG.testErrorOfRewardedAdsInEditor)
+                timeOnOpenRewardedAds += Time.realtimeSinceStartup + 1;
+            else
+                timeOnOpenRewardedAds = 0;
 #endif
             rewardAdResult = RewardAdResult.None;
 
@@ -693,17 +623,14 @@ namespace YG
         }
 
         public static Action ErrorVideoEvent;
-
         public void ErrorVideo()
         {
             ErrorVideoAd.Invoke();
             ErrorVideoEvent?.Invoke();
         }
-
         #endregion Rewarded Video
 
         #region Leaderboard
-
         public static Action<LBData> onGetLeaderboard;
 
         public void LeaderboardEntries(string data)
@@ -753,13 +680,10 @@ namespace YG
             onGetLeaderboard?.Invoke(lb);
             _initializedLB = true;
         }
-
         #endregion Leaderboard
 
         #region Review
-
         public static Action<bool> ReviewSentEvent;
-
         public void ReviewSent(string feedbackSent)
         {
             EnvironmentData.reviewCanShow = false;
@@ -768,14 +692,11 @@ namespace YG
             ReviewSentEvent?.Invoke(sent);
             if (sent) ReviewDo?.Invoke();
         }
-
         #endregion Review
 
         #region Prompt
-
         public static Action PromptSuccessEvent;
         public static Action PromptFailEvent;
-
         public void OnPromptSuccess()
         {
             savesData.promptDone = true;
@@ -792,14 +713,12 @@ namespace YG
             PromptFailEvent?.Invoke();
             EnvironmentData.promptCanShow = false;
         }
-
         #endregion Prompt
 
 
         // The rest
 
         #region Update
-
         public static float timerShowAd;
 #if !UNITY_EDITOR
         static float timerSaveCloud = 62;
@@ -816,11 +735,9 @@ namespace YG
                 timerSaveCloud += Time.unscaledDeltaTime;
 #endif
         }
-
         #endregion Update
 
         #region Json
-
         public class JsonLB
         {
             public string technoName;
@@ -835,7 +752,6 @@ namespace YG
             public int[] scores;
             public string[] uniqueIDs;
         }
-
         #endregion Json
     }
 }

@@ -9,9 +9,7 @@ namespace YG
 
         // Initialization
 
-#if YG_PLUGIN_YANDEX_GAME
-[DllImport("__Internal")]
-#endif
+        [DllImport("__Internal")]
         private static extern string InitEnvironmentData_js();
 
         [InitBaisYG]
@@ -29,9 +27,7 @@ namespace YG
 
         // Requesting Data
 
-#if YG_PLUGIN_YANDEX_GAME
-[DllImport("__Internal")]
-#endif
+        [DllImport("__Internal")]
         private static extern string RequestingEnvironmentData_js(bool sendback);
 
         public static void RequesEnvirData(bool sendback = true)
@@ -43,7 +39,6 @@ namespace YG
             GetDataInvoke();
 #endif
         }
-
         public void _RequesEnvirData() => RequesEnvirData(true);
 
         public void SetEnvirData(string data)
@@ -72,6 +67,10 @@ namespace YG
                 EnvironmentData.isDesktop = true;
                 EnvironmentData.isTV = false;
             }
+
+            if (Instance.infoYG.playerInfoSimulation.language != "" &&
+                Instance.infoYG.playerInfoSimulation.language != null)
+                EnvironmentData.language = Instance.infoYG.playerInfoSimulation.language;
         }
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]

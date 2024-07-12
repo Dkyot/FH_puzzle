@@ -2,7 +2,6 @@
 using UnityEngine;
 #endif
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
 using YG.Insides;
 
 namespace YG
@@ -59,9 +58,7 @@ namespace YG
         }
 #endif
 
-#if YG_PLUGIN_YANDEX_GAME
-[DllImport("__Internal")]
-#endif
+        [System.Runtime.InteropServices.DllImport("__Internal")]
         private static extern bool YandexMetricaSendInternal(string eventName, string eventData);
 
         private static void YandexMetricaSend(string eventName, string eventData)

@@ -16,9 +16,7 @@ namespace YG
 
         // Initialization
 
-#if YG_PLUGIN_YANDEX_GAME
-[DllImport("__Internal")]
-#endif
+        [DllImport("__Internal")]
         private static extern string InitPayments_js();
 
         [InitYG]
@@ -43,9 +41,7 @@ namespace YG
 
         // Sending messages
 
-#if YG_PLUGIN_YANDEX_GAME
-[DllImport("__Internal")]
-#endif
+        [DllImport("__Internal")]
         private static extern void GetPayments_js();
 
         public static void GetPayments()
@@ -75,9 +71,7 @@ namespace YG
         }
 
 
-#if YG_PLUGIN_YANDEX_GAME
-[DllImport("__Internal")]
-#endif
+        [DllImport("__Internal")]
         private static extern void ConsumePurchase_js(string id);
 
         public static void ConsumePurchaseByID(string id)
@@ -87,9 +81,7 @@ namespace YG
 #endif
         }
 
-#if YG_PLUGIN_YANDEX_GAME
-[DllImport("__Internal")]
-#endif
+        [DllImport("__Internal")]
         private static extern void ConsumePurchase_js();
 
         public static void ConsumePurchases()
@@ -100,9 +92,7 @@ namespace YG
         }
 
 
-#if YG_PLUGIN_YANDEX_GAME
-[DllImport("__Internal")]
-#endif
+        [DllImport("__Internal")]
         private static extern void BuyPayments_js(string id);
 
         public static void BuyPayments(string id)
@@ -116,6 +106,7 @@ namespace YG
         }
 
         public void _BuyPayments(string id) => BuyPayments(id);
+
 
 
         // Receiving Data

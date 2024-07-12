@@ -6,20 +6,14 @@ namespace YG
 {
     public partial class YandexGame
     {
-#if YG_PLUGIN_YANDEX_GAME
-[DllImport("__Internal")]
-#endif
+        [DllImport("__Internal")]
         private static extern void SaveToLocalStorage(string key, string value);
 
-#if YG_PLUGIN_YANDEX_GAME
-[DllImport("__Internal")]
-#endif
+        [DllImport("__Internal")]
         private static extern string LoadFromLocalStorage(string key);
 
 
-#if YG_PLUGIN_YANDEX_GAME
-[DllImport("__Internal")]
-#endif
+        [DllImport("__Internal")]
         private static extern int HasKeyInLocalStorage(string key);
 
         public static bool HasKey(string key)
@@ -35,9 +29,7 @@ namespace YG
             }
         }
 
-#if YG_PLUGIN_YANDEX_GAME
-[DllImport("__Internal")]
-#endif
+        [DllImport("__Internal")]
         private static extern void RemoveFromLocalStorage(string key);
         public static void RemoveLocalSaves() => RemoveFromLocalStorage("savesData");
     }

@@ -566,7 +566,7 @@ PlayerSettings:
   m_BuildTargetDefaultTextureCompressionFormat:
   - serializedVersion: 2
     m_BuildTarget: WebGL
-    m_Formats: 02000000
+    m_Formats: 03000000
   - serializedVersion: 2
     m_BuildTarget: Android
     m_Formats: 01000000
@@ -813,13 +813,13 @@ PlayerSettings:
   webGLDebugSymbols: 0
   webGLEmscriptenArgs: 
   webGLModulesDirectory: 
-  webGLTemplate: PROJECT:HalloweenPluginYG
+  webGLTemplate: PROJECT:SummerPluginYG
   webGLAnalyzeBuildSize: 0
   webGLUseEmbeddedResources: 0
   webGLCompressionFormat: 0
   webGLWasmArithmeticExceptions: 0
   webGLLinkerTarget: 1
-  webGLThreadsSupport: 0
+  webGLThreadsSupport: 1
   webGLDecompressionFallback: 1
   webGLInitialMemorySize: 64
   webGLMaximumMemorySize: 1024
@@ -845,7 +845,7 @@ PlayerSettings:
     WebGL: 2
   il2cppCodeGeneration:
     Android: 1
-    WebGL: 1
+    WebGL: 0
   il2cppStacktraceInformation: {}
   managedStrippingLevel:
     Android: 2
@@ -858,7 +858,7 @@ PlayerSettings:
     PS5: 1
     QNX: 1
     Stadia: 1
-    WebGL: 3
+    WebGL: 2
     Windows Store Apps: 1
     XboxOne: 1
     iPhone: 1

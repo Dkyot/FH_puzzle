@@ -9,6 +9,6 @@ AssetOrigin:
   serializedVersion: 1
   productId: 235877
   packageName: PluginYG - Yandex Game integration
-  packageVersion: 1.6
-  assetPath: Assets/WebGLTemplates/PluginYG/style.css
-  uploadId: 627339
+  packageVersion: 1.6.2
+  assetPath: Assets/WebGLTemplates/WinterPluginYG/style.css
+  uploadId: 655369

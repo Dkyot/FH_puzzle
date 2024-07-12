@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Russian (Russia) (ru-RU)
   m_EditorClassIdentifier: 
   m_Identifier:
-    m_Code: ru-RU
+    m_Code: ru
   m_Metadata:
     m_Items:
     - rid: 6661395160038113282
-  m_LocaleName: Russian (Russia) (ru-RU)
+  m_LocaleName: Russian (Russia) (ru)
   m_CustomFormatCultureCode: 
   m_UseCustomFormatter: 0
   m_SortOrder: 1

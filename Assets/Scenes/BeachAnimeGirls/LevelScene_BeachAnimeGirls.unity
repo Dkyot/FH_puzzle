@@ -487,8 +487,8 @@ MonoBehaviour:
   _starAnimationViewController: {fileID: 2097693597}
   _levelCompletedViewController: {fileID: 2097693596}
   _tipsPointerController: {fileID: 0}
-  _music1: {fileID: 8300000, guid: e1b6a967a5aa5c642898650d1b3fb7fb, type: 3}
-  _music2: {fileID: 8300000, guid: 0ecd6f743d1a15b448132f8b158a41b9, type: 3}
+  _music1: {fileID: 8300000, guid: 6551a5fda5143374289f3bd45f8b5c34, type: 3}
+  _music2: {fileID: 8300000, guid: e97e54315c3d9244a90d1b0df8b15a8d, type: 3}
 --- !u!4 &710374886
 Transform:
   m_ObjectHideFlags: 0

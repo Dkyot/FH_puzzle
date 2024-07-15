@@ -4,7 +4,7 @@
     {
         public bool CanReviewGame()
         {
-            return false;
+            return true;
         }
 
         public void OpenReviewGame()

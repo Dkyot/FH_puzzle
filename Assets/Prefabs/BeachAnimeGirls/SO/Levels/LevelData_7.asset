@@ -16,7 +16,7 @@ MonoBehaviour:
     <Palete>k__BackingField: {fileID: 11400000, guid: 4f44ba94411da9e4fb453e29e7a548be, type: 2}
     <Rows>k__BackingField: 6
     <Columns>k__BackingField: 6
-    <LevelType>k__BackingField: 2
+    <LevelType>k__BackingField: 3
   score: 7806.278
   isCompleted: 1
   <LevelImage>k__BackingField:

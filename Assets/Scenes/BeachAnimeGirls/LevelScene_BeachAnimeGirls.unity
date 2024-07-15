@@ -216,7 +216,7 @@ GameObject:
   - component: {fileID: 195636405}
   - component: {fileID: 195636404}
   m_Layer: 0
-  m_Name: FlipCardTipController
+  m_Name: FlipCardTrainingController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -235,6 +235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardManager: {fileID: 918102901}
+  markerPrefab: {fileID: 7940301056945276821, guid: ae9298f4f0a75f3469f081c600a84f9c, type: 3}
 --- !u!4 &195636405
 Transform:
   m_ObjectHideFlags: 0
@@ -243,12 +244,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 195636403}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 972591585}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &324549165
 GameObject:
@@ -261,7 +262,7 @@ GameObject:
   - component: {fileID: 324549167}
   - component: {fileID: 324549166}
   m_Layer: 0
-  m_Name: TipsPointerController
+  m_Name: TipsTrainingController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -289,12 +290,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 324549165}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 972591585}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &382777784
 GameObject:
@@ -578,10 +579,9 @@ MonoBehaviour:
   _levelImage: {fileID: 115296876}
   _starAnimationViewController: {fileID: 2097693597}
   _levelCompletedViewController: {fileID: 2097693596}
-  _tipsPointerController: {fileID: 324549166}
-  _flipCardTipController: {fileID: 195636404}
   _music1: {fileID: 8300000, guid: 6551a5fda5143374289f3bd45f8b5c34, type: 3}
   _music2: {fileID: 8300000, guid: e97e54315c3d9244a90d1b0df8b15a8d, type: 3}
+  levelTrainingController: {fileID: 972591584}
 --- !u!4 &710374886
 Transform:
   m_ObjectHideFlags: 0
@@ -709,6 +709,56 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inputHandler: {fileID: 1813562680}
+--- !u!1 &972591583
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 972591585}
+  - component: {fileID: 972591584}
+  m_Layer: 0
+  m_Name: LevelTrainingController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &972591584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 972591583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcfc9a446b74476c971d3d20d39c6995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameContext: {fileID: 11400000, guid: e6e5a395ae8fa894ca3fe345a83556a5, type: 2}
+  cardManager: {fileID: 918102901}
+  tipsTrainingController: {fileID: 324549166}
+  flipCardTrainingController: {fileID: 195636404}
+--- !u!4 &972591585
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 972591583}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 324549167}
+  - {fileID: 195636405}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1686490501
 GameObject:
   m_ObjectHideFlags: 0
@@ -949,6 +999,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 972591584}
+        m_TargetAssemblyTypeName: FH.Level.LevelTipController, Assembly-CSharp
+        m_MethodName: StopTraining
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _pausePressed:
     m_PersistentCalls:
       m_Calls:
@@ -1101,7 +1163,19 @@ MonoBehaviour:
         m_CallState: 2
   _rateGamePressed:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 710374885}
+        m_TargetAssemblyTypeName: FH.Level.LevelSceneController, Assembly-CSharp
+        m_MethodName: ShowReviewGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _movedToScoreTable:
     m_PersistentCalls:
       m_Calls: []
@@ -1136,8 +1210,7 @@ SceneRoots:
   - {fileID: 1813562681}
   - {fileID: 710374886}
   - {fileID: 918102902}
-  - {fileID: 324549167}
-  - {fileID: 195636405}
+  - {fileID: 972591585}
   - {fileID: 2097693592}
   - {fileID: 115296877}
   - {fileID: 382777788}

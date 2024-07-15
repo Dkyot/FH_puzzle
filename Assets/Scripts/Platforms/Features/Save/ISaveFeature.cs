@@ -12,7 +12,7 @@ namespace Platforms.Save
         void LoadData();
         void SaveData();
         
-#if UNITY_2023
+#if UNITY_2023_1_OR_NEWER
         Awaitable<bool> LoadDataAwaitable(uint waitingTimeSeconds);
 #endif
     }

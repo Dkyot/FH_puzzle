@@ -167,7 +167,7 @@ namespace FH.Level
 
             // Configure card manager
             var levelData = _gameContext.CurrentLevel;
-            cardManager.UseTwoPairs = levelData.Params.UseTwoPair;
+            cardManager.LevelType = levelData.Params.LevelType;
             cardManager.Colums = levelData.Params.Columns;
             cardManager.Pallete = levelData.Params.Palete;
             cardManager.Rows = levelData.Params.Rows;
@@ -194,6 +194,11 @@ namespace FH.Level
                 case 2:
                     _tipsPointerController.ShowTipsPointer();
                     break;
+            }
+
+            if (_gameContext.CurrentLevel.Params.LevelType is LevelType.AllEquals or LevelType.ThreePairs)
+            {
+                _ = cardManager.WaveTip();
             }
         }
 

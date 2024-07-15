@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Localization-String-Tables-Indonesian
+  m_Name: Localization-String-Tables-Russian (ru)
   m_EditorClassIdentifier: 
-  m_GroupName: Localization-String-Tables-Indonesian
-  m_GUID: 329518ae3014a1a4f838cb4a91d80808
+  m_GroupName: Localization-String-Tables-Russian (ru)
+  m_GUID: 62fdbd77680daa745abc14c8ec664dc7
   m_SerializeEntries:
-  - m_GUID: d550845f089b5194484701db38315373
-    m_Address: UI_id
+  - m_GUID: be736695b57de394d9868c1853f91ea5
+    m_Address: UI_ru
     m_ReadOnly: 1
     m_SerializedLabels:
-    - Locale-id
+    - Locale-ru
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 08759ca6803893e44977f545b81dca28, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 695e052a09d865849a3314df087e5a13, type: 2}
-    - {fileID: 11400000, guid: 1229ee2610dd5c6479390f5632d6ffe9, type: 2}
+    - {fileID: 11400000, guid: 57c8d840e88162b47a3d7bb96312874d, type: 2}
+    - {fileID: 11400000, guid: 16ffaddad2ae3b4408a2f7c65fc6828a, type: 2}

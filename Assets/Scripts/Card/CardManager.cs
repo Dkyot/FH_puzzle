@@ -29,7 +29,8 @@ namespace FH.Cards {
         public int Rows { get; set; }
         public int Colums { get; set; }
         public ColorsSO Pallete { get; set; }
-        public bool UseTwoPairs { get; set; }
+        
+        public LevelType LevelType { get; set; }
 
         [SerializeField] private GameObject _markerPrefab;
 
@@ -407,21 +408,22 @@ namespace FH.Cards {
 
         #region Distribution Of Values
         private void DistributionOfValues() {
-            if (cards.Count % 2 != 0) {
-                //Debug.Log("Необходимо четное количество карт!");
-                return;
-            }
-
-            //if (cards.Count > 36)
-            //    return;
-
             List<Pair<int, Color>> values = new List<Pair<int, Color>>();
 
-            if (UseTwoPairs) {
-                FourEqualCards(values);
-            }
-            else {
-                TwoEqualCards(values);
+            switch (LevelType)
+            {
+                case LevelType.Regular:
+                    TwoEqualCards(values);
+                    break;
+                case LevelType.TwoPairs:
+                    FourEqualCards(values);
+                    break;
+                case LevelType.ThreePairs:
+                    SixEqualCards(values);
+                    break;
+                case LevelType.AllEquals:
+                    AllEqualCards(values);
+                    break;
             }
 
             values = Shuffle(values);
@@ -445,6 +447,23 @@ namespace FH.Cards {
                 values.Add(new Pair<int, Color>(i, Pallete.pallete[i]));
                 values.Add(new Pair<int, Color>(i, Pallete.pallete[i]));
                 values.Add(new Pair<int, Color>(i, Pallete.pallete[i]));
+            }
+        }
+        
+        private void SixEqualCards(List<Pair<int, Color>> values) {
+            for (int i = 0; i < cards.Count / 6; i++) {
+                values.Add(new Pair<int, Color>(i, Pallete.pallete[i]));
+                values.Add(new Pair<int, Color>(i, Pallete.pallete[i]));
+                values.Add(new Pair<int, Color>(i, Pallete.pallete[i]));
+                values.Add(new Pair<int, Color>(i, Pallete.pallete[i]));
+                values.Add(new Pair<int, Color>(i, Pallete.pallete[i]));
+                values.Add(new Pair<int, Color>(i, Pallete.pallete[i]));
+            }
+        }
+        
+        private void AllEqualCards(List<Pair<int, Color>> values) {
+            for (int i = 0; i < cards.Count; i++) {
+                values.Add(new Pair<int, Color>(0, Pallete.pallete[0]));
             }
         }
 

@@ -13,15 +13,16 @@ MonoBehaviour:
   m_Name: LevelData_7
   m_EditorClassIdentifier: 
   <Params>k__BackingField:
-    <Palete>k__BackingField: {fileID: 11400000, guid: 3772058dbf4f0fd43bfcccd8047b44f2, type: 2}
+    <Palete>k__BackingField: {fileID: 11400000, guid: 4f44ba94411da9e4fb453e29e7a548be, type: 2}
     <Rows>k__BackingField: 6
     <Columns>k__BackingField: 6
-    <UseTwoPair>k__BackingField: 0
+    <LevelType>k__BackingField: 2
+  score: 7806.278
+  isCompleted: 1
   <LevelImage>k__BackingField:
     m_AssetGUID: c64f3fb9a45f4fc4eb89e6580fc937a6
     m_SubObjectName: nkFC-nUHnlQ
+    m_SubObjectGUID: 
     m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
     m_EditorAssetChanged: 1
-  score: 0
-  isCompleted: 0

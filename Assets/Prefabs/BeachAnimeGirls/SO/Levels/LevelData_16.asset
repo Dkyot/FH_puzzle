@@ -16,12 +16,13 @@ MonoBehaviour:
     <Palete>k__BackingField: {fileID: 11400000, guid: 2c1728ba0d4616c4883f228b842f2915, type: 2}
     <Rows>k__BackingField: 6
     <Columns>k__BackingField: 6
-    <UseTwoPair>k__BackingField: 0
+    <LevelType>k__BackingField: 0
+  score: 0
+  isCompleted: 1
   <LevelImage>k__BackingField:
     m_AssetGUID: fed5a95f332d1744887cbbec5fc6995d
     m_SubObjectName: ApZOOLJw4UI
+    m_SubObjectGUID: 
     m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
     m_EditorAssetChanged: 1
-  score: 0
-  isCompleted: 0

@@ -35,7 +35,7 @@ namespace Platforms.Ad
             Debug.Log($"Debug {functionName}");
         }
 
-#if UNITY_2023
+#if UNITY_2023_1_OR_NEWER
         public async Awaitable ShowFullscreenAwaitable()
         {
             await Awaitable.NextFrameAsync();

@@ -60,7 +60,7 @@ namespace Platforms.Save
             YandexGame.SaveProgress();
         }
 
-#if UNITY_2023
+#if UNITY_2023_1_OR_NEWER
         public async Awaitable<bool> LoadDataAwaitable(uint waitingTimeSeconds)
         {
             if (YandexGame.SDKEnabled)

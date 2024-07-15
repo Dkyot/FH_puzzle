@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0578f4ec3b68b1a4e90ef392f9a8210c, type: 3}
-  m_Name: LevelsDataBase
+  m_Name: LevelsDataBaseRegular
   m_EditorClassIdentifier: 
   _levels:
   - {fileID: 11400000, guid: 188480b514b7f2f408b742a33312df4a, type: 2}
@@ -20,12 +20,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 74b7f8869f5591c49b6b7fbd8954c264, type: 2}
   - {fileID: 11400000, guid: 544dd1ece05765b4d95a381604109854, type: 2}
   - {fileID: 11400000, guid: 0c5e5387af6aaf8428aea39bfffa4e4d, type: 2}
-  - {fileID: 11400000, guid: 6c001b4f9a45b4a4f9b353bad33cc89d, type: 2}
   - {fileID: 11400000, guid: 8fac83445972c514f8d1c720a1bd5bd7, type: 2}
+  - {fileID: 11400000, guid: 6c001b4f9a45b4a4f9b353bad33cc89d, type: 2}
   - {fileID: 11400000, guid: 9c143493e6bdd864b8f778ad02e6c3a3, type: 2}
   - {fileID: 11400000, guid: b479ab53b7ae3ce48b2526bc1ace37e0, type: 2}
   - {fileID: 11400000, guid: 53b68779d30298d408c05dacd99f4a5f, type: 2}
   - {fileID: 11400000, guid: 37197fdf304efdf4db281b9c5a4033bb, type: 2}
-  - {fileID: 11400000, guid: 91277d24c23f5bb4393e8d03dbd4b1d4, type: 2}
   - {fileID: 11400000, guid: 9edd5d451dee394479f4016cbee6c05d, type: 2}
+  - {fileID: 11400000, guid: 91277d24c23f5bb4393e8d03dbd4b1d4, type: 2}
   - {fileID: 11400000, guid: 71f676ba09df42947b9be9232061d75b, type: 2}

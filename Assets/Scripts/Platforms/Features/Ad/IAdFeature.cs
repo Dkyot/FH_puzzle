@@ -17,7 +17,7 @@ namespace Platforms.Ad
         void ShowFullscreen();
         void ShowRewarded(int id);
 
-#if UNITY_2023
+#if UNITY_2023_1_OR_NEWER
         Awaitable ShowFullscreenAwaitable();
         Awaitable<bool> ShowRewardedAwaitable(int id);
 #endif

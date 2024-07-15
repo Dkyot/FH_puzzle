@@ -43,6 +43,7 @@ namespace FH.Level
         [SerializeField] private LevelStartViewController _starAnimationViewController;
         [SerializeField] private LevelCompletedController _levelCompletedViewController;
         [SerializeField] private TipsPointerController _tipsPointerController;
+        [SerializeField] private FlipCardTipController _flipCardTipController;
 
         [Header("Music")] [SerializeField] private AudioClip _music1;
         [SerializeField] private AudioClip _music2;
@@ -193,6 +194,11 @@ namespace FH.Level
                     break;
                 case 2:
                     _tipsPointerController.ShowTipsPointer();
+                    break;
+                case 3:
+                    FreezeGame();
+                    await _flipCardTipController.ActivateTip();
+                    UnFreezeGame();
                     break;
             }
 

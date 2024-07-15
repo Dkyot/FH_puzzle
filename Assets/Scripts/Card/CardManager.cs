@@ -155,6 +155,12 @@ namespace FH.Cards {
             OnReset?.Invoke();
         }
 
+        public Card GetFirstCard()
+        {
+            if (cards == null || cards.Count == 0) return null;
+            return cards[Colums * (Rows - 1)];
+        }
+
         private void Awake() {
             if (_destroyParticles != null) {
                 _firstCardParticleSystem = Instantiate<ParticleSystem>(_destroyParticles);

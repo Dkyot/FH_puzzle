@@ -22,8 +22,8 @@ MonoBehaviour:
     name: Player this
     uniqueID: 000
     photo: https://justplaygames.ru/public/icon_player.png
-  AdWhenLoadingScene: 1
-  showFirstAd: 1
+  AdWhenLoadingScene: 0
+  showFirstAd: 0
   rewardedAfterClosing: 0
   adDisplayCalls: 0
   fullscreenAdInterval: 300
@@ -293,7 +293,7 @@ MonoBehaviour:
     consumed: 1
   metricaEnable: 1
   metricaCounterID: 97819797
-  debug: 1
+  debug: 0
   archivingBuild: 0
   logoImageFormat: 2
   backgroundImageFormat: 3

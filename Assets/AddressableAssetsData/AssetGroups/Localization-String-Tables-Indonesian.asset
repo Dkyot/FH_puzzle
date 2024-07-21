@@ -13,14 +13,10 @@ MonoBehaviour:
   m_Name: Localization-String-Tables-Indonesian
   m_EditorClassIdentifier: 
   m_GroupName: Localization-String-Tables-Indonesian
+  m_Data:
+    m_SerializedData: []
   m_GUID: 329518ae3014a1a4f838cb4a91d80808
-  m_SerializeEntries:
-  - m_GUID: d550845f089b5194484701db38315373
-    m_Address: UI_id
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale-id
-    FlaggedDuringContentUpdateRestriction: 0
+  m_SerializeEntries: []
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 08759ca6803893e44977f545b81dca28, type: 2}
   m_SchemaSet:

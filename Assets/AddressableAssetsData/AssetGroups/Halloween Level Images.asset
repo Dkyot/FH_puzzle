@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Halloween Level Images
   m_EditorClassIdentifier: 
   m_GroupName: Halloween Level Images
+  m_Data:
+    m_SerializedData: []
   m_GUID: 6e330ef5e863618428050159e11d7d2a
   m_SerializeEntries:
   - m_GUID: 074b6942dec68b345abfed4ca7f185f2

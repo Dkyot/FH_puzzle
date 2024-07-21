@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Level Images
   m_EditorClassIdentifier: 
   m_GroupName: Level Images
+  m_Data:
+    m_SerializedData: []
   m_GUID: 71050ef9edf27b145aa47173a7f45a1e
   m_SerializeEntries:
   - m_GUID: 14f2f48000d7b504d9c56395f4b90ecd

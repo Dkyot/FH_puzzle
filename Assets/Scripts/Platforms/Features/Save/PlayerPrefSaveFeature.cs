@@ -36,7 +36,7 @@ namespace Platforms.Save
             PlayerPrefs.Save();
         }
 
-#if UNITY_2023
+#if UNITY_2023_1_OR_NEWER
         public async Awaitable<bool> LoadDataAwaitable(uint waitingTimeSeconds)
         {
             LoadData();

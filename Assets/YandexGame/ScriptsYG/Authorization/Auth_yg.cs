@@ -15,18 +15,12 @@ namespace YG
             get => _playerName;
             set => _playerName = value;
         }
-
-        public static string playerId
-        {
-            get => _playerId;
-        }
-
+        public static string playerId { get => _playerId; }
         public static string playerPhoto
         {
             get => _playerPhoto;
             set => _playerPhoto = value;
         }
-
         public static string photoSize
         {
             get => _photoSize;
@@ -36,9 +30,7 @@ namespace YG
         JsonAuth jsonAuth = new JsonAuth();
 
 
-#if YG_PLUGIN_YANDEX_GAME
-[DllImport("__Internal")]
-#endif
+        [DllImport("__Internal")]
         private static extern string InitPlayer_js();
 
         [InitYG]
@@ -84,11 +76,8 @@ namespace YG
         }
 #endif
 
-#if YG_PLUGIN_YANDEX_GAME
-[DllImport("__Internal")]
-#endif
+        [DllImport("__Internal")]
         public static extern void RequestAuth_js(bool sendback);
-
         public static void RequestAuth(bool sendback = true)
         {
 #if !UNITY_EDITOR
@@ -136,19 +125,20 @@ namespace YG
         }
 
 
-#if YG_PLUGIN_YANDEX_GAME
-[DllImport("__Internal")]
-#endif
+        [DllImport("__Internal")]
         private static extern void OpenAuthDialog();
 
         public static void AuthDialog()
         {
-            Message("Open Auth Dialog");
+            if (auth)
+                Message("Open Auth Dialog");
+            else
+                Message("SDK Яндекс Игр предлагает войти в аккаунт только тем пользователям, которые еще не вошли.");
+
 #if !UNITY_EDITOR
             OpenAuthDialog();
 #endif
         }
-
         public void _OpenAuthDialog() => AuthDialog();
 
 

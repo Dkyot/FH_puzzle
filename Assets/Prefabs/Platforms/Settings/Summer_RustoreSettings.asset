@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Summer_RustoreSettings
   m_EditorClassIdentifier: 
   productName: SummerPuzzle
-  version: 1.0.1
+  version: 1.0.0
   splashColor: {r: 0.13069598, g: 0.7971462, b: 0.8396226, a: 1}
   splashBackground: {fileID: 0}
-  bundleCodeVersion: 10
+  bundleCodeVersion: 11
   gameIcon: {fileID: 2800000, guid: 5974ffb4f385bb842b8509935064a3e6, type: 3}
   splashIcon: {fileID: 2800000, guid: 5974ffb4f385bb842b8509935064a3e6, type: 3}
   gameLocalizedName:

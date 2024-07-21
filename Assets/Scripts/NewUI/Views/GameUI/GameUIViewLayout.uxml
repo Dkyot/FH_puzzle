@@ -21,25 +21,25 @@
             <ui:VisualElement style="flex-grow: 1; position: absolute; bottom: 0; right: 0; left: 0; top: auto;">
                 <ui:VisualElement class="helpers-container">
                     <ui:VisualElement class="helper-container">
-                        <FH.UI.ElementPointer name="ElementPointerPair" usage-hints="DynamicTransform" picking-mode="Ignore" style="width: 100px; height: 100px; background-image: url(&apos;project://database/Assets/Images/Halloween/Halloween_Arrow.png?fileID=21300000&amp;guid=e8e2e68c835a6a64184b97ec23efaeea&amp;type=3#Halloween_Arrow&apos;); -unity-background-scale-mode: scale-to-fit;" />
+                        <FH.UI.ElementPointer name="ElementPointerPair" usage-hints="DynamicTransform" picking-mode="Ignore" style="width: 100px; height: 100px; background-image: url(&quot;project://database/Assets/Images/BeachAnimeGirls/Sprites/Arrow.png?fileID=21300000&amp;guid=07c3d91abd87cb24685ba64c9998dd3a&amp;type=3#Arrow&quot;); -unity-background-scale-mode: scale-to-fit;" />
                         <ui:VisualElement name="FindPairAdIcon" class="ad-icon-container" style="flex-grow: 0; flex-direction: row; align-items: center; align-self: center; justify-content: center;">
-                            <ui:Label tabindex="-1" text="+3" display-tooltip-when-elided="false" select-word-by-double-click="false" select-line-by-triple-click="false" parse-escape-sequences="false" emoji-fallback-support="false" enable-rich-text="false" name="AdFindPairBonusLabel" class="text_shadow" style="font-size: 40px; align-self: center; justify-content: center; align-items: auto;" />
+                            <ui:Label tabindex="-1" text="+3" display-tooltip-when-elided="false" parse-escape-sequences="false" emoji-fallback-support="false" enable-rich-text="false" name="AdFindPairBonusLabel" double-click-selects-word="false" triple-click-selects-line="false" class="text_shadow" style="font-size: 40px; align-self: center; justify-content: center; align-items: auto;" />
                             <ui:VisualElement class="ad-icon">
                                 <ui:VisualElement class="ad-icon-front" />
                             </ui:VisualElement>
                         </ui:VisualElement>
-                        <ui:Label tabindex="-1" text="3X" display-tooltip-when-elided="false" name="FindPairUseCounterLabel" enable-rich-text="false" emoji-fallback-support="false" select-word-by-double-click="false" select-line-by-triple-click="false" class="text_shadow" style="font-size: 40px;" />
+                        <ui:Label tabindex="-1" text="3X" display-tooltip-when-elided="false" name="FindPairUseCounterLabel" enable-rich-text="false" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" class="text_shadow" style="font-size: 40px;" />
                         <FH.UI.SquareIconButton name="FindPairButton" usage-hints="MaskContainer, DynamicColor" class="find-button" />
                     </ui:VisualElement>
                     <ui:VisualElement class="helper-container peek-button" style="flex-grow: 1;">
-                        <FH.UI.ElementPointer name="ElementPointerPeek" picking-mode="Ignore" usage-hints="DynamicTransform" style="width: 100px; height: 100px; background-image: url(&apos;project://database/Assets/Images/Halloween/Halloween_Arrow.png?fileID=21300000&amp;guid=e8e2e68c835a6a64184b97ec23efaeea&amp;type=3#Halloween_Arrow&apos;); -unity-background-scale-mode: scale-to-fit;" />
+                        <FH.UI.ElementPointer name="ElementPointerPeek" picking-mode="Ignore" usage-hints="DynamicTransform" style="width: 100px; height: 100px; background-image: url(&quot;project://database/Assets/Images/BeachAnimeGirls/Sprites/Arrow.png?fileID=21300000&amp;guid=07c3d91abd87cb24685ba64c9998dd3a&amp;type=3#Arrow&quot;); -unity-background-scale-mode: scale-to-fit;" />
                         <ui:VisualElement name="PeekAdIcon" class="ad-icon-container" style="flex-grow: 0; flex-direction: row; align-items: center; align-self: center; justify-content: center;">
-                            <ui:Label tabindex="-1" text="+3" display-tooltip-when-elided="false" name="AdPeekBonusLabel" emoji-fallback-support="false" enable-rich-text="false" select-word-by-double-click="false" select-line-by-triple-click="false" class="text_shadow" style="font-size: 40px; align-self: center; justify-content: center; align-items: auto;" />
+                            <ui:Label tabindex="-1" text="+3" display-tooltip-when-elided="false" name="AdPeekBonusLabel" emoji-fallback-support="false" enable-rich-text="false" double-click-selects-word="false" triple-click-selects-line="false" class="text_shadow" style="font-size: 40px; align-self: center; justify-content: center; align-items: auto;" />
                             <ui:VisualElement class="ad-icon">
                                 <ui:VisualElement class="ad-icon-front" />
                             </ui:VisualElement>
                         </ui:VisualElement>
-                        <ui:Label tabindex="-1" text="3X" display-tooltip-when-elided="false" name="PeekUseCounterLabel" enable-rich-text="false" emoji-fallback-support="false" select-word-by-double-click="false" select-line-by-triple-click="false" class="text_shadow" style="font-size: 40px;" />
+                        <ui:Label tabindex="-1" text="3X" display-tooltip-when-elided="false" name="PeekUseCounterLabel" enable-rich-text="false" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" class="text_shadow" style="font-size: 40px;" />
                         <FH.UI.SquareIconButton name="PeekButton" usage-hints="MaskContainer, DynamicColor" class="peek-button" />
                     </ui:VisualElement>
                 </ui:VisualElement>

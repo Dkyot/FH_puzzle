@@ -54,10 +54,7 @@ namespace YG.Insides.Utils
 
         static DefineSymbols()
         {
-            if (EditorUserBuildSettings.selectedBuildTargetGroup == BuildTargetGroup.WebGL)
-            {
-                AddDefine("YG_PLUGIN_YANDEX_GAME");
-            }
+            AddDefine("YG_PLUGIN_YANDEX_GAME");
         }
     }
 }

@@ -7,7 +7,7 @@
                 <FH.UI.SquareButton name="BackButton" Label="BACK" usage-hints="DynamicColor" style="width: 300px; position: absolute;" />
             </ui:VisualElement>
             <ui:VisualElement style="flex-grow: 1; margin-right: 5%; margin-left: 5%;">
-                <ui:ScrollView scroll-deceleration-rate="0,135" elasticity="0,1" horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="Auto" name="PhotoScrollView" mouse-wheel-scroll-size="300" style="margin-top: 50px; overflow: hidden; width: auto; flex-grow: 1; margin-right: 0; position: absolute; left: 0; top: 0; right: 0; bottom: 0; display: flex;">
+                <ui:ScrollView scroll-deceleration-rate="0,135" elasticity="0,1" horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="Auto" name="PhotoScrollView" mouse-wheel-scroll-size="350" style="margin-top: 50px; overflow: hidden; width: auto; flex-grow: 1; margin-right: 0; position: absolute; left: 0; top: 0; right: 0; bottom: 0; display: flex;">
                     <ui:VisualElement name="PhotoContainer" style="flex-grow: 1; flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: flex-start;" />
                 </ui:ScrollView>
                 <FH.UI.LocalizedLabel name="NoPhotoLabel" Label="NO_PHOTO" picking-mode="Ignore" class="fancy cool-text" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; font-size: 70px; -unity-text-align: middle-center;" />

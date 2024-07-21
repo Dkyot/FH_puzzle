@@ -57,7 +57,7 @@ namespace Platforms.Ad
             YandexGame.RewVideoShow(id);
         }
 
-#if UNITY_2023
+#if UNITY_2023_1_OR_NEWER
         private int _currentRewardedId;
         private bool _adRewarded;
         private bool _adClosed;

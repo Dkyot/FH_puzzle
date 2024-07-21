@@ -41,7 +41,7 @@ namespace CrazyGames.WindowComponents
             }
 
 
-            if (UnityEngine.Rendering.GraphicsSettings.renderPipelineAsset != null)
+            if (UnityEngine.Rendering.GraphicsSettings.defaultRenderPipeline != null)
             {
                 RenderInfoItem(
                     "If you are using URP but don't use post-processing we recommend disabling them. This will reduce approximately 1mb from your final build size. Check our tips on the link below for more info.");

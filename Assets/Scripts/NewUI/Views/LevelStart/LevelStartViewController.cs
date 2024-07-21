@@ -20,8 +20,8 @@ namespace FH.UI.Views.LevelStart {
         }
 
         public async Awaitable StartAnimation() {
-            const float showAnimationDelay = 0.5f;
-            const float hideAnimationDelay = 0.2f;
+            const float showAnimationDelay = 0.4f;
+            const float hideAnimationDelay = 0.15f;
 
             var soundManager = SoundManager.Instance;
 
@@ -29,7 +29,7 @@ namespace FH.UI.Views.LevelStart {
 
             view.ShowLevelName();
             soundManager.Play(_startSound, _volumeScale);
-            await Awaitable.WaitForSecondsAsync(2f);
+            await Awaitable.WaitForSecondsAsync(1.3f);
             view.HideLevelName();
             await Awaitable.WaitForSecondsAsync(hideAnimationDelay);
 

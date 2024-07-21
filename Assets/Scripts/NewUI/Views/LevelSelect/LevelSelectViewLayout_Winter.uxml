@@ -7,7 +7,7 @@
                 <FH.UI.LocalizedLabel tabindex="-1" Label="LEVEL_SELECT_TITLE" IsLocalizable="true" picking-mode="Ignore" class="fancy cool-text" style="flex-grow: 1; align-self: stretch; align-items: auto; -unity-text-align: middle-center; font-size: 70px;" />
             </ui:VisualElement>
             <ui:VisualElement style="flex-grow: 1; margin-top: 40px; align-items: auto; overflow: visible;">
-                <ui:ScrollView scroll-deceleration-rate="0,135" elasticity="0.1" vertical-scroller-visibility="Auto" mouse-wheel-scroll-size="300" style="flex-grow: 1; justify-content: flex-start; align-items: stretch; flex-direction: column; flex-wrap: nowrap; position: relative; left: auto; top: auto; right: auto; bottom: auto; align-self: stretch; overflow: hidden; margin-right: 5%; margin-left: 5%;">
+                <ui:ScrollView scroll-deceleration-rate="0,135" elasticity="0.1" vertical-scroller-visibility="Auto" mouse-wheel-scroll-size="350" style="flex-grow: 1; justify-content: flex-start; align-items: stretch; flex-direction: column; flex-wrap: nowrap; position: relative; left: auto; top: auto; right: auto; bottom: auto; align-self: stretch; overflow: hidden; margin-right: 5%; margin-left: 5%;">
                     <ui:VisualElement name="LevelsContainer" style="flex-grow: 1; flex-direction: row; flex-wrap: wrap; align-items: flex-start; justify-content: center; height: auto; align-self: auto; overflow: visible; padding-right: 40px;" />
                 </ui:ScrollView>
             </ui:VisualElement>

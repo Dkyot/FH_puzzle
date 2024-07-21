@@ -9,7 +9,7 @@ namespace YG
         public static string lang = "ru";
         public static Action<string> SwitchLangEvent;
 
-        [StartYG]
+        [InitYG]
         public static void InitLang()
         {
 #if !UNITY_EDITOR
@@ -33,8 +33,8 @@ namespace YG
                 }
                 else if (Instance.infoYG.callingLanguageCheck == InfoYG.CallingLanguageCheck.FirstLaunchOnly)
                 {
-                    string loadLang = LoadKeyLang();
-                    SwitchLangEvent?.Invoke(loadLang);
+                    lang = LoadKeyLang();
+                    SwitchLangEvent?.Invoke(lang);
                 }
             }
         }
@@ -45,9 +45,7 @@ namespace YG
         }
 
 
-#if YG_PLUGIN_YANDEX_GAME
-[DllImport("__Internal")]
-#endif
+        [DllImport("__Internal")]
         private static extern string LangRequest_js();
 
         public void _LanguageRequest()
@@ -60,11 +58,9 @@ namespace YG
             {
                 lang = langSimulate;
             }
-
             SetLanguage(lang);
 #endif
         }
-
         public static void LanguageRequest() => Instance._LanguageRequest();
 
 

@@ -17,14 +17,14 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: f933b028b9fedff42a3760b83391a119
   m_SerializeEntries:
-  - m_GUID: d550845f089b5194484701db38315373
-    m_Address: UI_id
+  - m_GUID: 3fee555449651fe4191b18842e287950
+    m_Address: Metadata_id
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-id
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 3fee555449651fe4191b18842e287950
-    m_Address: Metadata_id
+  - m_GUID: d550845f089b5194484701db38315373
+    m_Address: UI_id
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-id

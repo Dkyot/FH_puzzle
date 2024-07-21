@@ -10,21 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1bb1838fe8befb0429646b938e757ff3, type: 3}
-  m_Name: Russian (Russia) (ru-RU)
+  m_Name: Russian (ru)
   m_EditorClassIdentifier: 
   m_Identifier:
-    m_Code: ru-RU
+    m_Code: ru
   m_Metadata:
-    m_Items:
-    - rid: 6661395160038113282
-  m_LocaleName: Russian (Russia) (ru-RU)
-  m_CustomFormatCultureCode: 
+    m_Items: []
+  m_LocaleName: Russian (ru)
+  m_CustomFormatCultureCode: ru
   m_UseCustomFormatter: 0
   m_SortOrder: 1
   references:
     version: 2
-    RefIds:
-    - rid: 6661395160038113282
-      type: {class: FallbackLocale, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
-      data:
-        m_Locale: {fileID: 11400000, guid: fa876921c5dace7428bdace73427bd1e, type: 2}
+    RefIds: []

@@ -7,7 +7,7 @@ using UnityEngine.Serialization;
 
 namespace FH.Level
 {
-    public class TipsPointerController : MonoBehaviour
+    public class TipsTrainingController : MonoBehaviour
     {
         [SerializeField] private GameUIViewController gameUIController;
         [SerializeField] private PlayerInputHandler playerInputHandler;

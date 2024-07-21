@@ -79,7 +79,7 @@ namespace Platforms.Ad
             }
         }
 
-#if UNITY_2023
+#if UNITY_2023_1_OR_NEWER
         public async Awaitable ShowFullscreenAwaitable()
         {
             if(DateTime.UtcNow - _lastFullscreenTime < _fullscreenTimeout) return;

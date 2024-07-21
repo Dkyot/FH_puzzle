@@ -13,9 +13,7 @@ namespace YG
                 GameReadyAPI();
         }
 
-#if YG_PLUGIN_YANDEX_GAME
-[DllImport("__Internal")]
-#endif
+        [DllImport("__Internal")]
         private static extern void GameReadyAPI_js();
 
         public static void GameReadyAPI()
@@ -28,7 +26,6 @@ namespace YG
 #endif
             }
         }
-
         public void _GameReadyAPI() => GameReadyAPI();
     }
 }

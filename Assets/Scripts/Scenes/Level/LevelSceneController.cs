@@ -18,6 +18,7 @@ using FH.Sound;
 using Platforms.Main;
 using Platforms.Metrika;
 using Platforms.User;
+using UnityEngine.Serialization;
 
 namespace FH.Level
 {
@@ -42,16 +43,19 @@ namespace FH.Level
         [SerializeField] private SpriteRenderer _levelImage;
         [SerializeField] private LevelStartViewController _starAnimationViewController;
         [SerializeField] private LevelCompletedController _levelCompletedViewController;
-        [SerializeField] private TipsPointerController _tipsPointerController;
 
         [Header("Music")] [SerializeField] private AudioClip _music1;
         [SerializeField] private AudioClip _music2;
+
+        [SerializeField] private LevelTrainingController levelTrainingController;
 
         private ScoreTimer scoreTimer;
         private ScoreCounter scoreCounter;
 
         private Sprite _image;
         private LevelDataSO _curentLevelData;
+
+        private Awaitable _flipCardTipAwaitable;
 
         public async Awaitable StartPreloading()
         {
@@ -77,6 +81,8 @@ namespace FH.Level
 
         public void Restart()
         {
+            _flipCardTipAwaitable?.Cancel();
+            _flipCardTipAwaitable = null;
             cardManager.CreateCards();
             scoreCounter.Reset();
             scoreTimer.Unlock();
@@ -91,6 +97,7 @@ namespace FH.Level
 
         public void UnFreezeGame()
         {
+            levelTrainingController.StopTraining();
             cardManager.CardFlipper?.Unlock();
             scoreTimer.Unlock();
         }
@@ -167,7 +174,7 @@ namespace FH.Level
 
             // Configure card manager
             var levelData = _gameContext.CurrentLevel;
-            cardManager.UseTwoPairs = levelData.Params.UseTwoPair;
+            cardManager.LevelType = levelData.Params.LevelType;
             cardManager.Colums = levelData.Params.Columns;
             cardManager.Pallete = levelData.Params.Palete;
             cardManager.Rows = levelData.Params.Rows;
@@ -183,18 +190,10 @@ namespace FH.Level
         {
             await _starAnimationViewController.StartAnimation();
 
+            await levelTrainingController.StartTraining();
+            
             scoreCounter.Reset();
             UnFreezeGame();
-
-            switch (_gameContext.CurrentLevel.number)
-            {
-                case 1:
-                    cardManager.FindPair();
-                    break;
-                case 2:
-                    _tipsPointerController.ShowTipsPointer();
-                    break;
-            }
         }
 
         private void OnWin(object sender, EventArgs e)

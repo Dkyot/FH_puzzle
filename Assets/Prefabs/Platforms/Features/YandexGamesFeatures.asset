@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a621a8966954390a8b161d9e6aeea1b, type: 3}
-  m_Name: Winter_YandexGamesFeatures
+  m_Name: YandexGamesFeatures
   m_EditorClassIdentifier: 
   <PlatformTargets>k__BackingField: 14000000
   <PlatformSettings>k__BackingField: {fileID: 0}

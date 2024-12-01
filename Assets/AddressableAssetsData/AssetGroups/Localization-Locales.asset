@@ -13,12 +13,16 @@ MonoBehaviour:
   m_Name: Localization-Locales
   m_EditorClassIdentifier: 
   m_GroupName: Localization-Locales
-  m_Data:
-    m_SerializedData: []
   m_GUID: 7af848eeed0c5184591f03315272a3cd
   m_SerializeEntries:
-  - m_GUID: fa876921c5dace7428bdace73427bd1e
-    m_Address: English (en)
+  - m_GUID: 32eded3261a65fb40afc29b4ca7a039f
+    m_Address: Chinese (Traditional) (zh-Hant)
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6df7ee019de3ef445b4cbe4d6f184156
+    m_Address: Chinese (Simplified) (zh)
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale
@@ -35,8 +39,8 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f860c653a30d5ca4b944249c9c0c3d1f
-    m_Address: Turkish (tr)
+  - m_GUID: 8c383c99ac9c4674b993069f4103cefd
+    m_Address: Indonesian (id)
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale
@@ -47,20 +51,14 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 8c383c99ac9c4674b993069f4103cefd
-    m_Address: Indonesian (id)
+  - m_GUID: f860c653a30d5ca4b944249c9c0c3d1f
+    m_Address: Turkish (tr)
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 32eded3261a65fb40afc29b4ca7a039f
-    m_Address: Chinese (Traditional) (zh-Hant)
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 6df7ee019de3ef445b4cbe4d6f184156
-    m_Address: Chinese (Simplified) (zh)
+  - m_GUID: fa876921c5dace7428bdace73427bd1e
+    m_Address: English (en)
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale

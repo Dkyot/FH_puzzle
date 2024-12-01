@@ -13,8 +13,6 @@ MonoBehaviour:
   m_Name: Localization-String-Tables-Indonesian (id)
   m_EditorClassIdentifier: 
   m_GroupName: Localization-String-Tables-Indonesian (id)
-  m_Data:
-    m_SerializedData: []
   m_GUID: f933b028b9fedff42a3760b83391a119
   m_SerializeEntries:
   - m_GUID: 3fee555449651fe4191b18842e287950

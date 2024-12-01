@@ -38,12 +38,12 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 12
+  serializedVersion: 13
+  m_BakeOnSceneLoad: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -152,6 +152,9 @@ MonoBehaviour:
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: 20552655775454b458c64a3a0fe03a52, type: 3}
   m_SortingOrder: 1
+  m_WorldSpaceSizeMode: 1
+  m_WorldSpaceWidth: 1920
+  m_WorldSpaceHeight: 1080
 --- !u!4 &123454061
 Transform:
   m_ObjectHideFlags: 0
@@ -328,8 +331,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 251fab8648e451e48a34ab760f010707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMenuScene: MainMenu_Halloween
-  levelScene: LevelScene_Halloween
+  mainMenuScene: InitScene_BeachAnimeGirls
+  levelScene: InitScene_BeachAnimeGirls
   gameContext: {fileID: 11400000, guid: 6df7e78c6f0b4a444b09c07fa3363b20, type: 2}
   settings: {fileID: 11400000, guid: b4992057bcc22b049b520d071541a6b9, type: 2}
   sceneTransitionManager: {fileID: 1289836687}

@@ -1,24 +1,20 @@
-﻿using EasyTransition;
-using FH.SO;
+﻿using FH.SO;
 using FH.Utils;
-using NaughtyAttributes;
 using System;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 using UnityEngine.Localization.Settings;
-using FH.Sound;
-using Platforms;
 using Platforms.Main;
 using Platforms.Metrika;
+using Eflatun.SceneReference;
 
 namespace FH.Init {
     public class InitialSceneController : MonoBehaviour {
         [Header("Registred Scenes")]
-        [Scene] public string mainMenuScene;
-        [Scene] public string levelScene;
+        public SceneReference  mainMenuScene;
+        public SceneReference  levelScene;
 
         [Header("System Referenses")]
         public GameContext gameContext;
@@ -90,14 +86,14 @@ namespace FH.Init {
         }
 
         private Awaitable LoadMainMenuScene() {
-            return LoadScene(mainMenuScene, false);
+            return LoadScene(mainMenuScene.BuildIndex, false);
         }
 
         private Awaitable LoadLevelScene() {
-            return LoadScene(levelScene, true);
+            return LoadScene(levelScene.BuildIndex, true);
         }
 
-        private async Awaitable LoadScene(string sceneName, bool showAd) {
+        private async Awaitable LoadScene(int sceneIndex, bool showAd) {
             if (_isLoading)
                 return;
 
@@ -112,15 +108,15 @@ namespace FH.Init {
                 await PlatformFeatures.Ad.ShowFullscreenAwaitable();
             }
 
-            await LoadNewScene(sceneName);
+            await LoadNewScene(sceneIndex);
         }
 
-        private async Awaitable LoadNewScene(string sceneName) {
+        private async Awaitable LoadNewScene(int sceneIndex) {
             gameContext.SceneManagerProxy.SceneControllerSet += OnControllerSet;
 
             try {
-                await SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
-                var scene = SceneManager.GetSceneByName(sceneName);
+                await SceneManager.LoadSceneAsync(sceneIndex, LoadSceneMode.Additive);
+                var scene = SceneManager.GetSceneByBuildIndex(sceneIndex);
                 SceneManager.SetActiveScene(scene);
             }
             catch (Exception ex) {

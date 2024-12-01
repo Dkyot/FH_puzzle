@@ -331,8 +331,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 251fab8648e451e48a34ab760f010707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMenuScene: InitScene_BeachAnimeGirls
-  levelScene: InitScene_BeachAnimeGirls
+  mainMenuScene:
+    asset: {fileID: 102900000, guid: 4dc24f46d6e22e54d98b3cc16bc893e3, type: 3}
+    guid: 4dc24f46d6e22e54d98b3cc16bc893e3
+  levelScene:
+    asset: {fileID: 102900000, guid: f4c1133764616eb42ab15965e434a9bc, type: 3}
+    guid: f4c1133764616eb42ab15965e434a9bc
   gameContext: {fileID: 11400000, guid: 6df7e78c6f0b4a444b09c07fa3363b20, type: 2}
   settings: {fileID: 11400000, guid: b4992057bcc22b049b520d071541a6b9, type: 2}
   sceneTransitionManager: {fileID: 1289836687}

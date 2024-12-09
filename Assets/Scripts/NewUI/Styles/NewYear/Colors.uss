@@ -1,0 +1,36 @@
+:root {
+    --text-outline: #046300;
+
+    --text-color: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+
+    --button-border-color: var(--primary-3);
+
+    --card-background-color: rgba(0, 0, 0, 0.247);
+
+    --primary: rgb(57, 155, 65);
+    --primary-2: rgb(6, 114, 15);
+    --primary-3: #72bd6e;
+
+    --secondary: #ffffff;
+}
+
+.base-button {
+    overflow: visible;
+}
+
+.base-button>.background {
+     overflow: visible;
+}
+
+.round_button>.background {
+    border-radius: 40px;
+}
+
+.square_button>.background {
+    border-radius: 10px; 
+}
+
+.square_icon_button>.background {
+    border-radius: 5px; 
+}

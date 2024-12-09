@@ -97,7 +97,7 @@ namespace FH.Level
 
         public void UnFreezeGame()
         {
-            levelTrainingController.StopTraining();
+            levelTrainingController?.StopTraining();
             cardManager.CardFlipper?.Unlock();
             scoreTimer.Unlock();
         }
@@ -190,7 +190,7 @@ namespace FH.Level
         {
             await _starAnimationViewController.StartAnimation();
 
-            await levelTrainingController.StartTraining();
+            await levelTrainingController?.StartTraining();
             
             scoreCounter.Reset();
             UnFreezeGame();

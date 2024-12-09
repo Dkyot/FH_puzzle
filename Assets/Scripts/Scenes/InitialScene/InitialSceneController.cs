@@ -101,7 +101,7 @@ namespace FH.Init {
 
             if (gameContext.SceneManagerProxy.SceneController != null) {
                 await ExitCurrentScene();
-                await Awaitable.WaitForSecondsAsync(0.1f);
+                await Awaitable.WaitForSecondsAsync(0.7f);
             }
 
             if (showAd) {

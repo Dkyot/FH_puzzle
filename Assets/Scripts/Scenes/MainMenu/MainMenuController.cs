@@ -50,11 +50,11 @@ namespace FH.MainMenu {
         }
 
         public void StartScene() {
-            MusicManager.Instance?.FadeIn(0.5f, _music, true);
+            MusicManager.Instance?.FadeIn(0.8f, _music, true);
         }
 
         public async Awaitable UnloadScene() {
-            await MusicManager.Instance?.FadeOut(0.3f);
+            await MusicManager.Instance?.FadeOut(1f);
             RealeseImages();
             await SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
         }

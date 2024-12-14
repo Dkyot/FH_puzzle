@@ -59,7 +59,7 @@ namespace FH.Level {
         private Awaitable _flipCardTipAwaitable;
 
         public async Awaitable StartPreloading() {
-            MusicManager.Instance?.FadeIn(0.5f, GetCurrentTrack(), true);
+            MusicManager.Instance?.FadeIn(0.8f, GetCurrentTrack(), true);
             await LoadImage();
             _levelCompletedViewController.SetImage(_image);
             _levelImage.sprite = _image;
@@ -73,7 +73,7 @@ namespace FH.Level {
             _image = null;
             _curentLevelData.ReleaseImage();
 
-            await MusicManager.Instance?.FadeOut(0.3f);
+            await MusicManager.Instance?.FadeOut(1f);
             await SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
         }
 

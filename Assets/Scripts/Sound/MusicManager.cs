@@ -1,6 +1,7 @@
 using FH.SO;
 using UnityEngine;
 using System.Threading;
+using System;
 
 namespace FH.Sound {
     public sealed class MusicManager : MonoBehaviour {
@@ -51,17 +52,15 @@ namespace FH.Sound {
             var appCancellToken = Application.exitCancellationToken;
 
             float initialVolume = _volume;
-            float fadeSpeed = Mathf.Abs((destination - initialVolume) / time);
-
-            if (fadeSpeed == 0)
-                return;
 
             float t = 0;
 
-            while (!cancellToken.IsCancellationRequested && !appCancellToken.IsCancellationRequested && t < 1) {
+            while (!cancellToken.IsCancellationRequested && !appCancellToken.IsCancellationRequested && t <= time) {
                 await Awaitable.NextFrameAsync();
-                t = Mathf.Clamp(t + fadeSpeed * Time.deltaTime, 0f, 1f);
-                float newVolume = Mathf.Lerp(initialVolume, destination, t);
+
+                t += Time.deltaTime;
+
+                float newVolume = Mathf.Lerp(initialVolume, destination, Math.Clamp(time / t, 0, 1));
                 Volume = newVolume;
             }
         }

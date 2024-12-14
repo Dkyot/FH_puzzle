@@ -1,0 +1,26 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
+    <Style src="project://database/Assets/Scripts/NewUI/Views/MainMenu/NewYear_MainMenuViewStyle.uss?fileID=7433441132597879392&amp;guid=be1a13b4c48b6d749aa3ed5b13f02524&amp;type=3#NewYear_MainMenuViewStyle" />
+    <FH.UI.Views.MainMenu.MainMenuView picking-mode="Ignore" name="MainMenuView" style="-unity-background-scale-mode: scale-and-crop;">
+        <ui:VisualElement name="Menu" picking-mode="Ignore" style="left: 0; top: auto; right: 0; bottom: 10%; position: absolute; justify-content: flex-end; align-items: center; align-self: center; align-content: center;">
+            <ui:VisualElement name="ButtonsContainer" picking-mode="Ignore" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); justify-content: flex-start; align-items: center; align-self: center; flex-direction: row;">
+                <ui:VisualElement style="flex-grow: 1;">
+                    <FH.UI.RoundButton Label="PLAY" name="PlayButton" IsLocalizable="true" usage-hints="DynamicTransform, DynamicColor" style="flex-grow: 0;" />
+                </ui:VisualElement>
+                <ui:VisualElement style="flex-grow: 1;">
+                    <FH.UI.RoundButton Label="GALLERY" name="GalleryButton" usage-hints="DynamicTransform, MaskContainer" />
+                </ui:VisualElement>
+                <ui:VisualElement style="flex-grow: 1;">
+                    <FH.UI.RoundButton Label="SETTINGS" name="SettingsButton" usage-hints="DynamicTransform, DynamicColor" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <FH.UI.MovingContainer name="MovingContainer" picking-mode="Ignore" class="title-container" style="align-items: flex-start; justify-content: center; align-self: flex-start; right: 0; left: 0; top: 15%;">
+            <ui:VisualElement style="flex-grow: 0;">
+                <ui:VisualElement style="flex-grow: 1; align-items: flex-start; align-self: center; justify-content: flex-start;">
+                    <FH.UI.LocalizedLabel Label="WINTER_TITLE_1" picking-mode="Ignore" class="fancy title" style="-unity-text-align: middle-center; border-left-color: rgb(114, 189, 110); border-right-color: rgb(114, 189, 110); border-top-color: rgb(114, 189, 110); border-bottom-color: rgb(114, 189, 110); border-left-width: 8px; border-bottom-width: 8px; border-right-width: 8px; border-top-width: 8px; margin-bottom: -9px; color: rgb(255, 255, 255); -unity-text-outline-color: rgb(255, 182, 0); background-color: rgb(57, 155, 65); -unity-text-outline-width: 0;" />
+                    <FH.UI.LocalizedLabel Label="WINTER_TITLE_2" picking-mode="Ignore" class="fancy title" style="-unity-text-align: middle-center; border-top-left-radius: 0; border-top-right-radius: 0; border-left-width: 8px; border-bottom-width: 8px; border-right-width: 8px; border-left-color: rgb(114, 189, 110); border-right-color: rgb(114, 189, 110); border-top-color: rgb(114, 189, 110); border-bottom-color: rgb(114, 189, 110); margin-bottom: 0; background-color: rgb(57, 155, 65); -unity-text-outline-color: rgb(255, 182, 0); color: rgb(255, 255, 255); -unity-text-outline-width: 0;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </FH.UI.MovingContainer>
+    </FH.UI.Views.MainMenu.MainMenuView>
+</ui:UXML>

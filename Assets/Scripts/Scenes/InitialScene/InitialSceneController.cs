@@ -13,8 +13,8 @@ using Eflatun.SceneReference;
 namespace FH.Init {
     public class InitialSceneController : MonoBehaviour {
         [Header("Registred Scenes")]
-        public SceneReference  mainMenuScene;
-        public SceneReference  levelScene;
+        public SceneReference mainMenuScene;
+        public SceneReference levelScene;
 
         [Header("System Referenses")]
         public GameContext gameContext;
@@ -56,17 +56,17 @@ namespace FH.Init {
             else {
                 var locale = LocalizationSettings.AvailableLocales.Locales.Find(x =>
                     x.Identifier.Code.IndexOf(PlatformFeatures.Save.SaveInfo.Language, StringComparison.Ordinal) != -1);
-                localeIdentifier = locale == null ? new LocaleIdentifier(Application.systemLanguage): locale.Identifier;
+                localeIdentifier = locale == null ? new LocaleIdentifier(Application.systemLanguage) : locale.Identifier;
             }
-            settings.LocaleIdentifier =  localeIdentifier;
-            
+            settings.LocaleIdentifier = localeIdentifier;
+
             await _settingsObserver.Init(settings);
 
             int index = 1;
             foreach (var level in gameContext.LevelDataBase.Levels) {
                 level.number = index++;
             }
-            
+
 #if !UNITY_EDITOR
             var data = PlatformFeatures.Save.SaveInfo.LevelsScore;
             foreach (var level in gameContext.LevelDataBase.Levels) {
@@ -142,10 +142,15 @@ namespace FH.Init {
         }
 
         private async Awaitable OnControllerSetAsync() {
-            await PrepareScene();
-            await Awaitable.NextFrameAsync();
-            await EnterScene();
-            _isLoading = false;
+            try {
+                await PrepareScene();
+                await Awaitable.NextFrameAsync();
+                await EnterScene();
+                _isLoading = false;
+            }
+            catch (Exception ex) {
+                Debug.LogError(ex);
+            }
         }
 
         private Awaitable PrepareScene() {
@@ -157,7 +162,7 @@ namespace FH.Init {
 
             PlatformFeatures.Metrika.SendGameReady();
             PlatformFeatures.Metrika.SendEvent(MetrikaEventEnum.GameLoaded);
-            
+
             HideLoadingScreen();
 
             PlatformFeatures.Metrika.SendGameReady();

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 501235885848192172}
   - component: {fileID: 501235885848192163}
   - component: {fileID: 5616889226759085753}
+  - component: {fileID: 5194081390020330004}
   m_Layer: 5
   m_Name: TransitionIn
   m_TagString: Untagged
@@ -35,7 +36,7 @@ RectTransform:
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -113,3 +114,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   frameIndex: 0
   _material: {fileID: 2100000, guid: 00485e5983b96814dad5e77d2d2523dd, type: 2}
+--- !u!114 &5194081390020330004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 501235885848192162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86710e43de46f6f4bac7c8e50813a599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AspectMode: 4
+  m_AspectRatio: 1.833333

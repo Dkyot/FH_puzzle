@@ -1,2 +1,2 @@
-Build path: E:/_newBeach
-Build number: 23
+Build path: C:/Users/konov/Desktop/NeyYear Build
+Build number: 24

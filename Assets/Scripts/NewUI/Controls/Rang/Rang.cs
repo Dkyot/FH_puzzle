@@ -56,7 +56,7 @@ namespace FH.UI {
         }
         
         private static (string text, string style) RangToTextAndStyle(RangTypes rangType) => (rangType) switch {
-            RangTypes.SS => ("SS", rangSsClass),
+            RangTypes.SS => ("S+", rangSsClass),
             RangTypes.S => ("S", rangSClass),
             RangTypes.A => ("A", rangAClass),
             RangTypes.B => ("B", rangBClass),

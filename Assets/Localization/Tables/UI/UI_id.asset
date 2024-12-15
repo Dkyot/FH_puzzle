@@ -172,10 +172,20 @@ MonoBehaviour:
     m_Localized: Hot Halloween Harem
     m_Metadata:
       m_Items: []
+  - m_Id: 172615500507684864
+    m_Localized: 'Suasana Musim Dingin:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 172615654908403712
+    m_Localized: Puzzle
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:
     - rid: 471192578227437800
       type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
-        m_Entries: 00a0bcbed8051b00
+        m_Entries: 
+        m_SharedEntries:
+        - id: 7606252842295296

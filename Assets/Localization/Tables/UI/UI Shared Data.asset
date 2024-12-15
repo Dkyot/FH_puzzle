@@ -171,6 +171,14 @@ MonoBehaviour:
     m_Key: CHINESE
     m_Metadata:
       m_Items: []
+  - m_Id: 172615500507684864
+    m_Key: NEWYEAR_TITLE_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 172615654908403712
+    m_Key: NEWYEAR_TITLE_2
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

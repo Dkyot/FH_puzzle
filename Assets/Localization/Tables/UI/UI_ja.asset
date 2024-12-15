@@ -176,10 +176,20 @@ MonoBehaviour:
     m_Localized: Indonesia
     m_Metadata:
       m_Items: []
+  - m_Id: 172615500507684864
+    m_Localized: "\u51AC\u306E\u6C17\u5206:"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 172615654908403712
+    m_Localized: "\u30D1\u30BA\u30EB"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:
     - rid: 4474663059988676608
       type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
-        m_Entries: 00a0bcbed8051b00
+        m_Entries: 
+        m_SharedEntries:
+        - id: 7606252842295296

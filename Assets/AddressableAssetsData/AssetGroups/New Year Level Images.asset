@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: New Year Level Images
+  m_EditorClassIdentifier: 
+  m_GroupName: New Year Level Images
+  m_GUID: b03506b1b1ef58940bf19016f5041f9a
+  m_SerializeEntries:
+  - m_GUID: 08f89fefe1451b3439be6739c8ff73b8
+    m_Address: Assets/Images/NewYear/LevelImages/NewYear_10.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 16f55a53155d0364cafc15a8bceafa26
+    m_Address: Assets/Images/NewYear/LevelImages/NewYear_1.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 360a1d0611b406e4b902b25063b8aa3c
+    m_Address: Assets/Images/NewYear/LevelImages/NewYear_4.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3611edd0325f8624cbb4b5ab7143acac
+    m_Address: Assets/Images/NewYear/LevelImages/NewYear_9.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4bbc4e381f4716143819d1e5e0678ba9
+    m_Address: Assets/Images/NewYear/LevelImages/NewYear_6.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5a838a8c9f0e36c4d8d9628b3b6e52aa
+    m_Address: Assets/Images/NewYear/LevelImages/NewYear_3.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7f8720d810a8e264194a53ccb4b7ae7f
+    m_Address: Assets/Images/NewYear/LevelImages/NewYear_2.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a91a2633399ac5f45b2e482ce800d705
+    m_Address: Assets/Images/NewYear/LevelImages/NewYear_11.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a938d4f274b8e0b44abf6b01f751adac
+    m_Address: Assets/Images/NewYear/LevelImages/NewYear_8.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b5e2197f536ac204ebe45e9d57fdd4aa
+    m_Address: Assets/Images/NewYear/LevelImages/NewYear_12.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d54f6666b2ac8c34b8f5023af5d8c4d7
+    m_Address: Assets/Images/NewYear/LevelImages/NewYear_7.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dbd9a0331b400334bba02cdf8640f049
+    m_Address: Assets/Images/NewYear/LevelImages/NewYear_5.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 08759ca6803893e44977f545b81dca28, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 7d00dc8bd0e18784e968f338dcf5f525, type: 2}
+    - {fileID: 11400000, guid: 3268f1c8d673edb4099c72aeccafd3eb, type: 2}

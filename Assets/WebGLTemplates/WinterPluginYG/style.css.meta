@@ -1,14 +1,7 @@
 fileFormatVersion: 2
-guid: ac417be406a59a340bf7df6a62945424
+guid: dd89fda84ded6d943acb0251e27e59b0
 DefaultImporter:
   externalObjects: {}
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 235877
-  packageName: PluginYG - Yandex Game integration
-  packageVersion: 1.6.2
-  assetPath: Assets/WebGLTemplates/WinterPluginYG/style.css
-  uploadId: 655369

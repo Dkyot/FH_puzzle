@@ -4,33 +4,26 @@ namespace Platforms.Metrika
 {
     public class YandexGamesMetrikaFeature : IMetrikaFeature
     {
-        private readonly InfoYG _infoYg;
-        
-        public YandexGamesMetrikaFeature(InfoYG infoYg)
-        {
-            _infoYg = infoYg;
-        }
-        
         public void SendGameReady()
         {
-            // if (_infoYg.autoGameReadyAPI) return;
-            // YandexGame.GameReadyAPI();
+            if (YG2.infoYG.Basic.autoGRA) return;
+            YG2.GameReadyAPI();
         }
 
         public void SendEvent(string eventName)
         {
-            // if (_infoYg.metricaEnable)
-            // {
-            //     YandexMetrica.Send(eventName);
-            // }
+            if (YG2.infoYG.Metrica.enable)
+            {
+                YG2.MetricaSend(eventName);
+            }
         }
 
         public void SendEvent(MetrikaEventEnum eventName)
         {
-            // if (_infoYg.metricaEnable)
-            // {
-            //     YandexMetrica.Send(eventName.ToString());
-            // }
+            if (YG2.infoYG.Metrica.enable)
+            {
+                YG2.MetricaSend(eventName.ToString());
+            }
         }
     }
 }

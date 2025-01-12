@@ -97,7 +97,7 @@ namespace Platforms.Ad
                 await Awaitable.NextFrameAsync();
             }
             
-            if (InfoYG.instance.RewardedAdv.rewardedAfterClosing)
+            if (YG2.infoYG.RewardedAdv.rewardedAfterClosing)
             {
                 while (!_adClosed)
                 {

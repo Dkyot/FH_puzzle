@@ -13,24 +13,24 @@ namespace Platforms.Metrika
         
         public void SendGameReady()
         {
-            if (_infoYg.autoGameReadyAPI) return;
-            YandexGame.GameReadyAPI();
+            // if (_infoYg.autoGameReadyAPI) return;
+            // YandexGame.GameReadyAPI();
         }
 
         public void SendEvent(string eventName)
         {
-            if (_infoYg.metricaEnable)
-            {
-                YandexMetrica.Send(eventName);
-            }
+            // if (_infoYg.metricaEnable)
+            // {
+            //     YandexMetrica.Send(eventName);
+            // }
         }
 
         public void SendEvent(MetrikaEventEnum eventName)
         {
-            if (_infoYg.metricaEnable)
-            {
-                YandexMetrica.Send(eventName.ToString());
-            }
+            // if (_infoYg.metricaEnable)
+            // {
+            //     YandexMetrica.Send(eventName.ToString());
+            // }
         }
     }
 }

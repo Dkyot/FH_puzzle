@@ -26,35 +26,35 @@ namespace Platforms.Ad
         {
             if(_callbackInit) return;
             
-            YandexGame.OpenFullAdEvent += FullscreenOpenEvent;
-            YandexGame.CloseFullAdEvent += FullscreenCloseEvent;
-            YandexGame.ErrorFullAdEvent += FullscreenErrorEvent;
-            YandexGame.OpenVideoEvent += RewardedOpenEvent;
-            YandexGame.CloseVideoEvent += RewardedCloseEvent;
-            YandexGame.RewardVideoEvent += RewardedSuccessEvent;
-            YandexGame.ErrorVideoEvent += RewardedCloseError;
+            // YandexGame.OpenFullAdEvent += FullscreenOpenEvent;
+            // YandexGame.CloseFullAdEvent += FullscreenCloseEvent;
+            // YandexGame.ErrorFullAdEvent += FullscreenErrorEvent;
+            // YandexGame.OpenVideoEvent += RewardedOpenEvent;
+            // YandexGame.CloseVideoEvent += RewardedCloseEvent;
+            // YandexGame.RewardVideoEvent += RewardedSuccessEvent;
+            // YandexGame.ErrorVideoEvent += RewardedCloseError;
 
             _callbackInit = true;
         }
 
         ~YandexGamesAdFeature()
         {
-            YandexGame.OpenFullAdEvent -= FullscreenOpenEvent;
-            YandexGame.OpenFullAdEvent -= FullscreenCloseEvent;
-            YandexGame.OpenVideoEvent -= RewardedOpenEvent;
-            YandexGame.CloseVideoEvent -= RewardedCloseEvent;
-            YandexGame.RewardVideoEvent -= RewardedSuccessEvent;
-            YandexGame.ErrorVideoEvent -= RewardedCloseError;
+            // YandexGame.OpenFullAdEvent -= FullscreenOpenEvent;
+            // YandexGame.OpenFullAdEvent -= FullscreenCloseEvent;
+            // YandexGame.OpenVideoEvent -= RewardedOpenEvent;
+            // YandexGame.CloseVideoEvent -= RewardedCloseEvent;
+            // YandexGame.RewardVideoEvent -= RewardedSuccessEvent;
+            // YandexGame.ErrorVideoEvent -= RewardedCloseError;
         }
 
         public void ShowFullscreen()
         {
-            YandexGame.FullscreenShow();
+            // YandexGame.FullscreenShow();
         }
 
         public void ShowRewarded(int id)
         {
-            YandexGame.RewVideoShow(id);
+            // YandexGame.RewVideoShow(id);
         }
 
 #if UNITY_2023_1_OR_NEWER
@@ -65,52 +65,52 @@ namespace Platforms.Ad
 
         public async Awaitable ShowFullscreenAwaitable()
         {
-            if (YandexGame.nowAdsShow || YandexGame.timerShowAd < _infoYg.fullscreenAdInterval) return;
-
-            _adClosed = _adError = _adRewarded = false;
-
-            YandexGame.ErrorFullAdEvent += OnErrorAdEvent;
-            YandexGame.CloseFullAdEvent += OnCloseAdEvent;
-            YandexGame.FullscreenShow();
-
-            while (!_adError && !_adClosed)
-            {
-                await Awaitable.NextFrameAsync();
-            }
-
-            YandexGame.ErrorFullAdEvent -= OnErrorAdEvent;
-            YandexGame.CloseFullAdEvent -= OnCloseAdEvent;
+            // if (YandexGame.nowAdsShow || YandexGame.timerShowAd < _infoYg.fullscreenAdInterval) return;
+            //
+            // _adClosed = _adError = _adRewarded = false;
+            //
+            // YandexGame.ErrorFullAdEvent += OnErrorAdEvent;
+            // YandexGame.CloseFullAdEvent += OnCloseAdEvent;
+            // YandexGame.FullscreenShow();
+            //
+            // while (!_adError && !_adClosed)
+            // {
+            //     await Awaitable.NextFrameAsync();
+            // }
+            //
+            // YandexGame.ErrorFullAdEvent -= OnErrorAdEvent;
+            // YandexGame.CloseFullAdEvent -= OnCloseAdEvent;
         }
 
         public async Awaitable<bool> ShowRewardedAwaitable(int id)
         {
-            if (YandexGame.nowAdsShow)
-            {
-                return false;
-            }
-
-            _adClosed = _adError = _adRewarded = false;
-            _currentRewardedId = id;
-
-            YandexGame.RewardVideoEvent += OnRewardVideoEvent;
-            YandexGame.ErrorVideoEvent += OnErrorAdEvent;
-            YandexGame.RewVideoShow(_currentRewardedId);
-
-            while (!_adRewarded && !_adError && !_adClosed)
-            {
-                await Awaitable.NextFrameAsync();
-            }
-
-            if (_infoYg.rewardedAfterClosing)
-            {
-                while (!_adClosed)
-                {
-                    await Awaitable.NextFrameAsync();
-                }
-            }
-
-            YandexGame.RewardVideoEvent -= OnRewardVideoEvent;
-            YandexGame.ErrorVideoEvent -= OnErrorAdEvent;
+            // if (YandexGame.nowAdsShow)
+            // {
+            //     return false;
+            // }
+            //
+            // _adClosed = _adError = _adRewarded = false;
+            // _currentRewardedId = id;
+            //
+            // YandexGame.RewardVideoEvent += OnRewardVideoEvent;
+            // YandexGame.ErrorVideoEvent += OnErrorAdEvent;
+            // YandexGame.RewVideoShow(_currentRewardedId);
+            //
+            // while (!_adRewarded && !_adError && !_adClosed)
+            // {
+            //     await Awaitable.NextFrameAsync();
+            // }
+            //
+            // if (_infoYg.rewardedAfterClosing)
+            // {
+            //     while (!_adClosed)
+            //     {
+            //         await Awaitable.NextFrameAsync();
+            //     }
+            // }
+            //
+            // YandexGame.RewardVideoEvent -= OnRewardVideoEvent;
+            // YandexGame.ErrorVideoEvent -= OnErrorAdEvent;
 
             return _adRewarded;
         }

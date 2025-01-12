@@ -16,14 +16,14 @@ namespace Platforms.Features
 
         public override void RegisterFeatures()
         {
-            var yandex = Instantiate(yandexPrefab).GetComponent<YandexGame>();
-            var adFeature = new YandexGamesAdFeature(yandex.infoYG);
-            var saveFeature = new YandexGamesSaveFeature();
-            var userFeature = new YandexUserFeature(yandex.infoYG, mainLeaderboardName);
-            var metrikaFeature = new YandexGamesMetrikaFeature(yandex.infoYG);
-            adFeature.InitCallbacks();
-            saveFeature.InitCallbacks();
-            PlatformFeatures.Configure(adFeature, saveFeature, userFeature, metrikaFeature);
+            // var yandex = Instantiate(yandexPrefab).GetComponent<YandexGame>();
+            // var adFeature = new YandexGamesAdFeature(yandex.infoYG);
+            // var saveFeature = new YandexGamesSaveFeature();
+            // var userFeature = new YandexUserFeature(yandex.infoYG, mainLeaderboardName);
+            // var metrikaFeature = new YandexGamesMetrikaFeature(yandex.infoYG);
+            // adFeature.InitCallbacks();
+            // saveFeature.InitCallbacks();
+            // PlatformFeatures.Configure(adFeature, saveFeature, userFeature, metrikaFeature);
         }
     }
 }

@@ -11,7 +11,7 @@ namespace Platforms.Ad
         public event Action FullscreenErrorEvent;
         public event Action RewardedOpenEvent;
         public event Action RewardedCloseEvent;
-        public event Action<int> RewardedSuccessEvent;
+        public event Action<string> RewardedSuccessEvent;
         public event Action RewardedCloseError;
 
         public void ShowFullscreen()
@@ -21,7 +21,7 @@ namespace Platforms.Ad
             ShowDebugMessage();
         }
 
-        public void ShowRewarded(int id)
+        public void ShowRewarded(string id)
         {
             RewardedOpenEvent?.Invoke();
             RewardedSuccessEvent?.Invoke(id);
@@ -41,7 +41,7 @@ namespace Platforms.Ad
             await Awaitable.NextFrameAsync();
         }
 
-        public async Awaitable<bool> ShowRewardedAwaitable(int id)
+        public async Awaitable<bool> ShowRewardedAwaitable(string id)
         {
             await Awaitable.NextFrameAsync();
             return true;

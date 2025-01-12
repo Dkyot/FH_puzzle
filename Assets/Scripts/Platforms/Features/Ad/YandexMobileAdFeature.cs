@@ -12,7 +12,7 @@ namespace Platforms.Ad
         public event Action FullscreenErrorEvent;
         public event Action RewardedOpenEvent;
         public event Action RewardedCloseEvent;
-        public event Action<int> RewardedSuccessEvent;
+        public event Action<string> RewardedSuccessEvent;
         public event Action RewardedCloseError;
 
         private RewardedAdLoader _rewardedLoader;
@@ -21,7 +21,7 @@ namespace Platforms.Ad
         private InterstitialAdLoader _fullscreenLoader;
         private Interstitial _fullscreenBlock;
 
-        private int _currentRewardId;
+        private string _currentRewardId;
 
         private bool _adRewarded;
         private bool _adClosed;
@@ -66,7 +66,7 @@ namespace Platforms.Ad
             }
         }
 
-        public void ShowRewarded(int id)
+        public void ShowRewarded(string id)
         {
             if (_rewardedBlock == null)
             {
@@ -96,7 +96,7 @@ namespace Platforms.Ad
             }
         }
 
-        public async Awaitable<bool> ShowRewardedAwaitable(int id)
+        public async Awaitable<bool> ShowRewardedAwaitable(string id)
         {
             if (_rewardedBlock == null)
             {

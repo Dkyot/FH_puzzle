@@ -102,7 +102,7 @@ namespace FH.Level {
 
         private async Awaitable<bool> ShowAd() {
             _levelController.FreezeGame();
-            bool adResult = await PlatformFeatures.Ad.ShowRewardedAwaitable(1);;
+            bool adResult = await PlatformFeatures.Ad.ShowRewardedAwaitable("1");
             _levelController.UnFreezeGame();
             return adResult;
         }

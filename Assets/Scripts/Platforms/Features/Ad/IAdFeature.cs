@@ -11,15 +11,15 @@ namespace Platforms.Ad
 
         event Action RewardedOpenEvent;
         event Action RewardedCloseEvent;
-        event Action<int> RewardedSuccessEvent;
+        event Action<string> RewardedSuccessEvent;
         event Action RewardedCloseError;
         
         void ShowFullscreen();
-        void ShowRewarded(int id);
+        void ShowRewarded(string id);
 
 #if UNITY_2023_1_OR_NEWER
         Awaitable ShowFullscreenAwaitable();
-        Awaitable<bool> ShowRewardedAwaitable(int id);
+        Awaitable<bool> ShowRewardedAwaitable(string id);
 #endif
     }
 }

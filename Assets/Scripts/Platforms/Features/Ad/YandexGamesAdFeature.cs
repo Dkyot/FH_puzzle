@@ -11,106 +11,103 @@ namespace Platforms.Ad
         public event Action FullscreenErrorEvent;
         public event Action RewardedOpenEvent;
         public event Action RewardedCloseEvent;
-        public event Action<int> RewardedSuccessEvent;
+        public event Action<string> RewardedSuccessEvent;
         public event Action RewardedCloseError;
         
-        private readonly InfoYG _infoYg;
         private bool _callbackInit;
-        
-        public YandexGamesAdFeature(InfoYG infoYg)
-        {
-            _infoYg = infoYg;
-        }
 
         public void InitCallbacks()
         {
-            if(_callbackInit) return;
-            
-            // YandexGame.OpenFullAdEvent += FullscreenOpenEvent;
-            // YandexGame.CloseFullAdEvent += FullscreenCloseEvent;
-            // YandexGame.ErrorFullAdEvent += FullscreenErrorEvent;
-            // YandexGame.OpenVideoEvent += RewardedOpenEvent;
-            // YandexGame.CloseVideoEvent += RewardedCloseEvent;
-            // YandexGame.RewardVideoEvent += RewardedSuccessEvent;
-            // YandexGame.ErrorVideoEvent += RewardedCloseError;
+            if (_callbackInit) return;
+
+            YG2.onOpenInterAdv += FullscreenOpenEvent;
+            YG2.onCloseInterAdv += FullscreenCloseEvent;
+            YG2.onErrorInterAdv += FullscreenErrorEvent;
+            YG2.onOpenRewardedAdv += RewardedOpenEvent;
+            YG2.onCloseRewaededAdv += RewardedCloseEvent;
+            YG2.onErrorRewardedAdv += RewardedCloseError;
+            YG2.onRewardAdv += RewardedSuccessEvent;
 
             _callbackInit = true;
         }
 
         ~YandexGamesAdFeature()
         {
-            // YandexGame.OpenFullAdEvent -= FullscreenOpenEvent;
-            // YandexGame.OpenFullAdEvent -= FullscreenCloseEvent;
-            // YandexGame.OpenVideoEvent -= RewardedOpenEvent;
-            // YandexGame.CloseVideoEvent -= RewardedCloseEvent;
-            // YandexGame.RewardVideoEvent -= RewardedSuccessEvent;
-            // YandexGame.ErrorVideoEvent -= RewardedCloseError;
+            YG2.onOpenInterAdv -= FullscreenOpenEvent;
+            YG2.onCloseInterAdv -= FullscreenCloseEvent;
+            YG2.onErrorInterAdv -= FullscreenErrorEvent;
+            YG2.onOpenRewardedAdv -= RewardedOpenEvent;
+            YG2.onCloseRewaededAdv -= RewardedCloseEvent;
+            YG2.onErrorRewardedAdv -= RewardedCloseError;
+            YG2.onRewardAdv -= RewardedSuccessEvent;
         }
 
         public void ShowFullscreen()
         {
-            // YandexGame.FullscreenShow();
+            YG2.InterstitialAdvShow();
         }
 
-        public void ShowRewarded(int id)
+        public void ShowRewarded(string id)
         {
-            // YandexGame.RewVideoShow(id);
+            YG2.RewardedAdvShow(id);
         }
 
 #if UNITY_2023_1_OR_NEWER
-        private int _currentRewardedId;
+        private string _currentRewardedId;
         private bool _adRewarded;
         private bool _adClosed;
         private bool _adError;
 
         public async Awaitable ShowFullscreenAwaitable()
         {
-            // if (YandexGame.nowAdsShow || YandexGame.timerShowAd < _infoYg.fullscreenAdInterval) return;
-            //
-            // _adClosed = _adError = _adRewarded = false;
-            //
-            // YandexGame.ErrorFullAdEvent += OnErrorAdEvent;
-            // YandexGame.CloseFullAdEvent += OnCloseAdEvent;
-            // YandexGame.FullscreenShow();
-            //
-            // while (!_adError && !_adClosed)
-            // {
-            //     await Awaitable.NextFrameAsync();
-            // }
-            //
-            // YandexGame.ErrorFullAdEvent -= OnErrorAdEvent;
-            // YandexGame.CloseFullAdEvent -= OnCloseAdEvent;
+            if (YG2.nowAdsShow || !YG2.isTimerAdvCompleted) return;
+            
+            _adClosed = _adError = _adRewarded = false;
+            
+            YG2.onCloseInterAdv += OnCloseAdEvent;
+            YG2.onErrorInterAdv += OnErrorAdEvent;
+            YG2.InterstitialAdvShow();
+            
+            while (!_adError && !_adClosed)
+            {
+                await Awaitable.NextFrameAsync();
+            }
+            
+            YG2.onCloseInterAdv -= FullscreenCloseEvent;
+            YG2.onErrorInterAdv -= FullscreenErrorEvent;
         }
 
-        public async Awaitable<bool> ShowRewardedAwaitable(int id)
+        public async Awaitable<bool> ShowRewardedAwaitable(string id)
         {
-            // if (YandexGame.nowAdsShow)
-            // {
-            //     return false;
-            // }
-            //
-            // _adClosed = _adError = _adRewarded = false;
-            // _currentRewardedId = id;
-            //
-            // YandexGame.RewardVideoEvent += OnRewardVideoEvent;
-            // YandexGame.ErrorVideoEvent += OnErrorAdEvent;
-            // YandexGame.RewVideoShow(_currentRewardedId);
-            //
-            // while (!_adRewarded && !_adError && !_adClosed)
-            // {
-            //     await Awaitable.NextFrameAsync();
-            // }
-            //
-            // if (_infoYg.rewardedAfterClosing)
-            // {
-            //     while (!_adClosed)
-            //     {
-            //         await Awaitable.NextFrameAsync();
-            //     }
-            // }
-            //
-            // YandexGame.RewardVideoEvent -= OnRewardVideoEvent;
-            // YandexGame.ErrorVideoEvent -= OnErrorAdEvent;
+            if (YG2.nowAdsShow)
+            {
+                return false;
+            }
+            
+            _adClosed = _adError = _adRewarded = false;
+            _currentRewardedId = id;
+            
+            YG2.onRewardAdv += OnRewardVideoEvent;
+            YG2.onErrorRewardedAdv += OnErrorAdEvent;
+            YG2.onCloseRewaededAdv += OnCloseAdEvent;
+            YG2.RewardedAdvShow(_currentRewardedId);
+            
+            while (!_adRewarded && !_adError && !_adClosed)
+            {
+                await Awaitable.NextFrameAsync();
+            }
+            
+            if (InfoYG.instance.RewardedAdv.rewardedAfterClosing)
+            {
+                while (!_adClosed)
+                {
+                    await Awaitable.NextFrameAsync();
+                }
+            }
+            
+            YG2.onRewardAdv -= OnRewardVideoEvent;
+            YG2.onErrorRewardedAdv -= OnErrorAdEvent;
+            YG2.onCloseRewaededAdv -= OnCloseAdEvent;
 
             return _adRewarded;
         }
@@ -120,7 +117,7 @@ namespace Platforms.Ad
             _adClosed = true;
         }
 
-        private void OnRewardVideoEvent(int id)
+        private void OnRewardVideoEvent(string id)
         {
             if (_currentRewardedId == id)
             {

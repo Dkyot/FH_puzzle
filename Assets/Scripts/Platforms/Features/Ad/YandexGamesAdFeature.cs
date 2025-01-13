@@ -15,7 +15,7 @@ namespace Platforms.Ad
         public event Action RewardedCloseError;
         
         private bool _callbackInit;
-
+        
         public void InitCallbacks()
         {
             if (_callbackInit) return;

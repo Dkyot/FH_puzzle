@@ -19,10 +19,15 @@ namespace Platforms.Main
 
         private void RegisterFeatures()
         {
-            IAdFeature ad = new YandexGamesAdFeature();
-            ISaveFeature save = new YandexGamesSaveFeature();
-            IUserFeature user = new YandexUserFeature(mainLeaderboardName);
-            IMetrikaFeature metrika = new YandexGamesMetrikaFeature();
+            var ad = new YandexGamesAdFeature();
+            var save = new YandexGamesSaveFeature();
+            var user = new YandexUserFeature(mainLeaderboardName);
+            var metrika = new YandexGamesMetrikaFeature();
+            
+            ad.InitCallbacks();
+            save.InitCallbacks();
+            
+            PlatformFeatures.Configure(ad, save, user, metrika);
         }
     }
 }

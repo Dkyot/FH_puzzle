@@ -4,26 +4,23 @@ namespace Platforms.User
 {
     public class YandexUserFeature : IUserFeature
     {
-        private readonly InfoYG _infoYg;
         private readonly string _mainLeaderboardName;
 
-        public YandexUserFeature(InfoYG infoYg, string mainLeaderboardName)
+        public YandexUserFeature(string mainLeaderboardName)
         {
-            _infoYg = infoYg;
             _mainLeaderboardName = mainLeaderboardName;
         }
         
         public bool CanReviewGame()
         {
-            //return YandexGame.EnvironmentData.reviewCanShow;
-            return false;
+            return YG2.reviewCanShow;
         }
 
         public void OpenReviewGame()
         {
             if (CanReviewGame())
             {
-                //YandexGame.ReviewShow(true);
+                YG2.ReviewShow();
             }
         }
 
@@ -34,10 +31,10 @@ namespace Platforms.User
 
         public void SetLeaderboardScore(string leaderboardName, int value)
         {
-            // if (_infoYg.leaderboardEnable)
-            // {
-            //     YandexGame.NewLeaderboardScores(leaderboardName, value);
-            // }
+            if (YG2.infoYG.Leaderboards.enable)
+            {
+                YG2.SetLeaderboard(leaderboardName, value);
+            }
         }
     }
 }

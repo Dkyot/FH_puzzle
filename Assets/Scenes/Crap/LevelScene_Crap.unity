@@ -584,8 +584,8 @@ MonoBehaviour:
   _levelImage: {fileID: 115296876}
   _starAnimationViewController: {fileID: 2097693597}
   _levelCompletedViewController: {fileID: 2097693596}
-  _music1: {fileID: 8300000, guid: 0598edd9b6a5cac47b1358813817aab5, type: 3}
-  _music2: {fileID: 8300000, guid: 5fc2e38c52d523e4f9ab58c0869cdddf, type: 3}
+  _music1: {fileID: 0}
+  _music2: {fileID: 0}
   levelTrainingController: {fileID: 424032358}
 --- !u!4 &710374886
 Transform:

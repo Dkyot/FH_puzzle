@@ -8,20 +8,20 @@
     "modules": [
         {
             "name": "PluginYG2",
-            "version": "2.002",
+            "version": "2.003",
             "download": "https://max-games.ru/public/pluginYG2/other/PluginYG2.unitypackage",
             "doc": "https://max-games.ru/plugin-yg/doc/"
         },
         {
             "name": "YandexGames",
-            "version": "1.002",
+            "version": "1.003",
             "download": "https://max-games.ru/public/pluginYG2/platforms/YandexGames.unitypackage",
             "doc": "https://max-games.ru/plugin-yg/doc/",
             "platform": true
         },
         {
             "name": "CrazyGames",
-            "version": "1.0",
+            "version": "1.001",
             "download": "https://boosty.to/maximalist/posts/75f8b5d7-6d88-4de7-a94d-e27750bc445d?share=post_link",
             "noLoad": true,
             "doc": "https://max-games.ru/crazy/",
@@ -35,13 +35,13 @@
         },
         {
             "name": "RewardedAdv",
-            "version": "1.0",
+            "version": "1.001",
             "download": "https://max-games.ru/public/pluginYG2/modules/RewardedAdv.unitypackage",
             "doc": "https://max-games.ru/plugin-yg/doc/reward-ad/"
         },
         {
             "name": "EnvirData",
-            "version": "1.001",
+            "version": "1.002",
             "download": "https://max-games.ru/public/pluginYG2/modules/EnvirData.unitypackage",
             "doc": "https://max-games.ru/plugin-yg/doc/envir/"
         },
@@ -79,7 +79,7 @@
         },
         {
             "name": "Localization",
-            "version": "1.0",
+            "version": "1.001",
             "download": "https://max-games.ru/public/pluginYG2/modules/Localization.unitypackage",
             "doc": "https://max-games.ru/plugin-yg/doc/lang/"
         },
@@ -98,7 +98,7 @@
         },
         {
             "name": "Metrica",
-            "version": "1.001",
+            "version": "1.01",
             "download": "https://max-games.ru/public/pluginYG2/modules/Metrica.unitypackage",
             "doc": "https://max-games.ru/plugin-yg/doc/metrica/"
         },
@@ -134,7 +134,7 @@
         },
         {
             "name": "OpenURL",
-            "version": "1.001",
+            "version": "1.002",
             "download": "https://max-games.ru/public/pluginYG2/modules/OpenURL.unitypackage",
             "doc": "https://max-games.ru/open-url/",
             "dependencies": "EnvirData"

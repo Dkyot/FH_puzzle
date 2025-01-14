@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="SettingsViewLayout" src="project://database/Assets/Scripts/NewUI/Views/Settings/SettingsViewLayout.uxml?fileID=9197481963319205126&amp;guid=ad7123e29b0fb1a4cab1899845faab52&amp;type=3#SettingsViewLayout" />
+    <ui:Template name="LevelSelectViewLayout" src="project://database/Assets/Scripts/NewUI/Views/LevelSelect/LevelSelectViewLayout.uxml?fileID=9197481963319205126&amp;guid=83e8b92d7816ac74f94c40104d6d4252&amp;type=3#LevelSelectViewLayout" />
+    <ui:Template name="GalleryViewLayout" src="project://database/Assets/Scripts/NewUI/Views/Gallery/GalleryViewLayout.uxml?fileID=9197481963319205126&amp;guid=7a7fef718ebfbda4aa3d429cab0dd74b&amp;type=3#GalleryViewLayout" />
+    <ui:Template name="Crap_MainMenuViewLayout" src="project://database/Assets/Scripts/NewUI/Views/MainMenu/Crap_MainMenuViewLayout.uxml?fileID=9197481963319205126&amp;guid=88b5b61c0aad73448becee4ae0b877de&amp;type=3#Crap_MainMenuViewLayout" />
+    <ui:Instance template="Crap_MainMenuViewLayout" name="CrapMenu" picking-mode="Ignore" style="position: absolute; top: 0; right: 0; bottom: 0; left: 0;" />
+    <ui:Instance template="SettingsViewLayout" picking-mode="Ignore" name="Settings" style="position: absolute; top: 0; right: 0; bottom: 0; left: 0;" />
+    <ui:Instance template="LevelSelectViewLayout" picking-mode="Ignore" name="LevelSelection" style="position: absolute; top: 0; right: 0; bottom: 0; left: 0;" />
+    <ui:Instance template="GalleryViewLayout" picking-mode="Ignore" name="Gallery" style="position: absolute; top: 0; right: 0; bottom: 0; left: 0;" />
+</ui:UXML>

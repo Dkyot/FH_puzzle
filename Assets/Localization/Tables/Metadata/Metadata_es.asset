@@ -30,6 +30,10 @@ MonoBehaviour:
     m_Localized: Puzzle anime de verano
     m_Metadata:
       m_Items: []
+  - m_Id: 113062571588661248
+    m_Localized: Cappie rompecabezas
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -21,7 +21,7 @@ MonoBehaviour:
     playerPhoto: demo image
     payingStatus: 0
   InterstitialAdv:
-    showFirstAdv: 1
+    showFirstAdv: 0
     interAdvInterval: 300
     postponeCallByFail: 0
     postponeCallTimer: 10
@@ -183,7 +183,7 @@ MonoBehaviour:
         extraData: 
   Metrica:
     enable: 1
-    metricaCounterID: 0
+    metricaCounterID: 97819797
     log: 1
   RewardedAdv:
     rewardedAfterClosing: 0
@@ -202,7 +202,7 @@ MonoBehaviour:
     autoGRA: 0
     logInEditor: 1
     archivingBuild: 0
-    syncInitSDK: 1
+    syncInitSDK: 0
     loadSceneIfSDKLate: 0
     loadSceneIndex: 0
     simulationLoadScene: 0
@@ -214,21 +214,21 @@ MonoBehaviour:
     loadAdv: 0
     testFailAds: 0
   Templates:
-    logoImageFormat: 2
+    logoImageFormat: 0
     backgroundImgFormat: 0
     gradientBackgroundByLoadGame:
       radial: 0
       angleInclination: 140
-      color1: {r: 1, g: 0.831, b: 0.149, a: 1}
-      color2: {r: 0.36, g: 0.09, b: 1, a: 1}
+      color1: {r: 0.8000001, g: 0.25882354, b: 0.4431373, a: 1}
+      color2: {r: 0.23137257, g: 0.20784315, b: 0.40784317, a: 1}
     customProgressBar: 1
     progressBarSettigs:
       round: 1
       roundAngle: 10
       width: 30
       height: 24
-      color1: {r: 0.25, g: 0.6392, b: 1, a: 1}
-      color2: {r: 1, g: 0.831, b: 0.149, a: 0.7}
+      color1: {r: 1, g: 1, b: 1, a: 1}
+      color2: {r: 0, g: 0, b: 0, a: 0.7}
     fixedAspectRatio: 0
     aspectRatio: 16/9
     fillBackground: 0
@@ -242,16 +242,16 @@ MonoBehaviour:
     developerBuild: 0
   platformToggles:
     showFirstAdv: 1
-    interAdvInterval: 0
+    interAdvInterval: 1
     postponeCallByFail: 0
     skipInterAdvAfterReward: 0
     selectWebGLTemplate: 1
     runInBackground: 0
-    enableExceptions: 1
-    compressionFormat: 1
+    enableExceptions: 0
+    compressionFormat: 0
     decompressionFallback: 1
     autoGraphicsAPI: 1
     dataCaching: 0
     colorSpace: 0
     archivingBuild: 0
-    syncInitSDK: 0
+    syncInitSDK: 1

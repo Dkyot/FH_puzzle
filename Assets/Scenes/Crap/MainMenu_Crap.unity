@@ -824,15 +824,6 @@ MonoBehaviour:
   - localizationNameKey: TURKISH
     localeIdentifier:
       m_Code: tr
-  - localizationNameKey: JAPANESE
-    localeIdentifier:
-      m_Code: ja
-  - localizationNameKey: CHINESE_S
-    localeIdentifier:
-      m_Code: zh
-  - localizationNameKey: CHINESE
-    localeIdentifier:
-      m_Code: zh-Hant
   - localizationNameKey: INDONESIAN
     localeIdentifier:
       m_Code: id
@@ -880,7 +871,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _levelSelectedSound: {fileID: 8300000, guid: fbb0356fa4d4d5c4e8e5d11fd0cda45a, type: 3}
+  _levelSelectedSound: {fileID: 8300000, guid: f83aa42b6bd2e6b40838125551b3bcca, type: 3}
   _levelSelectedVolume: 0.5
 --- !u!1 &568939116
 GameObject:

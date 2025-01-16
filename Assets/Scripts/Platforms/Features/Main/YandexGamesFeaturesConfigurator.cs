@@ -12,12 +12,12 @@ namespace Platforms.Main
         
         private void Awake()
         {
-#if !UNITY_EDITOR
-            RegisterFeatures();
+#if UNITY_WEBGL && !UNITY_EDITOR
+            RegisterFeaturesYandex();
 #endif
         }
 
-        private void RegisterFeatures()
+        private void RegisterFeaturesYandex()
         {
             var ad = new YandexGamesAdFeature();
             var save = new YandexGamesSaveFeature();

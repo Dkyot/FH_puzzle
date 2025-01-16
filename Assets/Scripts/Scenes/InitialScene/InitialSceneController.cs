@@ -50,13 +50,16 @@ namespace FH.Init {
             settings.SfxVolume = PlatformFeatures.Save.SaveInfo.SfxVolume;
             settings.MusicVolume = PlatformFeatures.Save.SaveInfo.MusicVolume;
             LocaleIdentifier localeIdentifier;
+            Debug.Log("Start se language       !" + PlatformFeatures.Save.SaveInfo.Language + "!");
             if (string.IsNullOrEmpty(PlatformFeatures.Save.SaveInfo.Language)) {
+                Debug.Log("Platform language not found");
                 localeIdentifier = new LocaleIdentifier(Application.systemLanguage);
             }
             else {
                 var locale = LocalizationSettings.AvailableLocales.Locales.Find(x =>
                     x.Identifier.Code.IndexOf(PlatformFeatures.Save.SaveInfo.Language, StringComparison.Ordinal) != -1);
                 localeIdentifier = locale == null ? new LocaleIdentifier(Application.systemLanguage) : locale.Identifier;
+                Debug.Log("Find locale" + localeIdentifier);
             }
             settings.LocaleIdentifier = localeIdentifier;
 

@@ -12,3 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 421c9459e1de4dd478bdfb8fdd21fb6a, type: 3}
   m_Name: GameSettings
   m_EditorClassIdentifier: 
+  _localeIndetifier:
+    m_Code: en
+  _musicVolume: 0.5
+  _sfxVolume: 0.2

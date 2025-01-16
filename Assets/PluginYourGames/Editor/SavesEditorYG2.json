@@ -1,0 +1,17 @@
+{
+    "intExample": 5,
+    "strExample": "Hello!",
+    "boolExample": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "idSave": 2,
+    "saveInfo": {
+        "<MusicVolume>k__BackingField": 0.5,
+        "<SfxVolume>k__BackingField": 0.30000001192092898,
+        "<Language>k__BackingField": "ru",
+        "<LastSaveTimeTicks>k__BackingField": 638726502559846975
+    }
+}

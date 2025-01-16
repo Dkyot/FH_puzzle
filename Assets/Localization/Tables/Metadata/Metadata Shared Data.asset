@@ -27,6 +27,10 @@ MonoBehaviour:
     m_Key: SUMMER_GAME_NAME
     m_Metadata:
       m_Items: []
+  - m_Id: 113062571588661248
+    m_Key: CRAP_GAME_NAME
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

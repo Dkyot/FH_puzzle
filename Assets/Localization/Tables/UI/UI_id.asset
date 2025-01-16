@@ -180,6 +180,10 @@ MonoBehaviour:
     m_Localized: Puzzle
     m_Metadata:
       m_Items: []
+  - m_Id: 184183321929920512
+    m_Localized: Puzzle Cappie
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

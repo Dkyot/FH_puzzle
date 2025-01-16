@@ -13,4 +13,21 @@ MonoBehaviour:
   m_Name: CrapLevelsDataBase_Regular
   m_EditorClassIdentifier: 
   _levels:
-  - {fileID: 11400000, guid: 52fa4f963d545e8488913b7fd9d046fe, type: 2}
+  - {fileID: 11400000, guid: a9946c8a5bbeb5442ac86fe7e12e16c2, type: 2}
+  - {fileID: 11400000, guid: ac743aacaec3b7540af20399118cf31b, type: 2}
+  - {fileID: 11400000, guid: 8b9ddc3826a7b3b4a9a7dfbf2dc5635c, type: 2}
+  - {fileID: 11400000, guid: 1b784ea1ad76a4d4684862c4ec5bfa23, type: 2}
+  - {fileID: 11400000, guid: 3b419bc1b2917eb41afaa0ed1dfadf83, type: 2}
+  - {fileID: 11400000, guid: 38e33b1bd907d504d9fb126f34eacdf9, type: 2}
+  - {fileID: 11400000, guid: 58b6c94f498f1b4429a9174076277c41, type: 2}
+  - {fileID: 11400000, guid: 83fa24ffe1b2c304993be9d28111485f, type: 2}
+  - {fileID: 11400000, guid: 62da239fb5750cf4fad7a6f3cfe5893e, type: 2}
+  - {fileID: 11400000, guid: 36766c351d3f6fc4f8a5b2975d918101, type: 2}
+  - {fileID: 11400000, guid: 377682de31f706847909cb25de15383a, type: 2}
+  - {fileID: 11400000, guid: 8fe147258c748d54ba8eaad5500cb535, type: 2}
+  - {fileID: 11400000, guid: d207622318308e044a6307ba2466a97f, type: 2}
+  - {fileID: 11400000, guid: 6c5f62dddd9efa6408928684853d6a5d, type: 2}
+  - {fileID: 11400000, guid: e858541477e204542a851c86ab7b9da3, type: 2}
+  - {fileID: 11400000, guid: 8bb1ab935eb9a3644872df4f9dd77168, type: 2}
+  - {fileID: 11400000, guid: 9f759182a6cd1ea4c82751c63df57c42, type: 2}
+  - {fileID: 11400000, guid: 7f54bf0c5fed18348825ca1ea1485459, type: 2}

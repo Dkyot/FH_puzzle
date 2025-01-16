@@ -1,0 +1,113 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Crap
+  m_EditorClassIdentifier: 
+  m_GroupName: Crap
+  m_GUID: 383d6fdb24e5dad49a34c7dad6133c45
+  m_SerializeEntries:
+  - m_GUID: 052cb8fe9d4f6c44f9e73a5c4e13b67e
+    m_Address: Assets/Images/Crap/LevelImage/Crap_5.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 09aee71f654f8b542924b34ef540f9b1
+    m_Address: Assets/Images/Crap/LevelImage/Crap_17.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0eb4c74839c850343afab1ddd5c70d6a
+    m_Address: Assets/Images/Crap/LevelImage/Crap_7.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 19ab685a4019f9f449a780c12e577ead
+    m_Address: Assets/Images/Crap/LevelImage/Crap_6.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 19e2519a2c310d4418458416daac2e96
+    m_Address: Assets/Images/Crap/LevelImage/Crap_14.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1b83a94c3dee5bf46ac4527031fcaea6
+    m_Address: Assets/Images/Crap/LevelImage/Crap_16.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 24913dc74f7df3443b32a958a7bcc113
+    m_Address: Assets/Images/Crap/LevelImage/Crap_1.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 257229185bc85e34dab73e70021174ad
+    m_Address: Assets/Images/Crap/LevelImage/Crap_18.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 74b206b38f384d94f96e2777fe5fb93c
+    m_Address: Assets/Images/Crap/LevelImage/Crap_8.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7b7cf54c6091e8f449c63e75833009b7
+    m_Address: Assets/Images/Crap/LevelImage/Crap_3.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 956cff52f40f0ab46b978285255bbffc
+    m_Address: Assets/Images/Crap/LevelImage/Crap_11.jpeg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9e019bc904bbde74baebd4d1e4d3d255
+    m_Address: Assets/Images/Crap/LevelImage/Crap_15.jpeg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aea35bbca5f4c944bb2c0bd7d2072c90
+    m_Address: Assets/Images/Crap/LevelImage/Crap_10.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c99318c7225b831449314fdf805d2350
+    m_Address: Assets/Images/Crap/LevelImage/Crap_13.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cf73f561acfbff64d9b6df0e255ef777
+    m_Address: Assets/Images/Crap/LevelImage/Crap_4.jpeg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d37441453d98b714691206b4d9656eb8
+    m_Address: Assets/Images/Crap/LevelImage/Crap_12.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: da8ba5ecf48ca104c960b7887ed8649e
+    m_Address: Assets/Images/Crap/LevelImage/Crap_2.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ed0eff45244e0b14ebee3535836df71e
+    m_Address: Assets/Images/Crap/LevelImage/Crap_9.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 08759ca6803893e44977f545b81dca28, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: be920b0b41bc0984488337b1235877e5, type: 2}
+    - {fileID: 11400000, guid: 3a13a52c413db5e49ab809ff4884378c, type: 2}

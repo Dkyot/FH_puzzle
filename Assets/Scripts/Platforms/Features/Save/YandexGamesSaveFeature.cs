@@ -47,6 +47,7 @@ namespace Platforms.Save
             {
                 YG2.GetEnvirData();
                 SaveInfo.Language = YG2.envir.language;
+                YG2.SaveProgress();
             }
             
             Debug.Log(JsonConvert.SerializeObject(SaveInfo));
@@ -64,12 +65,8 @@ namespace Platforms.Save
 #if UNITY_2023_1_OR_NEWER
         public async Awaitable<bool> LoadDataAwaitable(uint waitingTimeSeconds)
         {
-            if (YG2.isSDKEnabled)
-            {
-                LoadData();
-                return true;
-            }
-            
+            if (_dataLoaded) return true;
+            LoadData();
             var time = DateTime.UtcNow;
             var timeout = TimeSpan.FromSeconds(waitingTimeSeconds);
             while (!_dataLoaded && DateTime.UtcNow - time < timeout)

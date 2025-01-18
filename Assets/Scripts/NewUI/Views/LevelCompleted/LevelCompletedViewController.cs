@@ -3,6 +3,7 @@ using FH.Inputs;
 using FH.Level;
 using FH.Sound;
 using FH.Utils;
+using Platforms.Main;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Events;
@@ -88,7 +89,14 @@ namespace FH.UI.Views.LevelCompleted {
             _toMainMenuPressed.Invoke();
         }
 
-        private void OnNexLevelPressed() {
+        private void OnNexLevelPressed()
+        {
+            _ = NextLevel();
+        }
+
+        private async Awaitable NextLevel()
+        {
+            await PlatformFeatures.Ad.ShowFullscreenAwaitable();
             _nextLevelPressed.Invoke();
         }
 

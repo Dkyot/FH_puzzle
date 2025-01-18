@@ -32,7 +32,7 @@ namespace YG
                 Message("Set Leaderboard: " + score);
                 iPlatform.SetLeaderboard(nameLB, score, extraData);
 #else
-                Message($"Set Leaderboard «{nameLB}»: {score}");
+                Message($"Set Leaderboard Â«{nameLB}Â»: {score}");
 #endif
             }
         }
@@ -88,7 +88,7 @@ namespace YG
 #else
             if (infoYG.Leaderboards.enable)
             {
-                Message($"Get Leaderboard «{nameLB}»");
+                Message($"Get Leaderboard Â«{nameLB}Â»");
 
                 LBData lb = null;
                 LBData[] LBs = new LBData[infoYG.Leaderboards.listLBSim.Length];

@@ -86,6 +86,7 @@ namespace FH.Init {
 #endif
 
             // Load Main Menu
+            //_ = sceneTransitionManager.StartTransition();
             await LoadMainMenuScene();
         }
 
@@ -94,7 +95,7 @@ namespace FH.Init {
         }
 
         private Awaitable LoadLevelScene() {
-            return LoadScene(levelScene.BuildIndex, true);
+            return LoadScene(levelScene.BuildIndex, false);
         }
 
         private async Awaitable LoadScene(int sceneIndex, bool showAd) {
@@ -105,7 +106,7 @@ namespace FH.Init {
 
             if (gameContext.SceneManagerProxy.SceneController != null) {
                 await ExitCurrentScene();
-                await Awaitable.WaitForSecondsAsync(0.7f);
+                //await Awaitable.WaitForSecondsAsync(0.7f);
             }
 
             if (showAd) {
@@ -129,8 +130,8 @@ namespace FH.Init {
         }
 
         private async Awaitable ExitCurrentScene() {
-            await sceneTransitionManager.StartTransition();
-            ShowLoadingScreen();
+            _ = sceneTransitionManager.StartTransition();
+            //ShowLoadingScreen();
 
             try {
                 await gameContext.SceneManagerProxy.SceneController.UnloadScene();
@@ -162,7 +163,7 @@ namespace FH.Init {
         }
 
         private async Awaitable EnterScene() {
-            await sceneTransitionManager.StartTransition();
+            //await sceneTransitionManager.StartTransition();
 
             PlatformFeatures.Metrika.SendGameReady();
             PlatformFeatures.Metrika.SendEvent(MetrikaEventEnum.GameLoaded);

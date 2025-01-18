@@ -3,6 +3,7 @@ using Platforms.Metrika;
 using Platforms.Save;
 using Platforms.User;
 using UnityEngine;
+using YG;
 
 namespace Platforms.Main
 {
@@ -12,7 +13,7 @@ namespace Platforms.Main
         
         private void Awake()
         {
-#if UNITY_WEBGL && !UNITY_EDITOR
+#if !UNITY_EDITOR
             RegisterFeaturesYandex();
 #endif
         }
@@ -25,7 +26,6 @@ namespace Platforms.Main
             var metrika = new YandexGamesMetrikaFeature();
             
             ad.InitCallbacks();
-            save.InitCallbacks();
             
             PlatformFeatures.Configure(ad, save, user, metrika);
         }

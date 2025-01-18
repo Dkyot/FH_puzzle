@@ -15,7 +15,6 @@ function RewardedAdvShow(id) {
                         FocusGame();
                     },
                     onRewarded: () => {
-                        LogStyledMessage('Reward Adv');
                         YG2Instance('RewardAdv', id);
                     },
                     onError: (err) => {

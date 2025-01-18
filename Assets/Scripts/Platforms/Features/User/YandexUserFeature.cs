@@ -1,4 +1,5 @@
-﻿using YG;
+﻿using UnityEngine;
+using YG;
 
 namespace Platforms.User
 {
@@ -9,6 +10,7 @@ namespace Platforms.User
         public YandexUserFeature(string mainLeaderboardName)
         {
             _mainLeaderboardName = mainLeaderboardName;
+            YG2.GetAuth();
         }
         
         public bool CanReviewGame()

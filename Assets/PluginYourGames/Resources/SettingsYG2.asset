@@ -23,7 +23,7 @@ MonoBehaviour:
   InterstitialAdv:
     showFirstAdv: 0
     interAdvInterval: 300
-    postponeCallByFail: 0
+    postponeCallByFail: 1
     postponeCallTimer: 10
     labelAdvSimLabel: 0
   Leaderboards:
@@ -198,7 +198,7 @@ MonoBehaviour:
     platform: {fileID: 11400000, guid: c2a303d33a9fd394bae4c4b88b9a1c44, type: 2}
     autoApplySettings: 0
     autoPauseGame: 1
-    editEventSystem: 1
+    editEventSystem: 0
     autoGRA: 0
     logInEditor: 1
     archivingBuild: 0
@@ -240,6 +240,8 @@ MonoBehaviour:
     pixelRatioEnable: 0
     pixelRatioValue: 1.3
     developerBuild: 0
+  platformInfo:
+    ownHost: 0
   platformToggles:
     showFirstAdv: 1
     interAdvInterval: 1
@@ -251,6 +253,7 @@ MonoBehaviour:
     compressionFormat: 0
     decompressionFallback: 1
     autoGraphicsAPI: 1
+    minimalCodeCompression: 1
     dataCaching: 0
     colorSpace: 0
     archivingBuild: 0

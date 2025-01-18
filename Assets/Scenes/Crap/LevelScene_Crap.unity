@@ -678,7 +678,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardManager: {fileID: 918102901}
-  markerPrefab: {fileID: 7940301056945276821, guid: 68734fb80fef6454cb8f145f90de4a76, type: 3}
+  markerPrefab: {fileID: 7940301056945276821, guid: 457230217b477eb40b4d9bb6fcaed4dc, type: 3}
 --- !u!4 &913115695
 Transform:
   m_ObjectHideFlags: 0

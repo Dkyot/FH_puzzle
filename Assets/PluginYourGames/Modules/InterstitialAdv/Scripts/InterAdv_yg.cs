@@ -43,7 +43,7 @@ namespace YG
             }
         }
 
-        private static bool skipIterAdv;
+        public static bool skipIterAdv;
 
         [InitYG]
         private static void InitInterstitialAdv()

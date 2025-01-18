@@ -24,7 +24,7 @@ namespace Platforms.Ad
             YG2.onCloseInterAdv += FullscreenCloseEvent;
             YG2.onErrorInterAdv += FullscreenErrorEvent;
             YG2.onOpenRewardedAdv += RewardedOpenEvent;
-            YG2.onCloseRewaededAdv += RewardedCloseEvent;
+            YG2.onCloseRewardedAdv += RewardedCloseEvent;
             YG2.onErrorRewardedAdv += RewardedCloseError;
             YG2.onRewardAdv += RewardedSuccessEvent;
 
@@ -37,7 +37,7 @@ namespace Platforms.Ad
             YG2.onCloseInterAdv -= FullscreenCloseEvent;
             YG2.onErrorInterAdv -= FullscreenErrorEvent;
             YG2.onOpenRewardedAdv -= RewardedOpenEvent;
-            YG2.onCloseRewaededAdv -= RewardedCloseEvent;
+            YG2.onCloseRewardedAdv -= RewardedCloseEvent;
             YG2.onErrorRewardedAdv -= RewardedCloseError;
             YG2.onRewardAdv -= RewardedSuccessEvent;
         }
@@ -61,6 +61,12 @@ namespace Platforms.Ad
         public async Awaitable ShowFullscreenAwaitable()
         {
             if (YG2.nowAdsShow || !YG2.isTimerAdvCompleted) return;
+
+            if (YG2.skipIterAdv)
+            {
+                YG2.skipIterAdv = false;
+                return;
+            }
             
             _adClosed = _adError = _adRewarded = false;
             
@@ -89,7 +95,7 @@ namespace Platforms.Ad
             
             YG2.onRewardAdv += OnRewardVideoEvent;
             YG2.onErrorRewardedAdv += OnErrorAdEvent;
-            YG2.onCloseRewaededAdv += OnCloseAdEvent;
+            YG2.onCloseRewardedAdv += OnCloseAdEvent;
             YG2.RewardedAdvShow(_currentRewardedId);
             
             while (!_adRewarded && !_adError && !_adClosed)
@@ -107,7 +113,7 @@ namespace Platforms.Ad
             
             YG2.onRewardAdv -= OnRewardVideoEvent;
             YG2.onErrorRewardedAdv -= OnErrorAdEvent;
-            YG2.onCloseRewaededAdv -= OnCloseAdEvent;
+            YG2.onCloseRewardedAdv -= OnCloseAdEvent;
 
             return _adRewarded;
         }

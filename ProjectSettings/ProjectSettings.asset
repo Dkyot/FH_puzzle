@@ -528,6 +528,9 @@ PlayerSettings:
   - m_BuildTarget: iOSSupport
     m_APIs: 10000000
     m_Automatic: 1
+  - m_BuildTarget: WebGLSupport
+    m_APIs: 0b000000
+    m_Automatic: 1
   m_BuildTargetVRSettings: []
   m_DefaultShaderChunkSizeInMB: 16
   m_DefaultShaderChunkCount: 0
@@ -841,7 +844,7 @@ PlayerSettings:
   scriptingDefineSymbols:
     Android: 
     Standalone: YG_PLUGIN_YANDEX_GAME
-    WebGL: YG_PLUGIN_YANDEX_GAME;YG_NEWTONSOFT_FOR_SAVES;PLUGIN_YG_2;YandexGamesPlatform_yg;Authorization_yg;EnvirData_yg;InterstitialAdv_yg;Leaderboards_yg;Metrica_yg;Review_yg;RewardedAdv_yg;Storage_yg;TMP_YG2;NJSON_YG2
+    WebGL: YG_PLUGIN_YANDEX_GAME;YG_NEWTONSOFT_FOR_SAVES;PLUGIN_YG_2;YandexGamesPlatform_yg;Authorization_yg;EnvirData_yg;InterstitialAdv_yg;Leaderboards_yg;Metrica_yg;Review_yg;RewardedAdv_yg;Storage_yg;TMP_YG2;NJSON_YG2;NJSON_STORAGE_YG2
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:
@@ -864,7 +867,7 @@ PlayerSettings:
     PS5: 1
     QNX: 1
     Stadia: 1
-    WebGL: 3
+    WebGL: 2
     Windows Store Apps: 1
     XboxOne: 1
     iPhone: 1

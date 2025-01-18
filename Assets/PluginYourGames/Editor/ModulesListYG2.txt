@@ -1,8 +1,8 @@
 Authorization v1.0
-EnvirData v1.001
+EnvirData v1.002
 InterstitialAdv v1.0
 Leaderboards v1.0
 Metrica v1.001
 Review v1.0
-RewardedAdv v1.0
+RewardedAdv v1.001
 Storage v1.0

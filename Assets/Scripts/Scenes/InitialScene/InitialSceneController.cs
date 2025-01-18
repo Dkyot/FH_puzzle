@@ -45,10 +45,10 @@ namespace FH.Init {
 
             await PlatformFeatures.Save.LoadDataAwaitable(5);
             await LocalizationSettings.InitializationOperation.CompleteAsync();
-
-            // Set current language definded by unity
+            
             settings.SfxVolume = PlatformFeatures.Save.SaveInfo.SfxVolume;
             settings.MusicVolume = PlatformFeatures.Save.SaveInfo.MusicVolume;
+            // Set current language definded by unity
             LocaleIdentifier localeIdentifier;
             Debug.Log("Start se language       !" + PlatformFeatures.Save.SaveInfo.Language + "!");
             if (string.IsNullOrEmpty(PlatformFeatures.Save.SaveInfo.Language)) {
@@ -58,6 +58,7 @@ namespace FH.Init {
             else {
                 var locale = LocalizationSettings.AvailableLocales.Locales.Find(x =>
                     x.Identifier.Code.IndexOf(PlatformFeatures.Save.SaveInfo.Language, StringComparison.Ordinal) != -1);
+                Debug.Log("LOCALE " + locale);
                 localeIdentifier = locale == null ? new LocaleIdentifier(Application.systemLanguage) : locale.Identifier;
                 Debug.Log("Find locale" + localeIdentifier);
             }

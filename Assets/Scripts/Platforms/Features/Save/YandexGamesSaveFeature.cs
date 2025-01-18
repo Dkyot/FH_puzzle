@@ -13,53 +13,47 @@ namespace Platforms.Save
         
         public event Action DataLoadedEvent;
 
+        private bool _loading;
         private bool _dataLoaded;
         private bool _callbackInit;
 
         public YandexGamesSaveFeature()
         {
-            if (YG2.isSDKEnabled)
-            {
-                LoadData();
-            }
-        }
-        
-        public void InitCallbacks()
-        {
-            if(_callbackInit) return;
-
-            YG2.onGetSDKData += DataLoadedEvent;
-            DataLoadedEvent += LoadData;
-            _callbackInit = true;
+            YG2.iPlatform.InitEnirData();
+            YG2.onGetSDKData += OnDataLoaded;
+            LoadData();
         }
         
         ~YandexGamesSaveFeature()
         {
-            YG2.onGetSDKData -= DataLoadedEvent;
-            DataLoadedEvent -= LoadData;
+            YG2.onGetSDKData -= OnDataLoaded;
         }
 
         public void LoadData()
         {
-            if (_dataLoaded) return;
+            if (_dataLoaded || _loading) return;
             YGInsides.LoadProgress();
-            if (string.IsNullOrEmpty(SaveInfo.Language))
-            {
-                YG2.GetEnvirData();
-                SaveInfo.Language = YG2.envir.language;
-                YG2.SaveProgress();
-            }
-            
-            Debug.Log(JsonConvert.SerializeObject(SaveInfo));
-            
-            _dataLoaded = true;
-            DataLoadedEvent?.Invoke();
+            _loading = true;
         }
 
         public void SaveData()
         {
             SaveInfo.LastSaveTimeTicks = DateTime.UtcNow.Ticks;
             YG2.SaveProgress();
+        }
+
+        private void OnDataLoaded()
+        {
+            _dataLoaded = true;
+            _loading = false;
+            if (string.IsNullOrEmpty(SaveInfo.Language))
+            {
+                SaveInfo.Language = YG2.envir.language;
+            }
+            
+            Debug.Log(JsonConvert.SerializeObject(SaveInfo));
+
+            DataLoadedEvent?.Invoke();
         }
 
 #if UNITY_2023_1_OR_NEWER

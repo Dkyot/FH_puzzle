@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LevelData_17
   m_EditorClassIdentifier: 
   <Params>k__BackingField:
-    <Palete>k__BackingField: {fileID: 11400000, guid: 9fb5aa13415817d4da68b20bf0842d76, type: 2}
+    <Palete>k__BackingField: {fileID: 11400000, guid: 0ce50e4c926d3074ea7ac20c26bdd26a, type: 2}
     <Rows>k__BackingField: 6
     <Columns>k__BackingField: 6
     <LevelType>k__BackingField: 2

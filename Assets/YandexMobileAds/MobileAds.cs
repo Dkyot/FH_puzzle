@@ -49,5 +49,14 @@ namespace YandexMobileAds
             IMobileAdsClient mobileAds = YandexMobileAdsClientFactory.CreateMobileAdsClient();
             mobileAds.SetAgeRestrictedUser(ageRestrictedUser);
         }
+
+        /// <summary>
+        /// Shows Debug Panel. Available only for Android
+        /// </summary>
+        public static void ShowDebugPanel()
+        {
+            IMobileAdsClient mobileAds = YandexMobileAdsClientFactory.CreateMobileAdsClient();
+            mobileAds.ShowDebugPanel();
+        }
     }
 }

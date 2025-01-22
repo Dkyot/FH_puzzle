@@ -51,5 +51,11 @@ namespace YandexMobileAds.Platforms.Android
         {
             this._mobileAdsClass.CallStatic("setAgeRestrictedUser", ageRestrictedUser);
         }
+
+        public void ShowDebugPanel()
+        {   
+            AndroidJavaObject activity = Utils.GetCurrentActivity(); 
+            this._mobileAdsClass.CallStatic("showDebugPanel", activity);
+        }
     }
 }

@@ -1,7 +1,7 @@
 /*
  * This file is a part of the Yandex Advertising Network
  *
- * Version for iOS (C) 2023 YANDEX
+ * Version for iOS (C) 2024 YANDEX
  *
  * You may not use this file except in compliance with the License.
  * You may obtain a copy of the License at https://legal.yandex.com/partner_ch/
@@ -17,4 +17,9 @@ void YMAUnitySetUserConsent(bool consent)
 void YMAUnitySetLocationConsent(bool consent)
 {
     [YMAMobileAds setLocationTrackingEnabled:consent];
+}
+
+void YMAUnityShowDebugPanel(void)
+{
+    [YMAMobileAds showDebugPanel];
 }

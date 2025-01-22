@@ -36,7 +36,7 @@
 
 - (void)loadWithRequestConfiguration:(YMAAdRequestConfiguration *)adRequestConfiguration
 {
-    [self.appOpenLoader loadAdWithRequestConfiguration:adRequestConfiguration];
+    [self.appOpenLoader loadAdWith:adRequestConfiguration];
 }
 
 - (void)cancelLoading

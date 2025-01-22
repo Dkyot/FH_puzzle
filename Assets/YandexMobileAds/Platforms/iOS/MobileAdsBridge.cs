@@ -20,6 +20,9 @@ namespace YandexMobileAds.Platforms.iOS
 
         [DllImport("__Internal")]
         internal static extern void YMAUnitySetLocationConsent(bool consent);
+
+        [DllImport("__Internal")]
+        internal static extern void YMAUnityShowDebugPanel();
     }
 
     #endif

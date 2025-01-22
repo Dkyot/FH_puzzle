@@ -30,5 +30,10 @@ namespace YandexMobileAds.Common
         {
             Debug.Log(TAG + MethodBase.GetCurrentMethod().Name);
         }
+
+        public void ShowDebugPanel()
+        {
+            Debug.Log(TAG + MethodBase.GetCurrentMethod().Name);
+        }
     }
 }

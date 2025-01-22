@@ -88,14 +88,14 @@ namespace YandexMobileAds
 
             this._client.OnAdFailedToLoad += (sender, args) =>
             {
-                if (this.OnAdLoaded == null)
+                if (this.OnAdFailedToLoad == null)
                 {
                     return;
                 }
 
                 MainThreadDispatcher.EnqueueAction(() =>
                 {
-                    if (this.OnAdLoaded == null)
+                    if (this.OnAdFailedToLoad == null)
                     {
                         return;
                     }

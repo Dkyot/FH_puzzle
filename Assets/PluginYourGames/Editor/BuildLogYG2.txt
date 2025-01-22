@@ -1,3 +1,0 @@
-Build path: F:/puzzleBuild
-Build number: 15
-PluginYG version: 2.003

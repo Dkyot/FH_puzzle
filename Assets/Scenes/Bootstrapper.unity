@@ -128,7 +128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 284857538}
-  - component: {fileID: 284857539}
+  - component: {fileID: 284857540}
   m_Layer: 0
   m_Name: PlatformConfigure
   m_TagString: Untagged
@@ -151,7 +151,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &284857539
+--- !u!114 &284857540
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -160,10 +160,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 284857537}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3dce4bfdb8c746019ee5d581eac2d4ef, type: 3}
+  m_Script: {fileID: 11500000, guid: e022deebbee74e2b8a320f3c99887ff1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainLeaderboardName: gameScore727
+  saveKey: crapsave
+  rewardId: R-M-13744467-2
+  fullscreenId: R-M-13744467-1
+  fullscreenTimeoutSeconds: 150
 --- !u!1 &734777726
 GameObject:
   m_ObjectHideFlags: 0
